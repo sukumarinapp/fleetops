@@ -273,9 +273,10 @@ class VehicleController extends Controller
     }
 
     private function send_sms($VID){
-        $sql = "select b.DCN,b.DNM,b.VBM,b.VAM,b.VPF,b.WDY,b.MDY,b.VPD,c.name,c.UCN from vehicle a,driver b,users c where a.driver_id=b.id and a.CAN=c.UAN and a.id=$VID";
+        $sql = "select a.password,b.DCN,b.DNM,b.VBM,b.VAM,b.VPF,b.WDY,b.MDY,b.VPD,c.name,c.UCN from vehicle a,driver b,users c where a.driver_id=b.id and a.CAN=c.UAN and a.id=$VID";
         $vehicle = DB::select(DB::raw($sql));
         $vehicle = $vehicle[0];
+        $password = $vehicle->password;
         $VBM = $vehicle->VBM;
         $DNM = $vehicle->DNM;
         $VAM = $vehicle->VAM;
@@ -313,6 +314,7 @@ class VehicleController extends Controller
             }
             $SMS = $SMS ."First Payment: ".$VPD."\n";    
         }
+        $SMS = $SMS . "Your password is ".$password.". ";
         $SMS = $SMS ."Please make prompt payments to avoid any inconveniences. For further details you may contact ".$name." on ".$UCN."\n";
         $SMS = $SMS ."Thank you.\n";
         $DAT = date("Y-m-d");
