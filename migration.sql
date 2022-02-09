@@ -1,6 +1,8 @@
 alter table vehicle add password varchar(20) DEFAULT NULL;
 update vehicle set password = '1234';
 
+
+-----phase 1-------------------------
 alter table bgp1am add odometer varchar(20) DEFAULT NULL;
 alter table bgp1am add engine_idling varchar(5) DEFAULT NULL;
 alter table bgp1am add speeding varchar(5) DEFAULT NULL;
