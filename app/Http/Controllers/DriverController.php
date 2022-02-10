@@ -29,12 +29,27 @@ class DriverController extends Controller
 
     public function login()
     {
-        return view('driver.login');
+        $VNO = "";
+        $password = "";
+        $error_msg = "";        
+        return view('driver.login',compact('VNO','password','error_msg'));
     }
 
-     public function validate_login()
+     public function validate_login(Request $request)
     {
-        return view('driver.login');
+        $VNO = trim($request->get("VNO"));
+        $password = trim($request->get("password"));
+        $VNO = str_replace(' ', '', $VNO);        
+        $VNO = str_replace('-', '', $VNO);
+        $sql = "SELECT * FROM vehicle where replace(VNO, '-', '') = '$VNO' and password='$password' and VTV=1";
+        $valid = DB::select(DB::raw($sql));
+        if(count($valid) > 0){
+            echo "OTP Page";die;
+        }else{
+            $error_msg = 'Please check your vehicle no and password';
+            return view('driver.login',compact('VNO','password','error_msg'));
+            //return redirect('/login')->with('error', 'Please check your vehicle no and password');
+        }    
     }
 
     public function drivervnovalid(Request $request)

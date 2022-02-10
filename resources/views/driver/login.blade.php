@@ -19,12 +19,17 @@
            clear about your entries. Thank you.</p>
         </div> 
       </div>
+       <div class="row justify-content-center">
+        <div class="col-md-12">
+          <p class="text-danger">{{ $error_msg }}</p>
+        </div> 
+      </div>
       <div class="row justify-content-center">
         <div class="col-md-12">
           <div class="form-group row">
              <label for="VNO" class="col-sm-3 col-form-label">Vehicle Reg No:</label>
              <div class="col-sm-9">
-              <input required="required" type="text" class="form-control" name="VNO" id="VNO" maxlength="15" placeholder="Vehicle Registration No">
+              <input value="{{ $VNO }}" required="required" type="text" class="form-control" name="VNO" id="VNO" maxlength="15" placeholder="Vehicle Registration No">
               <p>Enter registration number without any space or ‘-’ dash between the letters or numbers. Example for GW 1234-20,input GW123420 or gw123420</p>
             </div>
           </div>
@@ -35,7 +40,7 @@
           <div class="form-group row">
              <label for="password" class="col-sm-3 col-form-label">Password:</label>
              <div class="col-sm-9">
-              <input required="required" type="text" class="form-control number" name="password" id="passsword" maxlength="10" placeholder="Phone Number">
+              <input value="{{ $password }}" required="required" type="password" class="form-control number" name="password" id="passsword" maxlength="10" placeholder="Password">
               <p>Enter your password press ‘continue’. A One-time-pin will be sent to your registered mobile number for access into your account.</p>
             </div>
           </div>
