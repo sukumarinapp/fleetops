@@ -10,7 +10,7 @@
           <a href="#" class="navbar-brand">
                 <img src="{{ URL::to('/') }}/images/fleetopslogo.png" alt="AdminLTE Logo">
             </a>
-          <h3 style="color: lightgray">Authenticate Driver</h3>
+          <h3 style="color: lightgray">My Account</h3>
         </div>
       </div>
       <div class="row justify-content-center">

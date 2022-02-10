@@ -44,11 +44,17 @@ class DriverController extends Controller
         $sql = "SELECT * FROM vehicle where replace(VNO, '-', '') = '$VNO' and password='$password' and VTV=1";
         $valid = DB::select(DB::raw($sql));
         if(count($valid) > 0){
-            echo "OTP Page";die;
+            return view('driver.otp');
         }else{
             $error_msg = 'Please check the Vehicle Reg No and password';
             return view('driver.login',compact('VNO','password','error_msg'));
         }    
+    }
+
+
+     public function validate_otp(Request $request)
+    {
+        return view('driver.otp');
     }
 
     public function drivervnovalid(Request $request)
