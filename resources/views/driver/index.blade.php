@@ -10,13 +10,16 @@
   <div class="row justify-content-center">
     <div class="col-md-12 text-center">
 
-      <h3>Menu</h3>
+      <h4>Menu</h4>
     </div>
     <div class="row justify-content-center">
       <div class="col-md-12">
         @if ($time["current_time"] > .15)
           <a href="{{ route('drivervno') }}" type="button" class="btn btn-block btn-primary btn-lg text-center">Make Payment</a>
         @endif
+     </div>
+     <div class="col-md-12" style="padding-top:10px;">
+          <a href="{{ route('login') }}" type="button" class="btn btn-block btn-primary btn-lg text-center">Account Log In</a>
       </div>
     </div>
   <nav class="navbar fixed-bottom navbar-expand-lg justify-content-center">      

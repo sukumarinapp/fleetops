@@ -25,6 +25,16 @@ class DriverController extends Controller
     public function drivervno()
     {
         return view('driver.drivervno');
+    } 
+
+    public function login()
+    {
+        return view('driver.login');
+    }
+
+     public function validate_login()
+    {
+        return view('driver.login');
     }
 
     public function drivervnovalid(Request $request)
@@ -450,7 +460,5 @@ class DriverController extends Controller
             return view('driver.driverhelpprev3',compact('sales'));
         }
     }
-
-    
     
 }

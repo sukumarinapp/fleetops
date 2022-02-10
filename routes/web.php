@@ -48,6 +48,8 @@ Route::get('/change_password','ManagerController@change_password')->name('change
 Route::post('/update_password','ManagerController@update_password')->name('update_password');
 
 Route::get('/driver', 'DriverController@index')->name('driver');
+Route::get('/login', 'DriverController@login')->name('login');
+Route::post('/validate_login', 'DriverController@validate_login')->name('validate_login');
 Route::get('/drivervno', 'DriverController@drivervno')->name('drivervno');
 Route::post('/drivervnovalid', 'DriverController@drivervnovalid')->name('drivervnovalid');
 Route::get('/driverrhsales', 'DriverController@driverrhsales')->name('driverrhsales');
