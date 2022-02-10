@@ -48,7 +48,6 @@ class DriverController extends Controller
         }else{
             $error_msg = 'Please check the Vehicle Reg No and password';
             return view('driver.login',compact('VNO','password','error_msg'));
-            //return redirect('/login')->with('error', 'Please check your vehicle no and password');
         }    
     }
 
