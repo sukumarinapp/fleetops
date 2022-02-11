@@ -53,3 +53,14 @@
   </div>
 </div>
 @endsection
+
+@push('page_scripts')
+<script>
+  var resend_otp = "{{ url('resend_otp') }}";
+  function resend_otp(){
+    var VNO = $("#VNO").val();
+    
+  }
+
+</script>
+@endpush
