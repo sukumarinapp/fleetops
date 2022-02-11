@@ -65,7 +65,7 @@ class DriverController extends Controller
             //return view('driver.otp',compact('VNO'));
         }else{
             $error_msg = 'Please check the Vehicle Reg No and password';
-            return view('driver.login',compact('VNO','password','error_msg'));
+            return view('driver.driverlogin',compact('VNO','password','error_msg'));
         }    
     }
 
@@ -87,8 +87,8 @@ class DriverController extends Controller
                 $VBM = $result[0]->VBM;
                 $DNM = $result[0]->DNM . " " . $result[0]->DSN;
                 $DCN = $result[0]->DCN;
-                //return view('driver.myaccount',compact('VBM','DNM','DCN'));
-                echo "valid otp";die;
+                return view('driver.myaccount',compact('VNO','VBM','DNM','DCN'));
+                //echo "valid otp";die;
             }else{
                 $error_msg = 'Invalid OTP';
                 return view('driver.otp',compact('error_msg'));
@@ -97,6 +97,10 @@ class DriverController extends Controller
     }
 
 
+     public function myaccount()
+    {
+        return view('driver.myaccount');
+    }
      public function resend_otp($VNO)
     {
         $sql = "SELECT a.*,b.DCN,b.DNM,b.DSN FROM vehicle a,driver b where a.driver_id=b.id and VNO = '$VNO' and VTV=1";
