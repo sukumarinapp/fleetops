@@ -13,19 +13,18 @@
           <h3 style="color: lightgray">My Account</h3>
         </div>
       </div>
-      <!-- <div class="row justify-content-center">
+      <div class="row justify-content-center">
         <div class="col-md-12">
-          <p>Input the vehicle registration number and your account access password. Please be
-           clear about your entries. Thank you.</p>
+          <p class="text-danger">{{ $error_msg }}</p>
         </div> 
-      </div> -->
+      </div>
       <input type="hidden" id="VNO" name="VNO" value="{{ Session::get('VNO') }}">
       <div class="row justify-content-center">
         <div class="col-md-12">
           <div class="form-group row">
              <label for="VNO" class="col-sm-3 col-form-label">One-Time-Pin (OTP):</label>
              <div class="col-sm-9">
-              <input required="required" type="text" class="form-control number" name="VNO" id="VNO" maxlength="4" placeholder="OTP">
+              <input required="required" type="text" class="form-control number" name="OTP" id="OTP" maxlength="4" placeholder="OTP">
               <p>Enter the OTP sent to your registered mobile number.</p>
             </div>
           </div>

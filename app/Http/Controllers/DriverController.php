@@ -72,12 +72,28 @@ class DriverController extends Controller
 
      public function otp(Request $request)
     {
-        return view('driver.otp');
+        $error_msg = "";
+        return view('driver.otp',compact('error_msg'));
     }
 
     public function validate_otp(Request $request)
     {
-       return view('driver.otp');
+        $VNO = trim($request->get("VNO"));
+        $OTP = trim($request->get("OTP"));
+        $sql = "select a.OTP,c.VBM,c.DNM,c.DSN,c.DCN from driver_login a,vehicle b,driver c where a.VNO=b.VNO and b.driver_id=c.id and a.id = (select max(id) from driver_login where VNO='$VNO')";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+            if($OTP == $result[0]->OTP){
+                $VBM = $result[0]->VBM;
+                $DNM = $result[0]->DNM . " " . $result[0]->DSN;
+                $DCN = $result[0]->DCN;
+                //return view('driver.myaccount',compact('VBM','DNM','DCN'));
+                echo "valid otp";die;
+            }else{
+                $error_msg = 'Invalid OTP';
+                return view('driver.otp',compact('error_msg'));
+            }
+        }
     }
 
 
