@@ -9,4 +9,4 @@ CREATE TABLE `driver_login` (
   `otp` varchar(20) DEFAULT NULL,
   `otp_verified` int(0) DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4;	
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;	

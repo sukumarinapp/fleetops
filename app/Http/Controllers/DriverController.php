@@ -41,9 +41,18 @@ class DriverController extends Controller
         $password = trim($request->get("password"));
         $VNO = str_replace(' ', '', $VNO);        
         $VNO = str_replace('-', '', $VNO);
-        $sql = "SELECT * FROM vehicle where replace(VNO, '-', '') = '$VNO' and password='$password' and VTV=1";
+        $sql = "SELECT a.*,b.DCN FROM vehicle a,driver b where a.driver_id=b.id and replace(VNO, '-', '') = '$VNO' and password='$password' and VTV=1";
         $valid = DB::select(DB::raw($sql));
         if(count($valid) > 0){
+            $VNO = $valid[0]->VNO;
+            $driver_id = $valid[0]->driver_id;
+            $DCN = $valid[0]->DCN;
+            $login_time = date("Y-m-d H:i:s");
+            $otp = rand(1001,9999);
+            $msg = "Your fleetops account login otp is ".$otp;
+            $sql = "insert into driver_login (VNO,driver_id,login_time,otp) values ('$VNO','$driver_id','$login_time','$otp')";
+            DB::insert($sql);
+            SMSFleetops::send($DCN,$msg);
             return view('driver.otp');
         }else{
             $error_msg = 'Please check the Vehicle Reg No and password';
