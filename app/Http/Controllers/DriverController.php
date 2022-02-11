@@ -74,7 +74,25 @@ class DriverController extends Controller
 
      public function resend_otp($VNO)
     {
-        return view('driver.otp');
+        $sql = "SELECT a.*,b.DCN,b.DNM,b.DSN FROM vehicle a,driver b where a.driver_id=b.id and VNO = '$VNO' and VTV=1";
+        $valid = DB::select(DB::raw($sql));
+        if(count($valid) > 0){
+            $VNO = $valid[0]->VNO;
+            $driver_id = $valid[0]->driver_id;
+            $DCN = $valid[0]->DCN;
+            $DNM = $valid[0]->DNM." ".$valid[0]->DSN;
+            $login_time = date("Y-m-d H:i:s");
+            $otp = rand(1001,9999);
+            $msg = "Your fleetops account login otp is ".$otp;
+            $sql = "insert into driver_login (VNO,driver_id,login_time,otp) values ('$VNO','$driver_id','$login_time','$otp')";
+            DB::insert($sql);
+            SMSFleetops::send($DCN,$msg);
+            $DAT = date("Y-m-d");
+            $TIM = date("H:i:s");
+            $CTX = "OTP";
+            $sql = "insert into sms_log (PHN,MSG,DAT,TIM,CTX,NAM) values ('$DCN','$msg','$DAT','$TIM','$CTX','$DNM')";
+            DB::insert($sql);
+        } 
     }
 
     public function drivervnovalid(Request $request)
