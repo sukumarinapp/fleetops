@@ -3,7 +3,7 @@
 <div class="container" >
   <div class="card card-default">
     <div class="card-body">
-      <form method="post" 
+      <form method="post" action="{{ route('validate_otp') }}"> 
         @csrf
       <div class="row justify-content-center">
         <div class="col-md-12 text-center">

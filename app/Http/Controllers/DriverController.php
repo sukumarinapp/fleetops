@@ -75,6 +75,12 @@ class DriverController extends Controller
         return view('driver.otp');
     }
 
+    public function validate_otp(Request $request)
+    {
+       return view('driver.otp');
+    }
+
+
      public function resend_otp($VNO)
     {
         $sql = "SELECT a.*,b.DCN,b.DNM,b.DSN FROM vehicle a,driver b where a.driver_id=b.id and VNO = '$VNO' and VTV=1";
