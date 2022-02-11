@@ -19,7 +19,7 @@
         @endif
      </div>
      <div class="col-md-12" style="padding-top:10px;">
-          <a href="{{ route('login') }}" type="button" class="btn btn-block btn-primary btn-lg text-center">Account Log In</a>
+          <a href="{{ route('driverlogin') }}" type="button" class="btn btn-block btn-primary btn-lg text-center">Account Log In</a>
       </div>
     </div>
   <nav class="navbar fixed-bottom navbar-expand-lg justify-content-center">      
