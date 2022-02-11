@@ -59,7 +59,7 @@ class DriverController extends Controller
             $CTX = "OTP";
             $sql = "insert into sms_log (PHN,MSG,DAT,TIM,CTX,NAM) values ('$DCN','$msg','$DAT','$TIM','$CTX','$DNM')";
             DB::insert($sql);
-            return view('driver.otp');
+            return view('driver.otp',compact('VNO'));
         }else{
             $error_msg = 'Please check the Vehicle Reg No and password';
             return view('driver.login',compact('VNO','password','error_msg'));
@@ -68,6 +68,11 @@ class DriverController extends Controller
 
 
      public function validate_otp(Request $request)
+    {
+        return view('driver.otp');
+    }
+
+     public function resend_otp($VNO)
     {
         return view('driver.otp');
     }

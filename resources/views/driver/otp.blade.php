@@ -19,7 +19,7 @@
            clear about your entries. Thank you.</p>
         </div> 
       </div> -->
-
+      <input type="hidden" id="VNO" name="VNO" value="{{ $VNO }}">
       <div class="row justify-content-center">
         <div class="col-md-12">
           <div class="form-group row">
