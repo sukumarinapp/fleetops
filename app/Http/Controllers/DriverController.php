@@ -27,12 +27,12 @@ class DriverController extends Controller
         return view('driver.drivervno');
     } 
 
-    public function login()
+    public function driverlogin()
     {
         $VNO = "";
         $password = "";
         $error_msg = "";        
-        return view('driver.login',compact('VNO','password','error_msg'));
+        return view('driver.driverlogin',compact('VNO','password','error_msg'));
     }
 
      public function validate_login(Request $request)
