@@ -3,7 +3,7 @@
 <div class="container" >
   <div class="card card-default">
     <div class="card-body">
-      <form method="post" action="{{ route('validate_otp') }}">
+      <form method="post" 
         @csrf
       <div class="row justify-content-center">
         <div class="col-md-12 text-center">
@@ -19,13 +19,13 @@
            clear about your entries. Thank you.</p>
         </div> 
       </div> -->
-      <input type="hidden" id="VNO" name="VNO" value="{{ $VNO }}">
+      <input type="hidden" id="VNO" name="VNO" value="{{ Session::get('VNO') }}">
       <div class="row justify-content-center">
         <div class="col-md-12">
           <div class="form-group row">
              <label for="VNO" class="col-sm-3 col-form-label">One-Time-Pin (OTP):</label>
              <div class="col-sm-9">
-              <input required="required" type="text" class="form-control" name="VNO" id="VNO" maxlength="15" placeholder="OTP">
+              <input required="required" type="text" class="form-control number" name="VNO" id="VNO" maxlength="4" placeholder="OTP">
               <p>Enter the OTP sent to your registered mobile number.</p>
             </div>
           </div>

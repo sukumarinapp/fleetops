@@ -11,6 +11,7 @@ use App\tbl137;
 use App\tbl136;
 use App\Billbox;
 use App\SMSFleetops;
+use Session;
 
 class DriverController extends Controller
 {
@@ -59,7 +60,9 @@ class DriverController extends Controller
             $CTX = "OTP";
             $sql = "insert into sms_log (PHN,MSG,DAT,TIM,CTX,NAM) values ('$DCN','$msg','$DAT','$TIM','$CTX','$DNM')";
             DB::insert($sql);
-            return view('driver.otp',compact('VNO'));
+            Session::put('VNO', $VNO);
+            return redirect('/otp');
+            //return view('driver.otp',compact('VNO'));
         }else{
             $error_msg = 'Please check the Vehicle Reg No and password';
             return view('driver.login',compact('VNO','password','error_msg'));
@@ -67,7 +70,7 @@ class DriverController extends Controller
     }
 
 
-     public function validate_otp(Request $request)
+     public function otp(Request $request)
     {
         return view('driver.otp');
     }
