@@ -13,12 +13,12 @@
           <h3 style="color: lightgray">My Account</h3>
         </div>
       </div>
-      <div class="row justify-content-center">
+      <!-- <div class="row justify-content-center">
         <div class="col-md-12">
           <p>Input the vehicle registration number and your account access password. Please be
            clear about your entries. Thank you.</p>
         </div> 
-      </div>
+      </div> -->
 
       <div class="row justify-content-center">
         <div class="col-md-12">
@@ -35,7 +35,7 @@
         <div class="col-md-12">
           <div class="form-group row">
                 <div class="col-sm-9">
-          <a href="{{ route('login') }}" type="button" class="btn btn-primary btn-sm text-center">Re-Send OTP</a>
+          <a href="{{ route('driverlogin') }}" type="button" class="btn btn-primary btn-sm text-center">Re-Send OTP</a>
               <p>Did not receive previous OTP</p>
             </div>
           </div>
