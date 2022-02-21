@@ -88,6 +88,8 @@ class VehicleController extends Controller
             return redirect('/vehicle/create')->with('error', 'Duplicate Vehicle Reg No');
         }else{
             $VTV = ($request->get("VTV") != null) ? 1 : 0;
+            $AVI = ($request->get("AVI") != null) ? 1 : 0;
+            $AVR = ($request->get("AVR") != null) ? 1 : 0;
             $ECY = trim($request->get('ECY'));
             $CON = Formulae::CON($VNO);
             $insert = array(
@@ -110,6 +112,8 @@ class VehicleController extends Controller
                 'VBC1' => $request->get('VBC1'),
                 'VBC0' => $request->get('VBC0'),
                 'VTV' => $VTV,
+                'AVI' => $AVI,
+                'AVR' => $AVR,
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s")
             );
@@ -175,6 +179,8 @@ class VehicleController extends Controller
             return redirect("/vehicle/$id/edit")->with('error', 'Duplicate Vehicle Reg No');
         }else{
             $VTV = ($request->get("VTV") != null) ? 1 : 0;
+            $AVI = ($request->get("AVI") != null) ? 1 : 0;
+            $AVR = ($request->get("AVR") != null) ? 1 : 0;
             $VID = "";
             if($request->VID != null){
                 $VID =  $id.'.'.$request->VID->extension(); 
@@ -212,6 +218,8 @@ class VehicleController extends Controller
             $vehicle->VZC0 =  $request->get('VZC0');
             $vehicle->VBC1 =  $request->get('VBC1');
             $vehicle->VBC0 =  $request->get('VBC0');
+            $vehicle->AVI =  $AVI;
+            $vehicle->AVR =  $AVR;
             if($vehicle->driver_id == ""){
                 $vehicle->VTV = $VTV;
             }
