@@ -135,7 +135,7 @@
 											<div class="form-group row">
 												<div class="col-sm-10">
 													<label class="switch">
-														<input type="checkbox">
+														<input name="AVI" id="AVI" type="checkbox">
 														<span class="slider round"></span>
 													</label>
 
@@ -165,7 +165,7 @@
 											<div class="form-group row">
 												<div class="col-sm-10">
 													<label class="switch">
-														<input type="checkbox">
+														<input name="AVR" id="AVR" type="checkbox">
 														<span class="slider round"></span>
 													</label>
 
