@@ -119,7 +119,7 @@
 											<div class="form-group row">
 												<label for="VZC1" class="col-sm-8 col-form-label"><span style="color:red">*</span>Insurance</label>
 												<div class="col-sm-4">
-													<input required="required" accept="application/pdf,image/png, image/jpeg" name="VID" type="file" title="foo" id="VID">
+													<input required="required" accept="application/pdf,image/png, image/jpeg" name="VID" type="file" id="VID">
 												</div>
 											</div>
 										</div>

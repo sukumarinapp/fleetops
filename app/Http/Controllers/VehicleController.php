@@ -96,6 +96,8 @@ class VehicleController extends Controller
                 'CAN' => $request->get('CAN'),
                 'VNO' => $request->get('VNO'),
                 'VDT' => date("Y-m-d"),
+                'IEX' => date("Y-m-d"),
+                'REX' => date("Y-m-d"),
                 'VMK' => $request->get('VMK'),
                 'VMD' => $request->get('VMD'),
                 'VCL' => $request->get('VCL'),
@@ -203,6 +205,8 @@ class VehicleController extends Controller
             $vehicle->CAN  =  $request->get('CAN');
             if($VID != "") $vehicle->VID  =  $VID;
             if($VRD != "") $vehicle->VRD  =  $VRD;
+            $vehicle->IEX  =  $request->get('IEX');
+            $vehicle->REX  =  $request->get('REX');
             $vehicle->VMK  =  $request->get('VMK');
             $vehicle->VMD  =  $request->get('VMD');            
             $vehicle->VCL =  $request->get('VCL');

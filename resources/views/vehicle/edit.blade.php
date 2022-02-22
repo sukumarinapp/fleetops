@@ -139,7 +139,7 @@
 										<div class="col-sm-4">
 											<div class="form-group row">
 												<div class="col-sm-12">
-													<input required="required" type="date" class="form-control" name="VZC0" id="VZC0" >
+													<input value="{{ $vehicle->IEX }}" required="required" type="date" class="form-control" name="IEX" id="IEX" >
 												</div>
 											</div>
 										</div>
@@ -147,7 +147,7 @@
 											<div class="form-group row">
 												<div class="col-sm-10">
 													<label class="switch">
-														<input name="AVI" id="AVI" type="checkbox">
+														<input {{ ($vehicle->AVI == "1" ? "checked":"") }} name="AVI" id="AVI" type="checkbox">
 														<span class="slider round"></span>
 													</label>
 
@@ -176,7 +176,7 @@
 										<div class="col-sm-4">
 											<div class="form-group row">
 												<div class="col-sm-12">
-													<input required="required" type="date" class="form-control" name="VZC0" id="VZC0" >
+													<input value="{{ $vehicle->REX }}" required="required" type="date" class="form-control" name="REX" id="REX" >
 												</div>
 											</div>
 										</div>
@@ -184,7 +184,7 @@
 											<div class="form-group row">
 												<div class="col-sm-10">
 													<label class="switch">
-														<input name="AVR" id="AVR" type="checkbox">
+														<input {{ ($vehicle->AVR == "1" ? "checked":"") }} name="AVR" id="AVR" type="checkbox">
 														<span class="slider round"></span>
 													</label>
 
