@@ -196,15 +196,7 @@
 											<input required="required" type="text" class="form-control decimal" name="ECY" id="ECY" maxlength="10" placeholder="Engine Capacity">
 										</div>
 									</div>
-									<div class="form-group row">
-										<label for="CON" class="col-sm-4 col-form-label"><span style="color:red">*</span>Fuel Consumption</label>
-										<div class="col-sm-8">
-											<input required="required" type="text" readonly class="form-control decimal" name="CON" id="CON" maxlength="10" placeholder="Fuel Consumption">
-										</div>
-									</div>
-
-
-
+									
 									<!-- /.form-group -->
 								</div>
 

@@ -129,8 +129,8 @@
 													<div class="col-sm-2">
 													  @php
 	                    	$href="";
-	                    	if($vehicle->VRD != ""){
-	                    		echo "<a target='_blank' href='../../uploads/VRD/".$vehicle->VRD."'>View</a>";
+	                    	if($vehicle->VID != ""){
+	                    		echo "<a target='_blank' href='../../uploads/VID/".$vehicle->VID."'>View</a>";
 	                    	}
                         @endphp
 												</div>
@@ -220,7 +220,7 @@
 				<div class="form-group row">
 										<label for="CON" class="col-sm-4 col-form-label"><span style="color:red">*</span>Fuel Consumption</label>
 										<div class="col-sm-8">
-											<input value="{{ $vehicle->CON }}" required="required" type="text" readonly class="form-control decimal" name="CON" id="CON" maxlength="10" placeholder="Fuel Consumption">
+											<input  value="{{ number_format((float)$vehicle->CON, 2, '.', '') }}" required="required" type="text" readonly class="form-control decimal" name="CON" id="CON" maxlength="10" placeholder="Fuel Consumption">
 										</div>
 									</div>
                 <!-- /.form-group -->
