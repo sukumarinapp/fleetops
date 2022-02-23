@@ -5,7 +5,7 @@
 	.switch {
 		position: relative;
 		display: inline-block;
-		width: 60px;
+		width: 45px;
 		height: 24px;
 	}
 
@@ -31,7 +31,7 @@
 		position: absolute;
 		content: "";
 		height: 16px;
-		width: 26px;
+		width: 18px;
 		left: 4px;
 		bottom: 4px;
 		background-color: white;
@@ -53,13 +53,13 @@
 		transform: translateX(20px);
 	}
 
-.slider.round {
-	border-radius: 34px;
-}
+	.slider.round {
+		border-radius: 34px;
+	}
 
-.slider.round:before {
-	border-radius: 34px;
-}
+	.slider.round:before {
+		border-radius: 34px;
+	}
 </style>
 <div class="container-fluid">
 	<div class="row">
@@ -113,63 +113,42 @@
 											<span id="dupVNO" style="color:red"></span>
 										</div>
 									</div>
-									<div class="row">
-										<div class="col-sm-6">
-											<!-- text input -->
-											<div class="form-group row">
-												<label for="VZC1" class="col-sm-8 col-form-label"><span style="color:red">*</span>Insurance</label>
-												<div class="col-sm-4">
-													<input required="required" accept="application/pdf,image/png, image/jpeg" name="VID" type="file" id="VID">
-												</div>
-											</div>
-										</div>
-										<div class="col-sm-4">
-											<div class="form-group row">
-												<div class="col-sm-12">
-													<input required="required" type="date" class="form-control" name="VZC0" id="VZC0" >
-												</div>
-											</div>
-										</div>
-										<div class="col-sm-2">
-											<div class="form-group row">
-												<div class="col-sm-10">
-													<label class="switch">
-														<input name="AVI" id="AVI" type="checkbox">
-														<span class="slider round"></span>
-													</label>
-
-												</div>
-											</div>
+									<div class="form-group row">
+										<label for="VID" class="col-sm-4 col-form-label"><span style="color:red">*</span>Insurance</label>
+										<div class="col-sm-8">
+											<input required="required" accept="application/pdf,image/png, image/jpeg" name="VID" type="file" id="VID">
 										</div>
 									</div>
-
-									<div class="row">
-										<div class="col-sm-6">
-											<!-- text input -->
-											<div class="form-group row">
-												<label for="VZC1" class="col-sm-8 col-form-label"><span style="color:red">*</span>Roadworthy Cert</label>
-												<div class="col-sm-4">
-													<input required="required" accept="application/pdf,image/png, image/jpeg" name="VRD" type="file" id="VRD">
-												</div>
-											</div>
+									
+									<div class="form-group row">
+										<label for="VID" class="col-sm-4 col-form-label"><span style="color:red">*</span>Insurance Expiry Date</label>
+										<div class="col-6">
+											<input required="required" onkeydown="return false" type="date" class="form-control" name="IEX" id="IEX" >
 										</div>
-										<div class="col-sm-4">
-											<div class="form-group row">
-												<div class="col-sm-12">
-													<input required="required" type="date" class="form-control" name="VZC0" id="VZC0" >
-												</div>
-											</div>
+										<div class="col-2">
+											<label class="switch">
+												<input name="AVI" id="AVI" type="checkbox">
+												<span class="slider round"></span>
+											</label>
 										</div>
-										<div class="col-sm-2">
-											<div class="form-group row">
-												<div class="col-sm-10">
-													<label class="switch">
-														<input name="AVR" id="AVR" type="checkbox">
-														<span class="slider round"></span>
-													</label>
-
-												</div>
-											</div>
+									</div>
+								<div class="form-group row">
+										<label for="VRD" class="col-sm-4 col-form-label"><span style="color:red">*</span>Roadworthy Cert</label>
+										<div class="col-sm-8">
+											<input required="required" accept="application/pdf,image/png, image/jpeg" name="VRD" type="file" id="VRD">
+										</div>
+									</div>
+									
+									<div class="form-group row">
+										<label for="REX" class="col-sm-4 col-form-label"><span style="color:red">*</span>Roadworthy Expiry Date</label>
+										<div class="col-6">
+											<input required="required" onkeydown="return false" type="date" class="form-control" name="REX" id="REX" >
+										</div>
+										<div class="col-2">
+											<label class="switch">
+												<input name="AVR" id="AVR" type="checkbox">
+												<span class="slider round"></span>
+											</label>
 										</div>
 									</div>
 									<div class="form-group row">

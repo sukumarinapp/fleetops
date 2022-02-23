@@ -1,7 +1,66 @@
 @extends('layouts.app')
 
 @section('content')
+<style type="text/css">
+	.switch {
+		position: relative;
+		display: inline-block;
+		width: 45px;
+		height: 24px;
+	}
 
+	.switch input { 
+		opacity: 0;
+		width: 0;
+		height: 0;
+	}
+
+	.slider {
+		position: absolute;
+		cursor: pointer;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: #ccc;
+		-webkit-transition: .4s;
+		transition: .4s;
+	}
+
+	.slider:before {
+		position: absolute;
+		content: "";
+		height: 16px;
+		width: 18px;
+		left: 4px;
+		bottom: 4px;
+		background-color: white;
+		-webkit-transition: .4s;
+		transition: .4s;
+	}
+
+	input:checked + .slider {
+		background-color: #2196F3;
+	}
+
+	input:focus + .slider {
+		box-shadow: 0 0 1px #2196F3;
+	}
+
+	input:checked + .slider:before {
+		-webkit-transform: translateX(20px);
+		-ms-transform: translateX(20px);
+		transform: translateX(20px);
+	}
+
+	.slider.round {
+		border-radius: 34px;
+	}
+
+	.slider.round:before {
+		border-radius: 34px;
+	}
+</style>
    <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
@@ -61,30 +120,42 @@
 				<div class="form-group row">
 					<label for="DLD" class="col-sm-4 col-form-label"><span style="color:red"></span>License</label>
 					<div class="col-sm-8">
-                        <input accept="application/pdf,image/png, image/jpeg" name="DLD" type="file" id="DLD">
+                        <input accept="application/pdf,image/png, image/jpeg" required="required" name="DLD" type="file" id="DLD">
 					</div>
 				</div>
 				<div class="form-group row">
-					<label for="LEX" class="col-sm-4 col-form-label"><span style="color:red">*</span>License Expiry Date</label>
-					<div class="col-sm-8">
-                        <input required="required" onkeydown="return false" type="date" name="LEX" id="LEX">
-					</div>
-				</div>
+										<label for="LEX" class="col-sm-4 col-form-label"><span style="color:red">*</span>License Expiry Date</label>
+										<div class="col-6">
+											<input required="required" onkeydown="return false" type="date" class="form-control" name="LEX" id="LEX" >
+										</div>
+										<div class="col-2">
+											<label class="switch">
+												<input name="AVL" id="AVL" type="checkbox">
+												<span class="slider round"></span>
+											</label>
+										</div>
+									</div>
                 <div class="form-group row">
 					<label for="VCC" class="col-sm-4 col-form-label"><span style="color:red"></span>Contract</label>
 					<div class="col-sm-8">
-                        <input accept="application/pdf,image/png, image/jpeg" name="VCC" type="file" id="VCC">
+                        <input accept="application/pdf,image/png, image/jpeg" required="required" name="VCC" type="file" id="VCC">
 					</div>
 				</div>
 				<div class="form-group row">
-					<label for="CEX" class="col-sm-4 col-form-label"><span style="color:red">*</span>Contract Expiry Date</label>
-					<div class="col-sm-8">
-                        <input required="required" onkeydown="return false" type="date" name="CEX" id="CEX">
-					</div>
-				</div>
+										<label for="CEX" class="col-sm-4 col-form-label"><span style="color:red">*</span>Contract Expiry Date</label>
+										<div class="col-6">
+											<input required="required" onkeydown="return false" type="date" class="form-control" name="CEX" id="CEX" >
+										</div>
+										<div class="col-2">
+											<label class="switch">
+												<input name="AVC" id="AVC" type="checkbox">
+												<span class="slider round"></span>
+											</label>
+										</div>
+									</div>
  				<div class="form-group row">
 					<label for="DCN" class="col-sm-4 col-form-label"><span style="color:red">*</span>Contact Number</label>
-					<div class="col-sm-4">
+					<div class="col-sm-8">
 						<input required="required" type="text" class="form-control number" name="DCN" id="DCN" maxlength="15" placeholder="Contact Number">
 						<!-- <input onkeyup="checkDCN(0)" required="required" type="text" class="form-control number" name="DCN" id="DCN" maxlength="15" placeholder="Contact Number"> -->
 					</div>
@@ -92,6 +163,15 @@
         <span id="dupContact" style="color:red"></span>
     </div>
 				</div>
+				<div class="form-group row">
+										<label for="VMK" class="col-sm-4 col-form-label"><span style="color:red"></span>Parking Location</label>
+										<div class="col-sm-7">
+											<input type="text" class="form-control" name="VMK" id="VMK" maxlength="50" placeholder="location">
+										</div>
+										<div class="col-sm-1">
+              <span><i class="nav-icon fa fa-map-marker" style="font-size:30px"></i></span>
+             </div>
+									</div>
                 <!-- /.form-group -->
               </div>
               <!-- /.col -->
