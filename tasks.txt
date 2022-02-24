@@ -1,15 +1,1 @@
-<input {{ (($vehicle->driver_id != "" || $online == 1) ? "disabled=disabled":"") }} {{ (($vehicle->VTV == "1")  ? "checked=checked":"") }} value="1" type="checkbox" name="VTV" class="form-check-input" id="VTV">
-
-@if($vehicle_active == 1)
-            <input {{ ($user->UTV == "1" ? "checked":"") }} value="1" type="checkbox" disabled="disabled" name="UTV" class="form-check-input" id="UTV">
-        @else
-            <input {{ ($user->UTV == "1" ? "checked":"") }} value="1" type="checkbox" name="UTV" class="form-check-input" id="UTV">
-        @endif
-
-Proportion Sales split of RT, HP and RH
-Proportion No Sold of RT, HP and RH
-
-
-
-backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
-
+For which all business model(vBM) Amount Due(VAM) is applicable ?
