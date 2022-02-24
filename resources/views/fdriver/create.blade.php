@@ -176,6 +176,7 @@
               </div>
               <!-- /.col -->
               <div class="col-md-6">
+              	
 					<div class="form-group row">
 					<label for="VBM" class="col-sm-4 col-form-label"><span style="color:red"></span>Business Model</label>
 					<div class="col-sm-8">
@@ -186,17 +187,23 @@
               </select>
 					</div>
 				</div>
-                  <div class="form-group row" id="rhdiv" >
-					<label for="PLF" class="col-sm-4 col-form-label"><span style="color:red"></span>RH Platform</label>
-					<div class="col-sm-8">
-						 <select name="PLF[]" id="multidropdown" class="custom-select">
+               <div class="form-group row" id="rhdiv">
+										<label for="PLF" class="col-sm-4 col-form-label"><span style="color:red"></span>RH Platform</label>
+										<div class="col-4">
+											<select name="PLF[]" id="multidropdown" class="custom-select">
                          @foreach($rhplatforms as $rhplatform)
 	                     	<option value="{{ $rhplatform->id }}" >{{ $rhplatform->RHN }}</option>
 	                     @endforeach
                         </select>
-					</div>
-				</div>
-
+										</div>
+										<label for="DVE" class="col-sm-2 col-form-label"><span style="color:red"></span>Set Earnings</label>
+										<div class="col-2" style="margin-top:10px">
+											<label class="switch">
+												<input name="DVE" id="DVE" type="checkbox">
+												<span class="slider round"></span>
+											</label>
+										</div>
+									</div>
 				<div class="form-group row" id="freqdiv" style="display: none;">
 					<label for="VPF" class="col-sm-4 col-form-label"><span style="color:red"></span>Frequency</label>
 					<div class="col-sm-8">
@@ -251,8 +258,51 @@
 						<input type="text" class="form-control decimal" name="VAM" id="VAM" maxlength="10" placeholder="Recurring Amount">
 					</div>
 				</div>
-              </div>
-            </div>
+
+				<div class="form-group row" style="padding-top:50px" id="penalty">
+                    <label class="form-check-label col-sm-7" for="EPD"><b>Enable Penalty Rule on Payment Defaults</b></label>
+                     <div class="icheck-success d-inline col-sm-1">
+                        <input name="EPD" type="checkbox" id="EPD">
+                    </div> 
+				</div>
+
+				<div class="form-group row" id="def">
+										<label for="NOD" class="col-sm-5 col-form-label"><span style="color:red"></span>Number of Defaults Allowed</label>
+										<div class="col-2">
+											<input required="required" type="text" class="form-control" name="NOD" id="NOD" >
+										</div>
+										<div class="col-5">
+											<div class="icheck-primary d-inline">
+                        <input type="radio" id="NODA" name="NODA">
+                        <label for="NODA">
+                        </label><b>consecutive</b>
+                      </div><br>
+                       <div class="icheck-primary d-inline">
+                        <input type="radio" id="NODA" name="NODA">
+                        <label for="NODA">
+                        </label><b>Total</b>
+                      </div>
+										</div>
+									</div>
+
+										<div class="form-group row" id="pen">
+										<label for="PAM" class="col-sm-5 col-form-label">Penalty Amount:</label>
+										<div class="col-2">
+											<input required="required" type="text" class="form-control" name="PAM" id="PAM" >
+										</div>
+										
+											<label for="CEX" class="col-sm-1 col-form-label">per</label>
+										<div class="col-sm-4">
+						 <select name="PAT" id="PAT" class="custom-select">
+               <option value="0" ></option>
+              </select>
+					</div>
+									</div>
+
+									<div class="form-group row" id="due">
+										<p class="col-form-label">The total aggregated sum of penalty amount charged at stated frequency shall be added to next payment due.</p>
+									</div>
+									</div>
           </div>
          
         </div>
