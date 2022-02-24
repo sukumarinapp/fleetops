@@ -15,3 +15,19 @@ alter table vehicle add IEX date DEFAULT NULL;
 alter table vehicle add REX date DEFAULT NULL; 
 alter table vehicle add AVI int(1) DEFAULT 0; 
 alter table vehicle add AVR int(1) DEFAULT 0; 
+
+--24/02/2022
+
+alter table driver add AVL int(1) DEFAULT 0;
+alter table driver add AVC int(1) DEFAULT 0;
+alter table driver add VPL varchar(50) DEFAULT NULL;
+alter table driver add DVE int(1) DEFAULT 0;
+alter table driver add EPD int(1) DEFAULT 0;
+alter table driver add NOD int(11) DEFAULT 0;
+alter table driver add PAM decimal(10,2) DEFAULT 0;
+alter table driver add NODB int(0) DEFAULT 0;
+alter table driver add PAT varchar(10) DEFAULT NULL;
+
+
+
+
