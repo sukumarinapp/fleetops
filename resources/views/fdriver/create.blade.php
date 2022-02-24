@@ -259,14 +259,14 @@
 					</div>
 				</div>
 
-				<div class="form-group row" style="padding-top:50px" id="penalty">
-                    <label class="form-check-label col-sm-7" for="EPD"><b>Enable Penalty Rule on Payment Defaults</b></label>
+				<div class="form-group row" style="padding-top:50px;display: none;" id="penalty">
+                    <label  class="form-check-label col-sm-7" for="EPD"><b>Enable Penalty Rule on Payment Defaults</b></label>
                      <div class="icheck-success d-inline col-sm-1">
                         <input name="EPD" type="checkbox" id="EPD">
                     </div> 
 				</div>
 
-				<div class="form-group row" id="def">
+				<div class="form-group row" id="def" style="display: none;">
 										<label for="NOD" class="col-sm-5 col-form-label"><span style="color:red"></span>Number of Defaults Allowed</label>
 										<div class="col-2">
 											<input required="required" type="text" class="form-control" name="NOD" id="NOD" >
@@ -285,7 +285,7 @@
 										</div>
 									</div>
 
-										<div class="form-group row" id="pen">
+										<div class="form-group row" id="pen" style="display: none;">
 										<label for="PAM" class="col-sm-5 col-form-label">Penalty Amount:</label>
 										<div class="col-2">
 											<input required="required" type="text" class="form-control" name="PAM" id="PAM" >
@@ -299,7 +299,7 @@
 					</div>
 									</div>
 
-									<div class="form-group row" id="due">
+									<div class="form-group row" id="due" style="display: none;">
 										<p class="col-form-label">The total aggregated sum of penalty amount charged at stated frequency shall be added to next payment due.</p>
 									</div>
 									</div>
