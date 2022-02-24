@@ -587,6 +587,10 @@ function toggle_map(arg){
                 $("#freqdiv").show("slow");
                 $("#paydatediv").show("slow");
                 $("#payamtdiv").show("slow");
+                $("#penalty").show("slow");
+                $("#def").show("slow");
+                $("#pen").show("slow");
+                $("#due").show("slow");
             }
         });
         $("#CMT").change(function(evt){
