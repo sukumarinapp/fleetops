@@ -1,7 +1,64 @@
 @extends('layouts.app')
 
 @section('content')
+<style type="text/css">		.switch {
+		position: relative;
+		display: inline-block;
+		width: 45px;
+		height: 24px;
+	}
 
+	.switch input { 
+		opacity: 0;
+		width: 0;
+		height: 0;
+	}
+
+	.slider {
+		position: absolute;
+		cursor: pointer;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: #ccc;
+		-webkit-transition: .4s;
+		transition: .4s;
+	}
+
+	.slider:before {
+		position: absolute;
+		content: "";
+		height: 16px;
+		width: 18px;
+		left: 4px;
+		bottom: 4px;
+		background-color: white;
+		-webkit-transition: .4s;
+		transition: .4s;
+	}
+
+	input:checked + .slider {
+		background-color: #2196F3;
+	}
+
+	input:focus + .slider {
+		box-shadow: 0 0 1px #2196F3;
+	}
+
+	input:checked + .slider:before {
+		-webkit-transform: translateX(20px);
+		-ms-transform: translateX(20px);
+		transform: translateX(20px);
+	}
+
+	.slider.round {
+		border-radius: 34px;
+	}
+
+	.slider.round:before {
+		border-radius: 34px;
+	}</style>
    <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
@@ -61,30 +118,57 @@
 						<span id="dupVNO" style="color:red"></span>
 					</div>
 				</div>
+
 				<div class="form-group row">
-					<label for="VID" class="col-sm-4 col-form-label"><span style="color:red">*</span>Insurance</label>
-					<div class="col-sm-8">
-                        <input accept="application/pdf,image/png, image/jpeg" name="VID" type="file" id="VID">
-                        @php
+										<label for="VID" class="col-sm-4 col-form-label"><span style="color:red">*</span>Insurance</label>
+										<div class="col-sm-8">
+											<input accept="application/pdf,image/png, image/jpeg" name="VID" type="file" id="VID">
+											 @php
 	                    	$href="";
-	                    	if(trim($vehicle->VID) != ""){
+	                    	if($vehicle->VID != ""){
 	                    		echo "<a target='_blank' href='../../uploads/VID/".$vehicle->VID."'>View</a>";
 	                    	}
                         @endphp
-					</div>
-				</div>
-				<div class="form-group row">
-					<label for="VRD" class="col-sm-4 col-form-label"><span style="color:red">*</span>Roadworthy Cert</label>
-					<div class="col-sm-8">
-                        <input accept="application/pdf,image/png, image/jpeg" name="VRD" type="file" id="VRD">
-                        @php
+										</div>
+									</div>
+									
+									<div class="form-group row">
+										<label for="VID" class="col-sm-4 col-form-label"><span style="color:red">*</span>Insurance Expiry Date</label>
+										<div class="col-6">
+											<input value="{{ $vehicle->IEX }}" required="required" onkeydown="return false" type="date" class="form-control" name="IEX" id="IEX" >
+										</div>
+										<div class="col-2">
+											<label class="switch">
+												<input {{ ($vehicle->AVI == "1" ? "checked":"") }}  name="AVI" id="AVI" type="checkbox">
+												<span class="slider round"></span>
+											</label>
+										</div>
+									</div>
+								<div class="form-group row">
+										<label for="VRD" class="col-sm-4 col-form-label"><span style="color:red">*</span>Roadworthy Cert</label>
+										<div class="col-sm-8">
+											<input accept="application/pdf,image/png, image/jpeg" name="VRD" type="file" id="VRD">
+											 @php
 	                    	$href="";
 	                    	if($vehicle->VRD != ""){
 	                    		echo "<a target='_blank' href='../../uploads/VRD/".$vehicle->VRD."'>View</a>";
 	                    	}
                         @endphp
-					</div>
-				</div>
+										</div>
+									</div>
+									
+									<div class="form-group row">
+										<label for="REX" class="col-sm-4 col-form-label"><span style="color:red">*</span>Roadworthy Expiry Date</label>
+										<div class="col-6">
+											<input value="{{ $vehicle->REX }}" required="required" onkeydown="return false" type="date" class="form-control" name="REX" id="REX" >
+										</div>
+										<div class="col-2">
+											<label class="switch">
+												<input {{ ($vehicle->AVR == "1" ? "checked":"") }}  name="AVR" id="AVR" type="checkbox">
+												<span class="slider round"></span>
+											</label>
+										</div>
+									</div>
 				<div class="form-group row">
 					<label for="VMK" class="col-sm-4 col-form-label"><span style="color:red"></span>Make</label>
 					<div class="col-sm-8">
@@ -109,6 +193,13 @@
 						<input value="{{ $vehicle->ECY }}" required="required" type="text" class="form-control decimal" name="ECY" id="ECY" maxlength="10" placeholder="Engine Capacity">
 					</div>
 				</div>
+
+				<div class="form-group row">
+										<label for="CON" class="col-sm-4 col-form-label"><span style="color:red">*</span>Fuel Consumption</label>
+										<div class="col-sm-8">
+											<input  value="{{ number_format((float)$vehicle->CON, 2, '.', '') }}" required="required" type="text" readonly class="form-control decimal" name="CON" id="CON" maxlength="10" placeholder="Fuel Consumption">
+										</div>
+									</div>
                 <!-- /.form-group -->
               </div>
               <!-- /.col -->

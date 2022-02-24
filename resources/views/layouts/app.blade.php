@@ -578,6 +578,10 @@ function toggle_map(arg){
                 $("#freqdiv").hide("slow");
                 $("#paydatediv").hide("slow");
                 $("#payamtdiv").hide("slow");
+                $("#penalty").hide("slow");
+                $("#def").hide("slow");
+                $("#pen").hide("slow");
+                $("#due").hide("slow");
             }else{
                 $("#rhdiv").hide("slow");
                 $("#freqdiv").show("slow");
