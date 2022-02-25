@@ -164,9 +164,9 @@
     </div>
 				</div>
 				<div class="form-group row">
-										<label for="VMK" class="col-sm-4 col-form-label"><span style="color:red"></span>Parking Location</label>
+										<label for="VPL" class="col-sm-4 col-form-label"><span style="color:red"></span>Parking Location</label>
 										<div class="col-sm-7">
-											<input type="text" class="form-control" name="VMK" id="VMK" maxlength="50" placeholder="location">
+											<input type="text" class="form-control" name="VPL" id="VPL" maxlength="50" placeholder="location">
 										</div>
 										<div class="col-sm-1">
               <span><i class="nav-icon fa fa-map-marker" style="font-size:30px"></i></span>
@@ -197,7 +197,7 @@
                         </select>
 										</div>
 										<label for="DVE" class="col-sm-2 col-form-label"><span style="color:red"></span>Set Earnings</label>
-										<div class="col-2" style="margin-top:10px">
+										<div class="col-sm-2" style="margin-top:10px">
 											<label class="switch">
 												<input name="DVE" id="DVE" type="checkbox">
 												<span class="slider round"></span>
@@ -269,17 +269,17 @@
 				<div class="form-group row" id="def" style="display: none;">
 										<label for="NOD" class="col-sm-5 col-form-label"><span style="color:red"></span>Number of Defaults Allowed</label>
 										<div class="col-2">
-											<input required="required" type="text" class="form-control" name="NOD" id="NOD" >
+											<input type="text" class="form-control" name="NOD" id="NOD" >
 										</div>
 										<div class="col-5">
 											<div class="icheck-primary d-inline">
-                        <input type="radio" id="NODA" name="NODA">
-                        <label for="NODA">
-                        </label><b>consecutive</b>
+                        <input type="radio" id="NODB" name="NODB">
+                        <label for="NODB">
+                        </label><b>Consecutive</b>
                       </div><br>
                        <div class="icheck-primary d-inline">
-                        <input type="radio" id="NODA" name="NODA">
-                        <label for="NODA">
+                        <input type="radio" id="NODB" name="NODB">
+                        <label for="NODB">
                         </label><b>Total</b>
                       </div>
 										</div>
@@ -288,13 +288,15 @@
 										<div class="form-group row" id="pen" style="display: none;">
 										<label for="PAM" class="col-sm-5 col-form-label">Penalty Amount:</label>
 										<div class="col-2">
-											<input required="required" type="text" class="form-control" name="PAM" id="PAM" >
+											<input type="text" class="form-control" name="PAM" id="PAM" >
 										</div>
 										
 											<label for="CEX" class="col-sm-1 col-form-label">per</label>
 										<div class="col-sm-4">
 						 <select name="PAT" id="PAT" class="custom-select">
-               <option value="0" ></option>
+               <option value="0" >Monthly</option>
+               <option value="1" >Weekly</option>
+               <option value="2" selected="selected">Monthly</option>
               </select>
 					</div>
 									</div>

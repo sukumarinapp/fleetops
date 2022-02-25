@@ -121,7 +121,7 @@
 									</div>
 									
 									<div class="form-group row">
-										<label for="VID" class="col-sm-4 col-form-label"><span style="color:red">*</span>Insurance Expiry Date</label>
+										<label for="IEX" class="col-sm-4 col-form-label"><span style="color:red">*</span>Insurance Expiry Date</label>
 										<div class="col-6">
 											<input required="required" onkeydown="return false" type="date" class="form-control" name="IEX" id="IEX" >
 										</div>

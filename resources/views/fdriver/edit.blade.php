@@ -138,7 +138,7 @@
 										</div>
 										<div class="col-2">
 											<label class="switch">
-												<input name="AVL" id="AVL" type="checkbox">
+												<input {{ ($driver->AVL == "1" ? "checked":"") }} name="AVL" id="AVL" type="checkbox">
 												<span class="slider round"></span>
 											</label>
 										</div>
@@ -162,14 +162,14 @@
 										</div>
 										<div class="col-2">
 											<label class="switch">
-												<input name="AVC" id="AVC" type="checkbox">
+												<input {{ ($driver->AVC == "1" ? "checked":"") }} name="AVC" id="AVC" type="checkbox">
 												<span class="slider round"></span>
 											</label>
 										</div>
 									</div>
  				<div class="form-group row">
 					<label for="DCN" class="col-sm-4 col-form-label"><span style="color:red">*</span>Contact Number</label>
-					<div class="col-sm-4">
+					<div class="col-sm-8">
 						<input required="required" value="{{ $driver->DCN }}" type="text" class="form-control number" name="DCN" id="DCN" maxlength="15" placeholder="Contact Number">
 						<!-- <input onkeyup="checkDCN({{ $driver->DCN }})" required="required" value="{{ $driver->DCN }}" type="text" class="form-control number" name="DCN" id="DCN" maxlength="15" placeholder="Contact Number"> -->
 					</div>
@@ -177,6 +177,16 @@
         <span id="dupContact" style="color:red"></span>
     </div>
 				</div>
+
+					<div class="form-group row">
+										<label for="VPL" class="col-sm-4 col-form-label"><span style="color:red"></span>Parking Location</label>
+										<div class="col-sm-7">
+											<input value="{{ $driver->VPL }}" type="text" class="form-control" name="VPL" id="VPL" maxlength="50" placeholder="location">
+										</div>
+										<div class="col-sm-1">
+              <span><i class="nav-icon fa fa-map-marker" style="font-size:30px"></i></span>
+             </div>
+									</div>
                 <!-- /.form-group -->
               </div>
               <!-- /.col -->
@@ -197,7 +207,7 @@
           @endphp 
           class="form-group row" id="rhdiv"  >
 					<label for="PLF" class="col-sm-4 col-form-label"><span style="color:red"></span>RH platform</label>
-					<div class="col-sm-8">
+					<div class="col-sm-3">
 						 <select name="PLF[]" id="PLF" class="custom-select">
 						  @php
 							  foreach($rhplatforms as $rhplatform){
@@ -210,6 +220,13 @@
 						  @endphp	
 			            </select>
 					</div>
+					<label for="DVE" class="col-sm-3 col-form-label">Set Earnings</label>
+										<div class="col-sm-2" style="margin-top:10px">
+											<label class="switch">
+												<input {{ ($driver->DVE == "1" ? "checked":"") }}  name="DVE" id="DVE" type="checkbox">
+												<span class="slider round"></span>
+											</label>
+										</div>
 				</div>
 				
 				<div 
@@ -288,6 +305,65 @@
 						<input value="{{ $driver->VAM }}" type="text" class="form-control decimal" name="VAM" id="VAM" maxlength="10" placeholder="Payment Amount">
 					</div>
 				</div>
+				<div
+				@php
+        	if($driver->VBM == "Ride Hailing") echo " style='display:none' ";
+        @endphp 
+				 class="form-group row" style="padding-top:50px;" id="penalty">
+                    <label  class="form-check-label col-sm-7" for="EPD"><b>Enable Penalty Rule on Payment Defaults</b></label>
+                     <div class="icheck-success d-inline col-sm-1">
+                        <input name="EPD" type="checkbox" id="EPD">
+                    </div> 
+				</div>
+
+				<div
+				@php
+        	if($driver->VBM == "Ride Hailing") echo " style='display:none' ";
+        @endphp 
+				 class="form-group row" id="def">
+										<label for="NOD" class="col-sm-5 col-form-label"><span style="color:red"></span>Number of Defaults Allowed</label>
+										<div class="col-2">
+											<input required="required" type="text" class="form-control" name="NOD" id="NOD" >
+										</div>
+										<div class="col-5">
+											<div class="icheck-primary d-inline">
+                        <input type="radio" id="NODB" name="NODB">
+                        <label for="NODB">
+                        </label><b>Consecutive</b>
+                      </div><br>
+                       <div class="icheck-primary d-inline">
+                        <input type="radio" id="NODB" name="NODB">
+                        <label for="NODB">
+                        </label><b>Total</b>
+                      </div>
+										</div>
+									</div>
+
+										<div
+										@php
+        	if($driver->VBM == "Ride Hailing") echo " style='display:none' ";
+        @endphp 
+										 class="form-group row" id="pen">
+										<label for="PAM" class="col-sm-5 col-form-label">Penalty Amount:</label>
+										<div class="col-2">
+											<input required="required" type="text" class="form-control" name="PAM" id="PAM" >
+										</div>
+										
+											<label for="CEX" class="col-sm-1 col-form-label">per</label>
+										<div class="col-sm-4">
+						 <select name="PAT" id="PAT" class="custom-select">
+               <option value="0" ></option>
+              </select>
+					</div>
+									</div>
+
+									<div
+									@php
+        	if($driver->VBM == "Ride Hailing") echo " style='display:none' ";
+        @endphp 
+									 class="form-group row" id="due">
+										<p class="col-form-label">The total aggregated sum of penalty amount charged at stated frequency shall be added to next payment due.</p>
+									</div>
               </div>
             </div>
           </div>
