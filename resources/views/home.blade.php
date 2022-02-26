@@ -409,18 +409,18 @@
           //console.log(vehicle['VNO']+":"+vehicle['latitude']+":"+vehicle['longitude']);
           var acc = "";
           var engine_on = parseInt(vehicle["engine_on"]);
-          var car_icon = "redcar.jpg";
+          var car_icon = "off0.png";
           var driver_id = vehicle["driver_id"];
           if(engine_on == 0){
             acc = "ACC OFF";
-            car_icon = "redcar.jpg";
+            //car_icon = "redcar.jpg";
           }else if(engine_on == 1){
             acc = "ACC ON";
-            car_icon = "yellowcar.jpg";
+            //car_icon = "yellowcar.jpg";
           }
           
           var dir = parseFloat(vehicle['direction']);
-          /*
+          
           if(dir < 22.5 || dir >= 337.5 ){
             if(engine_on == 1) {
               car_icon = "0.png";
@@ -470,12 +470,10 @@
               car_icon = "off315.png";
             }
           }
-          */
 
           if(!driver_id){
             car_icon = "bluecar.png";
           }
-
 
           if(check_checked(vehicle['VNO'])){
             console.log(vehicle['VNO']);
