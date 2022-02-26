@@ -68,6 +68,7 @@ class FdriverController extends Controller
                $VAM = $request->get('VAM'); 
                $EPD = $request->get('EPD'); 
                $NOD = $request->get('NOD'); 
+               $NODB = $request->get('NODB'); 
                $PAM = $request->get('PAM'); 
                $PAT = $request->get('PAT'); 
             }
@@ -75,6 +76,8 @@ class FdriverController extends Controller
             $AVL = ($request->get("AVL") != null) ? 1 : 0;
             $AVC = ($request->get("AVC") != null) ? 1 : 0;
             $DVE = ($request->get("DVE") != null) ? 1 : 0;
+            $EPD = ($request->get("EPD") != null) ? 1 : 0;
+            $NODB = ($request->get("NODB") != null) ? 1 : 0;
             $insert = array(
                 'DNO' => $request->get('DNO'),
                 'DNM' => $request->get('DNM'),
@@ -91,6 +94,7 @@ class FdriverController extends Controller
                 'DVE' => $DVE,
                 'EPD' => $EPD,
                 'NOD' => $NOD,
+                'NODB' => $NODB,
                 'PAM' => $PAM,
                 'PAT' => $PAT,
                 'LEX' => $request->get('LEX'),
@@ -100,6 +104,7 @@ class FdriverController extends Controller
             );
             if($VPD != "") $insert += array('VPD' => $VPD);
             $driver = new Driver($insert);
+            //echo$driver;die;
             $driver->save();
             $last_insert_id = $driver->id;
 
@@ -118,7 +123,6 @@ class FdriverController extends Controller
             $driver = Driver::find($last_insert_id);
             $driver->DLD  =  $DLD;
             $driver->VCC  =  $VCC;
-            //echo $driver;die;
             $driver->save();
 
             $sql = "delete from driver_platform where driver_id=$last_insert_id";
@@ -178,17 +182,32 @@ class FdriverController extends Controller
             $MDY = 0;
             $VPD = NULL;
             $VAM = 0;
+            $EPD = 0;
+            $NOD = 0;
+            $PAM = 0;
+            $PAT = 0;
             if($request->get('VBM') != "Ride Hailing"){
                $VPF = $request->get('VPF');
                $WDY = $request->get('WDY');
                $MDY = $request->get('MDY');
                $VPD = $request->get('VPD'); 
                $VAM = $request->get('VAM'); 
+               $EPD = $request->get('EPD'); 
+               $NOD = $request->get('NOD'); 
+               $NODB = $request->get('NODB'); 
+               $PAM = $request->get('PAM'); 
+               $PAT = $request->get('PAT'); 
             }
+            $AVL = ($request->get("AVL") != null) ? 1 : 0;
+            $AVC = ($request->get("AVC") != null) ? 1 : 0;
+            $DVE = ($request->get("DVE") != null) ? 1 : 0;
+            $EPD = ($request->get("EPD") != null) ? 1 : 0;
+            $NODB = ($request->get("NODB") != null) ? 1 : 0;
             $driver->DNO =  $request->get('DNO');
             $driver->DNM =  $request->get('DNM');
             $driver->DSN =  $request->get('DSN');
             $driver->DCN =  $request->get('DCN');
+            $driver->VPL =  $request->get('VPL');
             if($DLD != "") $driver->DLD  =  $DLD;
             if($VCC != "") $driver->VCC  =  $VCC;
             if($request->get('VBM') != ""){
@@ -199,9 +218,15 @@ class FdriverController extends Controller
             $driver->MDY =  $MDY;
             $driver->VPD =  $VPD;
             $driver->VAM =  $VAM;
+            $driver->EPD =  $EPD;
+            $driver->NOD =  $NOD;
+            $driver->NODB =  $NODB;
+            $driver->PAM =  $PAM;
+            $driver->PAT =  $PAT;
             $driver->LEX =  $request->get('LEX');
             $driver->CEX =  $request->get('CEX');
-            $driver->updated_at =  date("Y-m-d H:i:s");        
+            $driver->updated_at =  date("Y-m-d H:i:s");  
+            //echo$driver;die;      
             $driver->save();
 
             $sql = "delete from driver_platform where driver_id=$id";

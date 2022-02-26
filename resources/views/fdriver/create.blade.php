@@ -273,12 +273,12 @@
 										</div>
 										<div class="col-5">
 											<div class="icheck-primary d-inline">
-                        <input type="radio" id="NODB" name="NODB">
+                        <input value="0" type="radio" id="Consecutive" name="NODB">
                         <label for="NODB">
                         </label><b>Consecutive</b>
                       </div><br>
                        <div class="icheck-primary d-inline">
-                        <input type="radio" id="NODB" name="NODB">
+                        <input value="1" type="radio" id="Total" name="NODB">
                         <label for="NODB">
                         </label><b>Total</b>
                       </div>
@@ -294,9 +294,9 @@
 											<label for="CEX" class="col-sm-1 col-form-label">per</label>
 										<div class="col-sm-4">
 						 <select name="PAT" id="PAT" class="custom-select">
-               <option value="0" >Monthly</option>
-               <option value="1" >Weekly</option>
-               <option value="2" selected="selected">Monthly</option>
+               <option value="Daily" >Daily</option>
+               <option value="Weekly" >Weekly</option>
+               <option value="Monthly" selected="selected">Monthly</option>
               </select>
 					</div>
 									</div>
