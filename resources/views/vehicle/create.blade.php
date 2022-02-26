@@ -256,10 +256,19 @@
 												</div>
 											</div>
 										</div>
-
+                                    
 									</div>
-
-									<!-- /.form-group -->
+                                    	<div class="form-group row">
+                                    		<div class="col-sm-4"></div>
+                                             <div class="col-sm-2" style="margin-top:10px">
+											<label class="switch">
+												<input name="AVR" id="AVR" type="checkbox">
+												<span class="slider round"></span>
+											</label>
+										</div>
+                                    	
+									<button type="button" class="btn btn-outline-primary float-right" data-toggle="modal" data-target="#modal-default"><i class="nav-icon fas fa-cog"></i> Maintenance Scheduler
+                                    </button></div>
 								</div>
 								<!-- /.col -->
 							</div>
@@ -280,12 +289,59 @@
 						</div>
 					</div>
 
+<div class="modal fade" id="modal-default">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h6 class="modal-title">Maintenance Scheduler</h6>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="table-responsive">
+					<div class="card-body">
+							<div class="row">
+									<div class="form-group row">
+										<label for="VID" class="col-sm-4 col-form-label"><span style="color:red">*</span>Insurance</label>
+										<div class="col-sm-8">
+											<input required="required" accept="application/pdf,image/png, image/jpeg" name="VID" type="file" id="VID">
+										</div>
+									</div>
+									
+									<div class="form-group row">
+										<label for="IEX" class="col-sm-4 col-form-label"><span style="color:red">*</span>Insurance Expiry Date</label>
+										<div class="col-6">
+											<input required="required" onkeydown="return false" type="date" class="form-control" name="IEX" id="IEX" >
+										</div>
+										<div class="col-2">
+											<label class="switch">
+												<input name="AVI" id="AVI" type="checkbox">
+												<span class="slider round"></span>
+											</label>
+										</div>
+									</div>
+								<div class="form-group row">
+										<label for="VRD" class="col-sm-4 col-form-label"><span style="color:red">*</span>Roadworthy Cert</label>
+										<div class="col-sm-8">
+											<input required="required" accept="application/pdf,image/png, image/jpeg" name="VRD" type="file" id="VRD">
+										</div>
+									</div>
+									</div>
+							<div class="form-group row">
+								<div class="col-md-12 text-center">
+									<input id="save" required="required" class="btn btn-info"	type="submit" name="submit" value="Save"/>
+									<a href="{{ route('vehicle.index') }}" class="btn btn-info">Back</a>
+								</div>
+							</div>
 
+    </div>
 
-
-				</div>
-			</div>
-		</section>
+   </div> 
+  </div>
+ </div>
+</div>
+	</section>
 
 		@endsection
 		@push('page_scripts')
