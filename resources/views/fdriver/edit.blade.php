@@ -327,13 +327,13 @@
 										</div>
 										<div class="col-5">
 											<div class="icheck-primary d-inline">
-                        <input {{ ($driver->NODB == "0" || $driver->RBA4A == "" ? "checked":"") }} type="radio" id="Consecutive" name="NODB">
-                        <label for="NODB">
+                        <input {{ ($driver->NODB == "0" ? "checked":"") }} type="radio" id="Consecutive" name="NODB" />
+                        <label for="Consecutive">
                         </label><b>Consecutive</b>
                       </div><br>
                        <div class="icheck-primary d-inline">
-                        <input {{ ($driver->NODB == "1" ? "checked":"") }} type="radio" id="Total" name="NODB">
-                        <label for="NODB">
+                        <input {{ ($driver->NODB == "1" ? "checked":"") }} type="radio" id="Total" name="NODB" />
+                        <label for="Total">
                         </label><b>Total</b>
                       </div>
 										</div>

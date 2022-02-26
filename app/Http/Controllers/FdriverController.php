@@ -60,6 +60,7 @@ class FdriverController extends Controller
             $NOD = 0;
             $PAM = 0;
             $PAT = 0;
+            $NODB = 0;
             if($request->get('VBM') != "Ride Hailing"){
                $VPF = $request->get('VPF');
                $WDY = $request->get('WDY');
@@ -77,7 +78,6 @@ class FdriverController extends Controller
             $AVC = ($request->get("AVC") != null) ? 1 : 0;
             $DVE = ($request->get("DVE") != null) ? 1 : 0;
             $EPD = ($request->get("EPD") != null) ? 1 : 0;
-            $NODB = ($request->get("NODB") != null) ? 1 : 0;
             $insert = array(
                 'DNO' => $request->get('DNO'),
                 'DNM' => $request->get('DNM'),

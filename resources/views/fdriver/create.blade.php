@@ -273,12 +273,12 @@
 										</div>
 										<div class="col-5">
 											<div class="icheck-primary d-inline">
-                        <input value="0" type="radio" id="Consecutive" name="NODB">
+                        <input value="0" checked type="radio" id="Consecutive" name="NODB" />
                         <label for="NODB">
                         </label><b>Consecutive</b>
                       </div><br>
                        <div class="icheck-primary d-inline">
-                        <input value="1" type="radio" id="Total" name="NODB">
+                        <input value="1" type="radio" id="Total" name="NODB" />
                         <label for="NODB">
                         </label><b>Total</b>
                       </div>

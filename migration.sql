@@ -25,7 +25,7 @@ alter table driver add DVE int(1) DEFAULT 0;
 alter table driver add EPD int(1) DEFAULT 0;
 alter table driver add NOD int(11) DEFAULT 0;
 alter table driver add PAM decimal(10,2) DEFAULT 0;
-alter table driver add NODB int(0) DEFAULT 0;
+alter table driver add NODB int(1) DEFAULT 0;
 alter table driver add PAT varchar(10) DEFAULT NULL;
 
 
