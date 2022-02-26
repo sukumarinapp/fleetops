@@ -56,25 +56,43 @@ class FdriverController extends Controller
             $MDY = 0;
             $VPD = "";
             $VAM = 0;
+            $EPD = 0;
+            $NOD = 0;
+            $PAM = 0;
+            $PAT = 0;
             if($request->get('VBM') != "Ride Hailing"){
                $VPF = $request->get('VPF');
                $WDY = $request->get('WDY');
                $MDY = $request->get('MDY');
                $VPD = $request->get('VPD'); 
                $VAM = $request->get('VAM'); 
+               $EPD = $request->get('EPD'); 
+               $NOD = $request->get('NOD'); 
+               $PAM = $request->get('PAM'); 
+               $PAT = $request->get('PAT'); 
             }
            
-
+            $AVL = ($request->get("AVL") != null) ? 1 : 0;
+            $AVC = ($request->get("AVC") != null) ? 1 : 0;
+            $DVE = ($request->get("DVE") != null) ? 1 : 0;
             $insert = array(
                 'DNO' => $request->get('DNO'),
                 'DNM' => $request->get('DNM'),
                 'DSN' => $request->get('DSN'),
                 'DCN' => $request->get('DCN'),
                 'VBM' => $request->get('VBM'),
+                'VPL' => $request->get('VPL'),
                 'VPF' => $VPF,
                 'WDY' => $WDY,
                 'MDY' => $MDY,
                 'VAM' => $VAM,
+                'AVC' => $AVC,
+                'AVL' => $AVL,
+                'DVE' => $DVE,
+                'EPD' => $EPD,
+                'NOD' => $NOD,
+                'PAM' => $PAM,
+                'PAT' => $PAT,
                 'LEX' => $request->get('LEX'),
                 'CEX' => $request->get('CEX'),
                 'created_at' => date("Y-m-d H:i:s"),
@@ -100,6 +118,7 @@ class FdriverController extends Controller
             $driver = Driver::find($last_insert_id);
             $driver->DLD  =  $DLD;
             $driver->VCC  =  $VCC;
+            //echo $driver;die;
             $driver->save();
 
             $sql = "delete from driver_platform where driver_id=$last_insert_id";

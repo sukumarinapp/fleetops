@@ -88,16 +88,16 @@ class VehicleController extends Controller
             return redirect('/vehicle/create')->with('error', 'Duplicate Vehicle Reg No');
         }else{
             $VTV = ($request->get("VTV") != null) ? 1 : 0;
-            $AVI = ($request->get("AVI") != null) ? 1 : 0;
-            $AVR = ($request->get("AVR") != null) ? 1 : 0;
             $ECY = trim($request->get('ECY'));
             $CON = Formulae::CON($VNO);
+            $AVI = ($request->get("AVI") != null) ? 1 : 0;
+            $AVR = ($request->get("AVR") != null) ? 1 : 0;
             $insert = array(
                 'CAN' => $request->get('CAN'),
                 'VNO' => $request->get('VNO'),
                 'VDT' => date("Y-m-d"),
-                'IEX' => date("Y-m-d"),
-                'REX' => date("Y-m-d"),
+                'IEX' => $request->get('IEX'),
+                'REX' => $request->get('REX'),
                 'VMK' => $request->get('VMK'),
                 'VMD' => $request->get('VMD'),
                 'VCL' => $request->get('VCL'),
@@ -113,13 +113,13 @@ class VehicleController extends Controller
                 'VZC0' => $request->get('VZC0'),
                 'VBC1' => $request->get('VBC1'),
                 'VBC0' => $request->get('VBC0'),
-                'VTV' => $VTV,
                 'AVI' => $AVI,
                 'AVR' => $AVR,
+                'VTV' => $VTV,
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s")
             );
-
+ 
             $vehicle = new Vehicle($insert);
             $vehicle->save();
 
