@@ -127,6 +127,10 @@ class VehicleController extends Controller
 
             $last_insert_id = $vehicle->id;
 
+            $SSD = $request->SSD;
+            $sql = "insert into vehicle_service (VID,SSD,OTT,CAN,VNO,UAN,OAC) values ($last_insert_id,'$SSD','$OTT','$CAN','$VNO','$UAN','$OAC')";
+            DB::insert($sql);
+
             $VID = "";
             if($request->VID != null){
                 $VID =  $last_insert_id.'.'.$request->VID->extension(); 
