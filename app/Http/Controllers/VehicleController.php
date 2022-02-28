@@ -128,7 +128,13 @@ class VehicleController extends Controller
             $last_insert_id = $vehicle->id;
 
             $SSD = $request->SSD;
-            $sql = "insert into vehicle_service (VID,SSD,OTT,CAN,VNO,UAN,OAC) values ($last_insert_id,'$SSD','$OTT','$CAN','$VNO','$UAN','$OAC')";
+            $SSM = $request->SSM;
+            $SMF = $request->SMF;
+            $SSF = $request->SSF;
+            $SSFP = $request->SSFP;
+            $SSFD = $request->SSFD;
+            $RSS = $request->RSS;
+            $sql = "insert into vehicle_service (VID,SSD,SSM,SMF,SSF,SSFP,SSFD,RSS) values ($last_insert_id,'$SSD','$SSM','$SMF','$SSF','$SSFP','$SSFD','$RSS')";
             DB::insert($sql);
 
             $VID = "";
@@ -218,7 +224,7 @@ class VehicleController extends Controller
             $vehicle->VMD  =  $request->get('VMD');            
             $vehicle->VCL =  $request->get('VCL');
             $vehicle->ECY = $ECY;
-            $vehicle->CON =  $CON;
+            $vehicle->CON = $CON;
             $vehicle->VFT =  $request->get('VFT');
             $vehicle->VFC =  $request->get('VFC');
             $vehicle->TSN =  $request->get('TSN');
