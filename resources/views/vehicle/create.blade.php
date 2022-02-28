@@ -125,14 +125,14 @@
 										<div class="col-6">
 											<input required="required" onkeydown="return false" type="date" class="form-control" name="IEX" id="IEX" >
 										</div>
-										<div class="col-2">
+										<div class="col-sm-2">
 											<label class="switch">
 												<input name="AVI" id="AVI" type="checkbox">
 												<span class="slider round"></span>
 											</label>
 										</div>
 									</div>
-								<div class="form-group row">
+									<div class="form-group row">
 										<label for="VRD" class="col-sm-4 col-form-label"><span style="color:red">*</span>Roadworthy Cert</label>
 										<div class="col-sm-8">
 											<input required="required" accept="application/pdf,image/png, image/jpeg" name="VRD" type="file" id="VRD">
@@ -256,100 +256,171 @@
 												</div>
 											</div>
 										</div>
-                                    
+
 									</div>
-                                    	<div class="form-group row">
-                                    		<div class="col-sm-4"></div>
-                                             <div class="col-sm-2" style="margin-top:10px">
+									<div class="form-group row">
+										<div class="col-sm-4"></div>
+										<div class="col-sm-2" style="margin-top:10px">
 											<label class="switch">
 												<input name="AVR" id="AVR" type="checkbox">
 												<span class="slider round"></span>
 											</label>
 										</div>
-                                    	
-									<button type="button" class="btn btn-outline-primary float-right" data-toggle="modal" data-target="#modal-default"><i class="nav-icon fas fa-cog"></i> Maintenance Scheduler
-                                    </button></div>
-								</div>
-								<!-- /.col -->
-							</div>
-							<div class="form-group row">
-								<div class="col-sm-6">
-									<div class="form-check">
-										<input value="1" type="checkbox" name="VTV" class="form-check-input" id="VTV">
-										<label class="form-check-label text-success" for="VTV"><b>Activate Account</b></label>
-									</div>
-								</div>
-							</div>
-							<div class="form-group row">
-								<div class="col-md-12 text-center">
-									<input id="save" required="required" class="btn btn-info"	type="submit" name="submit" value="Save"/>
-									<a href="{{ route('vehicle.index') }}" class="btn btn-info">Back</a>
-								</div>
-							</div>	
-						</div>
-					</div>
 
-<div class="modal fade" id="modal-default">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h6 class="modal-title">Maintenance Scheduler</h6>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="table-responsive">
-					<div class="card-body">
-							<div class="row">
-									<div class="form-group row">
-										<label for="VID" class="col-sm-4 col-form-label"><span style="color:red">*</span>Insurance</label>
-										<div class="col-sm-8">
-											<input required="required" accept="application/pdf,image/png, image/jpeg" name="VID" type="file" id="VID">
-										</div>
+										<button type="button" class="btn btn-outline-primary float-right" data-toggle="modal" data-target="#modal-default"><i class="nav-icon fas fa-cog"></i> Maintenance Scheduler
+										</button></div>
 									</div>
-									
-									<div class="form-group row">
-										<label for="IEX" class="col-sm-4 col-form-label"><span style="color:red">*</span>Insurance Expiry Date</label>
-										<div class="col-6">
-											<input required="required" onkeydown="return false" type="date" class="form-control" name="IEX" id="IEX" >
-										</div>
-										<div class="col-2">
-											<label class="switch">
-												<input name="AVI" id="AVI" type="checkbox">
-												<span class="slider round"></span>
-											</label>
-										</div>
-									</div>
+									<!-- /.col -->
+								</div>
 								<div class="form-group row">
-										<label for="VRD" class="col-sm-4 col-form-label"><span style="color:red">*</span>Roadworthy Cert</label>
-										<div class="col-sm-8">
-											<input required="required" accept="application/pdf,image/png, image/jpeg" name="VRD" type="file" id="VRD">
+									<div class="col-sm-6">
+										<div class="form-check">
+											<input value="1" type="checkbox" name="VTV" class="form-check-input" id="VTV">
+											<label class="form-check-label text-success" for="VTV"><b>Activate Account</b></label>
 										</div>
 									</div>
+								</div>
+								<div class="form-group row">
+									<div class="col-md-12 text-center">
+										<input id="save" required="required" class="btn btn-info"	type="submit" name="submit" value="Save"/>
+										<a href="{{ route('vehicle.index') }}" class="btn btn-info">Back</a>
 									</div>
-							<div class="form-group row">
-								<div class="col-md-12 text-center">
-									<input id="save" required="required" class="btn btn-info"	type="submit" name="submit" value="Save"/>
-									<a href="{{ route('vehicle.index') }}" class="btn btn-info">Back</a>
+								</div>	
+							</div>
+						</div>
+
+						<div class="modal fade" id="modal-default">
+							<div class="modal-dialog modal-xl">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h6 class="modal-title">Maintenance Scheduler</h6>
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+									<div class="modal-body">
+										<label>Service Scheduling</label>
+										<div class="form-group row">
+											<label for="VID" class="col-sm-3 col-form-label">Next Scheduled Date</label>
+											<div class="col-sm-2">
+												<input required="required" onkeydown="return false" type="date" class="form-control" name="IEX" id="IEX" >
+											</div>
+
+											<label for="VID" class="col-sm-3 col-form-label">(or) Next Scheduled Mileage</label>
+											<div class="col-sm-2">
+												<input required="required"  type="text" class="form-control" name="IEX" id="IEX" >
+											</div>
+										</div>
+
+										<div class="form-group row">
+											<div class="col-sm-2" style="margin-top:10px">
+												<label class="switch">
+													<input name="AVI" id="AVI" type="checkbox">
+													<span class="slider round"></span>
+												</label>
+											</div>
+											<label for="VID" class="col-sm-2 col-form-label">Recurrence:</label>
+											<div class="col-sm-2">
+												<input required="required" type="text" class="form-control" name="IEX" id="IEX" placeholder="Every Km" >
+											</div>
+											<label for="VID" class="col-sm-1 col-form-label">(or)</label>
+											<div class="col-sm-2">
+												<select name="VBM" id="VBM" class="custom-select">
+													<option value="Ride Hailing" selected="selected">Ride Hailing</option>
+													<option value="Rental" >Rental</option>
+													<option value="Hire Purchase" >Hire Purchase</option>
+												</select>
+											</div>
+										</div>
+
+										<div class="form-group row">
+											<div class="col-sm-2">
+											</div>
+											<label for="VID" class="col-sm-2 col-form-label">Recur Every:</label>
+											<div class="col-sm-2">
+												<input required="required" type="text" class="form-control" name="IEX" id="IEX" placeholder="Every Km" >
+											</div>
+
+											<label for="VID" class="col-sm-1 col-form-label">On Day:</label>
+											<div class="col-sm-2">
+												<select name="VBM" id="VBM" class="custom-select">
+													<option value="Ride Hailing" selected="selected">Ride Hailing</option>
+													<option value="Rental" >Rental</option>
+													<option value="Hire Purchase" >Hire Purchase</option>
+												</select>
+											</div>
+										</div>								
+
+										<br><label>Vehicle Inspection Scheduling</label>
+										<div class="form-group row">
+											<label for="VID" class="col-sm-3 col-form-label">Next Scheduled Date</label>
+											<div class="col-sm-2">
+												<input required="required" onkeydown="return false" type="date" class="form-control" name="IEX" id="IEX" >
+											</div>
+
+											<label for="VID" class="col-sm-3 col-form-label">(or) Next Scheduled Mileage</label>
+											<div class="col-sm-2">
+												<input required="required"  type="text" class="form-control" name="IEX" id="IEX" >
+											</div>
+										</div>
+
+										<div class="form-group row">
+											<div class="col-sm-2" style="margin-top:10px">
+												<label class="switch">
+													<input name="AVI" id="AVI" type="checkbox">
+													<span class="slider round"></span>
+												</label>
+											</div>
+											<label for="VID" class="col-sm-2 col-form-label">Recurrence:</label>
+											<div class="col-sm-2">
+												<input required="required" type="text" class="form-control" name="IEX" id="IEX" placeholder="Every Km" >
+											</div>
+											<label for="VID" class="col-sm-1 col-form-label">(or)</label>
+											<div class="col-sm-2">
+												<select name="VBM" id="VBM" class="custom-select">
+													<option value="Ride Hailing" selected="selected">Ride Hailing</option>
+													<option value="Rental" >Rental</option>
+													<option value="Hire Purchase" >Hire Purchase</option>
+												</select>
+											</div>
+										</div>
+
+										<div class="form-group row">
+											<div class="col-sm-2">
+											</div>
+											<label for="VID" class="col-sm-2 col-form-label">Recur Every:</label>
+											<div class="col-sm-2">
+												<input required="required" type="text" class="form-control" name="IEX" id="IEX" placeholder="Every Km" >
+											</div>
+
+											<label for="VID" class="col-sm-1 col-form-label">On Day:</label>
+											<div class="col-sm-2">
+												<select name="VBM" id="VBM" class="custom-select">
+													<option value="Ride Hailing" selected="selected">Ride Hailing</option>
+													<option value="Rental" >Rental</option>
+													<option value="Hire Purchase" >Hire Purchase</option>
+												</select>
+											</div>
+										</div>
+										<div class="form-group row">
+									<div class="col-md-12 text-center">
+										<input id="save" required="required" class="btn btn-info"	type="submit" name="submit" value="Save"/>
+										<a href="{{ route('vehicle.index') }}" class="btn btn-info">Back</a>
+									</div>
+								</div>	
+									</div>
 								</div>
 							</div>
+						</div> 
+					</section>
 
-    </div>
-
-   </div> 
-  </div>
- </div>
-</div>
-	</section>
-
-		@endsection
-		@push('page_scripts')
-		<script>
-			$(document).ready(function(){
-				$('.select2').select2({
-					theme: 'bootstrap4'
-				});
-			});
-		</script>
-		@endpush
+					@endsection
+					@push('page_scripts')
+					<script>
+						$(document).ready(function(){
+							$('.select2').select2({
+								theme: 'bootstrap4'
+							});
+						});
+					</script>
+					@endpush
