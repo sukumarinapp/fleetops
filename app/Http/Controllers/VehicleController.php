@@ -133,8 +133,18 @@ class VehicleController extends Controller
             $SSF = $request->SSF;
             $SSFP = $request->SSFP;
             $SSFD = $request->SSFD;
-            $RSS = $request->RSS;
+            $RSS = ($request->get("RSS") != null) ? 1 : 0;
             $sql = "insert into vehicle_service (VID,SSD,SSM,SMF,SSF,SSFP,SSFD,RSS) values ($last_insert_id,'$SSD','$SSM','$SMF','$SSF','$SSFP','$SSFD','$RSS')";
+            DB::insert($sql);
+
+            $ISD = $request->ISD;
+            $ISM = $request->ISM;
+            $IMF = $request->IMF;
+            $ISF = $request->ISF;
+            $ISFP = $request->ISFP;
+            $ISFD = $request->ISFD;
+            $RIS = ($request->get("RIS") != null) ? 1 : 0;
+            $sql = "insert into vehicle_inspect (VID,ISD,ISM,RIS,IMF,ISF,ISFP,ISFD) values ($last_insert_id,'$ISD','$ISM','$RIS','$IMF','$ISF','$ISFP','$ISFD')";
             DB::insert($sql);
 
             $VID = "";

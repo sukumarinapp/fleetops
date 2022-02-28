@@ -320,13 +320,140 @@
               </div>
               <!-- /.col -->
             </div>
-            <!-- /.row -->
-          </div>
-          <!-- /.card-body -->
-         </div>
-        </div>
- 			        </div>
-				  </div>
+            <div class="modal fade" id="modal-default">
+							<div class="modal-dialog modal-xl">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h6 class="modal-title">Maintenance Scheduler</h6>
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+									<div class="modal-body">
+										<label>Service Scheduling</label>
+										<div class="form-group row">
+											<label for="SSD" class="col-sm-3 col-form-label">Next Scheduled Date</label>
+											<div class="col-sm-2">
+												<input min="{{ date('Y-m-d') }}" value="{{ $vehicle->SSD }}" onkeydown="return false" type="date" class="form-control" name="SSD" id="SSD" >
+											</div>
+
+											<label for="SSM" class="col-sm-3 col-form-label">(or) Next Scheduled Mileage</label>
+											<div class="col-sm-2">
+												<input value="{{ $vehicle->SSM }}" maxlength="6" type="text" class="form-control number" name="SSM" id="SSM" >
+											</div>
+										</div>
+
+										<div class="form-group row">
+											<label for="RSS" class="col-sm-1 col-form-label">Recurring</label>
+											<div class="col-sm-2" style="margin-top:10px">
+												<label class="switch">
+													<input name="RSS" id="RSS" type="checkbox">
+													<span class="slider round"></span>
+												</label>
+											</div>
+											<label for="SMF" class="col-sm-2 col-form-label">Recurrence:</label>
+											<div class="col-sm-2">
+												<input value="{{ $vehicle->SMF }}" type="text" maxlength="6" class="form-control number" name="SMF" id="SMF" placeholder="Every Km" >
+											</div>
+											<label for="SSF" class="col-sm-1 col-form-label">(or)</label>
+											<div class="col-sm-2">
+												<select name="SSF" id="SSF" class="custom-select">
+													<option value="Daily" selected="selected">Daily</option>
+													<option value="Weekly" >Weekly</option>
+													<option value="Monthly" >Monthly</option>
+													<option value="Yearly" >Yearly</option>
+												</select>
+											</div>
+										</div>
+
+										<div class="form-group row">
+											<div class="col-sm-3">
+											</div>
+											<label for="SSFP" class="col-sm-2 col-form-label">Recur Every:</label>
+											<div class="col-sm-2">
+												<input value="{{ $vehicle->SSFP }}" type="text" maxlength="2" class="form-control number" name="SSFP" id="SSFP">
+											</div>
+
+											<label for="SSFD" class="col-sm-1 col-form-label">On Day:</label>
+											<div class="col-sm-2">
+												<select name="SSFD" id="SSFD" class="custom-select">
+													<option value="0" selected="selected">Sunday</option>
+													<option value="1" >Monday</option>
+													<option value="2" >Tuesday</option>
+													<option value="3" >Wednesday</option>
+													<option value="4" >Thursday</option>
+													<option value="5" >Friday</option>
+													<option value="6" >Saturday</option>
+												</select>
+											</div>
+										</div>								
+
+										<br><label>Vehicle Inspection Scheduling</label>
+										<div class="form-group row">
+											<label for="ISD" class="col-sm-3 col-form-label">Next Scheduled Date</label>
+											<div class="col-sm-2">
+												<input min="{{ date('Y-m-d') }}" value="{{ $vehicle->ISD }}" onkeydown="return false" type="date" class="form-control" name="ISD" id="ISD" >
+											</div>
+
+											<label for="ISM" class="col-sm-3 col-form-label">(or) Next Scheduled Mileage</label>
+											<div class="col-sm-2">
+												<input value="{{ $vehicle->ISM }}" type="text" maxlength="6" class="form-control number" name="ISM" id="ISM" >
+											</div>
+										</div>
+
+										<div class="form-group row">
+											<label for="RIS" class="col-sm-1 col-form-label">Recurring</label>
+											<div class="col-sm-2" style="margin-top:10px">
+												<label class="switch ">
+													<input name="RIS" id="RIS" type="checkbox">
+													<span class="slider round"></span>
+												</label>
+											</div>
+											<label for="IMF" class="col-sm-2 col-form-label">Recurrence</label>
+											<div class="col-sm-2">
+												<input value="{{ $vehicle->IMF }}" type="text" maxlength="6" class="form-control number" name="IMF" id="IMF" placeholder="Every Km" >
+											</div>
+											<label for="ISF" class="col-sm-1 col-form-label">(or)</label>
+											<div class="col-sm-2">
+												<select name="ISF" id="ISF" class="custom-select">
+													<option value="Daily" selected="selected">Daily</option>
+													<option value="Weekly" >Weekly</option>
+													<option value="Monthly" >Monthly</option>
+													<option value="Yearly" >Yearly</option>
+												</select>
+											</div>
+										</div>
+
+										<div class="form-group row">
+											<div class="col-sm-3">
+											</div>
+											<label for="ISFP" class="col-sm-2 col-form-label">Recur Every:</label>
+											<div class="col-sm-2">
+												<input value="{{ $vehicle->ISFP }}" type="text" maxlength="2" class="form-control number" name="ISFP" id="ISFP">
+											</div>
+
+											<label for="ISFD" class="col-sm-1 col-form-label">On Day:</label>
+											<div class="col-sm-2">
+												<select name="ISFD" id="ISFD" class="custom-select">
+													<option value="0" selected="selected">Sunday</option>
+													<option value="1" >Monday</option>
+													<option value="2" >Tuesday</option>
+													<option value="3" >Wednesday</option>
+													<option value="4" >Thursday</option>
+													<option value="5" >Friday</option>
+													<option value="6" >Saturday</option>
+												</select>
+											</div>
+										</div>
+										<div class="form-group row">
+									<div class="col-md-12 text-center">
+										<button type="button" class="btn btn-primary" data-dismiss="modal">Confirm</button>
+									</div>
+								</div>	
+									</div>
+								</div>
+							</div>
+						</div> 
     </section>
    
 @endsection
