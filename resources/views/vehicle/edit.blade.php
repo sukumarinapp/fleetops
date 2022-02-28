@@ -347,21 +347,21 @@
 											<label for="RSS" class="col-sm-1 col-form-label">Recurring</label>
 											<div class="col-sm-2" style="margin-top:10px">
 												<label class="switch">
-													<input name="RSS" id="RSS" type="checkbox">
+													<input {{ ($vehicle->RSS == "1" ? "checked":"") }} name="RSS" id="RSS" type="checkbox">
 													<span class="slider round"></span>
 												</label>
 											</div>
-											<label for="SMF" class="col-sm-2 col-form-label">Recurrence:</label>
+											<label for="SMF" class="col-sm-2 col-form-label">Recurrence</label>
 											<div class="col-sm-2">
 												<input value="{{ $vehicle->SMF }}" type="text" maxlength="6" class="form-control number" name="SMF" id="SMF" placeholder="Every Km" >
 											</div>
 											<label for="SSF" class="col-sm-1 col-form-label">(or)</label>
 											<div class="col-sm-2">
 												<select name="SSF" id="SSF" class="custom-select">
-													<option value="Daily" selected="selected">Daily</option>
-													<option value="Weekly" >Weekly</option>
-													<option value="Monthly" >Monthly</option>
-													<option value="Yearly" >Yearly</option>
+													<option {{ ($vehicle->SSF == "Daily" ? "disabled":"") }} value="Daily" selected="selected">Daily</option>
+													<option {{ ($vehicle->SSF == "Weekly" ? "disabled":"") }} value="Weekly" >Weekly</option>
+													<option {{ ($vehicle->SSF == "Monthly" ? "disabled":"") }} value="Monthly" >Monthly</option>
+													<option {{ ($vehicle->SSF == "Yearly" ? "disabled":"") }} value="Yearly" >Yearly</option>
 												</select>
 											</div>
 										</div>
@@ -369,21 +369,21 @@
 										<div class="form-group row">
 											<div class="col-sm-3">
 											</div>
-											<label for="SSFP" class="col-sm-2 col-form-label">Recur Every:</label>
+											<label for="SSFP" class="col-sm-2 col-form-label">Recur Every</label>
 											<div class="col-sm-2">
 												<input value="{{ $vehicle->SSFP }}" type="text" maxlength="2" class="form-control number" name="SSFP" id="SSFP">
 											</div>
 
-											<label for="SSFD" class="col-sm-1 col-form-label">On Day:</label>
+											<label for="SSFD" class="col-sm-1 col-form-label">On Day</label>
 											<div class="col-sm-2">
 												<select name="SSFD" id="SSFD" class="custom-select">
-													<option value="0" selected="selected">Sunday</option>
-													<option value="1" >Monday</option>
-													<option value="2" >Tuesday</option>
-													<option value="3" >Wednesday</option>
-													<option value="4" >Thursday</option>
-													<option value="5" >Friday</option>
-													<option value="6" >Saturday</option>
+													<option {{ ($vehicle->SSFD == "0" ? "selected":"") }} value="0" selected="selected">Sunday</option>
+													<option {{ ($vehicle->SSFD == "1" ? "selected":"") }} value="1" >Monday</option>
+													<option {{ ($vehicle->SSFD == "2" ? "selected":"") }} value="2" >Tuesday</option>
+													<option {{ ($vehicle->SSFD == "3" ? "selected":"") }} value="3" >Wednesday</option>
+													<option {{ ($vehicle->SSFD == "4" ? "selected":"") }} value="4" >Thursday</option>
+													<option {{ ($vehicle->SSFD == "5" ? "selected":"") }} value="5" >Friday</option>
+													<option {{ ($vehicle->SSFD == "6" ? "selected":"") }} value="6" >Saturday</option>
 												</select>
 											</div>
 										</div>								
@@ -405,7 +405,7 @@
 											<label for="RIS" class="col-sm-1 col-form-label">Recurring</label>
 											<div class="col-sm-2" style="margin-top:10px">
 												<label class="switch ">
-													<input name="RIS" id="RIS" type="checkbox">
+													<input {{ ($vehicle->RIS == "1" ? "checked":"") }} name="RIS" id="RIS" type="checkbox">
 													<span class="slider round"></span>
 												</label>
 											</div>
@@ -427,12 +427,12 @@
 										<div class="form-group row">
 											<div class="col-sm-3">
 											</div>
-											<label for="ISFP" class="col-sm-2 col-form-label">Recur Every:</label>
+											<label for="ISFP" class="col-sm-2 col-form-label">Recur Every</label>
 											<div class="col-sm-2">
 												<input value="{{ $vehicle->ISFP }}" type="text" maxlength="2" class="form-control number" name="ISFP" id="ISFP">
 											</div>
 
-											<label for="ISFD" class="col-sm-1 col-form-label">On Day:</label>
+											<label for="ISFD" class="col-sm-1 col-form-label">On Day</label>
 											<div class="col-sm-2">
 												<select name="ISFD" id="ISFD" class="custom-select">
 													<option value="0" selected="selected">Sunday</option>

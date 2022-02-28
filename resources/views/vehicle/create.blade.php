@@ -308,7 +308,7 @@
 
 											<label for="SSM" class="col-sm-3 col-form-label">(or) Next Scheduled Mileage</label>
 											<div class="col-sm-2">
-												<input maxlength="10" type="text" class="form-control number" name="SSM" id="SSM" >
+												<input maxlength="6" type="text" class="form-control number" name="SSM" id="SSM" >
 											</div>
 										</div>
 
@@ -320,9 +320,9 @@
 													<span class="slider round"></span>
 												</label>
 											</div>
-											<label for="SMF" class="col-sm-2 col-form-label">Recurrence:</label>
+											<label for="SMF" class="col-sm-2 col-form-label">Recurrence</label>
 											<div class="col-sm-2">
-												<input type="text" maxlength="10" class="form-control number" name="SMF" id="SMF" placeholder="Every Km" >
+												<input type="text" maxlength="6" class="form-control number" name="SMF" id="SMF" placeholder="Every Km" >
 											</div>
 											<label for="SSF" class="col-sm-1 col-form-label">(or)</label>
 											<div class="col-sm-2">
@@ -338,12 +338,12 @@
 										<div class="form-group row">
 											<div class="col-sm-3">
 											</div>
-											<label for="SSFP" class="col-sm-2 col-form-label">Recur Every:</label>
+											<label for="SSFP" class="col-sm-2 col-form-label">Recur Every</label>
 											<div class="col-sm-2">
-												<input type="text" maxlength="10" class="form-control number" name="SSFP" id="SSFP">
+												<input type="text" maxlength="2" class="form-control number" name="SSFP" id="SSFP">
 											</div>
 
-											<label for="SSFD" class="col-sm-1 col-form-label">On Day:</label>
+											<label for="SSFD" class="col-sm-1 col-form-label">On Day</label>
 											<div class="col-sm-2">
 												<select name="SSFD" id="SSFD" class="custom-select">
 													<option value="0" selected="selected">Sunday</option>
@@ -366,7 +366,7 @@
 
 											<label for="ISM" class="col-sm-3 col-form-label">(or) Next Scheduled Mileage</label>
 											<div class="col-sm-2">
-												<input type="text" maxlength="10" class="form-control number" name="ISM" id="ISM" >
+												<input type="text" maxlength="6" class="form-control number" name="ISM" id="ISM" >
 											</div>
 										</div>
 
@@ -380,7 +380,7 @@
 											</div>
 											<label for="IMF" class="col-sm-2 col-form-label">Recurrence</label>
 											<div class="col-sm-2">
-												<input type="text" maxlength="10" class="form-control number" name="IMF" id="IMF" placeholder="Every Km" >
+												<input type="text" maxlength="6" class="form-control number" name="IMF" id="IMF" placeholder="Every Km" >
 											</div>
 											<label for="ISF" class="col-sm-1 col-form-label">(or)</label>
 											<div class="col-sm-2">
@@ -396,12 +396,12 @@
 										<div class="form-group row">
 											<div class="col-sm-3">
 											</div>
-											<label for="ISFP" class="col-sm-2 col-form-label">Recur Every:</label>
+											<label for="ISFP" class="col-sm-2 col-form-label">Recur Every</label>
 											<div class="col-sm-2">
-												<input type="text" maxlength="10" class="form-control number" name="ISFP" id="ISFP">
+												<input type="text" maxlength="2" class="form-control number" name="ISFP" id="ISFP">
 											</div>
 
-											<label for="ISFD" class="col-sm-1 col-form-label">On Day:</label>
+											<label for="ISFD" class="col-sm-1 col-form-label">On Day</label>
 											<div class="col-sm-2">
 												<select name="ISFD" id="ISFD" class="custom-select">
 													<option value="0" selected="selected">Sunday</option>
