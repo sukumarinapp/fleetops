@@ -54,6 +54,8 @@ CREATE TABLE `vehicle_inspect` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 
+alter table vehicle add MSH int(1) DEFAULT 0; 
+
 
 
 
