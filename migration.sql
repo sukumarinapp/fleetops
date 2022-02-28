@@ -28,6 +28,33 @@ alter table driver add PAM decimal(10,2) DEFAULT 0;
 alter table driver add NODB int(1) DEFAULT 0;
 alter table driver add PAT varchar(10) DEFAULT NULL;
 
+CREATE TABLE `vehicle_service` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `VID` int(11) NOT NULL,
+  `SSD` date DEFAULT NULL,
+  `SSM` int(11) NOT NULL,
+  `RSS` int(1) DEFAULT 0,
+  `SMF` int(11) DEFAULT NULL,
+  `SSF` varchar(20) DEFAULT NULL,
+  `SSFP` int(11) DEFAULT NULL,
+  `SSFD` int(1) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `vehicle_inspect` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `VID` int(11) NOT NULL,
+  `ISD` date DEFAULT NULL,
+  `ISM` int(11) NOT NULL,
+  `RIS` int(1) DEFAULT 0,
+  `IMF` int(11) DEFAULT NULL,
+  `ISF` varchar(20) DEFAULT NULL,
+  `ISFP` int(11) DEFAULT NULL,
+  `ISFD` int(1) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
+
+
 
 
 
