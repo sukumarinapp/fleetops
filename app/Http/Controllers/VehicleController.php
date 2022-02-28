@@ -92,6 +92,7 @@ class VehicleController extends Controller
             $CON = Formulae::CON($VNO);
             $AVI = ($request->get("AVI") != null) ? 1 : 0;
             $AVR = ($request->get("AVR") != null) ? 1 : 0;
+            $MSH = ($request->get("MSH") != null) ? 1 : 0;
             $insert = array(
                 'CAN' => $request->get('CAN'),
                 'VNO' => $request->get('VNO'),
@@ -115,6 +116,7 @@ class VehicleController extends Controller
                 'VBC0' => $request->get('VBC0'),
                 'AVI' => $AVI,
                 'AVR' => $AVR,
+                'MSH' => $MSH,
                 'VTV' => $VTV,
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s")
@@ -183,6 +185,7 @@ class VehicleController extends Controller
             $VTV = ($request->get("VTV") != null) ? 1 : 0;
             $AVI = ($request->get("AVI") != null) ? 1 : 0;
             $AVR = ($request->get("AVR") != null) ? 1 : 0;
+            $MSH = ($request->get("MSH") != null) ? 1 : 0;
             $VID = "";
             if($request->VID != null){
                 $VID =  $id.'.'.$request->VID->extension(); 
@@ -224,6 +227,7 @@ class VehicleController extends Controller
             $vehicle->VBC0 =  $request->get('VBC0');
             $vehicle->AVI =  $AVI;
             $vehicle->AVR =  $AVR;
+            $vehicle->MSH =  $MSH;
             if($vehicle->driver_id == ""){
                 $vehicle->VTV = $VTV;
             }

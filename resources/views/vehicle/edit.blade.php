@@ -285,6 +285,17 @@
 				</div>
                     </div>
                   </div>
+                  <div class="form-group row">
+										<label for="MSH" class="col-sm-2 col-form-label">Scheduler</label>
+										<div class="col-sm-2" style="margin-top:10px">
+											<label class="switch">
+												<input {{ ($vehicle->MSH == "1" ? "checked":"") }} name="MSH" id="MSH" type="checkbox">
+												<span class="slider round"></span>
+											</label>
+										</div>
+
+										<button type="button" class="btn btn-outline-primary float-right" data-toggle="modal" data-target="#modal-default"><i class="nav-icon fas fa-cog"></i> Maintenance Scheduler
+										</button></div>
                 <!-- /.form-group -->
               </div>
               <!-- /.col -->
