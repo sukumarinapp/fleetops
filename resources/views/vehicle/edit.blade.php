@@ -358,10 +358,10 @@
 											<label for="SSF" class="col-sm-1 col-form-label">(or)</label>
 											<div class="col-sm-2">
 												<select name="SSF" id="SSF" class="custom-select">
-													<option {{ ($vehicle->SSF == "Daily" ? "disabled":"") }} value="Daily" selected="selected">Daily</option>
-													<option {{ ($vehicle->SSF == "Weekly" ? "disabled":"") }} value="Weekly" >Weekly</option>
-													<option {{ ($vehicle->SSF == "Monthly" ? "disabled":"") }} value="Monthly" >Monthly</option>
-													<option {{ ($vehicle->SSF == "Yearly" ? "disabled":"") }} value="Yearly" >Yearly</option>
+													<option {{ ($vehicle->SSF == "Daily" ? "selected":"") }} value="Daily" >Daily</option>
+													<option {{ ($vehicle->SSF == "Weekly" ? "selected":"") }} value="Weekly" >Weekly</option>
+													<option {{ ($vehicle->SSF == "Monthly" ? "selected":"") }} value="Monthly" >Monthly</option>
+													<option {{ ($vehicle->SSF == "Yearly" ? "selected":"") }} value="Yearly" >Yearly</option>
 												</select>
 											</div>
 										</div>
@@ -377,7 +377,7 @@
 											<label for="SSFD" class="col-sm-1 col-form-label">On Day</label>
 											<div class="col-sm-2">
 												<select name="SSFD" id="SSFD" class="custom-select">
-													<option {{ ($vehicle->SSFD == "0" ? "selected":"") }} value="0" selected="selected">Sunday</option>
+													<option {{ ($vehicle->SSFD == "0" ? "selected":"") }} value="0" >Sunday</option>
 													<option {{ ($vehicle->SSFD == "1" ? "selected":"") }} value="1" >Monday</option>
 													<option {{ ($vehicle->SSFD == "2" ? "selected":"") }} value="2" >Tuesday</option>
 													<option {{ ($vehicle->SSFD == "3" ? "selected":"") }} value="3" >Wednesday</option>
@@ -416,10 +416,10 @@
 											<label for="ISF" class="col-sm-1 col-form-label">(or)</label>
 											<div class="col-sm-2">
 												<select name="ISF" id="ISF" class="custom-select">
-													<option value="Daily" selected="selected">Daily</option>
-													<option value="Weekly" >Weekly</option>
-													<option value="Monthly" >Monthly</option>
-													<option value="Yearly" >Yearly</option>
+													<option {{ ($vehicle->ISF == "Daily" ? "selected":"") }} value="Daily" >Daily</option>
+													<option {{ ($vehicle->ISF == "Weekly" ? "selected":"") }} value="Weekly" >Weekly</option>
+													<option {{ ($vehicle->ISF == "Monthly" ? "selected":"") }} value="Monthly" >Monthly</option>
+													<option {{ ($vehicle->ISF == "Yearly" ? "selected":"") }} value="Yearly" >Yearly</option>
 												</select>
 											</div>
 										</div>
@@ -435,13 +435,13 @@
 											<label for="ISFD" class="col-sm-1 col-form-label">On Day</label>
 											<div class="col-sm-2">
 												<select name="ISFD" id="ISFD" class="custom-select">
-													<option value="0" selected="selected">Sunday</option>
-													<option value="1" >Monday</option>
-													<option value="2" >Tuesday</option>
-													<option value="3" >Wednesday</option>
-													<option value="4" >Thursday</option>
-													<option value="5" >Friday</option>
-													<option value="6" >Saturday</option>
+													<option {{ ($vehicle->ISFD == "0" ? "selected":"") }} value="0" >Sunday</option>
+													<option {{ ($vehicle->ISFD == "1" ? "selected":"") }} value="1" >Monday</option>
+													<option {{ ($vehicle->ISFD == "2" ? "selected":"") }} value="2" >Tuesday</option>
+													<option {{ ($vehicle->ISFD == "3" ? "selected":"") }} value="3" >Wednesday</option>
+													<option {{ ($vehicle->ISFD == "4" ? "selected":"") }} value="4" >Thursday</option>
+													<option {{ ($vehicle->ISFD == "5" ? "selected":"") }} value="5" >Friday</option>
+													<option {{ ($vehicle->ISFD == "6" ? "selected":"") }} value="6" >Saturday</option>
 												</select>
 											</div>
 										</div>

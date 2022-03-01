@@ -182,6 +182,7 @@ class VehicleController extends Controller
         $rhplatforms = rhplatform::all();
         $vehicle = Vehicle::find($id);
         $TID = $vehicle->TID;
+        $VID = $vehicle->id;
         $today = date("Y-m-d");
         $sql3 = " select distinct terminal_id from current_location where capture_date='$today' and terminal_id='$TID'";
         $tracker = DB::select(DB::raw($sql3));
@@ -189,6 +190,31 @@ class VehicleController extends Controller
         if(count($tracker) > 0){
             $online = 1;
         }
+        $sql = "select * from vehicle_service where VID ='$VID'";
+        $service = DB::select(DB::raw($sql));
+        if(count($service) > 0){
+
+            $vehicle->SSD = $service[0]->SSD;
+            $vehicle->SSM = $service[0]->SSM;
+            $vehicle->RSS = $service[0]->RSS;
+            $vehicle->SMF = $service[0]->SMF;
+            $vehicle->SSF = $service[0]->SSF;
+            $vehicle->SSFP = $service[0]->SSFP;
+            $vehicle->SSFD = $service[0]->SSFD;
+        }
+        $sql = "select * from vehicle_inspect where VID ='$VID'";
+        $service = DB::select(DB::raw($sql));
+        if(count($service) > 0){
+
+            $vehicle->ISD = $service[0]->ISD;
+            $vehicle->ISM = $service[0]->ISM;
+            $vehicle->RIS = $service[0]->RIS;
+            $vehicle->IMF = $service[0]->IMF;
+            $vehicle->ISF = $service[0]->ISF;
+            $vehicle->ISFP = $service[0]->ISFP;
+            $vehicle->ISFD = $service[0]->ISFD;
+        }
+        //dd($vehicle);
         return view('vehicle.edit', compact('vehicle','rhplatforms','clients','online'));
     }
    
@@ -253,6 +279,27 @@ class VehicleController extends Controller
             }
             $vehicle->updated_at =  date("Y-m-d H:i:s");        
             $vehicle->save();
+
+            $SSD =  $request->get('SSD');
+            $SSM =  $request->get('SSM');
+            $SMF =  $request->get('SMF');
+            $SSF =  $request->get('SSF');
+            $SSFP =  $request->get('SSFP');
+            $SSFD =  $request->get('SSFD');
+            $RSS = ($request->get("RSS") != null) ? 1 : 0;
+            $sql = "update vehicle_service set SSD='$SSD',SSM='$SSM',SMF='$SMF',SSF='$SSF',SSFP='$SSFP',SSFD='$SSFD',RSS='$RSS' where VID = '$id'";
+            DB::insert($sql);
+
+            $ISD =  $request->get('ISD');
+            $ISM =  $request->get('ISM');
+            $IMF =  $request->get('IMF');
+            $ISF =  $request->get('ISF');
+            $ISFP =  $request->get('ISFP');
+            $ISFD =  $request->get('ISFD');
+            $RIS = ($request->get("RIS") != null) ? 1 : 0;
+            $sql = "update vehicle_inspect set ISD='$ISD',ISM='$ISM',IMF='$IMF',ISF='$ISF',ISFP='$ISFP',ISFD='$ISFD',RIS='$RIS' where VID = '$id'";
+            DB::insert($sql);
+
             return redirect('/vehicle')->with('message', 'Vehicle Updated Successfully');
         }
 
@@ -269,6 +316,10 @@ class VehicleController extends Controller
             $this->check_access("BPC");
             $vehicle = Vehicle::find($id);
             $vehicle->delete();
+            /*$sq1 = "delete from vehicle_inspect where VID=$id"
+            DB::delete(DB::raw($sql));
+            $sql = "delete from vehicle_service where VID=$id"
+            DB::delete(DB::raw($sql));*/
             return redirect('/vehicle')->with('message', 'Vehicle Deleted Successfully');
         }
     }
