@@ -135,7 +135,7 @@
 									<div class="form-group row">
 										<label for="VID" class="col-sm-4 col-form-label"><span style="color:red">*</span>Insurance Expiry Date</label>
 										<div class="col-6">
-											<input value="{{ $vehicle->IEX }}" required="required" onkeydown="return false" type="date" class="form-control" name="IEX" id="IEX" >
+											<input min="{{ date('Y-m-d') }}" value="{{ $vehicle->IEX }}" required="required" onkeydown="return false" type="date" class="form-control" name="IEX" id="IEX" >
 										</div>
 										<div class="col-2">
 											<label class="switch">
@@ -160,7 +160,7 @@
 									<div class="form-group row">
 										<label for="REX" class="col-sm-4 col-form-label"><span style="color:red">*</span>Roadworthy Expiry Date</label>
 										<div class="col-6">
-											<input value="{{ $vehicle->REX }}" required="required" onkeydown="return false" type="date" class="form-control" name="REX" id="REX" >
+											<input min="{{ date('Y-m-d') }}" value="{{ $vehicle->REX }}" required="required" onkeydown="return false" type="date" class="form-control" name="REX" id="REX" >
 										</div>
 										<div class="col-2">
 											<label class="switch">
