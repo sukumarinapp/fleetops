@@ -4,58 +4,114 @@
  <div class="row justify-content-center">
   <div class="col-md-12 text-center">
     <a href="#" class="navbar-brand">
-                <img src="{{ URL::to('/') }}/images/fleetopslogo.png" alt="AdminLTE Logo">
-            </a>
+      <img src="{{ URL::to('/') }}/images/fleetopslogo.png" alt="AdminLTE Logo">
+    </a>
     <h3 style="color: lightgray">My Account</h3>
   </div>
 </div>
 <div class="card card-success">
   <div class="card-header">
-     @if($VBM == "Hire Purchase")
-     <h5 class="title" style="text-align:center;">Hire Purchase Customer</h5>
-                @elseif($VBM == "Rental")
-      <h5 class="title" style="text-align:center;">Vehicle Rental Customer</h5>
-                @else
-      <h5 class="title" style="text-align:center;">Ride Hailing Driver</h5>
-                @endif
-    
-  </div>
-  <div class="card-body">
-      <input type="hidden" id="VNO" name="VNO" value="{{ $VNO }}">
-     <div class="row justify-content-center">
-    <div class="col-md-12">
-       <label class="col-form-label">Account Name   : </label>{{ $DNM }}
-   </div>
-   <div class="col-md-12">
-       <label class="col-form-label">Vehicle Reg No : </label>{{ $VNO }}
-   </div>
-   <div class="col-md-12">
-     <label class="col-form-label">Reg Phone Number : </label>{{ $DCN }}
-  </div>
-</div>
-  <hr>
-<div class="row">
-  <div class="col-md-12">
-    <div class="row justify-content-center">
-      <div class="col-md-12">
-         @if($VBM == "Hire Purchase")
-          <a href="" type="button" class="btn btn-block btn-primary btn-lg text-center">Buyer statement</a>
-           @elseif($VBM == "Rental")
-            <a href="" type="button" class="btn btn-block btn-primary btn-lg text-center">Receipts</a>
-             @else
-              <a href="" type="button" class="btn btn-block btn-primary btn-lg text-center">Sales Report</a>
-               @endif
-     </div>
-     <div class="col-md-12" style="padding-top:10px;">
-          <a href="{{ route('tasks') }}" type="button" class="btn btn-block btn-primary btn-lg text-center">Tasks</a>
-      </div>
 
-       <div class="col-md-12" style="padding-top:10px;">
-          <a href="" type="button" class="btn btn-block btn-primary btn-lg text-center">E Wallet</a>
-      </div>
+   <h5 class="title" style="text-align:center;">Ride Hailing Driver</h5>
+  
+
+ </div>
+ <div class="card-body">
+  <div class="row justify-content-center">
+    <div class="col-md-12">
+     <label class="col-form-label">Account Name   : </label>
+   </div>
+   <div class="col-md-12">
+     <label class="col-form-label">Vehicle Reg No : </label>
+   </div>
+   <div class="col-md-12">
+     <label class="col-form-label">Reg Phone Number : </label>
+   </div>
+ </div>
+ <hr>
+ <div class="row">
+  <div class="col-md-12">
+    <a href=""> <i style="float:right;margin-top: 80px;" class="fa fa-download"></i></a>
+    <div class="row justify-content-center">
+      <h5 style="color: lightgray">Tasks</h5>
+      <div class="col-md-12">
+       <label class="col-form-label">Licence Renewal   : </label>
+     </div>
+     <div class="col-md-12">
+       <label class="col-form-label">Expiry Date  : </label> 05-03-2022 
+       <span class="text-danger">(expired)</span>
+     </div> 
+     <div class="col-md-12">
+      <p>Please take a snapshot of renewed license</p>
     </div>
+
+
   </div>
 </div>
+</div>
+<hr><div class="row">
+  <div class="col-md-12">
+    <a href=""> <i style="float:right;margin-top: 80px;" class="fa fa-download"></i></a>
+    <div class="row justify-content-center">
+     <div class="col-md-12">
+      <label class="col-form-label">Contract Renewal</label>
+     </div>
+     <div class="col-md-12">
+       <label class="col-form-label">Expiry Date  : </label>
+     </div> 
+     <div class="col-md-12">
+      <p>Please read contract fully. Confirm acceptance by
+        inputting code that would be sent to you via SMS
+      on your registered phone number.</p>
+    </div>
+
+
+  </div>
+</div>
+</div>
+<hr><div class="row">
+  <div class="col-md-12">
+    <a href=""> <i style="float:right;margin-top: 80px;" class="fa fa-download"></i></a>
+   <div class="row justify-content-center">
+     <div class="col-md-12">
+       <label class="col-form-label">Vehicle Servicing</label>
+     </div>
+     <div class="col-md-12">
+       <label class="col-form-label">Expiry Date  : </label>
+     </div>
+     <div class="col-md-12">
+       <label class="col-form-label">Venue  : </label>
+     </div> 
+     <div class="col-md-12">
+      <p>Click icon when servicing is complete</p>
+    </div>
+
+
+  </div>
+</div>
+</div>
+<hr><div class="row">
+  <div class="col-md-12">
+    <a href=""> <i style="float:right;margin-top: 80px;" class="fa fa-download"></i></a>
+   <div class="row justify-content-center">
+     <div class="col-md-12">
+       <label class="col-form-label">Vehicle Inspection</label>
+     </div>
+     <div class="col-md-12">
+       <label class="col-form-label">Expiry Date  : </label>
+     </div>
+     <div class="col-md-12">
+       <label class="col-form-label">Venue  : </label>
+     </div> 
+     <div class="col-md-12">
+      <p>Click icon when Inspection is complete</p>
+    </div>
+
+
+  </div>
+</div>
+</div>
+<hr>
 <nav class="navbar fixed-bottom navbar-expand-lg justify-content-center">      
   <a href="{{ route('driver') }}" class="btn btn-info">Logout</a>
 </nav>
