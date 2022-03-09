@@ -114,7 +114,14 @@ class DriverController extends Controller
     }
      public function agreement($VNO)
     {
-        return view('driver.agreement',compact('VNO'));
+        $sql = "select b.VNO,c.* from vehicle b,driver c where  b.driver_id=c.id and b.VNO='$VNO'";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+            $VBM = $result[0]->VBM;
+            $DNM = $result[0]->DNM . " " . $result[0]->DSN;
+            $DCN = $result[0]->DCN;
+            return view('driver.agreement',compact('VNO','VBM','DNM','DCN'));
+        }
     }
 
     public function resend_otp($VNO)
