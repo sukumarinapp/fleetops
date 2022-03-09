@@ -126,7 +126,7 @@
 				<div class="form-group row">
 										<label for="LEX" class="col-sm-4 col-form-label"><span style="color:red">*</span>License Expiry Date</label>
 										<div class="col-6">
-											<input required="required" onkeydown="return false" type="date" class="form-control" name="LEX" id="LEX" >
+											<input required="required" min="{{ date('Y-m-d') }}" value="{{ date('Y-m-d') }}" onkeydown="return false" type="date" class="form-control" name="LEX" id="LEX" >
 										</div>
 										<div class="col-2">
 											<label class="switch">
@@ -144,7 +144,7 @@
 				<div class="form-group row">
 										<label for="CEX" class="col-sm-4 col-form-label"><span style="color:red">*</span>Contract Expiry Date</label>
 										<div class="col-6">
-											<input required="required" onkeydown="return false" type="date" class="form-control" name="CEX" id="CEX" >
+											<input required="required" min="{{ date('Y-m-d') }}" value="{{ date('Y-m-d') }}" onkeydown="return false" type="date" class="form-control" name="CEX" id="CEX" >
 										</div>
 										<div class="col-2">
 											<label class="switch">
