@@ -1,9 +1,11 @@
 Driver Login - OTP based login
+Maintenance Sheduler Process
+My Account - Tasks (Static Screens)
+Agreement Summaries
+
 *My Account - Buyer Statement (HP)
 *My Account - Receipts Statement(Rental)
 *My Account - Sales Report (RH)
-My Account - Tasks (Static Screens)
-Agreement Summaries
 *Vehicle Handover Form
 *General Terms and Conditions
 
@@ -15,10 +17,10 @@ Agreement Summaries
 *Update Vehicle Inspection Details
 *Tasks Listing in Driver Screen
 *SMS Remainders for Contract and License Expiry
-*Maintenance Shedular Process -- delete pending
 
 *PWA App Development
 
 --my tasks
 Parking Location in Driver
 Locate vehicle in live tracking
+
