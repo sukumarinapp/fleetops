@@ -287,9 +287,17 @@ class VehicleController extends Controller
             $SSFP =  $request->get('SSFP');
             $SSFD =  $request->get('SSFD');
             $RSS = ($request->get("RSS") != null) ? 1 : 0;
-            $sql = "update vehicle_service set SSD='$SSD',SSM='$SSM',SMF='$SMF',SSF='$SSF',SSFP='$SSFP',SSFD='$SSFD',RSS='$RSS' where VID = '$id'";
-            DB::insert($sql);
 
+            $sql = "SELECT * FROM vehicle_service where VID = $id";
+            $check = DB::select(DB::raw($sql));
+            if(count($check) > 0){
+                $sql = "update vehicle_service set SSD='$SSD',SSM='$SSM',SMF='$SMF',SSF='$SSF',SSFP='$SSFP',SSFD='$SSFD',RSS='$RSS' where VID = '$id'";
+                DB::update($sql);
+            }else{
+                $sql = "insert into vehicle_service (VID,SSD,SSM,SMF,SSF,SSFP,SSFD,RSS) values ($id,'$SSD','$SSM','$SMF','$SSF','$SSFP','$SSFD','$RSS')";
+                DB::insert($sql);
+            }
+            
             $ISD =  $request->get('ISD');
             $ISM =  $request->get('ISM');
             $IMF =  $request->get('IMF');
@@ -297,8 +305,16 @@ class VehicleController extends Controller
             $ISFP =  $request->get('ISFP');
             $ISFD =  $request->get('ISFD');
             $RIS = ($request->get("RIS") != null) ? 1 : 0;
-            $sql = "update vehicle_inspect set ISD='$ISD',ISM='$ISM',IMF='$IMF',ISF='$ISF',ISFP='$ISFP',ISFD='$ISFD',RIS='$RIS' where VID = '$id'";
-            DB::insert($sql);
+
+            $sql = "SELECT * FROM vehicle_inspect where VID = $id";
+            $check = DB::select(DB::raw($sql));
+            if(count($check) > 0){
+                $sql = "update vehicle_inspect set ISD='$ISD',ISM='$ISM',IMF='$IMF',ISF='$ISF',ISFP='$ISFP',ISFD='$ISFD',RIS='$RIS' where VID = '$id'";
+                DB::update($sql);
+            }else{
+                $sql = "insert into vehicle_inspect (VID,ISD,ISM,RIS,IMF,ISF,ISFP,ISFD) values ($id,'$ISD','$ISM','$RIS','$IMF','$ISF','$ISFP','$ISFD')";
+                DB::insert($sql);
+            }
 
             return redirect('/vehicle')->with('message', 'Vehicle Updated Successfully');
         }
@@ -316,10 +332,10 @@ class VehicleController extends Controller
             $this->check_access("BPC");
             $vehicle = Vehicle::find($id);
             $vehicle->delete();
-            /*$sq1 = "delete from vehicle_inspect where VID=$id"
+            $sql = "delete from vehicle_inspect where VID = $id";
             DB::delete(DB::raw($sql));
-            $sql = "delete from vehicle_service where VID=$id"
-            DB::delete(DB::raw($sql));*/
+            $sql = "delete from vehicle_service where VID = $id";
+            DB::delete(DB::raw($sql));
             return redirect('/vehicle')->with('message', 'Vehicle Deleted Successfully');
         }
     }
