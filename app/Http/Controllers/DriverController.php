@@ -124,7 +124,7 @@ class DriverController extends Controller
             $VAM = $result[0]->VAM;
             $VPF = $result[0]->VPF;
             $CEX = $result[0]->CEX;
-            $EPD = $result[0]->EPD;
+            $EPD = $result[0]->EPD == 1 ? "Yes" : "No";
             $NOD = $result[0]->NOD;
             $PAM = $result[0]->PAM;
             $PAT = $result[0]->PAT;
