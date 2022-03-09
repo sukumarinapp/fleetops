@@ -112,6 +112,10 @@ class DriverController extends Controller
             return view('driver.tasks',compact('VNO','VBM','DNM','DCN'));
         }
     }
+     public function agreement($VNO)
+    {
+        return view('driver.agreement',compact('VNO'));
+    }
 
     public function resend_otp($VNO)
     {
