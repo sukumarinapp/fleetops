@@ -108,11 +108,12 @@
     <label class="col-1 col-form-label">:</label>
     <p class="col-5 col-form-label">{{ $PAT }}</p>
   </div>
-
-  <nav class="navbar fixed-bottom navbar-expand-lg justify-content-center">      
+</div>
+  <nav class="navbar fixed-bottom navbar-expand-lg justify-content-center">
+   <a href="{{ route('myaccount') }}" class="btn btn-info">Back</a>&nbsp;      
     <a href="{{ route('driver') }}" class="btn btn-info">Logout</a>
   </nav>
-</div>
+
 </div>
 </div>
 
