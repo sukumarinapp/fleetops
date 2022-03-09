@@ -259,6 +259,27 @@
 					</div>
 				</div>
 
+         <div class="form-group row" id="purchasediv" style="display: none;">
+					<label for="PPR" class="col-sm-4 col-form-label"><span style="color:red"></span>Purchase Price</label>
+					<div class="col-sm-8">
+						<input type="text" class="form-control decimal" name="PPR" id="PPR" maxlength="10" placeholder="Purchase Price">
+					</div>
+				</div>
+
+            <div class="form-group row" id="dowmamtdiv" style="display: none;">
+					<label for="PDP" class="col-sm-4 col-form-label"><span style="color:red"></span>Down Payment</label>
+					<div class="col-sm-8">
+						<input type="text" class="form-control decimal" name="PDP" id="PDP" maxlength="10" placeholder="Down Payment">
+					</div>
+				</div>
+
+           <div class="form-group row" id="depositdiv" style="display: none;">
+					<label for="SDP" class="col-sm-4 col-form-label"><span style="color:red"></span>Security Deposit (Refundable)</label>
+					<div class="col-sm-8">
+						<input type="text" class="form-control decimal" name="SDP" id="SDP" maxlength="10" placeholder="Security Deposit">
+					</div>
+				</div>
+
 				<div class="form-group row" style="padding-top:50px;display: none;" id="penalty">
                     <label  class="form-check-label col-sm-7" for="EPD"><b>Enable Penalty Rule on Payment Defaults</b></label>
                      <div class="icheck-success d-inline col-sm-1">

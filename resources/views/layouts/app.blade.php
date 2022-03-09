@@ -582,6 +582,21 @@ function toggle_map(arg){
                 $("#def").hide("slow");
                 $("#pen").hide("slow");
                 $("#due").hide("slow");
+                $("#purchasediv").hide("slow");
+                $("#dowmamtdiv").hide("slow");
+                $("#depositdiv").hide("slow");
+            }else if(VBM=="Rental"){
+                $("#rhdiv").hide("slow");
+                $("#freqdiv").show("slow");
+                $("#paydatediv").show("slow");
+                $("#payamtdiv").show("slow");
+                $("#penalty").show("slow");
+                $("#def").show("slow");
+                $("#pen").show("slow");
+                $("#due").show("slow");
+                $("#purchasediv").hide("slow");
+                $("#dowmamtdiv").hide("slow");
+                $("#depositdiv").show("slow");
             }else{
                 $("#rhdiv").hide("slow");
                 $("#freqdiv").show("slow");
@@ -591,6 +606,9 @@ function toggle_map(arg){
                 $("#def").show("slow");
                 $("#pen").show("slow");
                 $("#due").show("slow");
+                $("#purchasediv").show("slow");
+                $("#dowmamtdiv").show("slow");
+                $("#depositdiv").show("slow");
             }
         });
         $("#CMT").change(function(evt){

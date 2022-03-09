@@ -56,6 +56,17 @@
     </div>
   </div>
 </div>
+<div class="row" style="margin-top:30px">
+<div class="col-md-12">
+      <a href="">Agreement Summary</a>
+   </div>
+   <div class="col-md-12">
+     <a href="">General Terms & Conditions</a>
+   </div>
+   <div class="col-md-12">
+     <a href="">Vehicle Hand-over Form</a>
+  </div>
+</div>
 <nav class="navbar fixed-bottom navbar-expand-lg justify-content-center">      
   <a href="{{ route('driver') }}" class="btn btn-info">Logout</a>
 </nav>
