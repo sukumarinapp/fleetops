@@ -56,6 +56,10 @@ CREATE TABLE `vehicle_inspect` (
 
 alter table vehicle add MSH int(1) DEFAULT 0; 
 
+alter table driver add PPR decimal(10,2) DEFAULT 0;
+alter table driver add PDP decimal(10,2) DEFAULT 0;
+alter table driver add SDP decimal(10,2) DEFAULT 0;
+
 
 
 

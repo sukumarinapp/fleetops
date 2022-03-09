@@ -1,1 +1,21 @@
-For which all business model(vBM) Amount Due(VAM) is applicable ?
+Driver Login - OTP based login
+My Account - Buyer Statement (HP)
+My Account - Receipts Statement(Rental)
+My Account - Sales Report (RH)
+My Account - Tasks (Static Screens)
+Agreement Summaries
+Vehicle Handover Form
+General Terms and Conditions
+
+Update Vehicle Insurance Certificate Details
+Update Vehicle Roadworthy Certificate Details
+Update Driver License Details
+Update Driver Contract Details
+Update Vehicle Service Details
+Update Vehicle Inspection Details
+Tasks Listing in Driver Screen
+SMS Remainders for Contract and License Expiry
+Maintenance Shedular Process
+
+PWA App Development
+
