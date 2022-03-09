@@ -24,13 +24,13 @@
   <input type="hidden" id="VNO" name="VNO" value="{{ $VNO }}">
   <div class="row justify-content-center">
     <div class="col-md-12">
-     <label class="col-form-label">Account Name   : </label>{{ $DNM }}
+     <label class="col-form-label">Account Name:&nbsp; </label>{{ $DNM }}
    </div>
    <div class="col-md-12">
-     <label class="col-form-label">Vehicle Reg No : </label>{{ $VNO }}
+     <label class="col-form-label">Vehicle Reg No:&nbsp; </label>{{ $VNO }}
    </div>
    <div class="col-md-12">
-     <label class="col-form-label">Reg Phone Number : </label>{{ $DCN }}
+     <label class="col-form-label">Reg Phone Number:&nbsp; </label>{{ $DCN }}
    </div>
  </div>
  <hr>

@@ -47,7 +47,7 @@
                @endif
      </div>
      <div class="col-md-12" style="padding-top:10px;">
-          <a href="{{ route('tasks') }}" type="button" class="btn btn-block btn-primary btn-lg text-center">Tasks</a>
+          <a href="{{ url('tasks') }}/{{ Session::get('VNO') }}" type="button" class="btn btn-block btn-primary btn-lg text-center">Tasks</a>
       </div>
 
        <div class="col-md-12" style="padding-top:10px;">

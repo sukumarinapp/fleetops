@@ -101,11 +101,19 @@ class DriverController extends Controller
     {
         return view('driver.myaccount');
     }
-    public function tasks()
+    public function tasks($VNO)
     {
-        return view('driver.tasks');
+        $sql = "select c.VBM,c.DNM,c.DSN,c.DCN from vehicle b,driver c where  b.driver_id=c.id and b.VNO='$VNO'";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+            $VBM = $result[0]->VBM;
+            $DNM = $result[0]->DNM . " " . $result[0]->DSN;
+            $DCN = $result[0]->DCN;
+            return view('driver.tasks',compact('VNO','VBM','DNM','DCN'));
+        }
     }
-     public function resend_otp($VNO)
+
+    public function resend_otp($VNO)
     {
         $sql = "SELECT a.*,b.DCN,b.DNM,b.DSN FROM vehicle a,driver b where a.driver_id=b.id and VNO = '$VNO' and VTV=1";
         $valid = DB::select(DB::raw($sql));
