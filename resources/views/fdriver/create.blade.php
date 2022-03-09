@@ -290,7 +290,7 @@
 				<div class="form-group row" id="def" style="display: none;">
 										<label for="NOD" class="col-sm-5 col-form-label"><span style="color:red"></span>Number of Defaults Allowed</label>
 										<div class="col-2">
-											<input type="text" class="form-control" name="NOD" id="NOD" >
+											<input maxlength="2" type="text" class="form-control number" name="NOD" id="NOD" >
 										</div>
 										<div class="col-5">
 											<div class="icheck-primary d-inline">
@@ -309,7 +309,7 @@
 										<div class="form-group row" id="pen" style="display: none;">
 										<label for="PAM" class="col-sm-5 col-form-label">Penalty Amount:</label>
 										<div class="col-2">
-											<input type="text" class="form-control" name="PAM" id="PAM" >
+											<input maxlength="5" type="text" class="form-control number" name="PAM" id="PAM" >
 										</div>
 										
 											<label for="CEX" class="col-sm-1 col-form-label">per</label>

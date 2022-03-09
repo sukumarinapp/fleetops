@@ -294,7 +294,7 @@
 						<input onkeydown="return false"   value="{{ $driver->VPD }}" type="date" class="form-control" name="VPD" id="VPD" maxlength="50" placeholder="First Payment Date">
 					</div>
 				</div>
-				
+
 				<div 
 				@php
         	if($driver->VBM == "Ride Hailing") echo " style='display:none' ";
@@ -305,6 +305,40 @@
 						<input value="{{ $driver->VAM }}" type="text" class="form-control decimal" name="VAM" id="VAM" maxlength="10" placeholder="Payment Amount">
 					</div>
 				</div>
+
+				<div
+				 @php
+        	if($driver->VBM == "Ride Hailing" || $driver->VBM == "Rental" ) echo " style='display:none' ";
+         @endphp 
+         class="form-group row" id="purchasediv">
+					<label for="PPR" class="col-sm-4 col-form-label"><span style="color:red"></span>Purchase Price</label>
+					<div class="col-sm-8">
+						<input value="{{ $driver->PPR }}" type="text" class="form-control decimal" name="PPR" id="PPR" maxlength="10" placeholder="Purchase Price">
+					</div>
+				</div>
+
+            <div  
+            @php
+        	if($driver->VBM == "Ride Hailing" || $driver->VBM == "Rental") echo " style='display:none' ";
+         @endphp 
+         class="form-group row" id="dowmamtdiv">
+					<label for="PDP" class="col-sm-4 col-form-label"><span style="color:red"></span>Down Payment</label>
+					<div class="col-sm-8">
+						<input value="{{ $driver->PDP }}" type="text" class="form-control decimal" name="PDP" id="PDP" maxlength="10" placeholder="Down Payment">
+					</div>
+				</div>
+
+           <div
+            @php
+        	if($driver->VBM == "Ride Hailing") echo " style='display:none' ";
+         @endphp 
+         class="form-group row" id="depositdiv">
+					<label for="SDP" class="col-sm-4 col-form-label"><span style="color:red"></span>Security Deposit (Refundable)</label>
+					<div class="col-sm-8">
+						<input value="{{ $driver->SDP }}" type="text" class="form-control decimal" name="SDP" id="SDP" maxlength="10" placeholder="Security Deposit">
+					</div>
+				</div>
+
 				<div
 				@php
         	if($driver->VBM == "Ride Hailing") echo " style='display:none' ";

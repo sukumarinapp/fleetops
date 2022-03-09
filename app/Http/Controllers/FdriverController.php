@@ -61,6 +61,9 @@ class FdriverController extends Controller
             $PAM = 0;
             $PAT = 0;
             $NODB = 0;
+            $PPR = 0;
+            $PDP = 0;
+            $SDP = 0;
             if($request->get('VBM') != "Ride Hailing"){
                $VPF = $request->get('VPF');
                $WDY = $request->get('WDY');
@@ -72,6 +75,9 @@ class FdriverController extends Controller
                $NODB = $request->get('NODB'); 
                $PAM = $request->get('PAM'); 
                $PAT = $request->get('PAT'); 
+               $PPR = $request->get('PPR'); 
+               $PDP = $request->get('PDP'); 
+               $SDP = $request->get('SDP'); 
             }
            
             $AVL = ($request->get("AVL") != null) ? 1 : 0;
@@ -89,6 +95,9 @@ class FdriverController extends Controller
                 'WDY' => $WDY,
                 'MDY' => $MDY,
                 'VAM' => $VAM,
+                'PPR' => $PPR,
+                'PDP' => $PDP,
+                'SDP' => $SDP,
                 'AVC' => $AVC,
                 'AVL' => $AVL,
                 'DVE' => $DVE,
@@ -186,6 +195,9 @@ class FdriverController extends Controller
             $NOD = 0;
             $PAM = 0;
             $PAT = 0;
+            $PPR = 0;
+            $PDP = 0;
+            $SDP = 0;
             if($request->get('VBM') != "Ride Hailing"){
                $VPF = $request->get('VPF');
                $WDY = $request->get('WDY');
@@ -197,6 +209,9 @@ class FdriverController extends Controller
                $NODB = $request->get('NODB'); 
                $PAM = $request->get('PAM'); 
                $PAT = $request->get('PAT'); 
+               $PPR = $request->get('PPR'); 
+               $PDP = $request->get('PDP'); 
+               $SDP = $request->get('SDP'); 
             }
             $AVL = ($request->get("AVL") != null) ? 1 : 0;
             $AVC = ($request->get("AVC") != null) ? 1 : 0;
@@ -223,6 +238,9 @@ class FdriverController extends Controller
             $driver->NODB =  $NODB;
             $driver->PAM =  $PAM;
             $driver->PAT =  $PAT;
+            $driver->PPR =  $PPR;
+            $driver->PDP =  $PDP;
+            $driver->SDP =  $SDP;
             $driver->LEX =  $request->get('LEX');
             $driver->CEX =  $request->get('CEX');
             $driver->updated_at =  date("Y-m-d H:i:s");  
