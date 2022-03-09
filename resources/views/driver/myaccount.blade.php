@@ -58,7 +58,7 @@
 </div>
 <div class="row" style="margin-top:30px">
 <div class="col-md-12">
-      <a href="{{ route('agreement') }}">Agreement Summary</a>
+      <a href="{{ url('agreement') }}/{{ Session::get('VNO') }}">Agreement Summary</a>
    </div>
    <div class="col-md-12">
      <a href="">General Terms & Conditions</a>

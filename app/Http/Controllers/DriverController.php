@@ -114,13 +114,21 @@ class DriverController extends Controller
     }
      public function agreement($VNO)
     {
-        $sql = "select b.VNO,c.* from vehicle b,driver c where  b.driver_id=c.id and b.VNO='$VNO'";
+        $sql = "select b.VNO,c.VBM,c.PPR,c.PDP,c.SDP,c.VAM,c.VPF,c.CEX,c.EPD,c.NOD,c.PAM,c.PAT from vehicle b,driver c where  b.driver_id=c.id and b.VNO='$VNO'";
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
             $VBM = $result[0]->VBM;
-            $DNM = $result[0]->DNM . " " . $result[0]->DSN;
-            $DCN = $result[0]->DCN;
-            return view('driver.agreement',compact('VNO','VBM','DNM','DCN'));
+            $PPR = $result[0]->PPR;
+            $PDP = $result[0]->PDP;
+            $SDP = $result[0]->SDP;
+            $VAM = $result[0]->VAM;
+            $VPF = $result[0]->VPF;
+            $CEX = $result[0]->CEX;
+            $EPD = $result[0]->EPD;
+            $NOD = $result[0]->NOD;
+            $PAM = $result[0]->PAM;
+            $PAT = $result[0]->PAT;
+            return view('driver.agreement',compact('VNO','VBM','PPR','PDP','SDP','VAM','VPF','CEX','EPD','NOD','PAM','PAT'));
         }
     }
 
