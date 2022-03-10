@@ -457,6 +457,7 @@ function toggle_map(arg){
             $("#search_inp").focus();
             live_play_mode = 0;
         }else{
+            $("#locate").hide();
             if(arg.value == "replay"){
                 $("#map_canvas").slideUp("slow");
                 $("#map_canvas_live").slideUp("slow");

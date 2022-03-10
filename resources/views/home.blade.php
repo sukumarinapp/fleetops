@@ -68,6 +68,9 @@
               </div>   -->   
               <div class="card-body">
                <div id="map_canvas" style="height: 500px;"></div>
+              <div class="col-md-1">
+                    <button style="display: none" type="button" id="locate" class="btn btn-success btn-xs form-control" onclick="last_location()" >Locate</button>
+                  </div>
                <div id="map_canvas_live" style="height: 500px;display: none;"></div>
                <div id="map_replay" style="height: 500px;display: none;">
                 <form class="form" >
@@ -238,6 +241,7 @@
       $("#gmapreplay").html("<i class='fa fa-arrow-left'>&nbsp;</i>Normal");
       $("#gmapreplay").attr('value', 'normal'); 
       $("#gmaplive").hide();
+      $("#locate").show();
       initialize_live_track();
     }
   }
@@ -510,6 +514,24 @@
           }
         });
       }
+
+      var last_location_url = "{{ url('last_location') }}";
+
+      function last_location() {
+        var VNO = $("#search_inp").val();
+        var url =  last_location_url + "/" + VNO;
+        $.ajax({
+          type: "get",
+          url: url,
+          success: function(response) {
+            window.open("https://maps.google.com/?q="+response['latitude']+","+response['longitude']); 
+          },
+          error: function (jqXHR, exception) {
+            console.log(exception);
+          }
+        });
+      }
+
       function initialize() {
         var mapOptions = {
           zoom: 13,
