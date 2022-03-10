@@ -27,5 +27,3 @@ PWA App Development
 MISCELANEOUS TASKS
 Parking Location in Driver
 Locate vehicle in live tracking
-
-Today we will fix CORS issue. I have already taken 9200. I need some 800 today. So balance will be 5000. 
