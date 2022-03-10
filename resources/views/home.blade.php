@@ -68,9 +68,11 @@
               </div>   -->   
               <div class="card-body">
                <div id="map_canvas" style="height: 500px;"></div>
-              <div class="col-md-1">
-                    <button style="display: none" type="button" id="locate" class="btn btn-success btn-xs form-control" onclick="last_location()" >Locate</button>
+               <div class="row">
+              <div class="col-md-2">
+                    <button style="display: none;text-align: center;margin-bottom: 5px;" type="button"  id="locate" class="btn btn-primary" onclick="last_location()" ><i class="fa fa-map-marker"></i>&nbsp;Locate</button>
                   </div>
+                </div>
                <div id="map_canvas_live" style="height: 500px;display: none;"></div>
                <div id="map_replay" style="height: 500px;display: none;">
                 <form class="form" >
