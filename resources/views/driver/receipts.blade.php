@@ -9,15 +9,9 @@
     <h3 style="color: lightgray">My Account</h3>
   </div>
 </div>
-<div class="card card-success">
+<div class="card card-info">
   <div class="card-header">
-     @if($VBM == "Hire Purchase")
-     <h5 class="title" style="text-align:center;">Hire Purchase Customer</h5>
-                @elseif($VBM == "Rental")
-      <h5 class="title" style="text-align:center;">Vehicle Rental Customer</h5>
-                @else
-      <h5 class="title" style="text-align:center;">Ride Hailing Driver</h5>
-                @endif
+      <h5 class="title" style="text-align:center;">Receipts</h5>
     
   </div>
 <div class="card-body">
@@ -40,7 +34,7 @@
 
 </div>
 <div class="table-responsive" >
-<table id="example1" class="table table-bordered">
+<table id="example1" class="table table-striped">
           <thead>
           <tr>
             <th>Date</th>
@@ -51,6 +45,18 @@
           </tr>
           </thead>
           <tbody>
+            <tr>
+              <td style="width:80px">08-04-2022</td>
+              <td>MTN MOMO 11961266052</td>
+              <td>Rental Payment (week 15)</td>
+               <td>400.00</td>
+            </tr>
+            <tr>
+              <td style="width:80px">08-04-2022</td>
+              <td>MTN MOMO 11961266052</td>
+              <td>Rental Payment (week 15)</td>
+               <td>400.00</td>
+            </tr>
             <tr>
               <td style="width:80px">08-04-2022</td>
               <td>MTN MOMO 11961266052</td>
