@@ -41,7 +41,7 @@
          @if($VBM == "Hire Purchase")
           <a href="" type="button" class="btn btn-block btn-primary btn-lg text-center">Buyer statement</a>
            @elseif($VBM == "Rental")
-            <a href="" type="button" class="btn btn-block btn-primary btn-lg text-center">Receipts</a>
+            <a href="{{ url('receipts') }}/{{ Session::get('VNO') }}" type="button" class="btn btn-block btn-primary btn-lg text-center">Receipts</a>
              @else
               <a href="" type="button" class="btn btn-block btn-primary btn-lg text-center">Sales Report</a>
                @endif
