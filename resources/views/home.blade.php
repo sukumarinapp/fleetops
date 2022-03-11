@@ -119,6 +119,14 @@
                 <label>Speed:&nbsp;</label><h3 class="badge badge-pill badge-info" id="speed">1x</h3>
               </div>
 
+              <div class="col-md-1">
+                  <button type="button" class="btn btn-primary btn-xs form-control" onclick="prev()" value ="P"><i class="fa fa-fast-backward"></i></button>
+               </div>
+
+                <div class="col-md-1">
+                <button type="button" class="btn btn-primary btn-xs form-control" onclick="next()" value ="N"><i class="fa fa-fast-forward"></i></button>
+              </div>
+
                <div class="col-md-3">
                 <label style="font-weight:normal !important;" id="replaytime"></label>
               </div>
