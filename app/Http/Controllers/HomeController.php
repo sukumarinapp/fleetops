@@ -941,4 +941,21 @@ class HomeController extends Controller
         return response()->json($markers);
       }
 
+     public function last_location($VNO){
+        $sql = "select latitude,longitude from current_location where id = (select max(a.id) from current_location a,vehicle b where a.terminal_id=b.TID and b.VNO='$VNO')";
+        $position = DB::select(DB::raw($sql));
+        if(count($position) > 0){
+          $latitude = $position[0]->latitude;
+          $longitude = $position[0]->longitude;
+        }else{
+          $latitude = "5.604688667802131";
+          $longitude = "-0.187207828880368";
+        }
+        $response = array();
+        $response['latitude'] = $latitude;
+        $response['longitude'] = $longitude;
+        return response()->json($response);
+      }
+
+
 }

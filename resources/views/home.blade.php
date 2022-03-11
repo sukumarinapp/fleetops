@@ -68,6 +68,11 @@
               </div>   -->   
               <div class="card-body">
                <div id="map_canvas" style="height: 500px;"></div>
+               <div class="row">
+              <div class="col-md-2">
+                    <button style="display: none;text-align: center;margin-bottom: 5px;" type="button"  id="locate" class="btn btn-primary" onclick="last_location()" ><i class="fa fa-map-marker"></i>&nbsp;Locate</button>
+                  </div>
+                </div>
                <div id="map_canvas_live" style="height: 500px;display: none;"></div>
                <div id="map_replay" style="height: 500px;display: none;">
                 <form class="form" >
@@ -112,6 +117,14 @@
 
                <div class="col-md-2">
                 <label>Speed:&nbsp;</label><h3 class="badge badge-pill badge-info" id="speed">1x</h3>
+              </div>
+
+              <div class="col-md-1">
+                  <button type="button" class="btn btn-primary btn-xs form-control" onclick="prev()" value ="P"><i class="fa fa-fast-backward"></i></button>
+               </div>
+
+                <div class="col-md-1">
+                <button type="button" class="btn btn-primary btn-xs form-control" onclick="next()" value ="N"><i class="fa fa-fast-forward"></i></button>
               </div>
 
                <div class="col-md-3">
@@ -238,6 +251,7 @@
       $("#gmapreplay").html("<i class='fa fa-arrow-left'>&nbsp;</i>Normal");
       $("#gmapreplay").attr('value', 'normal'); 
       $("#gmaplive").hide();
+      $("#locate").show();
       initialize_live_track();
     }
   }
@@ -510,6 +524,24 @@
           }
         });
       }
+
+      var last_location_url = "{{ url('last_location') }}";
+
+      function last_location() {
+        var VNO = $("#search_inp").val();
+        var url =  last_location_url + "/" + VNO;
+        $.ajax({
+          type: "get",
+          url: url,
+          success: function(response) {
+            window.open("https://maps.google.com/?q="+response['latitude']+","+response['longitude']); 
+          },
+          error: function (jqXHR, exception) {
+            console.log(exception);
+          }
+        });
+      }
+
       function initialize() {
         var mapOptions = {
           zoom: 13,

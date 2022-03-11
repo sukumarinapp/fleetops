@@ -90,6 +90,7 @@ Route::get('/alertlog/{from}/{to}', 'HomeController@alertlog')->name('alertlog')
 Route::get('/acknowledge/{id}', 'HomeController@acknowledge')->name('acknowledge');
 Route::get('/workflowlog/{from}/{to}', 'WorkflowController@workflowlog')->name('workflowlog');
 Route::get('/override/{VNO}', 'WorkflowController@override')->name('override');
+Route::get('/last_location/{VNO}', 'HomeController@last_location')->name('last_location');
 Route::get('/overrides/{VNO}', 'WorkflowController@overrides')->name('overrides');
 Route::post('/saveoverride', 'WorkflowController@saveoverride')->name('saveoverride');
 Route::get('/auditsrch', 'WorkflowController@auditsrch')->name('auditsrch');

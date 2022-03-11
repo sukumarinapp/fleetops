@@ -5,25 +5,24 @@ My Account - Tasks (Static Screens)
 
 IN PROGRESS
 Agreement Summaries
-My Account - Buyer Statement (HP)
 My Account - Receipts Statement(Rental)
+My Account - Buyer Statement (HP)
 My Account - Sales Report (RH)
 
 PENDING
 Vehicle Handover Form
 General Terms and Conditions
 
+Update Driver License Details (21,30)
 Update Vehicle Insurance Certificate Details
 Update Vehicle Roadworthy Certificate Details
-Update Driver License Details (21,30)
+
 Update Driver Contract Details
 Update Vehicle Service Details
 Update Vehicle Inspection Details
 Tasks Listing in Driver Screen
 SMS Remainders for Contract and License Expiry
 
-PWA App Development
-
-MISCELANEOUS TASKS
 Parking Location in Driver
-Locate vehicle in live tracking
+
+PWA App Development
