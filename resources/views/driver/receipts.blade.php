@@ -46,19 +46,19 @@
           </thead>
           <tbody>
             <tr>
-              <td style="width:80px">08-04-2022</td>
+              <td>08-04-2022</td>
               <td>MTN MOMO 11961266052</td>
               <td>Rental Payment (week 15)</td>
                <td>400.00</td>
             </tr>
             <tr>
-              <td style="width:80px">08-04-2022</td>
+              <td>08-04-2022</td>
               <td>MTN MOMO 11961266052</td>
               <td>Rental Payment (week 15)</td>
                <td>400.00</td>
             </tr>
             <tr>
-              <td style="width:80px">08-04-2022</td>
+              <td>08-04-2022</td>
               <td>MTN MOMO 11961266052</td>
               <td>Rental Payment (week 15)</td>
                <td>400.00</td>
