@@ -397,17 +397,15 @@ function play(){
         alert("select End Time");
         return false;
     }else{
-        locationData = Array();
+        locationData = [];
         $("#gmapreplay").html("<i class='fa fa-arrow-left'>&nbsp;</i>Normal");
         $.ajax({
           type: "get",
           url: url,
           success: function(response) {
             response = JSON.parse(response);
-            console.log("response");
-            console.log(response);
-
-
+            console.log(response['VNO']);
+            console.log(response['max_speed']);
             $("#replay-summary").html("<div style='font-size:large' class='bg-danger text-center'><b>"+response['VNO']+"</b></div><div class='text-center'>"+"<b>Mileage covered: </b>"+response['mileage']+"  "+"<b>Engine Active Hours: </b>"+response['hours_worked']+"  "+"<b>Min. Speed: </b>"+response['min_speed']+"  "+"<b>Max. Speed: </b> "+response['max_speed']+"</div>");
             if(response["loc"] == undefined){
                 alert("No data found");
