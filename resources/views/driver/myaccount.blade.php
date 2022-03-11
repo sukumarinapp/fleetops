@@ -39,11 +39,11 @@
     <div class="row justify-content-center">
       <div class="col-md-12">
          @if($VBM == "Hire Purchase")
-          <a href="111111111" type="button" class="btn btn-block btn-primary btn-lg text-center">Buyer statement</a>
+          <a href="" type="button" class="btn btn-block btn-primary btn-lg text-center">Buyer statement</a>
            @elseif($VBM == "Rental")
             <a href="{{ url('receipts') }}/{{ Session::get('VNO') }}" type="button" class="btn btn-block btn-primary btn-lg text-center">Receipts</a>
              @else
-              <a href="22222222" type="button" class="btn btn-block btn-primary btn-lg text-center">Sales Report</a>
+              <a href="" type="button" class="btn btn-block btn-primary btn-lg text-center">Sales Report</a>
                @endif
      </div>
      <div class="col-md-12" style="padding-top:10px;">
