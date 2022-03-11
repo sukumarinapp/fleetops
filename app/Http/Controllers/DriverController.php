@@ -134,14 +134,14 @@ class DriverController extends Controller
      
     public function receipts($VNO)
     {
-        $sql = "select b.* c.VBM,c.DNM,c.DSN,c.DCN, from vehicle b,driver c where  b.driver_id=c.id and b.VNO='$VNO'";
+        $sql = "select b.VMK,b.VMD,c.VBM,c.DNM,c.DSN,c.DCN from vehicle b,driver c where  b.driver_id=c.id and b.VNO='$VNO'";
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
             $VBM = $result[0]->VBM;
             $DNM = $result[0]->DNM . " " . $result[0]->DSN;
             $VMK = $result[0]->VMK . " " . $result[0]->VMD;
             $DCN = $result[0]->DCN;
-            return view('driver.receipts',compact('VNO','VBM','DNM','DCN','VMK','VMD'));
+            return view('driver.receipts',compact('VNO','VBM','DNM','DCN','VMK'));
         }
     }
 
