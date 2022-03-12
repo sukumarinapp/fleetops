@@ -34,13 +34,14 @@
    </div>
  </div>
  <hr>
+
  <div class="row">
   <div class="col-md-12">
-    <a href=""> <i style="float:right;margin-top: 80px;" class="fa fa-download"></i></a>
+    <a href="{{ url('uploadlicence') }}/{{ Session::get('VNO') }}"> <i style="float:right;margin-top: 80px;" class="fa fa-upload"></i></a>
     <div class="row justify-content-center">
       <h5 style="color: lightgray">Tasks</h5>
       <div class="col-md-12">
-       <label class="col-form-label">Licence Renewal   : </label>
+       <label class="col-form-label">Licence Renewal - </label>
      </div>
      <div class="col-md-12">
        <label class="col-form-label">Expiry Date  : </label> 05-03-2022 
@@ -49,14 +50,52 @@
      <div class="col-md-12">
       <p>Please take a snapshot of renewed license</p>
     </div>
-
-
   </div>
 </div>
 </div>
-<hr><div class="row">
+<hr>
+
+ <div class="row">
   <div class="col-md-12">
-    <a href=""> <i style="float:right;margin-top: 80px;" class="fa fa-download"></i></a>
+    <a href="{{ url('uploadinsurance') }}/{{ Session::get('VNO') }}"> <i style="float:right;margin-top: 80px;" class="fa fa-upload"></i></a>
+    <div class="row justify-content-center">
+      <div class="col-md-12">
+       <label class="col-form-label">Insurance Renewal</label>
+     </div>
+     <div class="col-md-12">
+       <label class="col-form-label">Expiry Date  : </label> 05-03-2022 
+       <span class="text-danger">(expired)</span>
+     </div> 
+     <div class="col-md-12">
+      <p>Please take a snapshot of renewed Insurance</p>
+    </div>
+  </div>
+</div>
+</div>
+<hr>
+
+ <div class="row">
+  <div class="col-md-12">
+    <a href="{{ url('uploadroadworthy') }}/{{ Session::get('VNO') }}"> <i style="float:right;margin-top: 80px;" class="fa fa-upload"></i></a>
+    <div class="row justify-content-center">
+      <div class="col-md-12">
+       <label class="col-form-label">Roadworthy Cert Renewal</label>
+     </div>
+     <div class="col-md-12">
+       <label class="col-form-label">Expiry Date  : </label> 05-03-2022 
+       <span class="text-danger">(expired)</span>
+     </div> 
+     <div class="col-md-12">
+      <p>Please take a snapshot of renewed Roadworthy Cert</p>
+    </div>
+  </div>
+</div>
+</div>
+<hr>
+
+<div class="row">
+  <div class="col-md-12">
+    <a href=""> <i style="float:right;margin-top: 80px;" class="fa fa-eye"></i></a>
     <div class="row justify-content-center">
      <div class="col-md-12">
       <label class="col-form-label">Contract Renewal</label>
@@ -69,12 +108,12 @@
         inputting code that would be sent to you via SMS
       on your registered phone number.</p>
     </div>
-
-
   </div>
 </div>
 </div>
-<hr><div class="row">
+<hr>
+
+<div class="row">
   <div class="col-md-12">
     <a href=""> <i style="float:right;margin-top: 80px;" class="fa fa-download"></i></a>
    <div class="row justify-content-center">
@@ -90,12 +129,12 @@
      <div class="col-md-12">
       <p>Click icon when servicing is complete</p>
     </div>
-
-
   </div>
 </div>
 </div>
-<hr><div class="row">
+<hr>
+
+<div class="row">
   <div class="col-md-12">
     <a href=""> <i style="float:right;margin-top: 80px;" class="fa fa-download"></i></a>
    <div class="row justify-content-center">
@@ -111,12 +150,11 @@
      <div class="col-md-12">
       <p>Click icon when Inspection is complete</p>
     </div>
-
-
   </div>
 </div>
 </div>
 <hr>
+
 <nav class="navbar fixed-bottom navbar-expand-lg justify-content-center">      
   <a href="{{ route('driver') }}" class="btn btn-info">Logout</a>
 </nav>

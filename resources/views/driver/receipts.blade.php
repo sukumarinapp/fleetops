@@ -13,7 +13,7 @@
   <div class="card-header">
       <h5 class="title" style="text-align:center;">Receipts</h5>
   </div>
-<div style="overflow-x: auto;" class="card-body">
+<div class="card-body">
 <div class="row mb-4">
 <div class="col-sm-6">
 <div>
@@ -32,6 +32,9 @@
 </div>
 
 </div>
+
+<div class="col-md-12">
+  <div class="row">
 <div class="table-responsive">
 <table id="example1" class="table table-striped">
           <thead>
@@ -65,10 +68,13 @@
           </tbody>
       </table>
 </div>
+
 </div>
 <nav class="navbar fixed-bottom navbar-expand-lg justify-content-center">      
   <a href="{{ route('driver') }}" class="btn btn-info">Logout</a>
 </nav>
+</div>
+</div>
 </div>
 </div>
 </div>
