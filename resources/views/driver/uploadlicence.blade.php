@@ -18,7 +18,7 @@
   <input type="hidden" id="VNO" name="VNO" value="">
   <form action="#" method="post" enctype="multipart/form-data" class="form-horizontal">
   <div class="row">
-     <div class="col col-md-6">
+     <div class="col csol-md-6">
     <div class="form-group row">
                     <label for="DLD" class="col-md-4 col-form-label"><span style="color:red">*</span>Licence</label>
                     <div class="col-md-8">
