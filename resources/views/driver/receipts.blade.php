@@ -12,9 +12,8 @@
 <div class="card card-info">
   <div class="card-header">
       <h5 class="title" style="text-align:center;">Receipts</h5>
-    
   </div>
-<div class="card-body">
+<div style="overflow-x: auto;" class="card-body">
 <div class="row mb-4">
 <div class="col-sm-6">
 <div>
@@ -33,7 +32,7 @@
 </div>
 
 </div>
-<div class="table-responsive" >
+<div class="table-responsive">
 <table id="example1" class="table table-striped">
           <thead>
           <tr>
