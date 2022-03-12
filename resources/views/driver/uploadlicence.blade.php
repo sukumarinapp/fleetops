@@ -26,8 +26,8 @@
                     </div>
                   </div>
 <div class="form-group row">
-                    <label for="LEX" class="col-sm-4 col-form-label"><span style="color:red">*</span>License Expiry Date</label>
-                    <div class="col-sm-8">
+                    <label for="LEX" class="col-md-4 col-form-label"><span style="color:red">*</span>License Expiry Date</label>
+                    <div class="col-md-8">
                       <input required="required" min="{{ date('Y-m-d') }}" value="{{ date('Y-m-d') }}" onkeydown="return false" type="date" class="form-control" name="LEX" id="LEX" >
                     </div>
                   </div>
