@@ -19,7 +19,7 @@
 
 <div class="row">
   <div class="col-md-12">
-    <embed src="http://docs.google.com/gview?embedded=true&url=http://sub.fleetopsgh.com/uploads/VCC/{{ $VCC }}" width="800" height="600"  type="application/pdf">
+    <iframe src="http://sub.fleetopsgh.com/uploads/VCC/{{ $VCC }}" width="800" height="600"  type="application/pdf"></iframe>
   </div>
 </div>
 
