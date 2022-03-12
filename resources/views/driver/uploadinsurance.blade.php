@@ -19,16 +19,16 @@
   <form action="#" method="post" enctype="multipart/form-data" class="form-horizontal">
   <div class="row">
      <div class="col-md-6">
-    <div class="form-group row">
-                    <label for="DLD" class="col-sm-4 col-form-label"><span style="color:red">*</span>Licence</label>
+   <div class="form-group row">
+                    <label for="VID" class="col-sm-4 col-form-label"><span style="color:red">*</span>Insurance</label>
                     <div class="col-sm-8">
-                      <input required="required" accept="application/pdf,image/png, image/jpeg" name="DLD" type="file" id="DLD">
+                      <input required="required" accept="application/pdf,image/png, image/jpeg" name="VID" type="file" id="VID">
                     </div>
                   </div>
 <div class="form-group row">
-                    <label for="LEX" class="col-sm-4 col-form-label"><span style="color:red">*</span>License Expiry Date</label>
+                    <label for="IEX" class="col-sm-4 col-form-label"><span style="color:red">*</span>Insurance Expiry Date</label>
                     <div class="col-sm-8">
-                      <input required="required" min="{{ date('Y-m-d') }}" value="{{ date('Y-m-d') }}" onkeydown="return false" type="date" class="form-control" name="LEX" id="LEX" >
+                      <input min="{{ date('Y-m-d') }}" value="{{ date('Y-m-d') }}" required="required" onkeydown="return false" type="date" class="form-control" name="IEX" id="IEX" >
                     </div>
                   </div>
                 </div>

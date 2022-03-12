@@ -149,6 +149,16 @@ class DriverController extends Controller
      public function uploadlicence($VNO)
      {
         return view('driver.uploadlicence');
+     } 
+
+     public function uploadinsurance($VNO)
+     {
+        return view('driver.uploadinsurance');
+     } 
+
+     public function uploadroadworthy($VNO)
+     {
+        return view('driver.uploadroadworthy');
      }
 
     public function resend_otp($VNO)
