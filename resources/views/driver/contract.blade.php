@@ -19,9 +19,8 @@
 
 <div class="row">
   <div class="col-md-12">
-    <embed src="../../uploads/VID/1.pdf" width="350" height="375" 
- type="application/pdf">
-</div>
+    <embed src="../../uploads/VCC/{{ $VCC }}" width="800" height="600"  type="application/pdf">
+  </div>
 </div>
 
  <div class="row justify-content-center">

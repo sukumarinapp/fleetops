@@ -163,7 +163,15 @@ class DriverController extends Controller
 
      public function contract($VNO)
      {
-        return view('driver.contract');
+        $sql = "SELECT a.*,b.VCC,b.DCN,b.DNM,b.DSN FROM vehicle a,driver b where a.driver_id=b.id and VNO = '$VNO' and VTV=1";
+        $valid = DB::select(DB::raw($sql));
+        if(count($valid) > 0){
+            $VNO = $valid[0]->VNO;
+            $DNM = $valid[0]->DNM." ".$valid[0]->DSN;
+            $DCN = $valid[0]->DCN;
+            $VCC = $valid[0]->VCC;
+            return view('driver.contract',compact('VCC'));
+        }
      }
 
     public function resend_otp($VNO)
