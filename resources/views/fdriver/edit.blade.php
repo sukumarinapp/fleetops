@@ -146,7 +146,7 @@
                 <div class="form-group row">
 					<label for="VCC" class="col-sm-4 col-form-label"><span style="color:red"></span>Contract</label>
 					<div class="col-sm-8">
-                        <input accept="application/pdf,image/png, image/jpeg" name="VCC" type="file" id="VCC">
+                        <input accept="application/pdf" name="VCC" type="file" id="VCC">
                         @php
 	                    	$href="";
 	                    	if($driver->VCC != ""){
