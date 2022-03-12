@@ -138,7 +138,7 @@
                 <div class="form-group row">
 					<label for="VCC" class="col-sm-4 col-form-label"><span style="color:red"></span>Contract</label>
 					<div class="col-sm-8">
-                        <input accept="application/pdf,image/png, image/jpeg" required="required" name="VCC" type="file" id="VCC">
+                        <input accept="application/pdf" required="required" name="VCC" type="file" id="VCC">
 					</div>
 				</div>
 				<div class="form-group row">
