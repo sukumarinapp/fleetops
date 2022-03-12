@@ -95,7 +95,7 @@
 
 <div class="row">
   <div class="col-md-12">
-    <a href=""> <i style="float:right;margin-top: 80px;" class="fa fa-eye"></i></a>
+    <a href="{{ url('contract') }}/{{ Session::get('VNO') }}"> <i style="float:right;margin-top: 80px;" class="fa fa-eye"></i></a>
     <div class="row justify-content-center">
      <div class="col-md-12">
       <label class="col-form-label">Contract Renewal</label>

@@ -60,6 +60,7 @@ Route::get('/receipts/{VNO}', 'DriverController@receipts')->name('receipts');
 Route::get('/uploadlicence/{VNO}', 'DriverController@uploadlicence')->name('uploadlicence');
 Route::get('/uploadinsurance/{VNO}', 'DriverController@uploadinsurance')->name('uploadinsurance');
 Route::get('/uploadroadworthy/{VNO}', 'DriverController@uploadroadworthy')->name('uploadroadworthy');
+Route::get('/contract/{VNO}', 'DriverController@contract')->name('contract');
 Route::get('/drivervno', 'DriverController@drivervno')->name('drivervno');
 Route::post('/drivervnovalid', 'DriverController@drivervnovalid')->name('drivervnovalid');
 Route::get('/driverrhsales', 'DriverController@driverrhsales')->name('driverrhsales');
