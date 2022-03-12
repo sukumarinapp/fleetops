@@ -19,7 +19,7 @@
 
 <div class="row">
   <div class="col-md-12">
-    <embed src="../../uploads/VCC/{{ $VCC }}" width="800" height="600"  type="application/pdf">
+    <embed src="http://sub.fleetopsgh.com/uploads/VCC/{{ $VCC }}" width="800" height="600"  type="application/pdf">
   </div>
 </div>
 
