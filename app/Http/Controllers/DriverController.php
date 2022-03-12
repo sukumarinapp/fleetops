@@ -98,9 +98,10 @@ class DriverController extends Controller
 
 
      public function myaccount()
-    {
+     {
         return view('driver.myaccount');
-    }
+     }
+
     public function tasks($VNO)
     {
         $sql = "select c.VBM,c.DNM,c.DSN,c.DCN from vehicle b,driver c where  b.driver_id=c.id and b.VNO='$VNO'";
@@ -130,7 +131,7 @@ class DriverController extends Controller
             $PAT = $result[0]->PAT;
             return view('driver.agreement',compact('VNO','VBM','PPR','PDP','SDP','VAM','VPF','CEX','EPD','NOD','PAM','PAT'));
         }
-    }
+     }
      
     public function receipts($VNO)
     {
@@ -144,6 +145,11 @@ class DriverController extends Controller
             return view('driver.receipts',compact('VNO','VBM','DNM','DCN','VMK'));
         }
     }
+
+     public function uploadlicence($VNO)
+     {
+        return view('driver.uploadlicence');
+     }
 
     public function resend_otp($VNO)
     {

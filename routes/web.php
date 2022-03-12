@@ -57,6 +57,7 @@ Route::get('/myaccount', 'DriverController@myaccount')->name('myaccount');
 Route::get('/tasks/{VNO}', 'DriverController@tasks')->name('tasks');
 Route::get('/agreement/{VNO}', 'DriverController@agreement')->name('agreement');
 Route::get('/receipts/{VNO}', 'DriverController@receipts')->name('receipts');
+Route::get('/uploadlicence/{VNO}', 'DriverController@uploadlicence')->name('uploadlicence');
 Route::get('/drivervno', 'DriverController@drivervno')->name('drivervno');
 Route::post('/drivervnovalid', 'DriverController@drivervnovalid')->name('drivervnovalid');
 Route::get('/driverrhsales', 'DriverController@driverrhsales')->name('driverrhsales');
