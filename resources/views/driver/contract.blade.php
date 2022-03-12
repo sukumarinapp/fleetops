@@ -19,7 +19,7 @@
 
 <div class="row">
   <div class="col-md-12">
-    <iframe src="http://sub.fleetopsgh.com/uploads/VCC/{{ $VCC }}" width="800" height="600"  type="application/pdf"></iframe>
+    <a href="../../uploads/VCC/{{ $VCC }}" target="_blank" >View Contract</a>
   </div>
 </div>
 
