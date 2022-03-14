@@ -18,16 +18,23 @@
   <input type="hidden" id="VNO" name="VNO" value="">
 
 <div class="row">
-  <div class="col-md-12">
-    <a href="../../uploads/VCC/{{ $VCC }}" target="_blank" >View Contract</a>
+  <div class="col-md-12 text-center">
+    <a href="../../uploads/VCC/{{ $VCC }}" target="_blank" class="btn btn-info" >View Contract</a>
   </div>
 </div>
 
- <div class="row justify-content-center">
-   
- </div>
+              <div class="form-group row">
+                    <label for="" class="col-sm-6 col-form-label"><span style="color:red">*</span>Input Acceptence Code</label>
+                    <div class="col-sm-8">
+                      <input required="required" type="text" maxlength="6" class="form-control number" name="" id="" >
+                    </div>
+                  </div>
+                </div>
+
 <nav class="navbar fixed-bottom navbar-expand-lg justify-content-center">    
-<a href="{{ url('tasks') }}/{{ Session::get('VNO') }}" class="btn btn-info">Back</a>&nbsp;  
+<a href="{{ url('tasks') }}/{{ Session::get('VNO') }}" class="btn btn-info">Back</a>&nbsp;
+<input required="required" class="btn btn-info"
+            type="submit" id="save" name="submit" value="Accept"/>&nbsp;  
   <a href="{{ route('driver') }}" class="btn btn-info">Logout</a>
 </nav>
 </div>
