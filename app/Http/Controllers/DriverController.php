@@ -130,6 +130,12 @@ class DriverController extends Controller
             if(count($result) > 0){
                $LEX = 1; 
                $LEXD = $result[0]->LEX;
+            }else{
+                $sql = "select b.LEX from vehicle a,driver b where VNO = '$VNO'  and a.driver_id = b.id";
+                $result = DB::select(DB::raw($sql));
+                if(count($result) > 0){
+                    $LEXD = $result[0]->LEX;
+                }
             }
 
             $sql = "select b.REX from driver_upload a,vehicle b where a.VNO = '$VNO' and a.driver_id=b.driver_id and doc_type='RdWCert' and approved=0";
