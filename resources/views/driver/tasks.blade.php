@@ -37,111 +37,111 @@
 
  <div class="row">
   <div class="col-md-12">
-     @if($LEX == "1")
-    <a href="{{ url('uploadlicence') }}"> <i style="float:right;margin-top: 80px;" class="fa fa-upload"></i></a>
-    @else
-     <a href="{{ url('uploadlicence') }}"> <i style="float:right;margin-top: 80px;display: none;" class="fa fa-upload"></i></a>
+   @if($LEX == "1")
+   <a href="{{ url('uploadlicence') }}"> <i style="float:right;margin-top: 80px;" class="fa fa-upload"></i></a>
+   @else
+   <a href="{{ url('uploadlicence') }}"> <i style="float:right;margin-top: 80px;display: none;" class="fa fa-upload"></i></a>
+   @endif
+   <div class="row justify-content-center">
+    <h5 style="color: lightgray">Tasks</h5>
+    <div class="col-md-12">
+     <label class="col-form-label">Licence Renewal - </label> {{ $DNO }} 
+   </div>
+   <div class="col-md-12">
+     <label class="col-form-label">Expiry Date  : </label> {{ $LEXD }}
+     @if($LEX == "1") 
+     <span class="text-danger">(expired)</span>
+     @else
+     <span></span>
      @endif
-    <div class="row justify-content-center">
-      <h5 style="color: lightgray">Tasks</h5>
-      <div class="col-md-12">
-       <label class="col-form-label">Licence Renewal - </label> {{ $DNO }} 
-     </div>
-     <div class="col-md-12">
-       <label class="col-form-label">Expiry Date  : </label> {{ $LEXD }}
-        @if($LEX == "1") 
-       <span class="text-danger">(expired)</span>
-        @else
-        <span></span>
-        @endif
-     </div> 
-     <div class="col-md-12">
-      <p>Please take a snapshot of renewed license</p>
-    </div>
+   </div> 
+   <div class="col-md-12">
+    <p>Please take a snapshot of renewed license</p>
   </div>
 </div>
-</div>
-<hr>
-
- <div class="row">
-  <div class="col-md-12">
-     @if($IEX == "1")
-    <a href="{{ url('uploadinsurance') }}"> <i style="float:right;margin-top: 80px;" class="fa fa-upload"></i></a>
-     @else
-    <a href="{{ url('uploadinsurance') }}"> <i style="float:right;margin-top: 80px;display: none;" class="fa fa-upload"></i></a>
-    @endif
-    <div class="row justify-content-center">
-      <div class="col-md-12">
-       <label class="col-form-label">Insurance Renewal</label>
-     </div>
-     <div class="col-md-12">
-       <label class="col-form-label">Expiry Date  : </label> {{ $IEXD }} 
-       @if($IEX == "1") 
-       <span class="text-danger">(expired)</span>
-        @else
-        <span></span>
-        @endif
-     </div> 
-     <div class="col-md-12">
-      <p>Please take a snapshot of renewed Insurance</p>
-    </div>
-  </div>
-</div>
-</div>
-<hr>
-
- <div class="row">
-  <div class="col-md-12">
-     @if($REX == "1")
-    <a href="{{ url('uploadroadworthy') }}"> <i style="float:right;margin-top: 80px;" class="fa fa-upload"></i></a>
-     @else
-    <a href="{{ url('uploadroadworthy') }}"> <i style="float:right;margin-top: 80px;display: none;" class="fa fa-upload"></i></a>
-    @endif
-    <div class="row justify-content-center">
-      <div class="col-md-12">
-       <label class="col-form-label">Roadworthy Cert Renewal</label>
-     </div>
-     <div class="col-md-12">
-       <label class="col-form-label">Expiry Date  : </label> {{ $REXD }} 
-        @if($REX == "1") 
-       <span class="text-danger">(expired)</span>
-        @else
-        <span></span>
-        @endif
-     </div> 
-     <div class="col-md-12">
-      <p>Please take a snapshot of renewed Roadworthy Cert</p>
-    </div>
-  </div>
 </div>
 </div>
 <hr>
 
 <div class="row">
   <div class="col-md-12">
-     @if($CEX == "1")
-    <a href="{{ url('contract') }}"> <i style="float:right;margin-top: 80px;" class="fa fa-eye"></i></a>
-    @else
-    <a href="{{ url('contract') }}"> <i style="float:right;margin-top: 80px;display: none;" class="fa fa-eye"></i></a>
-    @endif
-    <div class="row justify-content-center">
+   @if($IEX == "1")
+   <a href="{{ url('uploadinsurance') }}"> <i style="float:right;margin-top: 80px;" class="fa fa-upload"></i></a>
+   @else
+   <a href="{{ url('uploadinsurance') }}"> <i style="float:right;margin-top: 80px;display: none;" class="fa fa-upload"></i></a>
+   @endif
+   <div class="row justify-content-center">
+    <div class="col-md-12">
+     <label class="col-form-label">Insurance Renewal</label>
+   </div>
+   <div class="col-md-12">
+     <label class="col-form-label">Expiry Date  : </label> {{ $IEXD }} 
+     @if($IEX == "1") 
+     <span class="text-danger">(expired)</span>
+     @else
+     <span></span>
+     @endif
+   </div> 
+   <div class="col-md-12">
+    <p>Please take a snapshot of renewed Insurance</p>
+  </div>
+</div>
+</div>
+</div>
+<hr>
+
+<div class="row">
+  <div class="col-md-12">
+   @if($REX == "1")
+   <a href="{{ url('uploadroadworthy') }}"> <i style="float:right;margin-top: 80px;" class="fa fa-upload"></i></a>
+   @else
+   <a href="{{ url('uploadroadworthy') }}"> <i style="float:right;margin-top: 80px;display: none;" class="fa fa-upload"></i></a>
+   @endif
+   <div class="row justify-content-center">
+    <div class="col-md-12">
+     <label class="col-form-label">Roadworthy Cert Renewal</label>
+   </div>
+   <div class="col-md-12">
+     <label class="col-form-label">Expiry Date  : </label> {{ $REXD }} 
+     @if($REX == "1") 
+     <span class="text-danger">(expired)</span>
+     @else
+     <span></span>
+     @endif
+   </div> 
+   <div class="col-md-12">
+    <p>Please take a snapshot of renewed Roadworthy Cert</p>
+  </div>
+</div>
+</div>
+</div>
+<hr>
+
+<div class="row">
+  <div class="col-md-12">
+   @if($CEX == "1")
+   <a href="{{ url('contract') }}"> <i style="float:right;margin-top: 80px;" class="fa fa-eye"></i></a>
+   @else
+   <a href="{{ url('contract') }}"> <i style="float:right;margin-top: 80px;display: none;" class="fa fa-eye"></i></a>
+   @endif
+   <div class="row justify-content-center">
      <div class="col-md-12">
       <label class="col-form-label">Contract Renewal</label>
-     </div>
-     <div class="col-md-12">
-       <label class="col-form-label">Expiry Date  : </label> {{ $CEXD }}
-       @if($CEX == "1") 
-       <span class="text-danger">(expired)</span>
-        @else
-        <span></span>
-        @endif
-     </div> 
-     <div class="col-md-12">
-      <p>Please read contract fully. Confirm acceptance by
-        inputting code that would be sent to you via SMS
-      on your registered phone number.</p>
     </div>
+    <div class="col-md-12">
+     <label class="col-form-label">Expiry Date  : </label> {{ $CEXD }}
+     @if($CEX == "1") 
+     <span class="text-danger">(expired)</span>
+     @else
+     <span></span>
+     @endif
+   </div> 
+   <div class="col-md-12">
+    <p>Please read contract fully. Confirm acceptance by
+      inputting code that would be sent to you via SMS
+    on your registered phone number.</p>
   </div>
+</div>
 </div>
 </div>
 <hr>
@@ -149,7 +149,7 @@
 <div class="row">
   <div class="col-md-12">
     <a href=""> <i style="float:right;margin-top: 80px;" class="fa fa-download"></i></a>
-   <div class="row justify-content-center">
+    <div class="row justify-content-center">
      <div class="col-md-12">
        <label class="col-form-label">Vehicle Servicing</label>
      </div>
@@ -170,7 +170,7 @@
 <div class="row">
   <div class="col-md-12">
     <a href=""> <i style="float:right;margin-top: 80px;" class="fa fa-download"></i></a>
-   <div class="row justify-content-center">
+    <div class="row justify-content-center">
      <div class="col-md-12">
        <label class="col-form-label">Vehicle Inspection</label>
      </div>
