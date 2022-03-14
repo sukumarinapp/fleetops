@@ -41,7 +41,7 @@
     <div class="row justify-content-center">
       <h5 style="color: lightgray">Tasks</h5>
       <div class="col-md-12">
-       <label class="col-form-label">Licence Renewal - </label>
+       <label class="col-form-label">Licence Renewal - </label> {{ $DNO }} 
      </div>
      <div class="col-md-12">
        <label class="col-form-label">Expiry Date  : </label> 05-03-2022 

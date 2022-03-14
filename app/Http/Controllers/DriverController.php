@@ -117,12 +117,13 @@ class DriverController extends Controller
         $IEXd = "";
         $REXD = "";
         $CEXD = "";
-        $sql = "select c.VBM,c.DNM,c.DSN,c.DCN from vehicle b,driver c where  b.driver_id=c.id and b.VNO='$VNO'";
+        $sql = "select c.VBM,c.DNM,c.DSN,c.DCN,C.DNO from vehicle b,driver c where  b.driver_id=c.id and b.VNO='$VNO'";
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
             $VBM = $result[0]->VBM;
             $DNM = $result[0]->DNM . " " . $result[0]->DSN;
             $DCN = $result[0]->DCN;
+            $DNO = $result[0]->DNO;
 
             $sql = "select b.LEX from driver_upload a,driver b where VNO = '$VNO' and a.driver_id=b.id and doc_type='Licence' and approved=0";
             $result = DB::select(DB::raw($sql));
@@ -151,11 +152,13 @@ class DriverController extends Controller
                $CEX = 1; 
                $CEXD = $result[0]->CEX;
             }
-            return view('driver.tasks',compact('VNO','VBM','DNM','DCN','LEX','REX','IEX','CEX','LEXD','REXD','IEXD','CEXD'));
+            return view('driver.tasks',compact('VNO','VBM','DNM','DCN','DNO','LEX','REX','IEX','CEX','LEXD','REXD','IEXD','CEXD'));
         }
     }
-     public function agreement($VNO)
+    
+    public function agreement()
     {
+        $VNO = Session::get('VNO');
         $sql = "select b.VNO,c.VBM,c.PPR,c.PDP,c.SDP,c.VAM,c.VPF,c.CEX,c.EPD,c.NOD,c.PAM,c.PAT from vehicle b,driver c where  b.driver_id=c.id and b.VNO='$VNO'";
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
@@ -174,8 +177,9 @@ class DriverController extends Controller
         }
      }
      
-    public function receipts($VNO)
+    public function receipts()
     {
+        $VNO = Session::get('VNO');
         $sql = "select b.VMK,b.VMD,c.VBM,c.DNM,c.DSN,c.DCN from vehicle b,driver c where  b.driver_id=c.id and b.VNO='$VNO'";
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
