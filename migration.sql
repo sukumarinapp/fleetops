@@ -60,6 +60,20 @@ alter table driver add PPR decimal(10,2) DEFAULT 0;
 alter table driver add PDP decimal(10,2) DEFAULT 0;
 alter table driver add SDP decimal(10,2) DEFAULT 0;
 
+CREATE TABLE `driver_upload` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `VNO` varchar(20) DEFAULT NULL,
+  `driver_id` int(11) DEFAULT NULL,
+  `expired_time` datetime DEFAULT NULL,
+  `upload_time` datetime DEFAULT NULL,
+  `doc_type` varchar(20) DEFAULT NULL,
+  `file_name` varchar(20) DEFAULT NULL,
+  `doc_expiry` date DEFAULT NULL,
+  `approved` int(0) DEFAULT 0,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
+
+alter table driver_upload add acceptance_code varchar(10) DEFAULT NULL;
 
 
 
