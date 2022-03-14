@@ -55,8 +55,8 @@ Route::get('/resend_otp/{VNO}', 'DriverController@resend_otp')->name('resend_otp
 Route::post('/validate_otp', 'DriverController@validate_otp')->name('validate_otp');
 Route::get('/myaccount', 'DriverController@myaccount')->name('myaccount');
 Route::get('/tasks', 'DriverController@tasks')->name('tasks');
-Route::get('/agreement/{VNO}', 'DriverController@agreement')->name('agreement');
-Route::get('/receipts/{VNO}', 'DriverController@receipts')->name('receipts');
+Route::get('/agreement', 'DriverController@agreement')->name('agreement');
+Route::get('/receipts', 'DriverController@receipts')->name('receipts');
 Route::get('/uploadlicence', 'DriverController@uploadlicence')->name('uploadlicence');
 Route::get('/uploadinsurance', 'DriverController@uploadinsurance')->name('uploadinsurance');
 Route::get('/uploadroadworthy', 'DriverController@uploadroadworthy')->name('uploadroadworthy');
