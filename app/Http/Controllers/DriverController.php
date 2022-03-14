@@ -113,6 +113,10 @@ class DriverController extends Controller
         $IEX = 0;
         $REX = 0;
         $CEX = 0;
+        $LEXD = "";
+        $IEXd = "";
+        $REXD = "";
+        $CEXD = "";
         $sql = "select c.VBM,c.DNM,c.DSN,c.DCN from vehicle b,driver c where  b.driver_id=c.id and b.VNO='$VNO'";
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
@@ -120,30 +124,34 @@ class DriverController extends Controller
             $DNM = $result[0]->DNM . " " . $result[0]->DSN;
             $DCN = $result[0]->DCN;
 
-            $sql = "select * from driver_upload where VNO = '$VNO' and doc_type='Licence' and approved=0";
+            $sql = "select b.LEX from driver_upload a,driver b where VNO = '$VNO' and a.driver_id=b.id and doc_type='Licence' and approved=0";
             $result = DB::select(DB::raw($sql));
             if(count($result) > 0){
                $LEX = 1; 
+               $LEXD = $result[0]->LEX;
             }
 
-            $sql = "select * from driver_upload where VNO = '$VNO' and doc_type='RdWCert' and approved=0";
+            $sql = "select b.REX from driver_upload a,vehicle b where a.VNO = '$VNO' and a.driver_id=b.driver_id and doc_type='RdWCert' and approved=0";
             $result = DB::select(DB::raw($sql));
             if(count($result) > 0){
                $REX = 1; 
+               $REXD = $result[0]->REX;
             }
 
-            $sql = "select * from driver_upload where VNO = '$VNO' and doc_type='Insurance' and approved=0";
+            $sql = "select b.IEX from driver_upload a,vehicle b where a.VNO = '$VNO' and a.driver_id=b.driver_id and doc_type='Insurance' and approved=0";
             $result = DB::select(DB::raw($sql));
             if(count($result) > 0){
                $IEX = 1; 
+               $IEXD = $result[0]->IEX;
             }
 
-            $sql = "select * from driver_upload where VNO = '$VNO' and doc_type='Contract' and approved=0";
+            $sql = "select * from driver_upload a,driver b where VNO = '$VNO' and a.driver_id=b.id and doc_type='Contract' and approved=0";
             $result = DB::select(DB::raw($sql));
             if(count($result) > 0){
                $CEX = 1; 
+               $CEXD = $result[0]->CEX;
             }
-            return view('driver.tasks',compact('VNO','VBM','DNM','DCN','LEX','REX','IEX','CEX'));
+            return view('driver.tasks',compact('VNO','VBM','DNM','DCN','LEX','REX','IEX','CEX','LEXD','REXD','IEXD','CEXD'));
         }
     }
      public function agreement($VNO)
