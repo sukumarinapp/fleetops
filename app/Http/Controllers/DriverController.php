@@ -130,6 +130,12 @@ class DriverController extends Controller
             if(count($result) > 0){
                $LEX = 1; 
                $LEXD = $result[0]->LEX;
+            }else{
+                $sql = "select b.LEX from vehicle a,driver b where VNO = '$VNO'  and a.driver_id = b.id";
+                $result = DB::select(DB::raw($sql));
+                if(count($result) > 0){
+                    $LEXD = $result[0]->LEX;
+                }
             }
 
             $sql = "select b.REX from driver_upload a,vehicle b where a.VNO = '$VNO' and a.driver_id=b.driver_id and doc_type='RdWCert' and approved=0";
@@ -137,6 +143,12 @@ class DriverController extends Controller
             if(count($result) > 0){
                $REX = 1; 
                $REXD = $result[0]->REX;
+            }else{
+                $sql = "select a.REX from vehicle a,driver b where VNO = '$VNO'  and a.driver_id = b.id";
+                $result = DB::select(DB::raw($sql));
+                if(count($result) > 0){
+                    $REXD = $result[0]->REX;
+                }
             }
 
             $sql = "select b.IEX from driver_upload a,vehicle b where a.VNO = '$VNO' and a.driver_id=b.driver_id and doc_type='Insurance' and approved=0";
@@ -144,6 +156,12 @@ class DriverController extends Controller
             if(count($result) > 0){
                $IEX = 1; 
                $IEXD = $result[0]->IEX;
+            }else{
+                $sql = "select a.IEX from vehicle a,driver b where VNO = '$VNO'  and a.driver_id = b.id";
+                $result = DB::select(DB::raw($sql));
+                if(count($result) > 0){
+                    $IEXD = $result[0]->IEX;
+                }
             }
 
             $sql = "select * from driver_upload a,driver b where VNO = '$VNO' and a.driver_id=b.id and doc_type='Contract' and approved=0";
@@ -151,6 +169,12 @@ class DriverController extends Controller
             if(count($result) > 0){
                $CEX = 1; 
                $CEXD = $result[0]->CEX;
+            }else{
+                $sql = "select b.CEX from vehicle a,driver b where VNO = '$VNO'  and a.driver_id = b.id";
+                $result = DB::select(DB::raw($sql));
+                if(count($result) > 0){
+                    $CEXD = $result[0]->CEX;
+                }
             }
             return view('driver.tasks',compact('VNO','VBM','DNM','DCN','DNO','LEX','REX','IEX','CEX','LEXD','REXD','IEXD','CEXD'));
         }
