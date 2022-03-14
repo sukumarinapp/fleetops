@@ -109,13 +109,41 @@ class DriverController extends Controller
     public function tasks()
     {
         $VNO = Session::get('VNO');
+        $LEX = 0;
+        $IEX = 0;
+        $REX = 0;
+        $CEX = 0;
         $sql = "select c.VBM,c.DNM,c.DSN,c.DCN from vehicle b,driver c where  b.driver_id=c.id and b.VNO='$VNO'";
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
             $VBM = $result[0]->VBM;
             $DNM = $result[0]->DNM . " " . $result[0]->DSN;
             $DCN = $result[0]->DCN;
-            return view('driver.tasks',compact('VNO','VBM','DNM','DCN'));
+
+            $sql = "select * from driver_upload where VNO = '$VNO' and doc_type='Licence' and approved=0";
+            $result = DB::select(DB::raw($sql));
+            if(count($result) > 0){
+               $LEX = 1; 
+            }
+
+            $sql = "select * from driver_upload where VNO = '$VNO' and doc_type='RdWCert' and approved=0";
+            $result = DB::select(DB::raw($sql));
+            if(count($result) > 0){
+               $REX = 1; 
+            }
+
+            $sql = "select * from driver_upload where VNO = '$VNO' and doc_type='Insurance' and approved=0";
+            $result = DB::select(DB::raw($sql));
+            if(count($result) > 0){
+               $IEX = 1; 
+            }
+
+            $sql = "select * from driver_upload where VNO = '$VNO' and doc_type='Contract' and approved=0";
+            $result = DB::select(DB::raw($sql));
+            if(count($result) > 0){
+               $CEX = 1; 
+            }
+            return view('driver.tasks',compact('VNO','VBM','DNM','DCN','LEX','REX','IEX','CEX'));
         }
     }
      public function agreement($VNO)
