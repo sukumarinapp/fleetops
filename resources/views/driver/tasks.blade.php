@@ -37,7 +37,7 @@
 
  <div class="row">
   <div class="col-md-12">
-    <a href="{{ url('uploadlicence') }}/{{ Session::get('VNO') }}"> <i style="float:right;margin-top: 80px;" class="fa fa-upload"></i></a>
+    <a href="{{ url('uploadlicence') }}"> <i style="float:right;margin-top: 80px;" class="fa fa-upload"></i></a>
     <div class="row justify-content-center">
       <h5 style="color: lightgray">Tasks</h5>
       <div class="col-md-12">
@@ -57,7 +57,7 @@
 
  <div class="row">
   <div class="col-md-12">
-    <a href="{{ url('uploadinsurance') }}/{{ Session::get('VNO') }}"> <i style="float:right;margin-top: 80px;" class="fa fa-upload"></i></a>
+    <a href="{{ url('uploadinsurance') }}"> <i style="float:right;margin-top: 80px;" class="fa fa-upload"></i></a>
     <div class="row justify-content-center">
       <div class="col-md-12">
        <label class="col-form-label">Insurance Renewal</label>
@@ -76,7 +76,7 @@
 
  <div class="row">
   <div class="col-md-12">
-    <a href="{{ url('uploadroadworthy') }}/{{ Session::get('VNO') }}"> <i style="float:right;margin-top: 80px;" class="fa fa-upload"></i></a>
+    <a href="{{ url('uploadroadworthy') }}"> <i style="float:right;margin-top: 80px;" class="fa fa-upload"></i></a>
     <div class="row justify-content-center">
       <div class="col-md-12">
        <label class="col-form-label">Roadworthy Cert Renewal</label>
@@ -95,7 +95,7 @@
 
 <div class="row">
   <div class="col-md-12">
-    <a href="{{ url('contract') }}/{{ Session::get('VNO') }}"> <i style="float:right;margin-top: 80px;" class="fa fa-eye"></i></a>
+    <a href="{{ url('contract') }}"> <i style="float:right;margin-top: 80px;" class="fa fa-eye"></i></a>
     <div class="row justify-content-center">
      <div class="col-md-12">
       <label class="col-form-label">Contract Renewal</label>
@@ -156,6 +156,7 @@
 <hr>
 
 <nav class="navbar fixed-bottom navbar-expand-lg justify-content-center">      
+  <a href="{{ url('myaccount') }}" class="btn btn-info">Back</a>&nbsp;
   <a href="{{ route('driver') }}" class="btn btn-info">Logout</a>
 </nav>
 </div>

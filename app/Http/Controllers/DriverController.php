@@ -84,11 +84,7 @@ class DriverController extends Controller
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
             if($OTP == $result[0]->OTP){
-                $VBM = $result[0]->VBM;
-                $DNM = $result[0]->DNM . " " . $result[0]->DSN;
-                $DCN = $result[0]->DCN;
-                return view('driver.myaccount',compact('VNO','VBM','DNM','DCN'));
-                //echo "valid otp";die;
+                return redirect()->route('myaccount');
             }else{
                 $error_msg = 'Invalid OTP';
                 return view('driver.otp',compact('error_msg'));
@@ -99,11 +95,20 @@ class DriverController extends Controller
 
      public function myaccount()
      {
-        return view('driver.myaccount');
+        $VNO = Session::get('VNO');
+        $sql = "select c.VBM,c.DNM,c.DSN,c.DCN from vehicle b,driver c where  b.driver_id=c.id and b.VNO='$VNO'";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+            $VBM = $result[0]->VBM;
+            $DNM = $result[0]->DNM . " " . $result[0]->DSN;
+            $DCN = $result[0]->DCN;
+            return view('driver.myaccount',compact('VNO','VBM','DNM','DCN'));
+        }
      }
 
-    public function tasks($VNO)
+    public function tasks()
     {
+        $VNO = Session::get('VNO');
         $sql = "select c.VBM,c.DNM,c.DSN,c.DCN from vehicle b,driver c where  b.driver_id=c.id and b.VNO='$VNO'";
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
@@ -146,23 +151,27 @@ class DriverController extends Controller
         }
     }
 
-     public function uploadlicence($VNO)
+     public function uploadlicence()
      {
+        $VNO = Session::get('VNO');
         return view('driver.uploadlicence');
      } 
 
-     public function uploadinsurance($VNO)
+     public function uploadinsurance()
      {
+        $VNO = Session::get('VNO');
         return view('driver.uploadinsurance');
      } 
 
-     public function uploadroadworthy($VNO)
+     public function uploadroadworthy()
      {
+        $VNO = Session::get('VNO');
         return view('driver.uploadroadworthy');
      }
 
-     public function contract($VNO)
+     public function contract()
      {
+        $VNO = Session::get('VNO');
         $sql = "SELECT a.*,b.VCC,b.DCN,b.DNM,b.DSN FROM vehicle a,driver b where a.driver_id=b.id and VNO = '$VNO' and VTV=1";
         $valid = DB::select(DB::raw($sql));
         if(count($valid) > 0){
