@@ -120,7 +120,6 @@ class DriverController extends Controller
             $DNM = $result[0]->DNM . " " . $result[0]->DSN;
             $DCN = $result[0]->DCN;
             $DNO = $result[0]->DNO;
-            return view('driver.tasks',compact('VNO','VBM','DNM','DCN','DNO'));
 
             $sql = "select * from driver_upload where VNO = '$VNO' and doc_type='Licence' and approved=0";
             $result = DB::select(DB::raw($sql));
@@ -145,7 +144,7 @@ class DriverController extends Controller
             if(count($result) > 0){
                $CEX = 1; 
             }
-            return view('driver.tasks',compact('VNO','VBM','DNM','DCN','LEX','REX','IEX','CEX'));
+            return view('driver.tasks',compact('VNO','VBM','DNM','DCN','DNO','LEX','REX','IEX','CEX'));
         }
     }
      public function agreement()
