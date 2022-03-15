@@ -2,27 +2,27 @@ COMPLETED
 Driver Login - OTP based login
 Maintenance Sheduler Process
 My Account - Tasks (Static Screens)
+Agreement Summaries
+Update Driver License Details (21,30)
+Update Vehicle Insurance Certificate Details
+Update Vehicle Roadworthy Certificate Details
+Tasks Listing in Driver Screen
+SMS Remainders for Contract and License Expiry
+
 
 IN PROGRESS
-Agreement Summaries
 My Account - Receipts Statement(Rental)
 My Account - Buyer Statement (HP)
 My Account - Sales Report (RH)
 
 PENDING
-Vehicle Handover Form
-General Terms and Conditions
-
-Update Driver License Details (21,30)
-Update Vehicle Insurance Certificate Details
-Update Vehicle Roadworthy Certificate Details
-
 Update Driver Contract Details
 Update Vehicle Service Details
 Update Vehicle Inspection Details
-Tasks Listing in Driver Screen
-SMS Remainders for Contract and License Expiry
+
+Vehicle Handover Form
+PWA App Development
 
 Parking Location in Driver
-
-PWA App Development
+General Terms and Conditions
+insert into sms_log
