@@ -9,9 +9,9 @@
     <h3 style="color: lightgray">My Account</h3>
   </div>
 </div>
-<div class="card card-success">
+<div class="card card-primary">
   <div class="card-header">
-   <h5 class="title" style="text-align:center;">Vehicle Rental Customer</h5>
+   <h5 class="title" style="text-align:center;">Agreement, Terms & Conditions</h5>
 
  </div>
  <div class="card-body">

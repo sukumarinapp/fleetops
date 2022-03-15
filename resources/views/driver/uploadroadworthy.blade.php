@@ -9,9 +9,9 @@
     <h3 style="color: lightgray">My Account</h3>
   </div>
 </div>
-<div class="card card-success">
+<div class="card card-primary">
   <div class="card-header">
-   <h5 class="title" style="text-align:center;">Vehicle Rental Customer</h5>
+   <h5 class="title" style="text-align:center;">Upload Roadworthy Picture</h5>
  </div>
 
  <div class="card-body">
@@ -19,6 +19,12 @@
   <form action="#" method="post" enctype="multipart/form-data" class="form-horizontal">
   <div class="row">
      <div class="col-md-6">
+       <div class="form-group row">
+                    <label for="" class="col-sm-4 col-form-label"><span style="color:red">*</span>Into</label>
+                    <div class="col-sm-8">
+                      {{ $DNM }}
+                    </div>
+                  </div>
     <div class="form-group row">
                     <label for="VRD" class="col-sm-4 col-form-label"><span style="color:red">*</span>Roadworthy Cert</label>
                     <div class="col-sm-8">

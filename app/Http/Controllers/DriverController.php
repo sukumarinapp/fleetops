@@ -218,7 +218,12 @@ class DriverController extends Controller
      public function uploadlicence()
      {
         $VNO = Session::get('VNO');
-        return view('driver.uploadlicence');
+        $sql = "select c.DNM,c.DSN from vehicle b,driver c where  b.driver_id=c.id and b.VNO='$VNO'";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+            $DNM = $result[0]->DNM . " " . $result[0]->DSN;
+        return view('driver.uploadlicence',compact('DNM'));
+        }
      } 
 
      public function savelicence(Request $request)
