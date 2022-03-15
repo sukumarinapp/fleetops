@@ -249,13 +249,23 @@ class DriverController extends Controller
      public function uploadinsurance()
      {
         $VNO = Session::get('VNO');
-        return view('driver.uploadinsurance');
+         $sql = "select c.DNM,c.DSN from vehicle b,driver c where  b.driver_id=c.id and b.VNO='$VNO'";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+            $DNM = $result[0]->DNM . " " . $result[0]->DSN;
+        return view('driver.uploadinsurance',compact('DNM'));
+       }
      } 
 
      public function uploadroadworthy()
      {
         $VNO = Session::get('VNO');
-        return view('driver.uploadroadworthy');
+         $sql = "select c.DNM,c.DSN from vehicle b,driver c where  b.driver_id=c.id and b.VNO='$VNO'";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+            $DNM = $result[0]->DNM . " " . $result[0]->DSN;
+        return view('driver.uploadroadworthy',compact('DNM'));
+         }
      }
 
      public function contract()
@@ -268,7 +278,7 @@ class DriverController extends Controller
             $DNM = $valid[0]->DNM." ".$valid[0]->DSN;
             $DCN = $valid[0]->DCN;
             $VCC = $valid[0]->VCC;
-            return view('driver.contract',compact('VCC'));
+            return view('driver.contract',compact('VCC','DNM'));
         }
      }
 
