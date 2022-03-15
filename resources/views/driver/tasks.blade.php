@@ -55,8 +55,6 @@
      <label class="col-form-label">Expiry Date  : </label> {{ $LEXD }}
      @if($LEX == "1") 
      <span class="text-danger">(expired)</span>
-     @else
-     <span></span>
      @endif
    </div> 
    <div class="col-md-12">
@@ -71,8 +69,6 @@
   <div class="col-md-12">
    @if($IEX == "1")
    <a href="{{ url('uploadinsurance') }}"> <i style="float:right;margin-top: 80px;" class="fa fa-upload"></i></a>
-   @else
-   <a href="{{ url('uploadinsurance') }}"> <i style="float:right;margin-top: 80px;display: none;" class="fa fa-upload"></i></a>
    @endif
    <div class="row justify-content-center">
     <div class="col-md-12">
@@ -82,8 +78,6 @@
      <label class="col-form-label">Expiry Date  : </label> {{ $IEXD }} 
      @if($IEX == "1") 
      <span class="text-danger">(expired)</span>
-     @else
-     <span></span>
      @endif
    </div> 
    <div class="col-md-12">
@@ -98,8 +92,6 @@
   <div class="col-md-12">
    @if($REX == "1")
    <a href="{{ url('uploadroadworthy') }}"> <i style="float:right;margin-top: 80px;" class="fa fa-upload"></i></a>
-   @else
-   <a href="{{ url('uploadroadworthy') }}"> <i style="float:right;margin-top: 80px;display: none;" class="fa fa-upload"></i></a>
    @endif
    <div class="row justify-content-center">
     <div class="col-md-12">
@@ -109,8 +101,6 @@
      <label class="col-form-label">Expiry Date  : </label> {{ $REXD }} 
      @if($REX == "1") 
      <span class="text-danger">(expired)</span>
-     @else
-     <span></span>
      @endif
    </div> 
    <div class="col-md-12">
@@ -125,8 +115,6 @@
   <div class="col-md-12">
    @if($CEX == "1")
    <a href="{{ url('contract') }}"> <i style="float:right;margin-top: 80px;" class="fa fa-eye"></i></a>
-   @else
-   <a href="{{ url('contract') }}"> <i style="float:right;margin-top: 80px;display: none;" class="fa fa-eye"></i></a>
    @endif
    <div class="row justify-content-center">
      <div class="col-md-12">
@@ -136,8 +124,6 @@
      <label class="col-form-label">Expiry Date  : </label> {{ $CEXD }}
      @if($CEX == "1") 
      <span class="text-danger">(expired)</span>
-     @else
-     <span></span>
      @endif
    </div> 
    <div class="col-md-12">
