@@ -221,6 +221,26 @@ class DriverController extends Controller
         return view('driver.uploadlicence');
      } 
 
+     public function savelicence(Request $request)
+     {
+        $VNO = Session::get('VNO');
+        $LEX = $request->get('LEX'); 
+        $sql = "select a.id,b.LEX from driver_upload a,driver b where VNO = '$VNO' and a.driver_id=b.id and doc_type='Licence' and approved=0";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+            $id = $result[0]->id;
+            $DLD =  $id.'.'.$request->DLD->extension(); 
+            $filepath = public_path('uploads'.DIRECTORY_SEPARATOR.'driver'.DIRECTORY_SEPARATOR);
+            move_uploaded_file($_FILES['DLD']['tmp_name'], $filepath.$DLD);
+            $upload_time = date("Y-m-d H:i:s");
+            $sql = "update driver_upload set file_name='$DLD',doc_expiry='$LEX',upload_time='$upload_time' where id=$id";
+            DB::update(DB::raw($sql));    
+        }else{
+            
+        }
+        return view('driver.uploadlicence');
+     } 
+
      public function uploadinsurance()
      {
         $VNO = Session::get('VNO');
