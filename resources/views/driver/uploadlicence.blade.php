@@ -15,6 +15,7 @@
  </div>
 
  <div class="card-body">
+  
   <input type="hidden" id="VNO" name="VNO" value="">
   <form action="{{ route('savelicence') }}" method="post" enctype="multipart/form-data" class="form-horizontal">
     @csrf

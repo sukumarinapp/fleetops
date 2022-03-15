@@ -10,6 +10,12 @@
   </div>
 </div>
 <div class="card card-success">
+  @if(session()->has('success'))
+  <div class="alert alert-success alert-dismissable" style="margin: 15px;">
+    <a href="#" style="color:white !important" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong> {{ Session::get('success') }} </strong>
+  </div>
+  @endif
   <div class="card-header">
    @if($VBM == "Hire Purchase")
    <h5 class="title" style="text-align:center;">Hire Purchase Customer</h5>
@@ -37,11 +43,7 @@
 
  <div class="row">
   <div class="col-md-12">
-   @if($LEX == "1")
    <a href="{{ url('uploadlicence') }}"> <i style="float:right;margin-top: 80px;" class="fa fa-upload"></i></a>
-   @else
-   <a href="{{ url('uploadlicence') }}"> <i style="float:right;margin-top: 80px;display: none;" class="fa fa-upload"></i></a>
-   @endif
    <div class="row justify-content-center">
     <h5 style="color: lightgray">Tasks</h5>
     <div class="col-md-12">

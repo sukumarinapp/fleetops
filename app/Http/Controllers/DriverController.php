@@ -61,6 +61,7 @@ class DriverController extends Controller
             $sql = "insert into sms_log (PHN,MSG,DAT,TIM,CTX,NAM) values ('$DCN','$msg','$DAT','$TIM','$CTX','$DNM')";
             DB::insert($sql);
             Session::put('VNO', $VNO);
+            Session::put('driver_id', $driver_id);
             return redirect('/otp');
             //return view('driver.otp',compact('VNO'));
         }else{
@@ -218,32 +219,42 @@ class DriverController extends Controller
      public function uploadlicence()
      {
         $VNO = Session::get('VNO');
-        $sql = "select c.DNM,c.DSN from vehicle b,driver c where  b.driver_id=c.id and b.VNO='$VNO'";
+        $sql = "select c.DNM,c.DSN,b.driver_id from vehicle b,driver c where  b.driver_id=c.id and b.VNO='$VNO'";
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
             $DNM = $result[0]->DNM . " " . $result[0]->DSN;
-        return view('driver.uploadlicence',compact('DNM'));
+            return view('driver.uploadlicence',compact('DNM'));
         }
      } 
 
      public function savelicence(Request $request)
      {
         $VNO = Session::get('VNO');
+        $driver_id = Session::get('driver_id');
         $LEX = $request->get('LEX'); 
         $sql = "select a.id,b.LEX from driver_upload a,driver b where VNO = '$VNO' and a.driver_id=b.id and doc_type='Licence' and approved=0";
         $result = DB::select(DB::raw($sql));
+        $filepath = public_path('uploads'.DIRECTORY_SEPARATOR.'driver'.DIRECTORY_SEPARATOR);
+        $upload_time = date("Y-m-d H:i:s");        
         if(count($result) > 0){
             $id = $result[0]->id;
             $DLD =  $id.'.'.$request->DLD->extension(); 
-            $filepath = public_path('uploads'.DIRECTORY_SEPARATOR.'driver'.DIRECTORY_SEPARATOR);
             move_uploaded_file($_FILES['DLD']['tmp_name'], $filepath.$DLD);
-            $upload_time = date("Y-m-d H:i:s");
             $sql = "update driver_upload set file_name='$DLD',doc_expiry='$LEX',upload_time='$upload_time' where id=$id";
             DB::update(DB::raw($sql));    
         }else{
-            
+            $today = date("Y-m-d");
+            $doc_type = "Licence";
+            $approved = 0;
+            $sql = "insert into driver_upload (VNO,driver_id,expired_date,doc_type,approved) values ('$VNO','$driver_id','$today','$doc_type','$approved')";
+            DB::insert(DB::raw($sql));
+            $id = DB::getPdo()->lastInsertId();
+            $DLD =  $id.'.'.$request->DLD->extension(); 
+            move_uploaded_file($_FILES['DLD']['tmp_name'], $filepath.$DLD);
+            $sql = "update driver_upload set file_name='$DLD',doc_expiry='$LEX',upload_time='$upload_time' where id=$id";
+            DB::update(DB::raw($sql));  
         }
-        return view('driver.uploadlicence');
+        return redirect('/tasks')->with('success', 'Licence uploaded successfully');
      } 
 
      public function uploadinsurance()
