@@ -358,14 +358,16 @@ class DriverController extends Controller
         $VNO = Session::get('VNO');
         $driver_id = Session::get('driver_id');
         $acceptance_code = trim($request->get("acceptance_code"));
-        $sql = "select a.acceptance_code from driver_upload a,driver b where VNO = '$VNO' and a.driver_id=b.id";
+        $sql = "select id,acceptance_code from driver_upload where VNO = '$VNO' and doc_type='Contract' and approved=0";
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
+            $id = $result[0]->id;
             if($acceptance_code == $result[0]->acceptance_code){
-                return redirect('/tasks')->with('success', 'Contract Accepted successfully');
+                $sql = "update driver_upload set contract_accepted = 1 where id = $id";
+                DB::update(DB::raw($sql)); 
+                return redirect('/tasks')->with('success', 'You have successfully accepted the contract');
             }else{
-                $error_msg = 'Invalid Acceptence Code';
-                return view('driver.contract',compact('error_msg'));
+                return redirect('/contract')->with('error', 'Invalid Acceptence Code');
             }
         }
     }

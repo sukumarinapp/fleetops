@@ -74,5 +74,5 @@ CREATE TABLE `driver_upload` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 
- 
+alter table driver_upload add contract_accepted int(1) DEFAULT 0;  
 

@@ -34,7 +34,7 @@
   <div class="form-group row">
     <label for="" class="col-sm-4 col-form-label"><span style="color:red">*</span>Input Acceptence Code</label>
     <div class="col-sm-6">
-      <input required="required" type="text" maxlength="6" class="form-control number" name="" id="" >
+      <input required="required" type="text" maxlength="6" class="form-control number" name="acceptance_code" id="acceptance_code" >
     </div>
   </div>
 </div>
