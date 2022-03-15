@@ -11,7 +11,7 @@
 </div>
 <div class="card card-primary">
   <div class="card-header">
-   <h5 class="title" style="text-align:center;">Upload License Picture</h5>
+   <h5 class="title" style="text-align:center;">Upload License</h5>
  </div>
 
  <div class="card-body">

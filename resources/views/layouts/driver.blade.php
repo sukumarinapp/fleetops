@@ -89,6 +89,10 @@ $(document).ready(function(){
             $(".alert-success").slideUp(500);
         });
 
+    $(".alert-danger").fadeTo(2000, 500).slideUp(500, function(){
+            $(".alert-danger").slideUp(500);
+        });
+
     $(".decimal").keypress(function(evt){
         var charCode = (evt.which) ? evt.which : event.keyCode;
         if (charCode != 46 && charCode > 31
