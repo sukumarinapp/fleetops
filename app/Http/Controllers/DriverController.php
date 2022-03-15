@@ -51,6 +51,7 @@ class DriverController extends Controller
             $DNM = $valid[0]->DNM." ".$valid[0]->DSN;
             $login_time = date("Y-m-d H:i:s");
             $otp = rand(1001,9999);
+            $otp = "1234";
             $msg = "Your fleetops account login otp is ".$otp;
             $sql = "insert into driver_login (VNO,driver_id,login_time,otp) values ('$VNO','$driver_id','$login_time','$otp')";
             DB::insert($sql);
