@@ -119,6 +119,8 @@ class DriverController extends Controller
         $REXD = "";
         $CEXD = "";
         $sql = "select c.VBM,c.DNM,c.DSN,c.DCN,C.DNO from vehicle b,driver c where  b.driver_id=c.id and b.VNO='$VNO'";
+        echo $sql;
+        die;
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
             $VBM = $result[0]->VBM;
