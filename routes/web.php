@@ -64,6 +64,7 @@ Route::post('/saveinsurance', 'DriverController@saveinsurance')->name('saveinsur
 Route::get('/uploadroadworthy', 'DriverController@uploadroadworthy')->name('uploadroadworthy');
 Route::post('/saveroadworthy', 'DriverController@saveroadworthy')->name('saveroadworthy');
 Route::get('/contract', 'DriverController@contract')->name('contract');
+Route::get('/acceptance_code', 'DriverController@acceptance_code')->name('acceptance_code');
 Route::get('/drivervno', 'DriverController@drivervno')->name('drivervno');
 Route::post('/drivervnovalid', 'DriverController@drivervnovalid')->name('drivervnovalid');
 Route::get('/driverrhsales', 'DriverController@driverrhsales')->name('driverrhsales');

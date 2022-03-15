@@ -114,7 +114,7 @@
 <div class="row">
   <div class="col-md-12">
    @if($CEX == "1")
-   <a onclick="acceptance_code()" href=""> <i style="float:right;margin-top: 80px;" class="fa fa-eye"></i></a>
+   <a href="" onclick="acceptance_code()"> <i style="float:right;margin-top: 80px;" class="fa fa-eye"></i></a>
    @endif
    <div class="row justify-content-center">
      <div class="col-md-12">
@@ -190,8 +190,21 @@
 
 @push('page_scripts')
 <script>
+var acceptance_code_url = "{{ url('acceptance_code') }}";
 function acceptance_code(){
-  alert("ok");
+   var VNO = $("#VNO").val();
+  var url =  acceptance_code_url+ "/" + VNO;
+  $.ajax({
+      type: "get",
+      url: url,
+      success: function(response) {
+        window.location.href = "{{ url('contract') }}";
+      },
+      error: function (jqXHR, exception) {
+        console.log(exception);
+      }
+    });
+  //alert("ok");
 }
 </script>
 @endpush

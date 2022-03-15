@@ -353,6 +353,26 @@ class DriverController extends Controller
         }
      }
 
+      public function acceptance_code()
+      {
+         $VNO = Session::get('VNO');
+         $sql = "SELECT a.*,b.DCN,b.DNM,b.DSN FROM vehicle a,driver b where a.driver_id=b.id and VNO = '$VNO' and VTV=1";
+        $valid = DB::select(DB::raw($sql));
+        if(count($valid) > 0){
+            $driver_id = $valid[0]->driver_id;
+            $code = rand(1001,9999);
+            $msg = "Your fleetops account login otp is ".$code;
+            $sql = "insert into driver_upload (VNO,driver_id,code) values ('$VNO','$driver_id','$code')";
+            DB::insert($sql);
+            SMSFleetops::send($DCN,$msg);
+            $DAT = date("Y-m-d");
+            $TIM = date("H:i:s");
+            $CTX = "Acceptance Code";
+            $sql = "insert into sms_log (PHN,MSG,DAT,TIM,CTX,NAM) values ('$DCN','$msg','$DAT','$TIM','$CTX','$DNM')";
+            DB::insert($sql);
+        } 
+      }
+
     public function resend_otp($VNO)
     {
         $sql = "SELECT a.*,b.DCN,b.DNM,b.DSN FROM vehicle a,driver b where a.driver_id=b.id and VNO = '$VNO' and VTV=1";
