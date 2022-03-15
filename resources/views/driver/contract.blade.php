@@ -16,7 +16,8 @@
  </div>
  <div class="card-body">
   <input type="hidden" id="VNO" name="VNO" value="">
-  <form action="#" method="post" enctype="multipart/form-data" class="form-horizontal">
+  <form action="{{ route('acceptcontract') }}" method="post" enctype="multipart/form-data" class="form-horizontal">
+    @csrf
   <div class="row">
     <div class="col-md-12 text-center">
       <a href="../../uploads/VCC/{{ $VCC }}" target="_blank" class="btn btn-info" >View Contract</a>
