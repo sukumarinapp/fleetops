@@ -266,6 +266,36 @@ class DriverController extends Controller
             $DNM = $result[0]->DNM . " " . $result[0]->DSN;
         return view('driver.uploadinsurance',compact('DNM'));
        }
+     }
+
+     public function saveinsurance(Request $request)
+     {
+        $VNO = Session::get('VNO');
+        $driver_id = Session::get('driver_id');
+        $IEX = $request->get('IEX'); 
+        $sql = "select a.id,b.LEX from driver_upload a,driver b where VNO = '$VNO' and a.driver_id=b.id and doc_type='Insurance' and approved=0";
+        $result = DB::select(DB::raw($sql));
+        $filepath = public_path('uploads'.DIRECTORY_SEPARATOR.'driver'.DIRECTORY_SEPARATOR);
+        $upload_time = date("Y-m-d H:i:s");        
+        if(count($result) > 0){
+            $id = $result[0]->id;
+            $VID =  $id.'.'.$request->VID->extension(); 
+            move_uploaded_file($_FILES['VID']['tmp_name'], $filepath.$VID);
+            $sql = "update driver_upload set file_name='$VID',doc_expiry='$IEX',upload_time='$upload_time' where id=$id";
+            DB::update(DB::raw($sql));    
+        }else{
+            $today = date("Y-m-d");
+            $doc_type = "Insurance";
+            $approved = 0;
+            $sql = "insert into driver_upload (VNO,driver_id,expired_date,doc_type,approved) values ('$VNO','$driver_id','$today','$doc_type','$approved')";
+            DB::insert(DB::raw($sql));
+            $id = DB::getPdo()->lastInsertId();
+            $VID =  $id.'.'.$request->VID->extension(); 
+            move_uploaded_file($_FILES['VID']['tmp_name'], $filepath.$VID);
+            $sql = "update driver_upload set file_name='$VID',doc_expiry='$LEX',upload_time='$upload_time' where id=$id";
+            DB::update(DB::raw($sql));  
+        }
+        return redirect('/tasks')->with('success', 'Insurance uploaded successfully');
      } 
 
      public function uploadroadworthy()
@@ -278,6 +308,36 @@ class DriverController extends Controller
         return view('driver.uploadroadworthy',compact('DNM'));
          }
      }
+
+     public function saveroadworthy(Request $request)
+     {
+        $VNO = Session::get('VNO');
+        $driver_id = Session::get('driver_id');
+        $REX = $request->get('REX'); 
+        $sql = "select a.id from driver_upload a,driver b where VNO = '$VNO' and a.driver_id=b.id and doc_type='RdWCert' and approved=0";
+        $result = DB::select(DB::raw($sql));
+        $filepath = public_path('uploads'.DIRECTORY_SEPARATOR.'driver'.DIRECTORY_SEPARATOR);
+        $upload_time = date("Y-m-d H:i:s");        
+        if(count($result) > 0){
+            $id = $result[0]->id;
+            $VRD =  $id.'.'.$request->VRD->extension(); 
+            move_uploaded_file($_FILES['VRD']['tmp_name'], $filepath.$VRD);
+            $sql = "update driver_upload set file_name='$VRD',doc_expiry='$REX',upload_time='$upload_time' where id=$id";
+            DB::update(DB::raw($sql));    
+        }else{
+            $today = date("Y-m-d");
+            $doc_type = "RdWCert";
+            $approved = 0;
+            $sql = "insert into driver_upload (VNO,driver_id,expired_date,doc_type,approved) values ('$VNO','$driver_id','$today','$doc_type','$approved')";
+            DB::insert(DB::raw($sql));
+            $id = DB::getPdo()->lastInsertId();
+            $VRD =  $id.'.'.$request->VRD->extension(); 
+            move_uploaded_file($_FILES['VRD']['tmp_name'], $filepath.$VRD);
+            $sql = "update driver_upload set file_name='$VRD',doc_expiry='$REX',upload_time='$upload_time' where id=$id";
+            DB::update(DB::raw($sql));  
+        }
+        return redirect('/tasks')->with('success', 'Roadworthy Certificate uploaded successfully');
+     } 
 
      public function contract()
      {

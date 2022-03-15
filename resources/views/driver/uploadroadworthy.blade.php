@@ -16,7 +16,8 @@
 
  <div class="card-body">
   <input type="hidden" id="VNO" name="VNO" value="">
-  <form action="#" method="post" enctype="multipart/form-data" class="form-horizontal">
+  <form action="{{ route('saveroadworthy') }}" method="post" enctype="multipart/form-data" class="form-horizontal">
+    @csrf
     <div class="row">
      <div class="col-md-6">
        <div class="form-group row">
