@@ -43,7 +43,9 @@
 
  <div class="row">
   <div class="col-md-12">
+    @if($LEX == 1)
    <a href="{{ url('uploadlicence') }}"> <i style="float:right;margin-top: 80px;" class="fa fa-upload"></i></a>
+    @endif
    <div class="row justify-content-center">
     <h5 style="color: lightgray">Tasks</h5>
     <div class="col-md-12">
