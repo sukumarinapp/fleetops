@@ -55,7 +55,7 @@ class DriverController extends Controller
             $msg = "Your fleetops account login otp is ".$otp;
             $sql = "insert into driver_login (VNO,driver_id,login_time,otp) values ('$VNO','$driver_id','$login_time','$otp')";
             DB::insert($sql);
-            SMSFleetops::send($DCN,$msg);
+            //SMSFleetops::send($DCN,$msg);
             $DAT = date("Y-m-d");
             $TIM = date("H:i:s");
             $CTX = "OTP";
