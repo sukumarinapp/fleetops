@@ -85,6 +85,10 @@ function submit_data() {
 
 $(document).ready(function(){
     
+    $(".alert-success").fadeTo(2000, 500).slideUp(500, function(){
+            $(".alert-success").slideUp(500);
+        });
+
     $(".decimal").keypress(function(evt){
         var charCode = (evt.which) ? evt.which : event.keyCode;
         if (charCode != 46 && charCode > 31
