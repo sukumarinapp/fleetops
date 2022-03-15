@@ -192,8 +192,7 @@
 <script>
 var acceptance_code_url = "{{ url('acceptance_code') }}";
 function acceptance_code(){
-   var VNO = $("#VNO").val();
-  var url =  acceptance_code_url+ "/" + VNO;
+  var url =  acceptance_code_url;
   $.ajax({
       type: "get",
       url: url,
@@ -203,8 +202,7 @@ function acceptance_code(){
       error: function (jqXHR, exception) {
         console.log(exception);
       }
-    });
-  //alert("ok");
+  });
 }
 </script>
 @endpush
