@@ -8,15 +8,13 @@ Update Vehicle Insurance Certificate Details
 Update Vehicle Roadworthy Certificate Details
 Tasks Listing in Driver Screen
 SMS Remainders for Contract and License Expiry
+Update Driver Contract Details
 
-
-IN PROGRESS
+PENDING
 My Account - Receipts Statement(Rental)
 My Account - Buyer Statement (HP)
 My Account - Sales Report (RH)
 
-PENDING
-Update Driver Contract Details
 Update Vehicle Service Details
 Update Vehicle Inspection Details
 

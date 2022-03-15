@@ -114,7 +114,7 @@
 <div class="row">
   <div class="col-md-12">
    @if($CEX == "1")
-   <a href="{{ url('contract') }}"> <i style="float:right;margin-top: 80px;" class="fa fa-eye"></i></a>
+   <a onclick="acceptance_code()" href=""> <i style="float:right;margin-top: 80px;" class="fa fa-eye"></i></a>
    @endif
    <div class="row justify-content-center">
      <div class="col-md-12">
@@ -187,3 +187,11 @@
 </div>
 
 @endsection
+
+@push('page_scripts')
+<script>
+function acceptance_code(){
+  alert("ok");
+}
+</script>
+@endpush
