@@ -330,8 +330,7 @@ function initRoute() {
 
     marker.event.onEvent(function (eventName, data) {
         try {
-            $('#replaytime').text(locationData[data.index][2]);
-            console.log(locationData[data.index][3]);
+            $('#replaytime').text(locationData[data.index][2]+" "+locationData[data.index][3]+" km/hr");
         } catch (error) {}
     });
  //setTimeout(play, 2000);
