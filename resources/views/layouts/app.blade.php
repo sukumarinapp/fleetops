@@ -422,7 +422,7 @@ function play(){
                     endlong = response["loc"][i][1];
                     enddate = response["loc"][i][2];
                 }
-                var series = new Array(response["loc"][i][0],response["loc"][i][1],response["loc"][i][2],,response["loc"][i][3]);
+                var series = new Array(response["loc"][i][0],response["loc"][i][1],response["loc"][i][2],response["loc"][i][3]);
                 locationData.push(series);
             }
             $("#replaytime").html(startdate);
