@@ -331,9 +331,7 @@ function initRoute() {
     marker.event.onEvent(function (eventName, data) {
         try {
             $('#replaytime').text(locationData[data.index][2]);
-            console.log(locationData[data.index][0]);
-            console.log(locationData[data.index][1]);
-            console.log(locationData[data.index][2]);
+            console.log(locationData[data.index][3]);
         } catch (error) {}
     });
  //setTimeout(play, 2000);
@@ -424,7 +422,7 @@ function play(){
                     endlong = response["loc"][i][1];
                     enddate = response["loc"][i][2];
                 }
-                var series = new Array(response["loc"][i][0],response["loc"][i][1],response["loc"][i][2]);
+                var series = new Array(response["loc"][i][0],response["loc"][i][1],response["loc"][i][2],,response["loc"][i][3]);
                 locationData.push(series);
             }
             $("#replaytime").html(startdate);
