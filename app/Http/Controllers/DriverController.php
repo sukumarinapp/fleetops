@@ -408,6 +408,35 @@ class DriverController extends Controller
        }
     }
 
+    public function saveservice(Request $request)
+    {
+        $VNO = Session::get('VNO');
+        $driver_id = Session::get('driver_id');
+        $current_mileage = $request->get('current_mileage');
+        $sql = "select a.id from driver_upload a,driver b where VNO = '$VNO' and a.driver_id=b.id and doc_type='Service' and approved=0";
+        $result = DB::select(DB::raw($sql));
+        $filepath = public_path('uploads'.DIRECTORY_SEPARATOR.'driver'.DIRECTORY_SEPARATOR);
+        $upload_time = date("Y-m-d H:i:s");        
+        if(count($result) > 0){
+            $id = $result[0]->id;
+            $SER =  $id.'.'.$request->SER->extension(); 
+            move_uploaded_file($_FILES['SER']['tmp_name'], $filepath.$SER);
+            $sql = "update driver_upload set file_name='$SER',current_mileage='$current_mileage',upload_time='$upload_time' where id=$id";
+            DB::update(DB::raw($sql));    
+        }else{
+            $doc_type = "Service";
+            $approved = 0;
+            $sql = "insert into driver_upload (VNO,driver_id,doc_type,approved) values ('$VNO','$driver_id','$doc_type','$approved')";
+            DB::insert(DB::raw($sql));
+            $id = DB::getPdo()->lastInsertId();
+            $SER =  $id.'.'.$request->SER->extension(); 
+            move_uploaded_file($_FILES['SER']['tmp_name'], $filepath.$SER);
+            $sql = "update driver_upload set file_name='$SER',current_mileage='$current_mileage',upload_time='$upload_time' where id=$id";
+            DB::update(DB::raw($sql));  
+        }
+        return redirect('/tasks')->with('success', 'Service Document uploaded successfully');
+     } 
+
     public function resend_otp($VNO)
     {
         $sql = "SELECT a.*,b.DCN,b.DNM,b.DSN FROM vehicle a,driver b where a.driver_id=b.id and VNO = '$VNO' and VTV=1";
