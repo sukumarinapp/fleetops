@@ -9,13 +9,12 @@ Update Vehicle Roadworthy Certificate Details
 Tasks Listing in Driver Screen
 SMS Remainders for Contract and License Expiry
 Update Driver Contract Details
-
-PENDING
 My Account - Receipts Statement(Rental)
 My Account - Buyer Statement (HP)
 My Account - Sales Report (RH)
-
 Update Vehicle Service Details
+
+PENDING
 Update Vehicle Inspection Details
 Vehicle Handover Form
 PWA App Development
