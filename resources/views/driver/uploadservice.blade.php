@@ -26,7 +26,7 @@
         </div>
       </div>
       <div class="form-group row">
-        <label for="VID" class="col-sm-4 col-form-label"><span style="color:red"></span>Upload Document (Optional)</label>
+        <label for="SER" class="col-sm-4 col-form-label"><span style="color:red"></span>Upload Document (Optional)</label>
         <div class="col-sm-8">
           <input accept="application/pdf,image/png, image/jpeg" name="SER" type="file" id="SER">
         </div>
