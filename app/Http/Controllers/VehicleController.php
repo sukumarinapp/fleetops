@@ -128,20 +128,20 @@ class VehicleController extends Controller
             $last_insert_id = $vehicle->id;
 
             $SSD = $request->SSD;
-            $SSM = $request->SSM;
-            $SMF = $request->SMF;
+            $SSM = trim($request->SSM) == "" ? 0 : $request->SSM;
+            $SMF = trim($request->SMF) == "" ? 0 : $request->SMF;
             $SSF = $request->SSF;
-            $SSFP = $request->SSFP;
+            $SSFP = trim($request->SSFP) == "" ? 0 : $request->SSFP;
             $SSFD = $request->SSFD;
             $RSS = ($request->get("RSS") != null) ? 1 : 0;
             $sql = "insert into vehicle_service (VID,SSD,SSM,SMF,SSF,SSFP,SSFD,RSS) values ($last_insert_id,'$SSD','$SSM','$SMF','$SSF','$SSFP','$SSFD','$RSS')";
             DB::insert($sql);
 
             $ISD = $request->ISD;
-            $ISM = $request->ISM;
-            $IMF = $request->IMF;
+            $ISM = trim($request->ISM) == "" ? 0 : $request->ISM;
+            $IMF = trim($request->IMF) == "" ? 0 : $request->IMF;
             $ISF = $request->ISF;
-            $ISFP = $request->ISFP;
+            $ISFP = trim($request->ISFP) == "" ? 0 : $request->ISFP;
             $ISFD = $request->ISFD;
             $RIS = ($request->get("RIS") != null) ? 1 : 0;
             $sql = "insert into vehicle_inspect (VID,ISD,ISM,RIS,IMF,ISF,ISFP,ISFD) values ($last_insert_id,'$ISD','$ISM','$RIS','$IMF','$ISF','$ISFP','$ISFD')";
@@ -281,10 +281,10 @@ class VehicleController extends Controller
             $vehicle->save();
 
             $SSD =  $request->get('SSD');
-            $SSM =  $request->get('SSM');
-            $SMF =  $request->get('SMF');
+            $SSM = trim($request->SSM) == "" ? 0 : $request->SSM;
+            $SMF = trim($request->SMF) == "" ? 0 : $request->SMF;
             $SSF =  $request->get('SSF');
-            $SSFP =  $request->get('SSFP');
+            $SSFP = trim($request->SSFP) == "" ? 0 : $request->SSFP;
             $SSFD =  $request->get('SSFD');
             $RSS = ($request->get("RSS") != null) ? 1 : 0;
 
@@ -299,10 +299,10 @@ class VehicleController extends Controller
             }
             
             $ISD =  $request->get('ISD');
-            $ISM =  $request->get('ISM');
-            $IMF =  $request->get('IMF');
+            $ISM = trim($request->ISM) == "" ? 0 : $request->ISM;
+            $IMF = trim($request->IMF) == "" ? 0 : $request->IMF;
             $ISF =  $request->get('ISF');
-            $ISFP =  $request->get('ISFP');
+            $ISFP = trim($request->ISFP) == "" ? 0 : $request->ISFP;
             $ISFD =  $request->get('ISFD');
             $RIS = ($request->get("RIS") != null) ? 1 : 0;
 
