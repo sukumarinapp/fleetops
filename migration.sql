@@ -76,3 +76,5 @@ CREATE TABLE `driver_upload` (
 
 alter table driver_upload add contract_accepted int(1) DEFAULT 0;  
 
+--17/03/2022
+alter table driver_upload add current_mileage varchar(10) DEFAULT 0;
