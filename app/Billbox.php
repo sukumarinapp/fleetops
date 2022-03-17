@@ -26,11 +26,11 @@ class Billbox
                     'content-type: application/json',
                     'appid: '.$appid ));
         $response = curl_exec($curl); 
-        //print_r($response);
-        /*if (curl_errno($curl)) {
+        print_r($response);
+        if (curl_errno($curl)) {
             $error_msg = curl_error($curl);
             echo $error_msg;
-        }*/
+        }
         curl_close($curl);
         $response = json_decode($response);
         return $response->result;
