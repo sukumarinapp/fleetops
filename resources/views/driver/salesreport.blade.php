@@ -11,7 +11,7 @@
 </div>
 <div class="card card-info">
   <div class="card-header">
-      <h5 class="title" style="text-align:center;">Receipts</h5>
+      <h5 class="title" style="text-align:center;">Sales Report</h5>
   </div>
 <div class="card-body">
 <div class="row mb-4">
@@ -40,30 +40,42 @@
 <thead>
           <tr>
             <th>Date</th>
-            <th>Receipt No</th>
-            <th>Sale Description</th>
-            <th>Amount</th>
+            <th>RH Platform</th>
+            <th>Sales</th>
+            <th>Cash Collected</th>
+            <th>Trips</th>
+            <th>Status</th>
+            <th>Payment</th>
             
           </tr>
           </thead>
           <tbody>
             <tr>
               <td>08-04-2022</td>
-              <td>MTN MOMO 11961266052</td>
-              <td>Rental Payment (week 15)</td>
-               <td>400.00</td>
+              <td>Uber</td>
+              <td>242.59</td>
+              <td>248.80</td>
+              <td>22</td>
+              <td>Pass</td>
+              <td>Cleared</td>
             </tr>
-            <tr>
+             <tr>
               <td>08-04-2022</td>
-              <td>MTN MOMO 11961266052</td>
-              <td>Rental Payment (week 15)</td>
-               <td>400.00</td>
+              <td>Uber</td>
+              <td>242.59</td>
+              <td>248.80</td>
+              <td>22</td>
+              <td>Pass</td>
+              <td>Cleared</td>
             </tr>
-            <tr>
+             <tr>
               <td>08-04-2022</td>
-              <td>MTN MOMO 11961266052</td>
-              <td>Rental Payment (week 15)</td>
-               <td>400.00</td>
+              <td>Uber</td>
+              <td>242.59</td>
+              <td>248.80</td>
+              <td>22</td>
+              <td>Audit</td>
+              <td>Pending</td>
             </tr>
           </tbody>  </table>
 </div>

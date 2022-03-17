@@ -57,6 +57,8 @@ Route::get('/myaccount', 'DriverController@myaccount')->name('myaccount');
 Route::get('/tasks', 'DriverController@tasks')->name('tasks');
 Route::get('/agreement', 'DriverController@agreement')->name('agreement');
 Route::get('/receipts', 'DriverController@receipts')->name('receipts');
+Route::get('/salesreport', 'DriverController@salesreport')->name('salesreport');
+Route::get('/buyerstatement', 'DriverController@buyerstatement')->name('buyerstatement');
 Route::get('/uploadlicence', 'DriverController@uploadlicence')->name('uploadlicence');
 Route::post('/savelicence', 'DriverController@savelicence')->name('savelicence');
 Route::get('/uploadinsurance', 'DriverController@uploadinsurance')->name('uploadinsurance');

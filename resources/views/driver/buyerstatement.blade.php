@@ -11,7 +11,7 @@
 </div>
 <div class="card card-info">
   <div class="card-header">
-      <h5 class="title" style="text-align:center;">Receipts</h5>
+      <h5 class="title" style="text-align:center;">Buyer Statement</h5>
   </div>
 <div class="card-body">
 <div class="row mb-4">
@@ -27,8 +27,10 @@
 <div class="col-sm-6">
   <h6 class="mb-3"></h6>
 <div><strong>Date : </strong> <span>{{ date("l M d Y")}}</span></div>
-<div><strong>Customer : </strong> <span>{{ $DNM }}</span></div>
-<div><strong>Address : </strong> <span>Accra</span></div>
+<div><strong>Buyer : </strong> <span>{{ $DNM }}</span></div>
+<div><strong>Start : </strong> <span>08-04-21 </span></div>
+<div><strong>End : </strong> <span>07-04-23 </span></div>
+<div><strong>Installments : </strong> <span>29/104  </span></div>
 </div>
 
 </div>
@@ -40,9 +42,11 @@
 <thead>
           <tr>
             <th>Date</th>
-            <th>Receipt No</th>
-            <th>Sale Description</th>
-            <th>Amount</th>
+            <th>Payment Reference</th>
+            <th>Transaction Details</th>
+            <th>Debit</th>
+            <th>Credit</th>
+            <th>Balance</th>
             
           </tr>
           </thead>
@@ -50,20 +54,26 @@
             <tr>
               <td>08-04-2022</td>
               <td>MTN MOMO 11961266052</td>
-              <td>Rental Payment (week 15)</td>
+              <td>Security Paid</td>
                <td>400.00</td>
+               <td>500.00</td>
+               <td>32,500.00</td>
             </tr>
             <tr>
               <td>08-04-2022</td>
               <td>MTN MOMO 11961266052</td>
-              <td>Rental Payment (week 15)</td>
+              <td>Security Paid</td>
                <td>400.00</td>
+               <td>500.00</td>
+               <td>32,500.00</td>
             </tr>
             <tr>
-              <td>08-04-2022</td>
+               <td>08-04-2022</td>
               <td>MTN MOMO 11961266052</td>
-              <td>Rental Payment (week 15)</td>
+              <td>Security Paid</td>
                <td>400.00</td>
+               <td>500.00</td>
+               <td>32,500.00</td>
             </tr>
           </tbody>  </table>
 </div>
