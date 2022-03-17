@@ -14,7 +14,7 @@ My Account - Buyer Statement (HP)
 My Account - Sales Report (RH)
 Update Vehicle Service Details
 
-PENDING
+PENDING TASKS
 Update Vehicle Inspection Details
 Vehicle Handover Form
 PWA App Development
