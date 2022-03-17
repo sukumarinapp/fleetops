@@ -426,7 +426,7 @@ class DriverController extends Controller
         }else{
             $doc_type = "Service";
             $approved = 0;
-            $sql = "insert into driver_upload (VNO,driver_id,doc_type,approved) values ('$VNO','$driver_id','$doc_type','$approved')";
+            $sql = "insert into driver_upload (VNO,driver_id,doc_type,current_mileage,approved) values ('$VNO','$driver_id','$doc_type','$current_mileage','$approved')";
             DB::insert(DB::raw($sql));
             $id = DB::getPdo()->lastInsertId();
             $SER =  $id.'.'.$request->SER->extension(); 
