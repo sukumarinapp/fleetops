@@ -25,13 +25,6 @@ class Billbox
         curl_setopt($curl, CURLOPT_HTTPHEADER, array(
                     'content-type: application/json',
                     'appid: '.$appid ));
-        $response = curl_exec($curl); 
-        print_r($response);
-        if (curl_errno($curl)) {
-            $error_msg = curl_error($curl);
-            echo $error_msg;
-        }
-        die;
         curl_close($curl);
         $response = json_decode($response);
         return $response->result;
@@ -63,11 +56,13 @@ class Billbox
                     'content-type: application/json',
                     'appid: '.$appid ));
         $response = curl_exec($curl); 
-        /*print_r($response);
+        $response = curl_exec($curl); 
+        print_r($response);
         if (curl_errno($curl)) {
             $error_msg = curl_error($curl);
             echo $error_msg;
-        }*/
+        }
+        die;
         curl_close($curl);
         $response = json_decode($response);
         return $response;
