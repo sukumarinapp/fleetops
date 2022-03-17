@@ -36,8 +36,8 @@
 <div class="col-md-12">
   <div class="row">
 <div class="table-responsive">
-<table id="example1" class="table table-striped">
-          <thead>
+  <table class="table table-striped">
+<thead>
           <tr>
             <th>Date</th>
             <th>Receipt No</th>
@@ -65,8 +65,7 @@
               <td>Rental Payment (week 15)</td>
                <td>400.00</td>
             </tr>
-          </tbody>
-      </table>
+          </tbody>  </table>
 </div>
 
 </div>
@@ -74,7 +73,6 @@
   <a href="{{ url('myaccount') }}" class="btn btn-info">Back</a>&nbsp;
   <a href="{{ route('driver') }}" class="btn btn-info">Logout</a>
 </nav>
-</div>
 </div>
 </div>
 </div>

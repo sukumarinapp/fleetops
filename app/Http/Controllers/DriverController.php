@@ -397,6 +397,17 @@ class DriverController extends Controller
         } 
     }
 
+    public function uploadservice()
+    {
+        $VNO = Session::get('VNO');
+        $sql = "SELECT a.*,b.DNM,b.DSN FROM vehicle a,driver b where a.driver_id=b.id and VNO = '$VNO' and VTV=1";
+        $valid = DB::select(DB::raw($sql));
+        if(count($valid) > 0){
+            $DNM = $valid[0]->DNM." ".$valid[0]->DSN;
+        return view('driver.uploadservice',compact('DNM'));
+       }
+    }
+
     public function resend_otp($VNO)
     {
         $sql = "SELECT a.*,b.DCN,b.DNM,b.DSN FROM vehicle a,driver b where a.driver_id=b.id and VNO = '$VNO' and VTV=1";

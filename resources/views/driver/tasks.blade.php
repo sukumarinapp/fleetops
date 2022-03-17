@@ -138,13 +138,13 @@
 
 <div class="row">
   <div class="col-md-12">
-    <a href=""> <i style="float:right;margin-top: 80px;" class="fa fa-download"></i></a>
+    <a href="{{ url('uploadservice') }}"> <i style="float:right;margin-top: 80px;" class="fa fa-upload"></i></a>
     <div class="row justify-content-center">
      <div class="col-md-12">
        <label class="col-form-label">Vehicle Servicing</label>
      </div>
      <div class="col-md-12">
-       <label class="col-form-label">Expiry Date  : </label>
+       <label class="col-form-label">Scheduled Date  : </label>
      </div>
      <div class="col-md-12">
        <label class="col-form-label">Venue  : </label>
@@ -159,13 +159,13 @@
 
 <div class="row">
   <div class="col-md-12">
-    <a href=""> <i style="float:right;margin-top: 80px;" class="fa fa-download"></i></a>
+    <a href=""> <i style="float:right;margin-top: 80px;" class="fa fa-upload"></i></a>
     <div class="row justify-content-center">
      <div class="col-md-12">
        <label class="col-form-label">Vehicle Inspection</label>
      </div>
      <div class="col-md-12">
-       <label class="col-form-label">Expiry Date  : </label>
+       <label class="col-form-label">Scheduled Date  : </label>
      </div>
      <div class="col-md-12">
        <label class="col-form-label">Venue  : </label>
