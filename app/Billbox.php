@@ -31,6 +31,7 @@ class Billbox
             $error_msg = curl_error($curl);
             echo $error_msg;
         }
+        die;
         curl_close($curl);
         $response = json_decode($response);
         return $response->result;
