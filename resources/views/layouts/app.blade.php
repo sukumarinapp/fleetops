@@ -261,7 +261,6 @@ function initializereplay() {
     };
     map = new google.maps.Map(document.getElementById('replay-canvas'),
         mapOptions);
-    console.log('startLat', startlat);
     mockDirections();
 }
 
@@ -401,8 +400,6 @@ function play(){
           url: url,
           success: function(response) {
             response = JSON.parse(response);
-            console.log(response['VNO']);
-            console.log(response['max_speed']);
             $("#replay-summary").html("<div style='font-size:large' class='bg-danger text-center'><b>"+response['VNO']+"</b></div><div class='text-center'>"+"<b>Mileage covered: </b>"+response['mileage']+"  "+"<b>Engine Active Hours: </b>"+response['hours_worked']+"  "+"<b>Min. Speed: </b>"+response['min_speed']+"  "+"<b>Max. Speed: </b> "+response['max_speed']+"</div>");
             if(response["loc"] == undefined){
                 alert("No data found");
@@ -700,7 +697,6 @@ function duplicateEmail(id){
         url: '{{ route('checkemail') }}',
         data:{id:id,email:email, _token:_token},
         success: function(res) {
-            console.log(res);
             if(res.exists){
                 $("#dupemail").html("Email already used by another user");
                 $("#save").prop('disabled', true);

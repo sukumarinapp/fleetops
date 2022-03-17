@@ -70,7 +70,7 @@
                <div id="map_canvas" style="height: 500px;"></div>
                <div class="row">
               <div class="col-md-2">
-                    <button style="display: none;text-align: center;margin-bottom: 5px;" type="button"  id="locate" class="btn btn-primary" onclick="last_location()" ><i class="fa fa-map-marker"></i>&nbsp;Locate</button>
+                    <button style="display: none;text-align: center;margin-bottom: 5px;" id="locate" class="btn btn-primary" onclick="last_location()" ><i class="fa fa-map-marker"></i>&nbsp;Locate</button>
                   </div>
                 </div>
                <div id="map_canvas_live" style="height: 500px;display: none;"></div>
@@ -183,7 +183,7 @@
             @else
               <button type="button" class="btn btn-primary btn-sm btn-block" data-lat="{{ $alert['latitude'] }},{{ $alert['longitude'] }}" data-toggle="modal" data-target="#myMapModal" >View</button>
               <a class="btn btn-success btn-sm btn-block whatsappshare" href="whatsapp://send?text=https://maps.google.com/?q={{ $alert['latitude'] }},{{ $alert['longitude'] }}" data-action="share/whatsapp/share" target="_blank"><img class="whatsappshare" src="whatsapp.png" /></a>
-              <a class="btn btn-primary btn-sm  btn-block" href="https://maps.google.com/?q={{ $alert['latitude'] }},{{ $alert['longitude'] }}" target="_blank">Open Map</a>
+              <a class="btn btn-primary btn-sm  btn-block" href="https://maps.google.com/?q={{ $alert['latitude'] }},{{ $alert['longitude'] }}" target="_blank">Locate</a>
             @endif
             </td>
             <td style="padding-top: 20px;">
@@ -352,7 +352,6 @@
       url: roadapi,
       success: function(response) {
         snappedPoints = response.snappedPoints;
-        console.log(snappedPoints);
         snapLength = snappedPoints.length - 1;
         position_live[0] = snappedPoints[snapLength].location.latitude;
         position_live[1] = snappedPoints[snapLength].location.longitude;
@@ -422,7 +421,6 @@
       function setMarkers(locations) {
         for (var i = 0; i < locations.length; i++) {
           var vehicle = locations[i];
-          //console.log(vehicle['VNO']+":"+vehicle['latitude']+":"+vehicle['longitude']);
           var acc = "";
           var engine_on = parseInt(vehicle["engine_on"]);
           var car_icon = "off0.png";
@@ -492,8 +490,6 @@
           }
 
           if(check_checked(vehicle['VNO'])){
-            console.log(vehicle['VNO']);
-            console.log(car_icon);
             var myLatLng = new google.maps.LatLng(vehicle["latitude"], vehicle["longitude"]);
             var title = vehicle["VNO"] + "\n" + vehicle["terminal_id"] + "\n" + "Speed: " + vehicle["ground_speed"]+ "\n" + "Direction: " + vehicle["direction"]; 
             var marker = new google.maps.Marker({
