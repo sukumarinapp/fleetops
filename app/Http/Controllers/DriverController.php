@@ -416,11 +416,14 @@ class DriverController extends Controller
         $sql = "select a.id from driver_upload a,driver b where VNO = '$VNO' and a.driver_id=b.id and doc_type='Service' and approved=0";
         $result = DB::select(DB::raw($sql));
         $filepath = public_path('uploads'.DIRECTORY_SEPARATOR.'driver'.DIRECTORY_SEPARATOR);
-        $upload_time = date("Y-m-d H:i:s");        
+        $upload_time = date("Y-m-d H:i:s");    
+        $SER = "";  
         if(count($result) > 0){
             $id = $result[0]->id;
-            $SER =  $id.'.'.$request->SER->extension(); 
-            move_uploaded_file($_FILES['SER']['tmp_name'], $filepath.$SER);
+            if(trim($_FILES['SER']['tmp_name']) != ""){
+                $SER =  $id.'.'.$request->SER->extension(); 
+                move_uploaded_file($_FILES['SER']['tmp_name'], $filepath.$SER);
+            }
             $sql = "update driver_upload set file_name='$SER',current_mileage='$current_mileage',upload_time='$upload_time' where id=$id";
             DB::update(DB::raw($sql));    
         }else{
@@ -429,12 +432,14 @@ class DriverController extends Controller
             $sql = "insert into driver_upload (VNO,driver_id,doc_type,current_mileage,approved) values ('$VNO','$driver_id','$doc_type','$current_mileage','$approved')";
             DB::insert(DB::raw($sql));
             $id = DB::getPdo()->lastInsertId();
-            $SER =  $id.'.'.$request->SER->extension(); 
-            move_uploaded_file($_FILES['SER']['tmp_name'], $filepath.$SER);
+            if(trim($_FILES['SER']['tmp_name']) != ""){
+                $SER =  $id.'.'.$request->SER->extension(); 
+                move_uploaded_file($_FILES['SER']['tmp_name'], $filepath.$SER);
+            }
             $sql = "update driver_upload set file_name='$SER',current_mileage='$current_mileage',upload_time='$upload_time' where id=$id";
             DB::update(DB::raw($sql));  
         }
-        return redirect('/tasks')->with('success', 'Service Document uploaded successfully');
+        return redirect('/tasks')->with('success', 'Service details updated successfully');
      } 
 
     public function resend_otp($VNO)
