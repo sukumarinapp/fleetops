@@ -51,7 +51,7 @@
             <tr>
               <td>{{ $result->SDT }}</td>
               <td>{{ $result->RNO }}</td>
-              <td>{{ $result->VPF }}</td>
+              <td>Rental {{ $result->VPF }}</td>
               <td>{{ $result->RMT }}</td>
             </tr>
              @endforeach
