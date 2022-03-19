@@ -235,6 +235,14 @@ class DriverController extends Controller
     {
         $VNO = Session::get('VNO');
         $sql = "select a.SDT,a.RMT,b.VMK,b.VMD,c.VBM,c.DNM,c.DSN,c.DCN,c.VPF from tbl137 a,vehicle b,driver c where a.VNO = b.VNO and b.driver_id=c.id and b.VNO='$VNO'";
+        $VBM = "";
+        $DNM = "";
+        $VMK = "";
+        $DCN = "";
+        $SDT = "";
+        $RMT = "";
+        $VPF = "";
+
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
             $VBM = $result[0]->VBM;
@@ -243,9 +251,11 @@ class DriverController extends Controller
             $DCN = $result[0]->DCN;
             $SDT = $result[0]->SDT;
             $RMT = $result[0]->RMT;
-            $VPF = $result[0]->VPF;
-            return view('driver.receipts',compact('VNO','VBM','DNM','DCN','VMK','SDT','RMT','VPF'));
+            $VPF = $result[0]->VPF; 
+            return view('driver.receipts',compact('result','VNO','VBM','DNM','DCN','VMK','SDT','RMT','VPF'));
+
         }
+
     }
 
      public function uploadlicence()
