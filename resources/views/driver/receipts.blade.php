@@ -48,10 +48,10 @@
           </thead>
           <tbody>
             <tr>
-              <td>08-04-2022</td>
+              <td>{{ $SDT }}</td>
               <td>MTN MOMO 11961266052</td>
-              <td>Rental Payment (week 15)</td>
-               <td>400.00</td>
+              <td>{{ $VPF }}</td>
+              <td>{{ $RMT }}</td>
             </tr>
             <tr>
               <td>08-04-2022</td>
