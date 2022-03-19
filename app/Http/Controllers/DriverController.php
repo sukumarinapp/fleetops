@@ -234,7 +234,7 @@ class DriverController extends Controller
     public function receipts()
     {
         $VNO = Session::get('VNO');
-        $sql = "select a.SDT,a.RMT,a.RNO,b.VMK,b.VMD,c.VBM,c.DNM,c.DSN,c.DCN,c.VPF from tbl137 a,vehicle b,driver c where a.VNO = b.VNO and b.driver_id=c.id and b.VNO='$VNO' and a.VNO='$VNO'";
+        $sql = "select a.SDT,a.RMT,a.RNO,b.VMK,b.VMD,c.VBM,c.DNM,c.DSN,c.DCN,c.VPF from tbl137 a,vehicle b,driver c where a.VNO = b.VNO and b.driver_id=c.id and b.VNO='$VNO' and a.VNO='$VNO' and RST = 1";
          $result = DB::select(DB::raw($sql));
          if(count($result) > 0){
             $VBM = $result[0]->VBM;
