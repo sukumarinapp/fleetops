@@ -4,7 +4,7 @@ namespace App;
 
 class Billbox
 {
-    private static $appid = "d044135f-653d-89eb-2912-f69f68d9ab64";
+    private static $appid = "71b911ee-56a6-c2a0-8dba-2fadfa16db80";
     private static $appReference = "test@fleetops.com";
     private static $secret = "Fl3310p5";
 
@@ -25,6 +25,13 @@ class Billbox
         curl_setopt($curl, CURLOPT_HTTPHEADER, array(
                     'content-type: application/json',
                     'appid: '.$appid ));
+        $response = curl_exec($curl); 
+        /*print_r($response);
+        if (curl_errno($curl)) {
+            $error_msg = curl_error($curl);
+            echo $error_msg;
+        }
+        die;*/
         curl_close($curl);
         $response = json_decode($response);
         return $response->result;
@@ -55,7 +62,6 @@ class Billbox
         curl_setopt($curl, CURLOPT_HTTPHEADER, array(
                     'content-type: application/json',
                     'appid: '.$appid ));
-        $response = curl_exec($curl); 
         $response = curl_exec($curl); 
         /*print_r($response);
         if (curl_errno($curl)) {
