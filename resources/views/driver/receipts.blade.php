@@ -50,7 +50,7 @@
             @foreach($result as $result)
             <tr>
               <td>{{ $result->SDT }}</td>
-              <td>{{ $result->ROI }} {{ $result->RNO }}</td>
+              <td>{{ $result->RNO }}</td>
               <td>{{ $result->VPF }}</td>
               <td>{{ $result->RMT }}</td>
             </tr>
