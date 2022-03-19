@@ -54,18 +54,6 @@
               <td>{{ $result->VPF }}</td>
               <td>{{ $result->RMT }}</td>
             </tr>
-            <tr>
-              <td>08-04-2022</td>
-              <td>MTN MOMO 11961266052</td>
-              <td>Rental Payment (week 15)</td>
-               <td>400.00</td>
-            </tr>
-            <tr>
-              <td>08-04-2022</td>
-              <td>MTN MOMO 11961266052</td>
-              <td>Rental Payment (week 15)</td>
-               <td>400.00</td>
-            </tr>
              @endforeach
           </tbody>  </table>
 </div>
