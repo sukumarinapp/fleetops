@@ -235,6 +235,7 @@ class DriverController extends Controller
     {
         $VNO = Session::get('VNO');
         $sql = "select a.SDT,a.RMT,b.VMK,b.VMD,c.VBM,c.DNM,c.DSN,c.DCN,c.VPF from tbl137 a,vehicle b,driver c where a.VNO = b.VNO and b.driver_id=c.id and b.VNO='$VNO'";
+         $result = DB::select(DB::raw($sql));
         $VBM = "";
         $DNM = "";
         $VMK = "";
@@ -243,18 +244,7 @@ class DriverController extends Controller
         $RMT = "";
         $VPF = "";
 
-        $result = DB::select(DB::raw($sql));
-        if(count($result) > 0){
-            $VBM = $result[0]->VBM;
-            $DNM = $result[0]->DNM . " " . $result[0]->DSN;
-            $VMK = $result[0]->VMK . " " . $result[0]->VMD;
-            $DCN = $result[0]->DCN;
-            $SDT = $result[0]->SDT;
-            $RMT = $result[0]->RMT;
-            $VPF = $result[0]->VPF; 
-            return view('driver.receipts',compact('result','VNO','VBM','DNM','DCN','VMK','SDT','RMT','VPF'));
-
-        }
+       return view('driver.receipts',compact('result','VNO','VBM','DNM','DCN','VMK','SDT','RMT','VPF'));
 
     }
 

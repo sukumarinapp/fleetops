@@ -47,11 +47,12 @@
           </tr>
           </thead>
           <tbody>
+            @foreach($result as $result)
             <tr>
-              <td>{{ $SDT }}</td>
+              <td>{{ $result->SDT }}</td>
               <td>MTN MOMO 11961266052</td>
-              <td>{{ $VPF }}</td>
-              <td>{{ $RMT }}</td>
+              <td>{{ $result->VPF }}</td>
+              <td>{{ $result->RMT }}</td>
             </tr>
             <tr>
               <td>08-04-2022</td>
@@ -65,6 +66,7 @@
               <td>Rental Payment (week 15)</td>
                <td>400.00</td>
             </tr>
+             @endforeach
           </tbody>  </table>
 </div>
 
