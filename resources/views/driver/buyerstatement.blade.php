@@ -51,30 +51,16 @@
           </tr>
           </thead>
           <tbody>
+            @foreach($result as $res)
             <tr>
-              <td>08-04-2022</td>
-              <td>MTN MOMO 11961266052</td>
-              <td>Security Paid</td>
+              <td>{{ date('d-M-Y', strtotime($res->SDT)) }}</td>
+              <td>{{ $res->RNO }}</td>
+              <td>{{ $res->VPF }}</td>
                <td>400.00</td>
-               <td>500.00</td>
+               <td>{{ $res->RMT }}</td>
                <td>32,500.00</td>
             </tr>
-            <tr>
-              <td>08-04-2022</td>
-              <td>MTN MOMO 11961266052</td>
-              <td>Security Paid</td>
-               <td>400.00</td>
-               <td>500.00</td>
-               <td>32,500.00</td>
-            </tr>
-            <tr>
-               <td>08-04-2022</td>
-              <td>MTN MOMO 11961266052</td>
-              <td>Security Paid</td>
-               <td>400.00</td>
-               <td>500.00</td>
-               <td>32,500.00</td>
-            </tr>
+             @endforeach
           </tbody>  </table>
 </div>
 

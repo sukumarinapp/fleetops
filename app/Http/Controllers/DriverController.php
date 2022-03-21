@@ -222,15 +222,17 @@ class DriverController extends Controller
     public function buyerstatement()
     {
         $VNO = Session::get('VNO');
-        $sql = "select b.VMK,b.VMD,c.VBM,c.DNM,c.DSN,c.DCN from vehicle b,driver c where  b.driver_id=c.id and b.VNO='$VNO'";
+        $DNM = "";
+        $VBM = "";
+        $VMK = "";
+        $sql = "select a.SDT,a.RMT,b.VMK,b.VMD,c.VBM,c.DNM,c.DSN,c.VPF from tbl137 a,vehicle b,driver c,tbl361 d where a.VNO = b.VNO and b.driver_id=c.id and b.VNO='$VNO' and a.VNO='$VNO' order by SDT desc";
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
-            $VBM = $result[0]->VBM;
             $DNM = $result[0]->DNM . " " . $result[0]->DSN;
+            $VBM = $result[0]->VBM;
             $VMK = $result[0]->VMK . " " . $result[0]->VMD;
-            $DCN = $result[0]->DCN;
-            return view('driver.buyerstatement',compact('VNO','VBM','DNM','DCN','VMK'));
         }
+        return view('driver.salesreport',compact('result','VNO','DNM','VBM','VMK'));
     }
 
     public function receipts()
