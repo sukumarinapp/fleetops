@@ -209,10 +209,6 @@ class DriverController extends Controller
         $DNM = "";
         $VBM = "";
         $VMK = "";
-        $RHN = "";
-        $SPF = "";
-        $TPF = "";
-        $RMT = "";
         $sql = "select a.SDT,a.RMT,a.RHN,a.SPF,a.TPF,a.RST,b.VMK,b.VMD,c.VBM,c.DNM,c.DSN,c.DCN,c.VPF from tbl137 a,vehicle b,driver c where a.VNO = b.VNO and b.driver_id=c.id and b.VNO='$VNO' and a.VNO='$VNO' and a.VBM='Ride Hailing' order by SDT desc";
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
