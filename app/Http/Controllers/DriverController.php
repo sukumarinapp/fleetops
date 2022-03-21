@@ -206,19 +206,21 @@ class DriverController extends Controller
     public function salesreport()
     {
         $VNO = Session::get('VNO');
-        $sql = "select a.SDT,a.RHN,a.SPF,a.TPF,b.VMK,b.VMD,c.VBM,c.DNM,c.DSN,c.DCN from tbl137 a,vehicle b,driver c where a.VNO = b.VNO and b.driver_id=c.id and b.VNO='$VNO' and a.VNO='$VNO' order by SDT desc";
+        $DNM = "";
+        $VBM = "";
+        $VMK = "";
+        $RHN = "";
+        $SPF = "";
+        $TPF = "";
+        $RMT = "";
+        $sql = "select a.SDT,a.RMT,a.RHN,a.SPF,a.TPF,b.VMK,b.VMD,c.VBM,c.DNM,c.DSN,c.DCN,c.VPF from tbl137 a,vehicle b,driver c where a.VNO = b.VNO and b.driver_id=c.id and b.VNO='$VNO' and a.VNO='$VNO' and RST = 1 order by SDT desc";
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
-            $VBM = $result[0]->VBM;
             $DNM = $result[0]->DNM . " " . $result[0]->DSN;
+            $VBM = $result[0]->VBM;
             $VMK = $result[0]->VMK . " " . $result[0]->VMD;
-            $DCN = $result[0]->DCN;
-            $SDT = $result[0]->SDT;
-            $RHN = $result[0]->RHN;
-            $SPF = $result[0]->SPF;
-            $TPF = $result[0]->TPF;
-            return view('driver.salesreport',compact('result','VNO','VBM','DNM','DCN','VMK','SDT','RHN','SPF','TPF'));
         }
+        return view('driver.salesreport',compact('result','VNO','DNM','VBM','VMK'));
     }
 
     public function buyerstatement()

@@ -50,13 +50,13 @@
           </tr>
           </thead>
           <tbody>
-             @foreach($result as $result)
+             @foreach($result as $res)
             <tr>
-              <td>{{ $result->SDT }}</td>
-              <td>{{ $result->RHN }}</td>
-              <td>{{ $result->SPF }}</td>
-              <td>248.80</td>
-              <td>{{ $result->TPF }}</td>
+              <td>{{ $res->SDT }}</td>
+              <td>{{ $res->RHN }}</td>
+              <td>{{ $res->SPF }}</td>
+              <td>{{ $res->RMT }}</td>
+              <td>{{ $res->TPF }}</td>
               <td>Pass</td>
               <td>Cleared</td>
             </tr>
