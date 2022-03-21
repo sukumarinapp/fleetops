@@ -246,7 +246,7 @@ class DriverController extends Controller
         if(count($result) > 0){
             $DNM = $result[0]->DNM . " " . $result[0]->DSN;
             $VBM = $result[0]->VBM;
-            $VMK = $result[0]->VMK;
+            $VMK = $result[0]->VMK . " " . $result[0]->VMD;
         }
         return view('driver.receipts',compact('result','VNO','DNM','VBM','VMK'));
     }
