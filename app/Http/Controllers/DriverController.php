@@ -232,7 +232,7 @@ class DriverController extends Controller
             $VBM = $result[0]->VBM;
             $VMK = $result[0]->VMK . " " . $result[0]->VMD;
         }
-        return view('driver.salesreport',compact('result','VNO','DNM','VBM','VMK'));
+        return view('driver.buyerstatement',compact('result','VNO','DNM','VBM','VMK'));
     }
 
     public function receipts()
