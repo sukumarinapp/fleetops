@@ -47,12 +47,12 @@
           </tr>
           </thead>
           <tbody>
-            @foreach($result as $result)
+            @foreach($result as $res)
             <tr>
-              <td>{{ $result->SDT }}</td>
-              <td>{{ $result->RNO }}</td>
-              <td>Rental {{ $result->VPF }}</td>
-              <td>{{ $result->RMT }}</td>
+              <td>{{ $res->SDT }}</td>
+              <td>{{ $res->RNO }}</td>
+              <td>Rental {{ $res->VPF }}</td>
+              <td>{{ $res->RMT }}</td>
             </tr>
              @endforeach
           </tbody>  </table>

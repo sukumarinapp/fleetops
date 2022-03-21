@@ -238,34 +238,23 @@ class DriverController extends Controller
     public function receipts()
     {
         $VNO = Session::get('VNO');
-            $VBM = "";
-            $DNM = "";
-            $VMK = "";
-            $DSN = "";
-            $DCN = "";
-            $VMD = "";
-            $SDT = "";
-            $RMT = "";
-            $VPF = "";
+        $DNM = "";
+        $VBM = "";
+        $VMK = "";
         $sql = "select a.SDT,a.RMT,a.RNO,b.VMK,b.VMD,c.VBM,c.DNM,c.DSN,c.DCN,c.VPF from tbl137 a,vehicle b,driver c where a.VNO = b.VNO and b.driver_id=c.id and b.VNO='$VNO' and a.VNO='$VNO' and RST = 1 order by SDT desc";
-         $result = DB::select(DB::raw($sql));
-         if(count($result) > 0){
-            $VBM = $result[0]->VBM;
+        echo $sql;
+        die;
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
             $DNM = $result[0]->DNM . " " . $result[0]->DSN;
-            $VMK = $result[0]->VMK . " " . $result[0]->VMD;
-            $DCN = $result[0]->DCN;
-            $SDT = $result[0]->SDT;
-            $RMT = $result[0]->RMT;
-            $VPF = $result[0]->VPF;
-  
-       return view('driver.receipts',compact('result','VNO','VBM','DNM','DCN','VMK','SDT','RMT','VPF'));
-       }else{
-            return view('driver.receipts',compact('result','VNO','VBM','DNM','DSN','DCN','VMK','VMD','SDT','RMT','VPF'));
+            $VBM = $result[0]->VBM;
+            $VMK = $result[0]->VMK;
         }
+        return view('driver.receipts',compact('result','VNO','DNM','VBM','VMK'));
     }
 
-     public function uploadlicence()
-     {
+    public function uploadlicence()
+    {
         $VNO = Session::get('VNO');
         $sql = "select c.DNM,c.DSN,b.driver_id from vehicle b,driver c where  b.driver_id=c.id and b.VNO='$VNO'";
         $result = DB::select(DB::raw($sql));
@@ -273,7 +262,7 @@ class DriverController extends Controller
             $DNM = $result[0]->DNM . " " . $result[0]->DSN;
             return view('driver.uploadlicence',compact('DNM'));
         }
-     } 
+    } 
 
      public function savelicence(Request $request)
      {
