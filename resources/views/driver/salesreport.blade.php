@@ -60,9 +60,9 @@
               <td>Pass</td>
               <td>
                 @if($res->RST == 1)
-                   Cleared;
+                   Cleared
                 @else
-                   Pending;
+                   Pending
                 @endif</td>
             </tr>
             
