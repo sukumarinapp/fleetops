@@ -225,7 +225,7 @@ class DriverController extends Controller
         $DNM = "";
         $VBM = "";
         $VMK = "";
-        $sql = "select a.SDT,a.RMT,b.VMK,b.VMD,c.VBM,c.DNM,c.DSN,c.VPF from tbl137 a,vehicle b,driver c,tbl361 d where a.VNO = b.VNO and b.driver_id=c.id and b.VNO='$VNO' and a.VNO='$VNO' order by SDT desc";
+        $sql = "select a.SDT,a.RMT,a.RNO,b.VMK,b.VMD,c.VBM,c.DNM,c.DSN,c.VPF from tbl137 a,vehicle b,driver c,tbl361 d where a.VNO = b.VNO and b.driver_id=c.id and b.VNO='$VNO' and a.VNO='$VNO' order by SDT desc";
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
             $DNM = $result[0]->DNM . " " . $result[0]->DSN;
