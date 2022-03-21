@@ -59,7 +59,7 @@
               <td>{{ $res->TPF }}</td>
               <td>Pass</td>
               <td>
-                @if($result->RST == 1)
+                @if($res->RST == 1)
                    Cleared;
                 @else
                    Pending;
