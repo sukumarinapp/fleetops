@@ -206,14 +206,18 @@ class DriverController extends Controller
     public function salesreport()
     {
         $VNO = Session::get('VNO');
-        $sql = "select b.VMK,b.VMD,c.VBM,c.DNM,c.DSN,c.DCN from vehicle b,driver c where  b.driver_id=c.id and b.VNO='$VNO'";
+        $sql = "select a.SDT,a.RHN,a.SPF,a.TPF,b.VMK,b.VMD,c.VBM,c.DNM,c.DSN,c.DCN from tbl137 a,vehicle b,driver c where a.VNO = b.VNO and b.driver_id=c.id and b.VNO='$VNO' and a.VNO='$VNO' order by SDT desc";
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
             $VBM = $result[0]->VBM;
             $DNM = $result[0]->DNM . " " . $result[0]->DSN;
             $VMK = $result[0]->VMK . " " . $result[0]->VMD;
             $DCN = $result[0]->DCN;
-            return view('driver.salesreport',compact('VNO','VBM','DNM','DCN','VMK'));
+            $SDT = $result[0]->SDT;
+            $RHN = $result[0]->RHN;
+            $SPF = $result[0]->SPF;
+            $TPF = $result[0]->TPF;
+            return view('driver.salesreport',compact('result','VNO','VBM','DNM','DCN','VMK','SDT','RHN','SPF','TPF'));
         }
     }
 
@@ -256,7 +260,7 @@ class DriverController extends Controller
   
        return view('driver.receipts',compact('result','VNO','VBM','DNM','DCN','VMK','SDT','RMT','VPF'));
        }else{
-            return view('driver.receipts',compact('result','VNO','VBM','DNM','DSN','DCN','VMK','VMD','SDT','RMT','VPF'));;
+            return view('driver.receipts',compact('result','VNO','VBM','DNM','DSN','DCN','VMK','VMD','SDT','RMT','VPF'));
         }
     }
 

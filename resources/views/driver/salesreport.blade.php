@@ -50,33 +50,18 @@
           </tr>
           </thead>
           <tbody>
+             @foreach($result as $result)
             <tr>
-              <td>08-04-2022</td>
-              <td>Uber</td>
-              <td>242.59</td>
+              <td>{{ $result->SDT }}</td>
+              <td>{{ $result->RHN }}</td>
+              <td>{{ $result->SPF }}</td>
               <td>248.80</td>
-              <td>22</td>
+              <td>{{ $result->TPF }}</td>
               <td>Pass</td>
               <td>Cleared</td>
             </tr>
-             <tr>
-              <td>08-04-2022</td>
-              <td>Uber</td>
-              <td>242.59</td>
-              <td>248.80</td>
-              <td>22</td>
-              <td>Pass</td>
-              <td>Cleared</td>
-            </tr>
-             <tr>
-              <td>08-04-2022</td>
-              <td>Uber</td>
-              <td>242.59</td>
-              <td>248.80</td>
-              <td>22</td>
-              <td>Audit</td>
-              <td>Pending</td>
-            </tr>
+            
+            @endforeach
           </tbody>  </table>
 </div>
 
