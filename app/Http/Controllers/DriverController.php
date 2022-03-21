@@ -242,8 +242,6 @@ class DriverController extends Controller
         $VBM = "";
         $VMK = "";
         $sql = "select a.SDT,a.RMT,a.RNO,b.VMK,b.VMD,c.VBM,c.DNM,c.DSN,c.DCN,c.VPF from tbl137 a,vehicle b,driver c where a.VNO = b.VNO and b.driver_id=c.id and b.VNO='$VNO' and a.VNO='$VNO' and RST = 1 order by SDT desc";
-        echo $sql;
-        die;
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
             $DNM = $result[0]->DNM . " " . $result[0]->DSN;
