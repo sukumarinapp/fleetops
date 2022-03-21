@@ -58,13 +58,13 @@
               <td>{{ $res->RMT }}</td>
               <td>{{ $res->TPF }}</td>
               <td>Pass</td>
-              <td> @php
-                if($result->RST == 1){
+              <td>
+                @if($result->RST == 1){
                    echo "Cleared";
-                }else{
+                }@else{
                     echo "Pending";
                   }
-                @endphp</td>
+                @endif</td>
             </tr>
             
             @endforeach
