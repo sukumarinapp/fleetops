@@ -49,7 +49,7 @@
           <tbody>
             @foreach($result as $res)
             <tr>
-              <td>{{ $res->SDT }}</td>
+              <td>{{ date('d-M-Y', strtotime($res->SDT)) }}</td>
               <td>{{ $res->RNO }}</td>
               <td>Rental {{ $res->VPF }}</td>
               <td>{{ $res->RMT }}</td>
