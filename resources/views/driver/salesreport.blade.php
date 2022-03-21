@@ -59,11 +59,10 @@
               <td>{{ $res->TPF }}</td>
               <td>Pass</td>
               <td>
-                @if($result->RST == 1){
-                   echo "Cleared";
-                }@else{
-                    echo "Pending";
-                  }
+                @if($result->RST == 1)
+                   Cleared;
+                @else
+                   Pending;
                 @endif</td>
             </tr>
             
