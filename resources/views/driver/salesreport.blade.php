@@ -67,6 +67,19 @@
             </tr>
             
             @endforeach
+
+            @foreach($result2 as $res)
+            <tr>
+              <td>{{ date('d-M-Y', strtotime($res->ADT)) }}</td>
+              <td>{{ $res->RHN }}</td>
+              <td>{{ $res->SPF }}</td>
+              <td>{{ $res->CPF }}</td>
+              <td>{{ $res->TPF }}</td>
+              <td>Audit</td>
+              <td>Cleared</td>
+            </tr>
+            
+            @endforeach
           </tbody>  </table>
 </div>
 
