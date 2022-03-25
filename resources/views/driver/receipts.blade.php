@@ -59,7 +59,7 @@
 </div>
 
 </div>
-<nav class="navbar fixed-bottom navbar-expand-lg justify-content-center">      
+<nav class="navbar navbar-expand-lg justify-content-center">      
   <a href="{{ url('myaccount') }}" class="btn btn-info">Back</a>&nbsp;
   <a href="{{ route('driver') }}" class="btn btn-info">Logout</a>
 </nav>
