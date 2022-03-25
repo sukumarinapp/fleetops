@@ -91,6 +91,10 @@ function submit_data() {
 
 $(document).ready(function(){
 
+    $('buyerst').dataTable({
+        "aaSorting": [[ 5, "desc" ]] // Sort by first column descending
+    });
+
      $('#example').DataTable({searching: false, paging: true, info: false});
     
     $(".alert-success").fadeTo(2000, 500).slideUp(500, function(){

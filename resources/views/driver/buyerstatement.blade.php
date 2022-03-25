@@ -38,7 +38,7 @@
 <div class="col-md-12">
   <div class="row">
 <div class="table-responsive">
-  <table id="example" class="table table-striped table-bordered">
+  <table id="buyerst" class="table table-striped table-bordered">
 <thead>
           <tr>
             <th>Date</th>
@@ -85,7 +85,7 @@
             {{ $balance = $PPR - $PDP }}
             @foreach($result as $res)
             @php
-              $balance = $balance - $res->RMT;
+              $balance = $balance - ($res->RMT);
             @endphp
             <tr>
               <td>{{ date('d-M-Y', strtotime($res->SDT)) }}</td>
