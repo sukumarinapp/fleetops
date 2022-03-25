@@ -82,7 +82,9 @@
                <td>{{ $SDP }}</td>
                <td>{{ number_format($PPR - $PDP,2) }}</td>
             </tr>
-            {{ $balance = $PPR - $PDP }}
+            @php
+              $balance = $PPR - $PDP;
+            @endphp
             @foreach($result as $res)
             @php
               $balance = $balance - ($res->RMT);
