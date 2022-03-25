@@ -84,14 +84,16 @@
             </tr>
             {{ $balance = $PPR - $PDP }}
             @foreach($result as $res)
-               {{ $balance = $balance - $res->RMT }}
+            @php
+              $balance = $balance - $res->RMT;
+            @endphp
             <tr>
               <td>{{ date('d-M-Y', strtotime($res->SDT)) }}</td>
               <td>{{ $res->RNO }}</td>
               <td>{{ $res->VPF }}</td>
                <td></td>
                <td>{{ $res->RMT }}</td>
-               <td>{{ $balance }}</td>
+               <td>{{ number_format($balance ,2) }}</td>
             </tr>
              @endforeach
           </tbody>  </table>
