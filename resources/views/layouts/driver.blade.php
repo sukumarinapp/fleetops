@@ -17,6 +17,11 @@
 @yield('content')
 <script src="{{ mix('js/app.js') }}" ></script>
 @yield('third_party_scripts')
+ <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap4.min.js"></script>
 @stack('page_scripts')
 <script>
 var tab_row = 0;
@@ -85,6 +90,8 @@ function submit_data() {
 }
 
 $(document).ready(function(){
+
+     $('#example').DataTable({searching: false, paging: true, info: false});
     
     $(".alert-success").fadeTo(2000, 500).slideUp(500, function(){
             $(".alert-success").slideUp(500);
