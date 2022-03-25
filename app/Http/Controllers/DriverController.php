@@ -231,7 +231,7 @@ class DriverController extends Controller
         $PDP = "";
         $SDP = "";
         $VPD = "";
-        $sql = "select c.PPR,c.PDP,c.SDP,c.VPD,a.SDT,a.RMT,a.RNO,b.VMK,b.VMD,c.VBM,c.DNM,c.DSN,c.VPF from tbl137 a,vehicle b,driver c,tbl361 d where a.VNO = b.VNO and b.driver_id=c.id and b.VNO='$VNO' and a.VBM='Hire Purchase' and a.RST=1 order by SDT";
+        $sql = "select c.PPR,c.PDP,c.SDP,c.VPD,a.SDT,a.RMT,a.RNO,b.VMK,b.VMD,c.VBM,c.DNM,c.DSN,c.VPF from tbl137 a,vehicle b,driver c where a.VNO = b.VNO and b.driver_id=c.id and b.VNO='$VNO' and a.VBM='Hire Purchase' and a.RST=1 order by SDT";
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
             $DNM = $result[0]->DNM . " " . $result[0]->DSN;
