@@ -38,7 +38,7 @@
 <div class="col-md-12">
   <div class="row">
 <div class="table-responsive">
-  <table class="table table-striped">
+  <table id="example" class="table table-striped table-bordered">
 <thead>
           <tr>
             <th>Date</th>
