@@ -28,7 +28,7 @@
   <h6 class="mb-3"></h6>
 <div><strong>Date : </strong> <span>{{ date("l M d Y")}}</span></div>
 <div><strong>Buyer : </strong> <span>{{ $DNM }}</span></div>
-<div><strong>Start : </strong> <span>08-04-21 </span></div>
+<div><strong>Start : </strong> <span>{{ date('d-M-Y', strtotime($VPD)) }}</span></div>
 <div><strong>End : </strong> <span>07-04-23 </span></div>
 <div><strong>Installments : </strong> <span>29/104  </span></div>
 </div>
