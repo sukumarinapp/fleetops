@@ -47,18 +47,51 @@
             <th>Debit</th>
             <th>Credit</th>
             <th>Balance</th>
-            
           </tr>
           </thead>
           <tbody>
+            <tr>
+              <td></td>
+              <td></td>
+              <td>Vehicle</td>
+               <td>{{ $PPR }}</td>
+               <td></td>
+               <td>{{ $PPR }}</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td>Down payment</td>
+               <td></td>
+               <td>{{ $PDP }}</td>
+               <td>{{ number_format($PPR - $PDP,2) }}</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td>Security Deposit</td>
+               <td>{{ $SDP }}</td>
+               <td></td>
+               <td>{{ number_format($PPR - $PDP + $SDP,2) }}</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td>Security Paid</td>
+               <td></td>
+               <td>{{ $SDP }}</td>
+               <td>{{ number_format($PPR - $PDP,2) }}</td>
+            </tr>
+            {{ $balance = $PPR - $PDP }}
             @foreach($result as $res)
+               {{ $balance = $balance - $res->RMT }}
             <tr>
               <td>{{ date('d-M-Y', strtotime($res->SDT)) }}</td>
               <td>{{ $res->RNO }}</td>
               <td>{{ $res->VPF }}</td>
-               <td>400.00</td>
+               <td></td>
                <td>{{ $res->RMT }}</td>
-               <td>32,500.00</td>
+               <td>{{ $balance }}</td>
             </tr>
              @endforeach
           </tbody>  </table>
