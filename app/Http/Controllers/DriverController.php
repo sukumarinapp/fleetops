@@ -216,7 +216,9 @@ class DriverController extends Controller
             $VBM = $result[0]->VBM;
             $VMK = $result[0]->VMK . " " . $result[0]->VMD;
         }
-        return view('driver.salesreport',compact('result','VNO','DNM','VBM','VMK'));
+        $sql = "select a.* from sales_audit a,tbl136 b where b.VNO = '$VNO' and a.DCR = b.id order by ADT desc";
+        $result2 = DB::select(DB::raw($sql));
+        return view('driver.salesreport',compact('result','result2','VNO','DNM','VBM','VMK'));
     }
 
     public function buyerstatement()
