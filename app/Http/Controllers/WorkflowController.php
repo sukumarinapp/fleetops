@@ -55,7 +55,7 @@ class WorkflowController extends Controller
             $vehicle->RMT = $RMT;
             $vehicle->CCEI = $CCEI;
         }
-        $sql = "select a.*,b.DNM,b.DSN from driver_upload a,driver b where a.driver_id=b.id and doc_type='Inspection' and approved=0";
+        $sql = "select a.*,b.DNM,b.DSN from driver_upload a,driver b where a.driver_id=b.id and approved=0";
         $inspect = DB::select(DB::raw($sql));
         return view('workflow',compact('vehicles','inspect'));
     }
