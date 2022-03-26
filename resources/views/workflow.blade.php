@@ -81,7 +81,11 @@
 		              <td>INS{{ str_pad($insp->id,3,'0',STR_PAD_LEFT) }}</td>
 		              <td>{{ $insp->doc_type }}</td>
 		              <td>{{ $insp->DNM }} {{ $insp->DSN }}</td>    
-		              <td>Resolve</a></td> 
+		              @if($insp->doc_type == "Inspection")
+		              	<td><a href="{{ url('vehicleinspection') }}/{{ $insp->id }}">Resolve</a></td>
+		              @else
+		              	<td>Resolve</td> 
+	              	@endif
 		            </tr>
             @endforeach
           </tbody>

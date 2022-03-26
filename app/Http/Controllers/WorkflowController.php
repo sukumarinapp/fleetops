@@ -527,12 +527,10 @@ class WorkflowController extends Controller
         echo json_encode($response);
     }
 
-    public function vehicleinspection(){
-
-        $sql = "select a.*,b.DNM,b.DSN from driver_upload a,driver b where a.driver_id=b.id and approved=0";
-        $inspect = DB::select(DB::raw($sql));
-        
-        return view('inspection');
+    public function vehicleinspection($id){
+        $sql = "select a.*,b.DNM,b.DSN from driver_upload a,driver b where a.driver_id=b.id and a.id=$id and approved=0";
+        $result = DB::select(DB::raw($sql));
+        return view('inspection',compact('result));
     }
         
 }
