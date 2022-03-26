@@ -12,13 +12,14 @@ Update Driver Contract Details
 My Account - Receipts Statement(Rental)
 My Account - Buyer Statement (HP)
 My Account - Sales Report (RH)
-Update Vehicle Service Details
+insert into sms_log
+Parking Location in Driver
+
 
 PENDING TASKS
+Update Vehicle Service Details
 Update Vehicle Inspection Details
 Vehicle Handover Form
 PWA App Development
-Parking Location in Driver
-insert into sms_log
 
 General Terms and Conditions(TBD)

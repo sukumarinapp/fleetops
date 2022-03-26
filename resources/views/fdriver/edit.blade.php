@@ -184,7 +184,7 @@
 											<input value="{{ $driver->VPL }}" type="text" class="form-control" name="VPL" id="VPL" maxlength="50" placeholder="location">
 										</div>
 										<div class="col-sm-1">
-              <span><i class="nav-icon fa fa-map-marker" style="font-size:30px"></i></span>
+              <span><i onclick="select_parking({{ trim($driver->VPL) }})" class="nav-icon fa fa-map-marker" style="font-size:30px"></i></span>
              </div>
 									</div>
                 <!-- /.form-group -->
@@ -418,4 +418,16 @@
 				  </div>
     </section>
    
+@endsection
+
+@section('third_party_scripts')
+<script>
+	function select_parking(latitude,longitude){
+		console.log(latitude);
+		console.log(longitude);
+		if(latitude == "") latitude = "5.605884551566098";
+		if(longitude == "") longitude = "-0.19313015133623626";
+		window.open("https://maps.google.com/?q="+latitude+","+longitude);
+	}
+</script>
 @endsection
