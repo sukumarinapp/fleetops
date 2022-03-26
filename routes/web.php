@@ -111,7 +111,7 @@ Route::get('/auditing/{VNO}/{DCR}', 'WorkflowController@auditing')->name('auditi
 Route::post('/rhresettesting/{DCR}', 'WorkflowController@rhresettesting')->name('rhresettesting');
 Route::post('/resendsms/{id}', 'WorkflowController@resendsms')->name('resendsms');
 Route::post('/auditingsave', 'WorkflowController@auditingsave')->name('auditingsave');
-Route::get('/inspection', 'WorkflowController@vehicleinspection')->name('inspection');
+Route::get('/inspection/{id}', 'WorkflowController@vehicleinspection')->name('inspection');
 
 Route::get('/locations', 'HomeController@locations')->name('locations');
 Route::get('/vehicle_location/{VNO}', 'HomeController@vehicle_location')->name('vehicle_location');

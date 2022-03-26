@@ -82,7 +82,7 @@
 		              <td>{{ $insp->doc_type }}</td>
 		              <td>{{ $insp->DNM }} {{ $insp->DSN }}</td>    
 		              @if($insp->doc_type == "Inspection")
-		              	<td><a href="{{ url('vehicleinspection') }}/{{ $insp->id }}">Resolve</a></td>
+		              	<td><a href="{{ url('inspection') }}/{{ $insp->id }}">Resolve</a></td>
 		              @else
 		              	<td>Resolve</td> 
 	              	@endif
