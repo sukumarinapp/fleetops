@@ -74,6 +74,16 @@
 		            </tr>
 	            @endif
             @endforeach
+            @foreach($inspect as $insp)
+            	<tr>
+		              <td>{{ date("d-m-Y",strtotime($insp->expired_date)) }}</td>
+		              <td>{{ $insp->VNO }}</td>
+		              <td>INS{{ str_pad($insp->id,3,'0',STR_PAD_LEFT) }}</td>
+		              <td>Inspection</td>
+		              <td>{{ $insp->DNM }} {{ $insp->DSN }}</td>    
+		              <td>Resolve</a></td> 
+		            </tr>
+            @endforeach
           </tbody>
       </table>
 				</div>
