@@ -302,7 +302,7 @@
         if(prevLatitude != response[0]['latitude'] && prevLongitude != response[0]['longitude']){
           result = [response[0]['latitude'], response[0]['longitude']];
           ground_speed_live = response[0]['ground_speed'];
-          transition(result)//////;
+          transition(result);
           prevLatitude = response[0]['latitude'];
           prevLongitude = response[0]['longitude'];
         }
