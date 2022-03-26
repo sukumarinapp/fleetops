@@ -526,6 +526,14 @@ class WorkflowController extends Controller
         $response['FTP'] = $FTP;
         echo json_encode($response);
     }
+
+    public function vehicleinspection(){
+
+        $sql = "select a.*,b.DNM,b.DSN from driver_upload a,driver b where a.driver_id=b.id and approved=0";
+        $inspect = DB::select(DB::raw($sql));
+        
+        return view('inspection');
+    }
         
 }
 
