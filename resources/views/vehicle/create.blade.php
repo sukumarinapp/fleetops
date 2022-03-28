@@ -184,7 +184,7 @@ border-radius: 34px;
 							<div class="modal-dialog modal-xl">
 								<div class="modal-content">
 									<div class="modal-header">
-										<h6 class="modal-title">Maintenance Scheduler</h6>
+										<h6 class="modal-title">RH Fuel Settings</h6>
 										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 											<span aria-hidden="true">&times;</span>
 										</button>
@@ -228,7 +228,7 @@ border-radius: 34px;
 							<div class="modal-dialog modal-xl">
 								<div class="modal-content">
 									<div class="modal-header">
-										<h6 class="modal-title">Maintenance Scheduler</h6>
+										<h6 class="modal-title">Tracker settings</h6>
 										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 											<span aria-hidden="true">&times;</span>
 										</button>
