@@ -189,7 +189,32 @@
 						<input value="{{ $vehicle->VCL }}" type="text" class="form-control" name="VCL" id="VCL" maxlength="50" placeholder="Color">
 					</div>
 				</div>
-				<div class="form-group row">
+              </div>
+              <!-- /.col -->
+			  
+			  
+			  
+			  
+			  
+              <div class="col-md-6">
+             	<div class="form-group row">
+							<button type="button" class="btn btn-outline-primary float-right" data-toggle="modal" data-target="#RH-Fuel"><i class="fa fa-gas-pump"></i> RH Fuel Settings
+							</button>
+
+						</div>
+
+						<div class="modal fade" id="RH-Fuel">
+							<div class="modal-dialog modal-xl">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h6 class="modal-title">Maintenance Scheduler</h6>
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+									<div class="modal-body">
+
+									<div class="form-group row">
 					<label for="ECY" class="col-sm-4 col-form-label"><span style="color:red">*</span>RH – Engine Capacity (Litres)</label>
 					<div class="col-sm-8">
 						<input value="{{ $vehicle->ECY }}" required="required" type="text" class="form-control decimal" name="ECY" id="ECY" maxlength="10" placeholder="Engine Capacity">
@@ -202,16 +227,7 @@
 											<input  value="{{ number_format((float)$vehicle->CON, 2, '.', '') }}" required="required" type="text" readonly class="form-control decimal" name="CON" id="CON" maxlength="10" placeholder="Fuel Consumption">
 										</div>
 									</div>
-                <!-- /.form-group -->
-              </div>
-              <!-- /.col -->
-			  
-			  
-			  
-			  
-			  
-              <div class="col-md-6">
-                 <div class="form-group row">
+									 <div class="form-group row">
 					<label for="VFT" class="col-sm-4 col-form-label"><span style="color:red">*</span>RH – Tank Capacity (Litres)</label>
 					<div class="col-sm-8">
 						<input value="{{ $vehicle->VFT }}" required="required" type="text" class="form-control decimal" name="VFT" id="VFT" maxlength="10" placeholder="Tank Capacity">
@@ -223,7 +239,33 @@
 						<input value="{{ $vehicle->VFC }}" required="required" type="text" class="form-control decimal" name="VFC" id="VFC" maxlength="10" placeholder="Fueling Cap (%)">
 					</div>
 				</div>
-				           <div class="form-group row">
+
+										<div class="form-group row">
+											<div class="col-md-12 text-center">
+												<button type="button" class="btn btn-primary" data-dismiss="modal">Confirm</button>
+											</div>
+										</div>	
+									</div>
+								</div>
+							</div>
+						</div> 
+
+						<div class="form-group row">
+							<button type="button" class="btn btn-outline-primary float-right" data-toggle="modal" data-target="#tracker"><i class=" nav-icon fas fa-cog"></i>Tracker settings
+							</button>
+						</div>
+						<div class="modal fade" id="tracker">
+							<div class="modal-dialog modal-xl">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h6 class="modal-title">Maintenance Scheduler</h6>
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+									<div class="modal-body">
+
+<div class="form-group row">
 					<label for="TSN" class="col-sm-4 col-form-label"><span style="color:red">*</span>Tracker Device SN</label>
 					<div class="col-sm-8">
 						<input onkeyup="duplicateDeviceSN( {{ $vehicle->TSN }} )" value="{{ $vehicle->TSN }}" required="required" type="text" class="form-control" name="TSN" id="TSN" maxlength="50" placeholder="Tracker Device SN">
@@ -285,8 +327,18 @@
 						<input value="{{ $vehicle->VBC0 }}" required="required" type="text" class="form-control" name="VBC0" id="VBC0" maxlength="50" placeholder="Code">
 					</div>
 				</div>
-                    </div>
-                  </div>
+      </div>
+    </div>
+
+										<div class="form-group row">
+											<div class="col-md-12 text-center">
+												<button type="button" class="btn btn-primary" data-dismiss="modal">Confirm</button>
+											</div>
+										</div>	
+									</div>
+								</div>
+							</div>
+						</div> 
                   <div class="form-group row">
                   		<button type="button" class="btn btn-outline-primary float-right" data-toggle="modal" data-target="#modal-default"><i class="nav-icon fas fa-cog"></i> Maintenance Scheduler
 										</button>
@@ -298,7 +350,6 @@
 												<span class="slider round"></span>
 											</label>
 										</div>
-
 									
 									</div>
                 <!-- /.form-group -->
