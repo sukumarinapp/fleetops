@@ -569,6 +569,7 @@ function toggle_map(arg){
             var VBM = $("#VBM").val();
             if(VBM=="Ride Hailing"){
                 $("#rhdiv").show("slow");
+                $("#Business").show("slow");
                 $("#freqdiv").hide("slow");
                 $("#paydatediv").hide("slow");
                 $("#payamtdiv").hide("slow");
@@ -581,18 +582,20 @@ function toggle_map(arg){
                 $("#depositdiv").hide("slow");
             }else if(VBM=="Rental"){
                 $("#rhdiv").hide("slow");
+                $("#Business").hide("slow");
                 $("#freqdiv").show("slow");
                 $("#paydatediv").show("slow");
                 $("#payamtdiv").show("slow");
-                $("#penalty").show("slow");
-                $("#def").show("slow");
-                $("#pen").show("slow");
-                $("#due").show("slow");
+                $("#penalty").hide("slow");
+                $("#def").hide("slow");
+                $("#pen").hide("slow");
+                $("#due").hide("slow");
                 $("#purchasediv").hide("slow");
                 $("#dowmamtdiv").hide("slow");
                 $("#depositdiv").show("slow");
             }else{
                 $("#rhdiv").hide("slow");
+                $("#Business").hide("slow");
                 $("#freqdiv").show("slow");
                 $("#paydatediv").show("slow");
                 $("#payamtdiv").show("slow");
