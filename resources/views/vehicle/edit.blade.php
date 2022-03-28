@@ -120,7 +120,7 @@
 				</div>
 
 				<div class="form-group row">
-										<label for="VID" class="col-sm-4 col-form-label"><span style="color:red">*</span>Insurance</label>
+										<label for="VID" class="col-sm-4 col-form-label"><span style="color:red">*</span>Insurance<br>&nbsp;File Type (pdf/jpg/png)</label>
 										<div class="col-sm-8">
 											<input accept="application/pdf,image/png, image/jpeg" name="VID" type="file" id="VID">
 											 @php
@@ -134,10 +134,11 @@
 									
 									<div class="form-group row">
 										<label for="VID" class="col-sm-4 col-form-label"><span style="color:red">*</span>Insurance Expiry Date</label>
-										<div class="col-6">
+										<div class="col-3">
 											<input min="{{ date('Y-m-d') }}" value="{{ $vehicle->IEX }}" required="required" onkeydown="return false" type="date" class="form-control" name="IEX" id="IEX" >
 										</div>
-										<div class="col-2">
+										<div class="col-5">
+											<label>Enable Reminder</label>
 											<label class="switch">
 												<input {{ ($vehicle->AVI == "1" ? "checked":"") }}  name="AVI" id="AVI" type="checkbox">
 												<span class="slider round"></span>
@@ -145,7 +146,7 @@
 										</div>
 									</div>
 								<div class="form-group row">
-										<label for="VRD" class="col-sm-4 col-form-label"><span style="color:red">*</span>Roadworthy Cert</label>
+										<label for="VRD" class="col-sm-4 col-form-label"><span style="color:red">*</span>Roadworthy Cert<br>&nbsp;File Type (pdf/jpg/png)</label>
 										<div class="col-sm-8">
 											<input accept="application/pdf,image/png, image/jpeg" name="VRD" type="file" id="VRD">
 											 @php
@@ -159,10 +160,11 @@
 									
 									<div class="form-group row">
 										<label for="REX" class="col-sm-4 col-form-label"><span style="color:red">*</span>Roadworthy Expiry Date</label>
-										<div class="col-6">
+										<div class="col-3">
 											<input min="{{ date('Y-m-d') }}" value="{{ $vehicle->REX }}" required="required" onkeydown="return false" type="date" class="form-control" name="REX" id="REX" >
 										</div>
-										<div class="col-2">
+										<div class="col-5">
+											<label>Enable Reminder</label>
 											<label class="switch">
 												<input {{ ($vehicle->AVR == "1" ? "checked":"") }}  name="AVR" id="AVR" type="checkbox">
 												<span class="slider round"></span>
@@ -286,6 +288,9 @@
                     </div>
                   </div>
                   <div class="form-group row">
+                  		<button type="button" class="btn btn-outline-primary float-right" data-toggle="modal" data-target="#modal-default"><i class="nav-icon fas fa-cog"></i> Maintenance Scheduler
+										</button>
+
 										<label for="MSH" class="col-sm-2 col-form-label">Scheduler</label>
 										<div class="col-sm-2" style="margin-top:10px">
 											<label class="switch">
@@ -294,8 +299,8 @@
 											</label>
 										</div>
 
-										<button type="button" class="btn btn-outline-primary float-right" data-toggle="modal" data-target="#modal-default"><i class="nav-icon fas fa-cog"></i> Maintenance Scheduler
-										</button></div>
+									
+									</div>
                 <!-- /.form-group -->
               </div>
               <!-- /.col -->

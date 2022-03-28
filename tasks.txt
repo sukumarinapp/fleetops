@@ -24,15 +24,12 @@ Vehicle Handover Form
 
 PWA App Development
 
+Vehicle
+RH Fuel Settings popup
+Tracker settings popup
 
+Driver
+Business settings popup (refer page 39 for RH)
 
-
-Issues
-1. Edit Vehicle screen tracker settings should come in modal with switch button similar to the Maintenance Schedular
-
-2. Issue in date field while updating edit vehicle screen (Maintannce Schedular Date Field)
-
-3. File upload type information should be given in edit vehicle screen
-
-4. 
+Use Google map api to add parking location
 

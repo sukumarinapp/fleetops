@@ -128,23 +128,32 @@ class VehicleController extends Controller
             $last_insert_id = $vehicle->id;
 
             $SSD = $request->SSD;
+            $SSD =  trim($request->get('SSD'));
+            if($SSD == "") $SSD = "NULL";
             $SSM = trim($request->SSM) == "" ? 0 : $request->SSM;
             $SMF = trim($request->SMF) == "" ? 0 : $request->SMF;
             $SSF = $request->SSF;
             $SSFP = trim($request->SSFP) == "" ? 0 : $request->SSFP;
             $SSFD = $request->SSFD;
             $RSS = ($request->get("RSS") != null) ? 1 : 0;
-            $sql = "insert into vehicle_service (VID,SSD,SSM,SMF,SSF,SSFP,SSFD,RSS) values ($last_insert_id,'$SSD','$SSM','$SMF','$SSF','$SSFP','$SSFD','$RSS')";
+            if($SSD == "NULL")
+                $sql = "insert into vehicle_service (VID,SSD,SSM,SMF,SSF,SSFP,SSFD,RSS) values ($last_insert_id,$SSD,'$SSM','$SMF','$SSF','$SSFP','$SSFD','$RSS')";
+            else
+                $sql = "insert into vehicle_service (VID,SSD,SSM,SMF,SSF,SSFP,SSFD,RSS) values ($last_insert_id,'$SSD','$SSM','$SMF','$SSF','$SSFP','$SSFD','$RSS')";
             DB::insert($sql);
 
-            $ISD = $request->ISD;
+            $ISD =  trim($request->get('ISD'));
+            if($ISD == "") $ISD = "NULL";
             $ISM = trim($request->ISM) == "" ? 0 : $request->ISM;
             $IMF = trim($request->IMF) == "" ? 0 : $request->IMF;
             $ISF = $request->ISF;
             $ISFP = trim($request->ISFP) == "" ? 0 : $request->ISFP;
             $ISFD = $request->ISFD;
             $RIS = ($request->get("RIS") != null) ? 1 : 0;
-            $sql = "insert into vehicle_inspect (VID,ISD,ISM,RIS,IMF,ISF,ISFP,ISFD) values ($last_insert_id,'$ISD','$ISM','$RIS','$IMF','$ISF','$ISFP','$ISFD')";
+            if($ISD == "NULL")
+                $sql = "insert into vehicle_inspect (VID,ISD,ISM,RIS,IMF,ISF,ISFP,ISFD) values ($last_insert_id,$ISD,'$ISM','$RIS','$IMF','$ISF','$ISFP','$ISFD')";
+            else
+                $sql = "insert into vehicle_inspect (VID,ISD,ISM,RIS,IMF,ISF,ISFP,ISFD) values ($last_insert_id,'$ISD','$ISM','$RIS','$IMF','$ISF','$ISFP','$ISFD')";
             DB::insert($sql);
 
             $VID = "";
@@ -280,7 +289,8 @@ class VehicleController extends Controller
             $vehicle->updated_at =  date("Y-m-d H:i:s");        
             $vehicle->save();
 
-            $SSD =  $request->get('SSD');
+            $SSD =  trim($request->get('SSD'));
+            if($SSD == "") $SSD = "NULL";
             $SSM = trim($request->SSM) == "" ? 0 : $request->SSM;
             $SMF = trim($request->SMF) == "" ? 0 : $request->SMF;
             $SSF =  $request->get('SSF');
@@ -291,14 +301,21 @@ class VehicleController extends Controller
             $sql = "SELECT * FROM vehicle_service where VID = $id";
             $check = DB::select(DB::raw($sql));
             if(count($check) > 0){
-                $sql = "update vehicle_service set SSD='$SSD',SSM='$SSM',SMF='$SMF',SSF='$SSF',SSFP='$SSFP',SSFD='$SSFD',RSS='$RSS' where VID = '$id'";
+                if($SSD == "NULL")
+                    $sql = "update vehicle_service set SSD=$SSD,SSM='$SSM',SMF='$SMF',SSF='$SSF',SSFP='$SSFP',SSFD='$SSFD',RSS='$RSS' where VID = '$id'";
+                else
+                    $sql = "update vehicle_service set SSD='$SSD',SSM='$SSM',SMF='$SMF',SSF='$SSF',SSFP='$SSFP',SSFD='$SSFD',RSS='$RSS' where VID = '$id'";
                 DB::update($sql);
             }else{
-                $sql = "insert into vehicle_service (VID,SSD,SSM,SMF,SSF,SSFP,SSFD,RSS) values ($id,'$SSD','$SSM','$SMF','$SSF','$SSFP','$SSFD','$RSS')";
+                if($SSD == "NULL")
+                    $sql = "insert into vehicle_service (VID,SSD,SSM,SMF,SSF,SSFP,SSFD,RSS) values ($id,$SSD,'$SSM','$SMF','$SSF','$SSFP','$SSFD','$RSS')";
+                else
+                    $sql = "insert into vehicle_service (VID,SSD,SSM,SMF,SSF,SSFP,SSFD,RSS) values ($id,'$SSD','$SSM','$SMF','$SSF','$SSFP','$SSFD','$RSS')";
                 DB::insert($sql);
             }
             
-            $ISD =  $request->get('ISD');
+            $ISD =  trim($request->get('ISD'));
+            if($ISD == "") $ISD = "NULL";
             $ISM = trim($request->ISM) == "" ? 0 : $request->ISM;
             $IMF = trim($request->IMF) == "" ? 0 : $request->IMF;
             $ISF =  $request->get('ISF');
@@ -309,10 +326,16 @@ class VehicleController extends Controller
             $sql = "SELECT * FROM vehicle_inspect where VID = $id";
             $check = DB::select(DB::raw($sql));
             if(count($check) > 0){
-                $sql = "update vehicle_inspect set ISD='$ISD',ISM='$ISM',IMF='$IMF',ISF='$ISF',ISFP='$ISFP',ISFD='$ISFD',RIS='$RIS' where VID = '$id'";
+                if($ISD == "NULL")
+                    $sql = "update vehicle_inspect set ISD=$ISD,ISM='$ISM',IMF='$IMF',ISF='$ISF',ISFP='$ISFP',ISFD='$ISFD',RIS='$RIS' where VID = '$id'";
+                else
+                    $sql = "update vehicle_inspect set ISD='$ISD',ISM='$ISM',IMF='$IMF',ISF='$ISF',ISFP='$ISFP',ISFD='$ISFD',RIS='$RIS' where VID = '$id'";
                 DB::update($sql);
             }else{
-                $sql = "insert into vehicle_inspect (VID,ISD,ISM,RIS,IMF,ISF,ISFP,ISFD) values ($id,'$ISD','$ISM','$RIS','$IMF','$ISF','$ISFP','$ISFD')";
+                if($ISD == "NULL")
+                    $sql = "insert into vehicle_inspect (VID,ISD,ISM,RIS,IMF,ISF,ISFP,ISFD) values ($id,$ISD,'$ISM','$RIS','$IMF','$ISF','$ISFP','$ISFD')";
+                else
+                    $sql = "insert into vehicle_inspect (VID,ISD,ISM,RIS,IMF,ISF,ISFP,ISFD) values ($id,'$ISD','$ISM','$RIS','$IMF','$ISF','$ISFP','$ISFD')";
                 DB::insert($sql);
             }
 
