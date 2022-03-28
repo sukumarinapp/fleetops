@@ -1,35 +1,24 @@
 COMPLETED
 Driver Login - OTP based login
 Maintenance Sheduler Process
-My Account - Tasks (Dynamic Screens)
+Tasks Listing in Driver Screen
 Agreement Summaries
 Update Driver License Details (21,30)
 Update Vehicle Insurance Certificate Details
 Update Vehicle Roadworthy Certificate Details
-Tasks Listing in Driver Screen
 SMS Remainders for Contract and License Expiry
 Update Driver Contract Details
 My Account - Receipts Statement(Rental)
 My Account - Buyer Statement (HP)
 My Account - Sales Report (RH)
-insert into sms_log
-Parking Location in Driver
-General Terms and Conditions(TBD)
-
 
 PENDING TASKS
+RH Fuel Settings popup
+Tracker settings popup
+Business settings popup
+Use Google map api to add parking location
 Update Vehicle Service Details
 Update Vehicle Inspection Details
 Vehicle Handover Form
-
 PWA App Development
-
-Vehicle
-RH Fuel Settings popup
-Tracker settings popup
-
-Driver
-Business settings popup (refer page 39 for RH)
-
-Use Google map api to add parking location
 
