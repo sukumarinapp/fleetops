@@ -23,12 +23,16 @@ Vehicle Handover Form (Screen Design)
 
 
 Business Settings popup in Edit Driver
-Save Ride-Hailing Driver Earning Options
+
 Save vehicle inspection Details (manager)
+
 View and approve Vehicle Insurance Certificate Details
 View and approve Vehicle Roadworthy Certificate Details
+
 View and approve Driver License Details
+
 Service completion Approval (manager)
+
 Driver Accepting the vehicle inspection checklist
 
 
