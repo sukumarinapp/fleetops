@@ -201,7 +201,24 @@
             </select>
 					</div>
 				</div>
-          <div 
+
+				 <div class="form-group row">
+							<button type="button" class="btn btn-outline-primary float-right" data-toggle="modal" data-target="#RH-Fuel"><i class="nav-icon fas fa-cog"></i>Business settings
+							</button>
+						</div>
+						<div class="modal fade" id="RH-Fuel">
+							<div class="modal-dialog modal-xl">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h6 class="modal-title">Business settings</h6>
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+									<div class="modal-body">
+
+													
+             <div 
           @php
           	if($driver->VBM != "Ride Hailing") echo " style='display:none' ";
           @endphp 
@@ -228,8 +245,129 @@
 											</label>
 										</div>
 				</div>
+           <div class="col-md-12" id="Business">
+             <div class="form-group row">
+             	<label for="PLF" class="col-sm-4 col-form-label">1. Driver Status:</label>
+             </div>
+              <div class="form-group row">
+             <div class="col-sm-8">
+             		<label class="col-sm-1 col-form-label"></label>
+										<div class="form-check-inline">
+											<label class="form-check-label">
+												<input checked="checked" value="employee" type="radio" class="form-check-input" name="driver_status">Employee
+											</label>
+										</div>
+										<div class="form-check-inline">
+											<label class="form-check-label">
+												<input type="radio" value="contractor" class="form-check-input" name="driver_status">Independent Contractor
+											</label>
+										</div>
+									</div>
+								</div>
+
+              <div class="form-group row">
+             	<label for="PLF" class="col-sm-4 col-form-label">2. Principal Earning:</label>
+             </div> 
+          <div class="form-group row">
+          	<label class="col-sm-1 col-form-label"></label>
+          	<div class="form-check-inline col-sm-3 ">
+											<label class="form-check-label">
+												<input checked="checked" value="fixed" type="radio" class="form-check-input" name="earning_type">Fixed Earning
+											</label>
+										</div>
+					
+					<div class="col-sm-3">
+						 <input type="text" class="form-control decimal" name="FPE" id="FPE" maxlength="10" placeholder="Fixed Amount">
+					</div>
+				</div>  
+				       <div class="form-group row">
+          	<label class="col-sm-1 col-form-label"></label>
+          	<div class="form-check-inline col-sm-3">
+											<label class="form-check-label ">
+												<input type="radio" value="performance" class="form-check-input" name="earning_type">Performance Based Earning
+											</label>
+										</div>
 				
-				<div 
+					<div class="col-sm-3">
+						 <input type="text" class="form-control decimal" name="PPE" id="PPE" maxlength="10" placeholder="Percent">
+					</div>
+				</div>
+             <div class="col-sm-8">
+             		<label class="col-sm-6 col-form-label"></label>
+										<div class="form-check-inline">
+											<label class="form-check-label">
+												<input type="radio" checked="checked" value="sales" class="form-check-input" name="PPE_TYPE">…of Total Sales
+											</label>
+										</div>
+									</div>
+									<div class="col-sm-8">
+             		<label class="col-sm-6 col-form-label"></label>
+										<div class="form-check-inline">
+											<label class="form-check-label">
+												<input type="radio" value="earning" class="form-check-input" name="PPE_TYPE">...of Net of Earning
+											</label>
+										</div>
+									</div>
+           <div class="form-group row">
+             	<label for="PLF" class="col-sm-4 col-form-label">3. Performance Bonus:</label>
+             </div> 
+              <div class="form-group row">
+          	<label class="col-sm-1 col-form-label"></label>
+          	<div class="form-check-inline col-sm-4 ">
+											<label class="form-check-label">
+												<input type="checkbox" class="form-check-input" name="bonus">Performance in excess of achieved target
+											</label>
+										</div>
+					
+					<div class="col-sm-4">
+						 <div class="form-check-inline">
+											<label class="form-check-label">
+												<input type="radio" checked="checked" value="sales" class="form-check-input" name="bonus_type">…of Total Sales
+											</label>
+										</div>
+					</div>
+
+          	<div class="form-check-inline col-sm-5 ">
+										</div>
+					<div class="col-sm-4">
+										<div class="form-check-inline">
+											<label class="form-check-label">
+												<input type="radio" value="earning" class="form-check-input" name="bonus_type">...of Net of Earning
+											</label>
+										</div>
+									</div>
+				   </div>
+
+	<div class="form-group row">
+		<label class="col-sm-1 col-form-label"></label>
+					<label for="PBT" class="col-sm-2 col-form-label">Target amount:</label>
+					<div class="col-sm-3">
+						 <input type="text" class="form-control decimal" name="PBT" id="PBT" maxlength="10" placeholder="Target Amount">
+					</div>
+				</div>
+
+    <div class="form-group row">
+		<label class="col-sm-1 col-form-label"></label>
+					<label for="PBP" class="col-sm-2 col-form-label">Percentage rewarded:</label>
+					<div class="col-sm-3">
+						 <input type="text" class="form-control decimal" name="PBP" id="PBP" maxlength="10" placeholder="Percent">
+					</div>
+				</div>
+
+				 <div class="form-group row">
+             	<label for="EPF" class="col-sm-3 col-form-label">4. Earning Payment Frequency:</label>
+            
+             <div class="col-sm-4">
+						 <select name="EPF" id="EPF" class="custom-select">
+                         <option value="Daily" selected="selected">Daily</option>
+                         <option value="Weekly" >Weekly</option>
+                         <option value="Monthly" >Monthly</option>
+                        </select>
+					</div>
+  </div>
+</div>
+
+					<div 
 				@php
         	if($driver->VBM == "Ride Hailing") echo " style='display:none' ";
         @endphp 
@@ -400,6 +538,19 @@
 									 class="form-group row" id="due">
 										<p class="col-form-label">The total aggregated sum of penalty amount charged at stated frequency shall be added to next payment due.</p>
 									</div>
+
+										<div class="form-group row">
+											<div class="col-md-12 text-center">
+												<button type="button" class="btn btn-primary" data-dismiss="modal">Confirm</button>
+											</div>
+										</div>	
+									</div>
+								</div>
+							</div>
+						</div> 
+         
+				
+	
               </div>
             </div>
           </div>
