@@ -222,7 +222,7 @@
 											</label>
 										</div>
 									</div>
-<div class="col-md-12" id="Business">
+           <div class="col-md-12" id="Business">
              <div class="form-group row">
              	<label for="PLF" class="col-sm-4 col-form-label">1. Driver Status:</label>
              </div>
@@ -231,12 +231,12 @@
              		<label class="col-sm-1 col-form-label"></label>
 										<div class="form-check-inline">
 											<label class="form-check-label">
-												<input type="checkbox" class="form-check-input" name="checkbox">Employee
+												<input checked="checked" value="employee" type="radio" class="form-check-input" name="driver_status">Employee
 											</label>
 										</div>
 										<div class="form-check-inline">
 											<label class="form-check-label">
-												<input type="checkbox" class="form-check-input" name="checkbox">Independent Contractor
+												<input type="radio" value="contractor" class="form-check-input" name="driver_status">Independent Contractor
 											</label>
 										</div>
 									</div>
@@ -249,31 +249,31 @@
           	<label class="col-sm-1 col-form-label"></label>
           	<div class="form-check-inline col-sm-3 ">
 											<label class="form-check-label">
-												<input type="radio" class="form-check-input" name="optradio">Fixed Earning
+												<input checked="checked" value="fixed" type="radio" class="form-check-input" name="earning_type">Fixed Earning
 											</label>
 										</div>
 					
 					<div class="col-sm-3">
-						 <input type="text" class="form-control decimal" name="DCN" id="DCN" maxlength="15" placeholder="Fixed Amount">
+						 <input type="text" class="form-control decimal" name="FPE" id="FPE" maxlength="10" placeholder="Fixed Amount">
 					</div>
 				</div>  
 				       <div class="form-group row">
           	<label class="col-sm-1 col-form-label"></label>
           	<div class="form-check-inline col-sm-3">
 											<label class="form-check-label ">
-												<input type="radio" class="form-check-input" name="optradio">Performance Based Earning
+												<input type="radio" value="performance" class="form-check-input" name="earning_type">Performance Based Earning
 											</label>
 										</div>
 				
 					<div class="col-sm-3">
-						 <input type="text" class="form-control decimal" name="DCN" id="DCN" maxlength="15" placeholder="Percent">
+						 <input type="text" class="form-control decimal" name="PPE" id="PPE" maxlength="10" placeholder="Percent">
 					</div>
 				</div>
              <div class="col-sm-8">
              		<label class="col-sm-6 col-form-label"></label>
 										<div class="form-check-inline">
 											<label class="form-check-label">
-												<input type="radio" class="form-check-input" name="optradio">…of Total Sales
+												<input type="radio" checked="checked" value="sales" class="form-check-input" name="PPE_TYPE">…of Total Sales
 											</label>
 										</div>
 									</div>
@@ -281,7 +281,7 @@
              		<label class="col-sm-6 col-form-label"></label>
 										<div class="form-check-inline">
 											<label class="form-check-label">
-												<input type="radio" class="form-check-input" name="optradio">...of Net of Earning
+												<input type="radio" value="earning" class="form-check-input" name="PPE_TYPE">...of Net of Earning
 											</label>
 										</div>
 									</div>
@@ -292,14 +292,14 @@
           	<label class="col-sm-1 col-form-label"></label>
           	<div class="form-check-inline col-sm-4 ">
 											<label class="form-check-label">
-												<input type="checkbox" class="form-check-input" name="checkbox">Performance in excess of achieved target
+												<input type="checkbox" class="form-check-input" name="bonus">Performance in excess of achieved target
 											</label>
 										</div>
 					
 					<div class="col-sm-4">
 						 <div class="form-check-inline">
 											<label class="form-check-label">
-												<input type="radio" class="form-check-input" name="optradio">…of Total Sales
+												<input type="radio" checked="checked" value="sales" class="form-check-input" name="bonus_type">…of Total Sales
 											</label>
 										</div>
 					</div>
@@ -309,7 +309,7 @@
 					<div class="col-sm-4">
 										<div class="form-check-inline">
 											<label class="form-check-label">
-												<input type="radio" class="form-check-input" name="optradio">...of Net of Earning
+												<input type="radio" value="earning" class="form-check-input" name="bonus_type">...of Net of Earning
 											</label>
 										</div>
 									</div>
@@ -317,17 +317,17 @@
 
 	<div class="form-group row">
 		<label class="col-sm-1 col-form-label"></label>
-					<label for="VBM" class="col-sm-2 col-form-label">Target amount:</label>
+					<label for="PBT" class="col-sm-2 col-form-label">Target amount:</label>
 					<div class="col-sm-3">
-						 <input type="text" class="form-control decimal" name="DCN" id="DCN" maxlength="15" placeholder="Target Amount">
+						 <input type="text" class="form-control decimal" name="PBT" id="PBT" maxlength="10" placeholder="Target Amount">
 					</div>
 				</div>
 
     <div class="form-group row">
 		<label class="col-sm-1 col-form-label"></label>
-					<label for="VBM" class="col-sm-2 col-form-label">Percentage rewarded:</label>
+					<label for="PBP" class="col-sm-2 col-form-label">Percentage rewarded:</label>
 					<div class="col-sm-3">
-						 <input type="text" class="form-control decimal" name="DCN" id="DCN" maxlength="15" placeholder="Percent">
+						 <input type="text" class="form-control decimal" name="PBP" id="PBP" maxlength="10" placeholder="Percent">
 					</div>
 				</div>
 
