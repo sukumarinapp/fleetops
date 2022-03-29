@@ -532,6 +532,12 @@ class WorkflowController extends Controller
         $result = DB::select(DB::raw($sql));
         return view('inspection',compact('result'));
     }
+
+    public function saveinspection(Request $request){
+
+
+      return view('workflow');  
+    }
         
 }
 
