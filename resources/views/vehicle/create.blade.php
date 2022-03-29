@@ -175,7 +175,7 @@ border-radius: 34px;
 
 					<div class="col-md-6">
 						<div class="form-group row">
-							<button type="button" class="btn btn-outline-primary float-right" data-toggle="modal" data-target="#RH-Fuel"><i class="fa fa-gas-pump"></i> RH Fuel Settings
+							<button type="button" class="btn btn-outline-primary float-right" data-toggle="modal" data-target="#RH-Fuel"><i class="nav-icon fa fa-gas-pump"></i> RH Fuel Settings
 							</button>
 
 						</div>

@@ -134,10 +134,10 @@
 									
 									<div class="form-group row">
 										<label for="VID" class="col-sm-4 col-form-label"><span style="color:red">*</span>Insurance Expiry Date</label>
-										<div class="col-3">
+										<div class="col-4">
 											<input min="{{ date('Y-m-d') }}" value="{{ $vehicle->IEX }}" required="required" onkeydown="return false" type="date" class="form-control" name="IEX" id="IEX" >
 										</div>
-										<div class="col-5">
+										<div class="col-4">
 											<label>Enable Reminder</label>
 											<label class="switch">
 												<input {{ ($vehicle->AVI == "1" ? "checked":"") }}  name="AVI" id="AVI" type="checkbox">
@@ -160,10 +160,10 @@
 									
 									<div class="form-group row">
 										<label for="REX" class="col-sm-4 col-form-label"><span style="color:red">*</span>Roadworthy Expiry Date</label>
-										<div class="col-3">
+										<div class="col-4">
 											<input min="{{ date('Y-m-d') }}" value="{{ $vehicle->REX }}" required="required" onkeydown="return false" type="date" class="form-control" name="REX" id="REX" >
 										</div>
-										<div class="col-5">
+										<div class="col-4">
 											<label>Enable Reminder</label>
 											<label class="switch">
 												<input {{ ($vehicle->AVR == "1" ? "checked":"") }}  name="AVR" id="AVR" type="checkbox">
@@ -346,6 +346,44 @@
 											</label>
 										</div>
 									
+									</div>
+									<div class="form-group row">
+
+						<table class="table table-bordered">
+          <thead> 
+          <tr>
+            <th>Insurance</th>
+            <th>Insurance Expiry Date</th>
+            <th>Action</th>
+          </tr>
+          </thead>
+          <tbody>
+          	<tr>
+          		<td><a href="#" class="btn btn-primary btn-sm">View</a></td>
+          		<td></td>
+          		<td><a href="#" class="btn btn-info btn-sm">Approve</a></td>
+          	</tr>
+          </tbody>
+        </table>
+									</div>
+									<div class="form-group row">
+
+						<table class="table table-bordered">
+          <thead> 
+          <tr>
+            <th>Roadworthy Certificate</th>
+            <th>Roadworthy Expiry Date</th>
+            <th>Action</th>
+          </tr>
+          </thead>
+          <tbody>
+          	<tr>
+          		<td><a href="#" class="btn btn-primary btn-sm">View</a></td>
+          		<td></td>
+          		<td><a href="#" class="btn btn-info btn-sm">Approve</a></td>
+          	</tr>
+          </tbody>
+        </table>
 									</div>
                 <!-- /.form-group -->
               </div>
