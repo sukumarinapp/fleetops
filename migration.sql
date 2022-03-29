@@ -80,9 +80,9 @@ alter table driver_upload add contract_accepted int(1) DEFAULT 0;
 alter table driver_upload add current_mileage varchar(10) DEFAULT 0;
 
 --29/03/2022
---Employee/Contractor
+--employee/contractor
 alter table driver add driver_status varchar(50) DEFAULT NULL;
---Fixed/Performance
+--fixed/performance
 alter table driver add earning_type varchar(20) DEFAULT NULL;
 alter table driver add FPE decimal(10,2) DEFAULT 0;
 alter table driver add PPE decimal(10,2) DEFAULT 0;
