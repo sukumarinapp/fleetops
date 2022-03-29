@@ -78,3 +78,21 @@ alter table driver_upload add contract_accepted int(1) DEFAULT 0;
 
 --17/03/2022
 alter table driver_upload add current_mileage varchar(10) DEFAULT 0;
+
+--29/03/2022
+--Employee/Contractor
+alter table driver add driver_status varchar(50) DEFAULT NULL;
+--Fixed/Performance
+alter table driver add earning_type varchar(20) DEFAULT NULL;
+alter table driver add FPE decimal(10,2) DEFAULT 0;
+alter table driver add PPE decimal(10,2) DEFAULT 0;
+--sales/earning
+alter table driver add PPE_TYPE varchar(20) DEFAULT NULL;
+alter table driver add bonus int(1) DEFAULT 0;
+--sales/earning
+alter table driver add bonus_type varchar(20) DEFAULT NULL;
+alter table driver add PBT decimal(10,2) DEFAULT 0;
+alter table driver add PBP decimal(10,2) DEFAULT 0;
+--Daily/Weekly/Monthly
+alter table driver add EPF varchar(20) DEFAULT NULL;
+
