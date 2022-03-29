@@ -350,37 +350,38 @@
 									<div class="form-group row">
 
 						<table class="table table-bordered">
-          <thead> 
+          <thead>
           <tr>
-            <th>Insurance</th>
-            <th>Insurance Expiry Date</th>
+          	<th>Insurance updated by driver</th>
+          </tr> 
+          <tr>
+            <th>Expiry Date</th>
             <th>Action</th>
           </tr>
           </thead>
           <tbody>
           	<tr>
-          		<td><a href="#" class="btn btn-primary btn-sm">View</a></td>
           		<td></td>
-          		<td><a href="#" class="btn btn-info btn-sm">Approve</a></td>
+          		<td>
+          			<a href="#" class="btn btn-primary btn-sm">View</a>
+          			<a href="#" class="btn btn-success btn-sm">Approve</a>
+          		</td>
           	</tr>
-          </tbody>
-        </table>
-									</div>
-									<div class="form-group row">
+          	          <tr>
+          	<th>Roadworthy Certificate updated by driver</th>
+          </tr> 
 
-						<table class="table table-bordered">
-          <thead> 
           <tr>
-            <th>Roadworthy Certificate</th>
-            <th>Roadworthy Expiry Date</th>
+            <th>Expiry Date</th>
             <th>Action</th>
           </tr>
           </thead>
           <tbody>
           	<tr>
-          		<td><a href="#" class="btn btn-primary btn-sm">View</a></td>
           		<td></td>
-          		<td><a href="#" class="btn btn-info btn-sm">Approve</a></td>
+          		<td><a href="#" class="btn btn-primary btn-sm">View</a>
+          			<a href="#" class="btn btn-success btn-sm">Approve</a>
+          		</td>
           	</tr>
           </tbody>
         </table>
