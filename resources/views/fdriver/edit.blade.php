@@ -571,6 +571,7 @@ class="form-group row" id="due">
 
 </div>
 </div>
+</form>
 </section>
 
 @endsection
