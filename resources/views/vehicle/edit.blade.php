@@ -138,7 +138,7 @@ input:checked + .slider:before {
 										<input min="{{ date('Y-m-d') }}" value="{{ $vehicle->IEX }}" required="required" onkeydown="return false" type="date" class="form-control" name="IEX" id="IEX" >
 									</div>
 									<div class="col-4">
-										<label>Enable Reminder</label>
+										<label>Reminder</label>
 										<label class="switch">
 											<input {{ ($vehicle->AVI == "1" ? "checked":"") }}  name="AVI" id="AVI" type="checkbox">
 											<span class="slider round"></span>
@@ -164,7 +164,7 @@ input:checked + .slider:before {
 										<input min="{{ date('Y-m-d') }}" value="{{ $vehicle->REX }}" required="required" onkeydown="return false" type="date" class="form-control" name="REX" id="REX" >
 									</div>
 									<div class="col-4">
-										<label>Enable Reminder</label>
+										<label>Reminder</label>
 										<label class="switch">
 											<input {{ ($vehicle->AVR == "1" ? "checked":"") }}  name="AVR" id="AVR" type="checkbox">
 											<span class="slider round"></span>
@@ -347,45 +347,7 @@ input:checked + .slider:before {
 									</div>
 									
 								</div>
-								<div class="form-group row">
-
-									<table class="table table-bordered">
-										<thead>
-											<tr>
-												<th colspan="2" style="text-align:center;color:red">Insurance uploaded by driver</th>
-											</tr> 
-											<tr>
-												<th>Expiry Date</th>
-												<th>Action</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td></td>
-												<td>
-													<a href="#" class="btn btn-primary btn-sm">View</a>
-													<a href="#" class="btn btn-success btn-sm">Approve</a>
-												</td>
-											</tr>
-											<tr>
-												<th colspan="2" style="text-align:center;color:red">Roadworthy Certificate uploaded by driver</th>
-											</tr> 
-
-											<tr>
-												<th>Expiry Date</th>
-												<th>Action</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td></td>
-												<td><a href="#" class="btn btn-primary btn-sm">View</a>
-													<a href="#" class="btn btn-success btn-sm">Approve</a>
-												</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
+								
 								<!-- /.form-group -->
 							</div>
 							<!-- /.col -->
@@ -424,7 +386,7 @@ input:checked + .slider:before {
 								<div class="form-group row">
 									<label for="SSD" class="col-sm-3 col-form-label">Next Scheduled Date</label>
 									<div class="col-sm-2">
-										<input min="{{ date('Y-m-d') }}" value="{{ $vehicle->SSD }}" onkeydown="return false" type="date" class="form-control" name="SSD" id="SSD" >
+										<input value="{{ $vehicle->SSD }}" onkeydown="return false" type="date" class="form-control" name="SSD" id="SSD" >
 									</div>
 
 									<label for="SSM" class="col-sm-3 col-form-label">(or) Next Scheduled Mileage</label>
@@ -482,7 +444,7 @@ input:checked + .slider:before {
 								<div class="form-group row">
 									<label for="ISD" class="col-sm-3 col-form-label">Next Scheduled Date</label>
 									<div class="col-sm-2">
-										<input min="{{ date('Y-m-d') }}" value="{{ $vehicle->ISD }}" onkeydown="return false" type="date" class="form-control" name="ISD" id="ISD" >
+										<input value="{{ $vehicle->ISD }}" onkeydown="return false" type="date" class="form-control" name="ISD" id="ISD" >
 									</div>
 
 									<label for="ISM" class="col-sm-3 col-form-label">(or) Next Scheduled Mileage</label>
