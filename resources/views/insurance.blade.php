@@ -26,8 +26,10 @@
 				</div>
 				<div class="table-responsive">
 					<div class="card-body">
-						<form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+						<form action="{{ route('save_new_insurance') }}" method="post" enctype="multipart/form-data" class="form-horizontal">
 							@csrf
+							<input type="hidden" name="VNO" value="{{ $VNO }}" />
+							<input type="hidden" name="upload_id" value="{{ $upload_id }}" />
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group row">

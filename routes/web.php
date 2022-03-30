@@ -63,6 +63,7 @@ Route::get('/uploadlicence', 'DriverController@uploadlicence')->name('uploadlice
 Route::post('/savelicence', 'DriverController@savelicence')->name('savelicence');
 Route::get('/uploadinsurance', 'DriverController@uploadinsurance')->name('uploadinsurance');
 Route::post('/saveinsurance', 'DriverController@saveinsurance')->name('saveinsurance');
+Route::post('/save_new_insurance', 'WorkflowController@save_new_insurance')->name('save_new_insurance');
 Route::get('/uploadroadworthy', 'DriverController@uploadroadworthy')->name('uploadroadworthy');
 Route::post('/saveroadworthy', 'DriverController@saveroadworthy')->name('saveroadworthy');
 Route::get('/contract', 'DriverController@contract')->name('contract');

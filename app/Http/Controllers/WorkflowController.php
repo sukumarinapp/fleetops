@@ -574,11 +574,26 @@ class WorkflowController extends Controller
        }
     }
 
-    public function copy_test(){
-        $file_name = "29.pdf";
-        
+    public function save_new_insurance(Request $request){
+        $VNO = $request->get('VNO');
+        $IEX = $request->get('IEX');
+        $VNO = $request->get('VNO');
+        $upload_id = $request->get('upload_id');
+        $sql = "select id from vehicle where VNO='$VNO'";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+            $id = $result[0]->id;
+            $VID =  $id.'.'.$request->VID->extension(); 
+            $filepath = public_path('uploads'.DIRECTORY_SEPARATOR.'VID'.DIRECTORY_SEPARATOR);
+            move_uploaded_file($_FILES['VID']['tmp_name'], $filepath.$VID);
+            $sql = "update vehicle set IEX='$IEX',VID='$VID' where id=$id";
+            DB::update($sql);
+            $sql = "update driver_upload set approved=2 where id = $upload_id";
+            DB::update($sql);
+
+            return redirect('/workflow')->with('message', 'Vehicle Insurance Update Successfully');
+       }
     }
-        
 }
 
 	
