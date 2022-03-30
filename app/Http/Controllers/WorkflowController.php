@@ -591,7 +591,120 @@ class WorkflowController extends Controller
             $sql = "update driver_upload set approved=2 where id = $upload_id";
             DB::update($sql);
 
-            return redirect('/workflow')->with('message', 'Vehicle Insurance Update Successfully');
+            return redirect('/workflow')->with('message', 'Vehicle Insurance Updated Successfully');
+       }
+    }
+
+    public function roadworthy($id){
+        $sql = "select a.*,b.DNM,b.DSN from driver_upload a,driver b where a.driver_id=b.id and a.id=$id and approved=0";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+            $DNM = $result[0]->DNM . " " . $result[0]->DSN;
+            $VNO = $result[0]->VNO;
+            $upload_id = $result[0]->id;
+            $doc_expiry = $result[0]->doc_expiry;
+            $file_name = trim($result[0]->file_name);
+            return view('roadworthy',compact('result','DNM','VNO','file_name','doc_expiry','upload_id'));
+       }
+    }
+
+    public function approve_roadworthy($id){
+        $sql = "select a.*,b.id as veid from driver_upload a,vehicle b where a.VNO=b.VNO and a.id=$id and approved=0";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+            $VNO = $result[0]->VNO;
+            $upload_id = $result[0]->id;
+            $veid = $result[0]->veid;
+            $file_name = $result[0]->file_name;
+            $temp = explode(".",$file_name);
+            $extension = $temp[1];
+            $target_filename = $veid . "." . $extension;
+            $doc_expiry = $result[0]->doc_expiry;
+            $source = public_path().DIRECTORY_SEPARATOR."uploads".DIRECTORY_SEPARATOR."driver".DIRECTORY_SEPARATOR.$file_name;
+            $target = public_path().DIRECTORY_SEPARATOR."uploads".DIRECTORY_SEPARATOR."VRD".DIRECTORY_SEPARATOR.$target_filename;
+            copy($source,$target);
+            $sql = "update vehicle set REX='$doc_expiry',VRD='$target_filename' where id=$veid";
+            DB::update($sql);
+            $sql = "update driver_upload set approved=1 where id = $upload_id";
+            DB::update($sql);
+       }
+    }
+
+    public function save_new_roadworthy(Request $request){
+        $VNO = $request->get('VNO');
+        $REX = $request->get('REX');
+        $VNO = $request->get('VNO');
+        $upload_id = $request->get('upload_id');
+        $sql = "select id from vehicle where VNO='$VNO'";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+            $id = $result[0]->id;
+            $VRD =  $id.'.'.$request->VRD->extension(); 
+            $filepath = public_path('uploads'.DIRECTORY_SEPARATOR.'VRD'.DIRECTORY_SEPARATOR);
+            move_uploaded_file($_FILES['VRD']['tmp_name'], $filepath.$VRD);
+            $sql = "update vehicle set REX='$REX',VRD='$VRD' where id=$id";
+            DB::update($sql);
+            $sql = "update driver_upload set approved=2 where id = $upload_id";
+            DB::update($sql);
+
+            return redirect('/workflow')->with('message', 'Roadworthy Certificate Updated Successfully');
+       }
+    }
+
+    public function licence($id){
+        $sql = "select a.*,b.DNM,b.DSN from driver_upload a,driver b where a.driver_id=b.id and a.id=$id and approved=0";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+            $DNM = $result[0]->DNM . " " . $result[0]->DSN;
+            $VNO = $result[0]->VNO;
+            $upload_id = $result[0]->id;
+            $doc_expiry = $result[0]->doc_expiry;
+            $file_name = trim($result[0]->file_name);
+            return view('licence',compact('result','DNM','VNO','file_name','doc_expiry','upload_id'));
+       }
+    }
+
+    public function approve_licence($id){
+        $sql = "select a.*,b.id as veid from driver_upload a,driver b where a.driver_id=b.id and a.id=$id and approved=0";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+            $VNO = $result[0]->VNO;
+            $upload_id = $result[0]->id;
+            $veid = $result[0]->veid;
+            $file_name = $result[0]->file_name;
+            $temp = explode(".",$file_name);
+            $extension = $temp[1];
+            $target_filename = $veid . "." . $extension;
+            $doc_expiry = $result[0]->doc_expiry;
+            $source = public_path().DIRECTORY_SEPARATOR."uploads".DIRECTORY_SEPARATOR."driver".DIRECTORY_SEPARATOR.$file_name;
+            $target = public_path().DIRECTORY_SEPARATOR."uploads".DIRECTORY_SEPARATOR."DLD".DIRECTORY_SEPARATOR.$target_filename;
+            copy($source,$target);
+            $sql = "update driver set LEX='$doc_expiry',DLD='$target_filename' where id=$veid";
+            DB::update($sql);
+            $sql = "update driver_upload set approved=1 where id = $upload_id";
+            DB::update($sql);
+       }
+    }
+
+    public function save_new_licence(Request $request){
+        $driver_id = $request->get('driver_id');
+        $LEX = $request->get('LEX');
+        $VNO = $request->get('VNO');
+        $upload_id = $request->get('upload_id');
+        $sql = "select driver_id from vehicle where VNO='$VNO'";
+        echo$sql;
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+            $driver_id = $result[0]->driver_id;
+            $DLD =  $driver_id.'.'.$request->DLD->extension(); 
+            $filepath = public_path('uploads'.DIRECTORY_SEPARATOR.'DLD'.DIRECTORY_SEPARATOR);
+            move_uploaded_file($_FILES['DLD']['tmp_name'], $filepath.$DLD);
+            $sql = "update driver set LEX='$LEX',DLD='$DLD' where id=$driver_id";
+            DB::update($sql);
+            $sql = "update driver_upload set approved=2 where id = $upload_id";
+            DB::update($sql);
+
+            return redirect('/workflow')->with('message', 'Licence Updated Successfully');
        }
     }
 }
