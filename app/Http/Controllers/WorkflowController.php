@@ -538,6 +538,16 @@ class WorkflowController extends Controller
 
       return view('workflow');  
     }
+
+    public function insurance($id){
+        $sql = "select a.*,b.DNM,b.DSN from driver_upload a,driver b where a.driver_id=b.id and a.id=$id and approved=0";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+            $DNM = $result[0]->DNM . " " . $result[0]->DSN;
+            $VNO = $result[0]->VNO;
+        return view('insurance',compact('result','DNM','VNO'));
+       }
+    }
         
 }
 
