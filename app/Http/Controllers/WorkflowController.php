@@ -545,7 +545,9 @@ class WorkflowController extends Controller
         if(count($result) > 0){
             $DNM = $result[0]->DNM . " " . $result[0]->DSN;
             $VNO = $result[0]->VNO;
-        return view('insurance',compact('result','DNM','VNO'));
+            $doc_expiry = $result[0]->doc_expiry;
+            $file_name = trim($result[0]->file_name);
+        return view('insurance',compact('result','DNM','VNO','file_name','doc_expiry'));
        }
     }
         
