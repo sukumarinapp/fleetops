@@ -2,539 +2,547 @@
 
 @section('content')
 <style type="text/css">
-	.switch {
-		position: relative;
-		display: inline-block;
-		width: 45px;
-		height: 24px;
-	}
+.switch {
+position: relative;
+display: inline-block;
+width: 45px;
+height: 24px;
+}
 
-	.switch input { 
-		opacity: 0;
-		width: 0;
-		height: 0;
-	}
+.switch input { 
+opacity: 0;
+width: 0;
+height: 0;
+}
 
-	.slider {
-		position: absolute;
-		cursor: pointer;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		background-color: #ccc;
-		-webkit-transition: .4s;
-		transition: .4s;
-	}
+.slider {
+position: absolute;
+cursor: pointer;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: #ccc;
+-webkit-transition: .4s;
+transition: .4s;
+}
 
-	.slider:before {
-		position: absolute;
-		content: "";
-		height: 16px;
-		width: 18px;
-		left: 4px;
-		bottom: 4px;
-		background-color: white;
-		-webkit-transition: .4s;
-		transition: .4s;
-	}
+.slider:before {
+position: absolute;
+content: "";
+height: 16px;
+width: 18px;
+left: 4px;
+bottom: 4px;
+background-color: white;
+-webkit-transition: .4s;
+transition: .4s;
+}
 
-	input:checked + .slider {
-		background-color: #2196F3;
-	}
+input:checked + .slider {
+background-color: #2196F3;
+}
 
-	input:focus + .slider {
-		box-shadow: 0 0 1px #2196F3;
-	}
+input:focus + .slider {
+box-shadow: 0 0 1px #2196F3;
+}
 
-	input:checked + .slider:before {
-		-webkit-transform: translateX(20px);
-		-ms-transform: translateX(20px);
-		transform: translateX(20px);
-	}
+input:checked + .slider:before {
+-webkit-transform: translateX(20px);
+-ms-transform: translateX(20px);
+transform: translateX(20px);
+}
 
-	.slider.round {
-		border-radius: 34px;
-	}
+.slider.round {
+border-radius: 34px;
+}
 
-	.slider.round:before {
-		border-radius: 34px;
-	}
+.slider.round:before {
+border-radius: 34px;
+}
 </style>
 <div class="container-fluid">
-	<div class="row">
-		<div class="col-md-12">
-			<div class="content-header">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-sm-6">
-						</div>
-						<div class="col-sm-6">
-							<ol class="breadcrumb float-sm-right">
-								<li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-								<li class="breadcrumb-item">Operations</li>
-								<li class="breadcrumb-item"><a href="{{ route('fdriver.index') }}">Driver</a></li>
-								<li class="breadcrumb-item">Edit Driver</li>
-							</ol>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="card card-info">
-				<div class="card-header">
-					<h3 class="card-title">Edit Driver</h3>
-				</div>
+<div class="row">
+<div class="col-md-12">
+<div class="content-header">
+<div class="container-fluid">
+<div class="row">
+<div class="col-sm-6">
+</div>
+<div class="col-sm-6">
+<ol class="breadcrumb float-sm-right">
+<li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+<li class="breadcrumb-item">Operations</li>
+<li class="breadcrumb-item"><a href="{{ route('fdriver.index') }}">Driver</a></li>
+<li class="breadcrumb-item">Edit Driver</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="card card-info">
+<div class="card-header">
+<h3 class="card-title">Edit Driver</h3>
+</div>
 
-				<div class="card-body">
-					@if(session()->has('error'))
-					<div class="alert alert-danger alert-dismissable" style="margin: 15px;">
-						<a href="#" style="color:white !important" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-						<strong> {{ session('error') }} </strong>
-					</div>
-					@endif
-					<form onsubmit="return validate_amount()"  action="{{ route('fdriver.update',$driver->id) }}" method="post" enctype="multipart/form-data" class="form-horizontal">
-						@csrf
-						@method('PUT')
+<div class="card-body">
+@if(session()->has('error'))
+<div class="alert alert-danger alert-dismissable" style="margin: 15px;">
+<a href="#" style="color:white !important" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+<strong> {{ session('error') }} </strong>
+</div>
+@endif
+<form onsubmit="return validate_amount()"  action="{{ route('fdriver.update',$driver->id) }}" method="post" enctype="multipart/form-data" class="form-horizontal">
+@csrf
+@method('PUT')
 
-						<div class="card-body">
-							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group row">
-										<label for="DNM" class="col-sm-4 col-form-label"><span style="color:red">*</span>Driver Name</label>
-										<div class="col-sm-8">
-											<input required="required" value="{{ $driver->DNM }}" type="text" class="form-control" name="DNM" id="DNM" maxlength="30" placeholder="Driver Name">
-										</div>
-									</div>
+<div class="card-body">
+<div class="row">
+<div class="col-md-6">
+<div class="form-group row">
+	<label for="DNM" class="col-sm-4 col-form-label"><span style="color:red">*</span>Driver Name</label>
+	<div class="col-sm-8">
+		<input required="required" value="{{ $driver->DNM }}" type="text" class="form-control" name="DNM" id="DNM" maxlength="30" placeholder="Driver Name">
+	</div>
+</div>
 
-									<div class="form-group row">
-										<label for="DSN" class="col-sm-4 col-form-label"><span style="color:red">*</span>Driver Surname</label>
-										<div class="col-sm-8">
-											<input required="required" value="{{ $driver->DSN }}" type="text" class="form-control" name="DSN" id="DSN" maxlength="30" placeholder="Driver Surname">
-										</div>
-									</div>
-									<div class="form-group row">
-										<label for="DNO" class="col-sm-4 col-form-label"><span style="color:red">*</span>License Number</label>
-										<div class="col-sm-8">
-											<input onkeyup="duplicateDNO( {{ $driver->id }} )" required="required" value="{{ $driver->DNO }}" type="text" class="form-control" name="DNO" id="DNO" maxlength="25" placeholder="License Number">
-											<span id="dupDNO" style="color:red"></span>
-										</div>
-									</div>
-									<div class="form-group row">
-										<label for="DLD" class="col-sm-4 col-form-label"><span style="color:red"></span>License</label>
-										<div class="col-sm-8">
-											<input accept="application/pdf,image/png, image/jpeg" name="DLD" type="file" id="DLD">
-											@php
-											$href="";
-											if($driver->DLD != ""){
-												echo "<a target='_blank' href='../../uploads/DLD/".$driver->DLD."'>View</a>";
-											}
-											@endphp
-										</div>
-									</div>
-									<div class="form-group row">
-										<label for="LEX" class="col-sm-4 col-form-label"><span style="color:red">*</span>License Expiry Date</label>
-										<div class="col-4">
-											<input min="{{ date('Y-m-d') }}" value="{{ $driver->LEX }}" required="required" onkeydown="return false" type="date" class="form-control" name="LEX" id="LEX" >
-										</div>
-										<div class="col-4">
-											<label>Reminder</label>
-											<label class="switch">
-												<input {{ ($driver->AVL == "1" ? "checked":"") }} name="AVL" id="AVL" type="checkbox">
-												<span class="slider round"></span>
-											</label>
-										</div>
-									</div>
-									<div class="form-group row">
-										<label for="VCC" class="col-sm-4 col-form-label"><span style="color:red"></span>Contract</label>
-										<div class="col-sm-8">
-											<input accept="application/pdf" name="VCC" type="file" id="VCC">
-											@php
-											$href="";
-											if($driver->VCC != ""){
-												echo "<a target='_blank' href='../../uploads/VCC/".$driver->VCC."'>View</a>";
-											}
-											@endphp
-										</div>
-									</div>
-									<div class="form-group row">
-										<label for="CEX" class="col-sm-4 col-form-label"><span style="color:red">*</span>Contract Expiry Date</label>
-										<div class="col-4">
-											<input min="{{ date('Y-m-d') }}" value="{{ $driver->CEX }}" required="required" onkeydown="return false" type="date" class="form-control" name="CEX" id="CEX" >
-										</div>
-										<div class="col-4">
-											<label>Reminder</label>
-											<label class="switch">
-												<input {{ ($driver->AVC == "1" ? "checked":"") }} name="AVC" id="AVC" type="checkbox">
-												<span class="slider round"></span>
-											</label>
-										</div>
-									</div>
-									<div class="form-group row">
-										<label for="DCN" class="col-sm-4 col-form-label"><span style="color:red">*</span>Contact Number</label>
-										<div class="col-sm-8">
-											<input required="required" value="{{ $driver->DCN }}" type="text" class="form-control number" name="DCN" id="DCN" maxlength="15" placeholder="Contact Number">
-											<!-- <input onkeyup="checkDCN({{ $driver->DCN }})" required="required" value="{{ $driver->DCN }}" type="text" class="form-control number" name="DCN" id="DCN" maxlength="15" placeholder="Contact Number"> -->
-										</div>
-										<div class="col-sm-4">
-											<span id="dupContact" style="color:red"></span>
-										</div>
-									</div>
-
-									<div class="form-group row">
-										<label for="VPL" class="col-sm-4 col-form-label"><span style="color:red"></span>Parking Location</label>
-										<div class="col-sm-7">
-											<input value="{{ $driver->VPL }}" type="text" class="form-control" name="VPL" id="VPL" maxlength="50" placeholder="location">
-										</div>
-										<div class="col-sm-1">
-											<span><i onclick="select_parking({{ trim($driver->VPL) }})" class="nav-icon fa fa-map-marker" style="font-size:30px"></i></span>
-										</div>
-									</div>
-									<!-- /.form-group -->
-								</div>
-								<!-- /.col -->
-								<div class="col-md-6">
-									<div class="form-group row">
-										<label for="VBM" class="col-sm-4 col-form-label"><span style="color:red"></span>Business Model</label>
-										<div class="col-sm-8">
-											<select {{ ($driver->VBM == "Hire Purchase" ? "disabled":"") }} name="VBM" id="VBM" class="custom-select">
-												<option {{ ($driver->VBM == "Ride Hailing" ? "selected":"") }} value="Ride Hailing" >Ride Hailing</option>
-												<option {{ ($driver->VBM == "Rental" ? "selected":"") }} value="Rental" >Rental</option>
-												<option {{ ($driver->VBM == "Hire Purchase" ? "selected":"") }} value="Hire Purchase" >Hire Purchase</option>
-											</select>
-										</div>
-									</div>
-
-									<div class="form-group row">
-										<button type="button" class="btn btn-outline-primary float-right" data-toggle="modal" data-target="#RH-Fuel"><i class="nav-icon fas fa-cog"></i>Business settings
-										</button>
-									</div>
-									<div class="modal fade" id="RH-Fuel">
-										<div class="modal-dialog modal-xl">
-											<div class="modal-content">
-												<div class="modal-header">
-													<h6 class="modal-title">Business settings</h6>
-													<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-														<span aria-hidden="true">&times;</span>
-													</button>
-												</div>
-												<div class="modal-body">
-
-													
-													<div 
-													@php
-													if($driver->VBM != "Ride Hailing") echo " style='display:none' ";
-													@endphp 
-													class="form-group row" id="rhdiv"  >
-													<label for="PLF" class="col-sm-4 col-form-label"><span style="color:red"></span>RH platform</label>
-													<div class="col-sm-3">
-														<select name="PLF[]" id="PLF" class="custom-select">
-															@php
-															foreach($rhplatforms as $rhplatform){
-																echo "<option ";
-																foreach($driver_platforms as $dp){
-																	if($dp->PLF == $rhplatform->id) echo "selected ";
-																}
-																echo "value='$rhplatform->id'>$rhplatform->RHN</option>";
-															}
-															@endphp	
-														</select>
-													</div>
-													<label for="DVE" class="col-sm-3 col-form-label">Set Earnings</label>
-													<div class="col-sm-2" style="margin-top:10px">
-														<label class="switch">
-															<input {{ ($driver->DVE == "1" ? "checked":"") }}  name="DVE" id="DVE" type="checkbox">
-															<span class="slider round"></span>
-														</label>
-													</div>
-												</div>
-												<div class="col-md-12" id="Business" 
-												@php
-												if($driver->VBM != "Ride Hailing") echo " style='display:none' ";
-												@endphp 
-												>
-												<div class="form-group row">
-													<label for="PLF" class="col-sm-4 col-form-label">1. Driver Status:</label>
-												</div>
-												<div class="form-group row">
-													<div class="col-sm-8">
-														<label class="col-sm-1 col-form-label"></label>
-														<div class="form-check-inline">
-															<label class="form-check-label">
-																<input checked="checked" value="employee" type="radio" class="form-check-input" name="driver_status">Employee
-															</label>
-														</div>
-														<div class="form-check-inline">
-															<label class="form-check-label">
-																<input type="radio" value="contractor" class="form-check-input" name="driver_status">Independent Contractor
-															</label>
-														</div>
-													</div>
-												</div>
-
-												<div class="form-group row">
-													<label for="PLF" class="col-sm-4 col-form-label">2. Principal Earning:</label>
-												</div> 
-												<div class="form-group row">
-													<label class="col-sm-1 col-form-label"></label>
-													<div class="form-check-inline col-sm-3 ">
-														<label class="form-check-label">
-															<input checked="checked" value="fixed" type="radio" class="form-check-input" name="earning_type">Fixed Earning
-														</label>
-													</div>
-
-													<div class="col-sm-3">
-														<input type="text" class="form-control decimal" name="FPE" id="FPE" maxlength="10" placeholder="Fixed Amount">
-													</div>
-												</div>  
-												<div class="form-group row">
-													<label class="col-sm-1 col-form-label"></label>
-													<div class="form-check-inline col-sm-3">
-														<label class="form-check-label ">
-															<input type="radio" value="performance" class="form-check-input" name="earning_type">Performance Based Earning
-														</label>
-													</div>
-
-													<div class="col-sm-3">
-														<input type="text" class="form-control decimal" name="PPE" id="PPE" maxlength="10" placeholder="Percent">
-													</div>
-												</div>
-												<div class="col-sm-8">
-													<label class="col-sm-6 col-form-label"></label>
-													<div class="form-check-inline">
-														<label class="form-check-label">
-															<input type="radio" checked="checked" value="sales" class="form-check-input" name="PPE_TYPE">…of Total Sales
-														</label>
-													</div>
-												</div>
-												<div class="col-sm-8">
-													<label class="col-sm-6 col-form-label"></label>
-													<div class="form-check-inline">
-														<label class="form-check-label">
-															<input type="radio" value="earning" class="form-check-input" name="PPE_TYPE">...of Net of Earning
-														</label>
-													</div>
-												</div>
-												<div class="form-group row">
-													<label for="PLF" class="col-sm-4 col-form-label">3. Performance Bonus:</label>
-												</div> 
-												<div class="form-group row">
-													<label class="col-sm-1 col-form-label"></label>
-													<div class="form-check-inline col-sm-4 ">
-														<label class="form-check-label">
-															<input type="checkbox" class="form-check-input" name="bonus">Performance in excess of achieved target
-														</label>
-													</div>
-
-													<div class="col-sm-4">
-														<div class="form-check-inline">
-															<label class="form-check-label">
-																<input type="radio" checked="checked" value="sales" class="form-check-input" name="bonus_type">…of Total Sales
-															</label>
-														</div>
-													</div>
-
-													<div class="form-check-inline col-sm-5 ">
-													</div>
-													<div class="col-sm-4">
-														<div class="form-check-inline">
-															<label class="form-check-label">
-																<input type="radio" value="earning" class="form-check-input" name="bonus_type">...of Net of Earning
-															</label>
-														</div>
-													</div>
-												</div>
-
-												<div class="form-group row">
-													<label class="col-sm-1 col-form-label"></label>
-													<label for="PBT" class="col-sm-2 col-form-label">Target amount:</label>
-													<div class="col-sm-3">
-														<input type="text" class="form-control decimal" name="PBT" id="PBT" maxlength="10" placeholder="Target Amount">
-													</div>
-												</div>
-
-												<div class="form-group row">
-													<label class="col-sm-1 col-form-label"></label>
-													<label for="PBP" class="col-sm-2 col-form-label">Percentage rewarded:</label>
-													<div class="col-sm-3">
-														<input type="text" class="form-control decimal" name="PBP" id="PBP" maxlength="10" placeholder="Percent">
-													</div>
-												</div>
-
-												<div class="form-group row">
-													<label for="EPF" class="col-sm-3 col-form-label">4. Earning Payment Frequency:</label>
-
-													<div class="col-sm-4">
-														<select name="EPF" id="EPF" class="custom-select">
-															<option value="Daily" selected="selected">Daily</option>
-															<option value="Weekly" >Weekly</option>
-															<option value="Monthly" >Monthly</option>
-														</select>
-													</div>
-												</div>
-											</div>
-
-											<div 
-											@php
-											if($driver->VBM == "Ride Hailing") echo " style='display:none' ";
-											@endphp 
-											class="form-group row" id="freqdiv">
-											<label for="VPF" class="col-sm-4 col-form-label">Frequency</label>
-											<div class="col-sm-8">
-												<select name="VPF" id="VPF" class="custom-select">
-													<option {{ ($driver->VPF == "Daily" ? "selected":"") }} value="Daily" >Daily</option>
-
-													<option {{ ($driver->VPF == "Weekly" ? "selected":"") }} value="Weekly" >Weekly</option>
-
-													<option {{ ($driver->VPF == "Monthly" ? "selected":"") }} value="Monthly" >Monthly</option>
-
-												</select>
-											</div>
-
-										</div>
-
-										<div 
-										@php
-										if($driver->VPF != "Weekly") echo " style='display:none' ";
-										@endphp 
-										class="form-group row" id="weekdaydiv">
-										<label for="WDY" class="col-sm-4 col-form-label"><span style="color:red"></span>Weekday</label>
-										<div class="col-sm-8">
-											<select name="WDY" id="WDY" class="custom-select">
-												<option {{ ($driver->WDY == "0" ? "selected":"") }} value="0" >Sunday</option>
-												<option {{ ($driver->WDY == "1" ? "selected":"") }} value="1" selected="selected">Monday</option>
-												<option {{ ($driver->WDY == "2" ? "selected":"") }} value="2">Wednesday</option>
-												<option {{ ($driver->WDY == "3" ? "selected":"") }} value="3">Thursday</option>
-												<option {{ ($driver->WDY == "4" ? "selected":"") }} value="4">Tuesday</option>
-												<option {{ ($driver->WDY == "5" ? "selected":"") }} value="5">Friday</option>
-												<option {{ ($driver->WDY == "6" ? "selected":"") }} value="6">Saturday</option>
-											</select>
-										</div>
-									</div>
-
-									<div 
-									@php
-									if($driver->VPF != "Monthly") echo " style='display:none' ";
-									@endphp 
-									class="form-group row" id="monthdaydiv" >
-									<label for="MDY" class="col-sm-4 col-form-label"><span style="color:red"></span>Day of Month</label>
-									<div class="col-sm-8">
-										<select name="MDY" id="MDY" class="custom-select">
-											<option {{ ($driver->MDY == "1" ? "selected":"") }} value="1" >01</option>
-											@for ($i = 2; $i < 28; $i++)
-											<option {{ ($driver->MDY == $i ? "selected":"") }} value="{{ $i }}" >{{ str_pad($i, 2 , "0",STR_PAD_LEFT) }}</option>
-											@endfor
-											<option {{ ($driver->MDY == "31" ? "selected":"") }} value="31" >Last Day of Month</option>
-										</select>
-									</div>
-								</div>
-
-								<div 
-								@php
-								if($driver->VBM == "Ride Hailing") echo " style='display:none' ";
-								@endphp 
-								class="form-group row" id="paydatediv">
-								<label for="VPD" class="col-sm-4 col-form-label"><span style="color:red"></span>First Payment Date</label>
-								<div class="col-sm-8">
-									<input onkeydown="return false"   value="{{ $driver->VPD }}" type="date" class="form-control" name="VPD" id="VPD" maxlength="50" placeholder="First Payment Date">
-								</div>
-							</div>
-
-							<div 
-							@php
-							if($driver->VBM == "Ride Hailing") echo " style='display:none' ";
-							@endphp 
-							class="form-group row" id="payamtdiv">
-							<label for="VAM" class="col-sm-4 col-form-label"><span style="color:red"></span>Recurring Amount</label>
-							<div class="col-sm-8">
-								<input value="{{ $driver->VAM }}" type="text" class="form-control decimal" name="VAM" id="VAM" maxlength="10" placeholder="Payment Amount">
-							</div>
-						</div>
-
-						<div
-						@php
-						if($driver->VBM == "Ride Hailing" || $driver->VBM == "Rental" ) echo " style='display:none' ";
-						@endphp 
-						class="form-group row" id="purchasediv">
-						<label for="PPR" class="col-sm-4 col-form-label"><span style="color:red"></span>Purchase Price</label>
-						<div class="col-sm-8">
-							<input value="{{ $driver->PPR }}" type="text" class="form-control decimal" name="PPR" id="PPR" maxlength="10" placeholder="Purchase Price">
-						</div>
-					</div>
-
-					<div  
-					@php
-					if($driver->VBM == "Ride Hailing" || $driver->VBM == "Rental") echo " style='display:none' ";
-					@endphp 
-					class="form-group row" id="dowmamtdiv">
-					<label for="PDP" class="col-sm-4 col-form-label"><span style="color:red"></span>Down Payment</label>
-					<div class="col-sm-8">
-						<input value="{{ $driver->PDP }}" type="text" class="form-control decimal" name="PDP" id="PDP" maxlength="10" placeholder="Down Payment">
-					</div>
-				</div>
-
-				<div
-				@php
-				if($driver->VBM == "Ride Hailing") echo " style='display:none' ";
-				@endphp 
-				class="form-group row" id="depositdiv">
-				<label for="SDP" class="col-sm-4 col-form-label"><span style="color:red"></span>Security Deposit (Refundable)</label>
-				<div class="col-sm-8">
-					<input value="{{ $driver->SDP }}" type="text" class="form-control decimal" name="SDP" id="SDP" maxlength="10" placeholder="Security Deposit">
-				</div>
-			</div>
-
-			<div
-			@php
-			if($driver->VBM != "Hire Purchase") echo " style='display:none' ";
-			@endphp 
-			class="form-group row" style="padding-top:50px;" id="penalty">
-			<label  class="form-check-label col-sm-7" for="EPD"><b>Enable Penalty Rule on Payment Defaults</b></label>
-			<div class="icheck-success d-inline col-sm-1">
-				<input {{ ($driver->EPD == "1" ? "checked":"") }} name="EPD" type="checkbox" id="EPD">
-			</div> 
-		</div>
-
-		<div
+<div class="form-group row">
+	<label for="DSN" class="col-sm-4 col-form-label"><span style="color:red">*</span>Driver Surname</label>
+	<div class="col-sm-8">
+		<input required="required" value="{{ $driver->DSN }}" type="text" class="form-control" name="DSN" id="DSN" maxlength="30" placeholder="Driver Surname">
+	</div>
+</div>
+<div class="form-group row">
+	<label for="DNO" class="col-sm-4 col-form-label"><span style="color:red">*</span>License Number</label>
+	<div class="col-sm-8">
+		<input onkeyup="duplicateDNO( {{ $driver->id }} )" required="required" value="{{ $driver->DNO }}" type="text" class="form-control" name="DNO" id="DNO" maxlength="25" placeholder="License Number">
+		<span id="dupDNO" style="color:red"></span>
+	</div>
+</div>
+<div class="form-group row">
+	<label for="DLD" class="col-sm-4 col-form-label"><span style="color:red"></span>License</label>
+	<div class="col-sm-8">
+		<input accept="application/pdf,image/png, image/jpeg" name="DLD" type="file" id="DLD">
 		@php
-		if($driver->VBM != "Hire Purchase") echo " style='display:none' ";
-		@endphp 
-		class="form-group row" id="def">
-		<label for="NOD" class="col-sm-5 col-form-label"><span style="color:red"></span>Number of Defaults Allowed</label>
-		<div class="col-2">
-			<input value="{{ $driver->NOD }}" type="text" class="form-control" name="NOD" id="NOD" >
-		</div>
-		<div class="col-5">
-			<div class="icheck-primary d-inline">
-				<input {{ ($driver->NODB == "0" ? "checked":"") }} type="radio" id="Consecutive" name="NODB" />
-				<label for="Consecutive">
-				</label><b>Consecutive</b>
-			</div><br>
-			<div class="icheck-primary d-inline">
-				<input {{ ($driver->NODB == "1" ? "checked":"") }} type="radio" id="Total" name="NODB" />
-				<label for="Total">
-				</label><b>Total</b>
-			</div>
-		</div>
+		$href="";
+		if($driver->DLD != ""){
+			echo "<a target='_blank' href='../../uploads/DLD/".$driver->DLD."'>View</a>";
+		}
+		@endphp
 	</div>
-
-	<div
-	@php
-	if($driver->VBM != "Hire Purchase") echo " style='display:none' ";
-	@endphp 
-	class="form-group row" id="pen">
-	<label for="PAM" class="col-sm-5 col-form-label">Penalty Amount:</label>
-	<div class="col-2">
-		<input value="{{ $driver->PAM }}" type="text" class="form-control" name="PAM" id="PAM" >
+</div>
+<div class="form-group row">
+	<label for="LEX" class="col-sm-4 col-form-label"><span style="color:red">*</span>License Expiry Date</label>
+	<div class="col-4">
+		<input min="{{ date('Y-m-d') }}" value="{{ $driver->LEX }}" required="required" onkeydown="return false" type="date" class="form-control" name="LEX" id="LEX" >
 	</div>
-
-	<label for="CEX" class="col-sm-1 col-form-label">per</label>
+	<div class="col-4">
+		<label>Reminder</label>
+		<label class="switch">
+			<input {{ ($driver->AVL == "1" ? "checked":"") }} name="AVL" id="AVL" type="checkbox">
+			<span class="slider round"></span>
+		</label>
+	</div>
+</div>
+<div class="form-group row">
+	<label for="VCC" class="col-sm-4 col-form-label"><span style="color:red"></span>Contract</label>
+	<div class="col-sm-8">
+		<input accept="application/pdf" name="VCC" type="file" id="VCC">
+		@php
+		$href="";
+		if($driver->VCC != ""){
+			echo "<a target='_blank' href='../../uploads/VCC/".$driver->VCC."'>View</a>";
+		}
+		@endphp
+	</div>
+</div>
+<div class="form-group row">
+	<label for="CEX" class="col-sm-4 col-form-label"><span style="color:red">*</span>Contract Expiry Date</label>
+	<div class="col-4">
+		<input min="{{ date('Y-m-d') }}" value="{{ $driver->CEX }}" required="required" onkeydown="return false" type="date" class="form-control" name="CEX" id="CEX" >
+	</div>
+	<div class="col-4">
+		<label>Reminder</label>
+		<label class="switch">
+			<input {{ ($driver->AVC == "1" ? "checked":"") }} name="AVC" id="AVC" type="checkbox">
+			<span class="slider round"></span>
+		</label>
+	</div>
+</div>
+<div class="form-group row">
+	<label for="DCN" class="col-sm-4 col-form-label"><span style="color:red">*</span>Contact Number</label>
+	<div class="col-sm-8">
+		<input required="required" value="{{ $driver->DCN }}" type="text" class="form-control number" name="DCN" id="DCN" maxlength="15" placeholder="Contact Number">
+		<!-- <input onkeyup="checkDCN({{ $driver->DCN }})" required="required" value="{{ $driver->DCN }}" type="text" class="form-control number" name="DCN" id="DCN" maxlength="15" placeholder="Contact Number"> -->
+	</div>
 	<div class="col-sm-4">
-		<select name="PAT" id="PAT" class="custom-select">
-			<option {{ ($driver->PAT == "Daily" ? "selected":"") }} value="Daily" > Daily</option>
-			<option {{ ($driver->PAT == "Weekly" ? "selected":"") }} value="Weekly" > Weekly</option>
-			<option {{ ($driver->PAT == "Monthly" ? "selected":"") }} value="Monthly" > Monthly</option>
+		<span id="dupContact" style="color:red"></span>
+	</div>
+</div>
+
+<div class="form-group row">
+	<label for="VPL" class="col-sm-4 col-form-label"><span style="color:red"></span>Parking Location</label>
+	<div class="col-sm-7">
+		<input value="{{ $driver->VPL }}" type="text" class="form-control" name="VPL" id="VPL" maxlength="50" placeholder="location">
+	</div>
+	<div class="col-sm-1">
+		<span><i onclick="select_parking({{ trim($driver->VPL) }})" class="nav-icon fa fa-map-marker" style="font-size:30px"></i></span>
+	</div>
+</div>
+<!-- /.form-group -->
+</div>
+<!-- /.col -->
+<div class="col-md-6">
+<div class="form-group row">
+	<label for="VBM" class="col-sm-4 col-form-label"><span style="color:red"></span>Business Model</label>
+	<div class="col-sm-8">
+		<select {{ ($driver->VBM == "Hire Purchase" ? "disabled":"") }} name="VBM" id="VBM" class="custom-select">
+			<option {{ ($driver->VBM == "Ride Hailing" ? "selected":"") }} value="Ride Hailing" >Ride Hailing</option>
+			<option {{ ($driver->VBM == "Rental" ? "selected":"") }} value="Rental" >Rental</option>
+			<option {{ ($driver->VBM == "Hire Purchase" ? "selected":"") }} value="Hire Purchase" >Hire Purchase</option>
 		</select>
 	</div>
+</div>
+
+<div class="form-group row">
+	<button type="button" class="btn btn-outline-primary float-right" data-toggle="modal" data-target="#RH-Fuel"><i class="nav-icon fas fa-cog"></i>Business settings
+	</button>
+</div>
+<div class="form-group row">
+	<label for="VBM" class="col-sm-4 col-form-label">Password</label>
+	<div class="col-sm-2">
+		<input value="{{ $password }}" type="text" class="form-control number" name="password" id="password" maxlength="4" minlength="4" placeholder="Password">
+	</div>
+	<div class="col-sm-4 form-check">		
+	<input type="checkbox" class="form-check-input" name="send" id="send">
+	<label class="form-check-label" for="sms"><b>Send Password to Driver</b></label>
+	</div>
+</div>
+<div class="modal fade" id="RH-Fuel">
+	<div class="modal-dialog modal-xl">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h6 class="modal-title">Business settings</h6>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div 
+				@php
+				if($driver->VBM != "Ride Hailing") echo " style='display:none' ";
+				@endphp 
+				class="form-group row" id="rhdiv"  >
+				<label for="PLF" class="col-sm-4 col-form-label"><span style="color:red"></span>RH platform</label>
+				<div class="col-sm-3">
+					<select name="PLF[]" id="PLF" class="custom-select">
+						@php
+						foreach($rhplatforms as $rhplatform){
+							echo "<option ";
+							foreach($driver_platforms as $dp){
+								if($dp->PLF == $rhplatform->id) echo "selected ";
+							}
+							echo "value='$rhplatform->id'>$rhplatform->RHN</option>";
+						}
+						@endphp	
+					</select>
+				</div>
+				<label for="DVE" class="col-sm-3 col-form-label">Set Earnings</label>
+				<div class="col-sm-2" style="margin-top:10px">
+					<label class="switch">
+						<input {{ ($driver->DVE == "1" ? "checked":"") }}  name="DVE" id="DVE" type="checkbox">
+						<span class="slider round"></span>
+					</label>
+				</div>
+			</div>
+			<div class="col-md-12" id="Business" 
+			@php
+			if($driver->VBM != "Ride Hailing") echo " style='display:none' ";
+			@endphp 
+			>
+			<div class="form-group row">
+				<label for="PLF" class="col-sm-4 col-form-label">1. Driver Status:</label>
+			</div>
+			<div class="form-group row">
+				<div class="col-sm-8">
+					<label class="col-sm-1 col-form-label"></label>
+					<div class="form-check-inline">
+						<label class="form-check-label">
+							<input checked="checked" value="employee" type="radio" class="form-check-input" name="driver_status">Employee
+						</label>
+					</div>
+					<div class="form-check-inline">
+						<label class="form-check-label">
+							<input type="radio" value="contractor" class="form-check-input" name="driver_status">Independent Contractor
+						</label>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<label for="PLF" class="col-sm-4 col-form-label">2. Principal Earning:</label>
+			</div> 
+			<div class="form-group row">
+				<label class="col-sm-1 col-form-label"></label>
+				<div class="form-check-inline col-sm-3 ">
+					<label class="form-check-label">
+						<input checked="checked" value="fixed" type="radio" class="form-check-input" name="earning_type">Fixed Earning
+					</label>
+				</div>
+
+				<div class="col-sm-3">
+					<input type="text" class="form-control decimal" name="FPE" id="FPE" maxlength="10" placeholder="Fixed Amount">
+				</div>
+			</div>  
+			<div class="form-group row">
+				<label class="col-sm-1 col-form-label"></label>
+				<div class="form-check-inline col-sm-3">
+					<label class="form-check-label ">
+						<input type="radio" value="performance" class="form-check-input" name="earning_type">Performance Based Earning
+					</label>
+				</div>
+
+				<div class="col-sm-3">
+					<input type="text" class="form-control decimal" name="PPE" id="PPE" maxlength="10" placeholder="Percent">
+				</div>
+			</div>
+			<div class="col-sm-8">
+				<label class="col-sm-6 col-form-label"></label>
+				<div class="form-check-inline">
+					<label class="form-check-label">
+						<input type="radio" checked="checked" value="sales" class="form-check-input" name="PPE_TYPE">…of Total Sales
+					</label>
+				</div>
+			</div>
+			<div class="col-sm-8">
+				<label class="col-sm-6 col-form-label"></label>
+				<div class="form-check-inline">
+					<label class="form-check-label">
+						<input type="radio" value="earning" class="form-check-input" name="PPE_TYPE">...of Net of Earning
+					</label>
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="PLF" class="col-sm-4 col-form-label">3. Performance Bonus:</label>
+			</div> 
+			<div class="form-group row">
+				<label class="col-sm-1 col-form-label"></label>
+				<div class="form-check-inline col-sm-4 ">
+					<label class="form-check-label">
+						<input type="checkbox" class="form-check-input" name="bonus">Performance in excess of achieved target
+					</label>
+				</div>
+
+				<div class="col-sm-4">
+					<div class="form-check-inline">
+						<label class="form-check-label">
+							<input type="radio" checked="checked" value="sales" class="form-check-input" name="bonus_type">…of Total Sales
+						</label>
+					</div>
+				</div>
+
+				<div class="form-check-inline col-sm-5 ">
+				</div>
+				<div class="col-sm-4">
+					<div class="form-check-inline">
+						<label class="form-check-label">
+							<input type="radio" value="earning" class="form-check-input" name="bonus_type">...of Net of Earning
+						</label>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<label class="col-sm-1 col-form-label"></label>
+				<label for="PBT" class="col-sm-2 col-form-label">Target amount:</label>
+				<div class="col-sm-3">
+					<input type="text" class="form-control decimal" name="PBT" id="PBT" maxlength="10" placeholder="Target Amount">
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<label class="col-sm-1 col-form-label"></label>
+				<label for="PBP" class="col-sm-2 col-form-label">Percentage rewarded:</label>
+				<div class="col-sm-3">
+					<input type="text" class="form-control decimal" name="PBP" id="PBP" maxlength="10" placeholder="Percent">
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<label for="EPF" class="col-sm-3 col-form-label">4. Earning Payment Frequency:</label>
+
+				<div class="col-sm-4">
+					<select name="EPF" id="EPF" class="custom-select">
+						<option value="Daily" selected="selected">Daily</option>
+						<option value="Weekly" >Weekly</option>
+						<option value="Monthly" >Monthly</option>
+					</select>
+				</div>
+			</div>
+		</div>
+
+		<div 
+		@php
+		if($driver->VBM == "Ride Hailing") echo " style='display:none' ";
+		@endphp 
+		class="form-group row" id="freqdiv">
+		<label for="VPF" class="col-sm-4 col-form-label">Frequency</label>
+		<div class="col-sm-8">
+			<select name="VPF" id="VPF" class="custom-select">
+				<option {{ ($driver->VPF == "Daily" ? "selected":"") }} value="Daily" >Daily</option>
+
+				<option {{ ($driver->VPF == "Weekly" ? "selected":"") }} value="Weekly" >Weekly</option>
+
+				<option {{ ($driver->VPF == "Monthly" ? "selected":"") }} value="Monthly" >Monthly</option>
+
+			</select>
+		</div>
+
+	</div>
+
+	<div 
+	@php
+	if($driver->VPF != "Weekly") echo " style='display:none' ";
+	@endphp 
+	class="form-group row" id="weekdaydiv">
+	<label for="WDY" class="col-sm-4 col-form-label"><span style="color:red"></span>Weekday</label>
+	<div class="col-sm-8">
+		<select name="WDY" id="WDY" class="custom-select">
+			<option {{ ($driver->WDY == "0" ? "selected":"") }} value="0" >Sunday</option>
+			<option {{ ($driver->WDY == "1" ? "selected":"") }} value="1" selected="selected">Monday</option>
+			<option {{ ($driver->WDY == "2" ? "selected":"") }} value="2">Wednesday</option>
+			<option {{ ($driver->WDY == "3" ? "selected":"") }} value="3">Thursday</option>
+			<option {{ ($driver->WDY == "4" ? "selected":"") }} value="4">Tuesday</option>
+			<option {{ ($driver->WDY == "5" ? "selected":"") }} value="5">Friday</option>
+			<option {{ ($driver->WDY == "6" ? "selected":"") }} value="6">Saturday</option>
+		</select>
+	</div>
+</div>
+
+<div 
+@php
+if($driver->VPF != "Monthly") echo " style='display:none' ";
+@endphp 
+class="form-group row" id="monthdaydiv" >
+<label for="MDY" class="col-sm-4 col-form-label"><span style="color:red"></span>Day of Month</label>
+<div class="col-sm-8">
+	<select name="MDY" id="MDY" class="custom-select">
+		<option {{ ($driver->MDY == "1" ? "selected":"") }} value="1" >01</option>
+		@for ($i = 2; $i < 28; $i++)
+		<option {{ ($driver->MDY == $i ? "selected":"") }} value="{{ $i }}" >{{ str_pad($i, 2 , "0",STR_PAD_LEFT) }}</option>
+		@endfor
+		<option {{ ($driver->MDY == "31" ? "selected":"") }} value="31" >Last Day of Month</option>
+	</select>
+</div>
+</div>
+
+<div 
+@php
+if($driver->VBM == "Ride Hailing") echo " style='display:none' ";
+@endphp 
+class="form-group row" id="paydatediv">
+<label for="VPD" class="col-sm-4 col-form-label"><span style="color:red"></span>First Payment Date</label>
+<div class="col-sm-8">
+<input onkeydown="return false"   value="{{ $driver->VPD }}" type="date" class="form-control" name="VPD" id="VPD" maxlength="50" placeholder="First Payment Date">
+</div>
+</div>
+
+<div 
+@php
+if($driver->VBM == "Ride Hailing") echo " style='display:none' ";
+@endphp 
+class="form-group row" id="payamtdiv">
+<label for="VAM" class="col-sm-4 col-form-label"><span style="color:red"></span>Recurring Amount</label>
+<div class="col-sm-8">
+<input value="{{ $driver->VAM }}" type="text" class="form-control decimal" name="VAM" id="VAM" maxlength="10" placeholder="Payment Amount">
+</div>
+</div>
+
+<div
+@php
+if($driver->VBM == "Ride Hailing" || $driver->VBM == "Rental" ) echo " style='display:none' ";
+@endphp 
+class="form-group row" id="purchasediv">
+<label for="PPR" class="col-sm-4 col-form-label"><span style="color:red"></span>Purchase Price</label>
+<div class="col-sm-8">
+<input value="{{ $driver->PPR }}" type="text" class="form-control decimal" name="PPR" id="PPR" maxlength="10" placeholder="Purchase Price">
+</div>
+</div>
+
+<div  
+@php
+if($driver->VBM == "Ride Hailing" || $driver->VBM == "Rental") echo " style='display:none' ";
+@endphp 
+class="form-group row" id="dowmamtdiv">
+<label for="PDP" class="col-sm-4 col-form-label"><span style="color:red"></span>Down Payment</label>
+<div class="col-sm-8">
+<input value="{{ $driver->PDP }}" type="text" class="form-control decimal" name="PDP" id="PDP" maxlength="10" placeholder="Down Payment">
+</div>
+</div>
+
+<div
+@php
+if($driver->VBM == "Ride Hailing") echo " style='display:none' ";
+@endphp 
+class="form-group row" id="depositdiv">
+<label for="SDP" class="col-sm-4 col-form-label"><span style="color:red"></span>Security Deposit (Refundable)</label>
+<div class="col-sm-8">
+<input value="{{ $driver->SDP }}" type="text" class="form-control decimal" name="SDP" id="SDP" maxlength="10" placeholder="Security Deposit">
+</div>
+</div>
+
+<div
+@php
+if($driver->VBM != "Hire Purchase") echo " style='display:none' ";
+@endphp 
+class="form-group row" style="padding-top:50px;" id="penalty">
+<label  class="form-check-label col-sm-7" for="EPD"><b>Enable Penalty Rule on Payment Defaults</b></label>
+<div class="icheck-success d-inline col-sm-1">
+<input {{ ($driver->EPD == "1" ? "checked":"") }} name="EPD" type="checkbox" id="EPD">
+</div> 
+</div>
+
+<div
+@php
+if($driver->VBM != "Hire Purchase") echo " style='display:none' ";
+@endphp 
+class="form-group row" id="def">
+<label for="NOD" class="col-sm-5 col-form-label"><span style="color:red"></span>Number of Defaults Allowed</label>
+<div class="col-2">
+<input value="{{ $driver->NOD }}" type="text" class="form-control" name="NOD" id="NOD" >
+</div>
+<div class="col-5">
+<div class="icheck-primary d-inline">
+<input {{ ($driver->NODB == "0" ? "checked":"") }} type="radio" id="Consecutive" name="NODB" />
+<label for="Consecutive">
+</label><b>Consecutive</b>
+</div><br>
+<div class="icheck-primary d-inline">
+<input {{ ($driver->NODB == "1" ? "checked":"") }} type="radio" id="Total" name="NODB" />
+<label for="Total">
+</label><b>Total</b>
+</div>
+</div>
+</div>
+
+<div
+@php
+if($driver->VBM != "Hire Purchase") echo " style='display:none' ";
+@endphp 
+class="form-group row" id="pen">
+<label for="PAM" class="col-sm-5 col-form-label">Penalty Amount:</label>
+<div class="col-2">
+<input value="{{ $driver->PAM }}" type="text" class="form-control" name="PAM" id="PAM" >
+</div>
+
+<label for="CEX" class="col-sm-1 col-form-label">per</label>
+<div class="col-sm-4">
+<select name="PAT" id="PAT" class="custom-select">
+<option {{ ($driver->PAT == "Daily" ? "selected":"") }} value="Daily" > Daily</option>
+<option {{ ($driver->PAT == "Weekly" ? "selected":"") }} value="Weekly" > Weekly</option>
+<option {{ ($driver->PAT == "Monthly" ? "selected":"") }} value="Monthly" > Monthly</option>
+</select>
+</div>
 </div>
 
 <div
@@ -546,9 +554,9 @@ class="form-group row" id="due">
 </div>
 
 <div class="form-group row">
-	<div class="col-md-12 text-center">
-		<button type="button" class="btn btn-primary" data-dismiss="modal">Confirm</button>
-	</div>
+<div class="col-md-12 text-center">
+<button type="button" class="btn btn-primary" data-dismiss="modal">Confirm</button>
+</div>
 </div>	
 </div>
 </div>
@@ -564,11 +572,11 @@ class="form-group row" id="due">
 </div>
 
 <div class="form-group row">
-	<div class="col-md-12 text-center">
-		<input required="required" class="btn btn-info"
-		type="submit" id="save" name="submit" value="Update"/>
-		<a href="{{ route('fdriver.index') }}" class="btn btn-info">Back</a>
-	</div>
+<div class="col-md-12 text-center">
+<input required="required" class="btn btn-info"
+type="submit" id="save" name="submit" value="Update"/>
+<a href="{{ route('fdriver.index') }}" class="btn btn-info">Back</a>
+</div>
 </div>	
 
 </div>
@@ -580,12 +588,12 @@ class="form-group row" id="due">
 
 @section('third_party_scripts')
 <script>
-	function select_parking(latitude,longitude){
-		console.log(latitude);
-		console.log(longitude);
-		if(latitude == "") latitude = "5.605884551566098";
-		if(longitude == "") longitude = "-0.19313015133623626";
-		window.open("https://maps.google.com/?q="+latitude+","+longitude);
-	}
+function select_parking(latitude,longitude){
+console.log(latitude);
+console.log(longitude);
+if(latitude == "") latitude = "5.605884551566098";
+if(longitude == "") longitude = "-0.19313015133623626";
+window.open("https://maps.google.com/?q="+latitude+","+longitude);
+}
 </script>
 @endsection

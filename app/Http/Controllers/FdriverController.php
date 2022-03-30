@@ -9,7 +9,7 @@ use App\rhplatform;
 use App\Driver;
 use App\DriverPlatform;
 use Auth;
-
+use App\SMSFleetops;
 
 class FdriverController extends Controller
 {
@@ -144,10 +144,6 @@ class FdriverController extends Controller
                 $driverplatform->PLF = $PLF;
                 $driverplatform->save();
             }
-
-            
-
-
             return redirect('/fdriver')->with('message', 'Driver added Successfully');
         }
     }
@@ -160,7 +156,13 @@ class FdriverController extends Controller
         $driver = Driver::find($id);
         $sql = "SELECT PLF FROM driver_platform where driver_id='$id'";
         $driver_platforms = DB::select(DB::raw($sql));
-        return view('fdriver.edit', compact('driver','rhplatforms','driver_platforms'));
+        $password = "";
+        $sql = "SELECT * FROM vehicle where driver_id = $id";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+            $password = $result[0]->password;
+        }
+        return view('fdriver.edit', compact('driver','rhplatforms','driver_platforms','password'));
     }
    
     public function update(Request $request, $id)
@@ -221,7 +223,9 @@ class FdriverController extends Controller
             $driver->DNO =  $request->get('DNO');
             $driver->DNM =  $request->get('DNM');
             $driver->DSN =  $request->get('DSN');
+            $DNM = $driver->DNM . " " . $driver->DSN;
             $driver->DCN =  $request->get('DCN');
+            $DCN = $driver->DCN;
             $driver->VPL =  $request->get('VPL');
             if($DLD != "") $driver->DLD  =  $DLD;
             if($VCC != "") $driver->VCC  =  $VCC;
@@ -244,8 +248,11 @@ class FdriverController extends Controller
             $driver->LEX =  $request->get('LEX');
             $driver->CEX =  $request->get('CEX');
             $driver->updated_at =  date("Y-m-d H:i:s");  
-            //echo$driver;die;      
+            $password = $request->get('password');   
             $driver->save();
+
+            $sql = "update vehicle set password='$password' where driver_id=$id";
+            DB::update(DB::raw($sql));
 
             $sql = "delete from driver_platform where driver_id=$id";
             DB::delete(DB::raw($sql));
@@ -256,6 +263,20 @@ class FdriverController extends Controller
                 $driverplatform->driver_id = $id;
                 $driverplatform->PLF = $PLF;
                 $driverplatform->save();
+            }
+
+            $send = ($request->get("send") != null) ? 1 : 0;
+            if($send == 1){
+                $SMS = "";
+                $SMS = "Dear ".$DNM.",\n";
+                $SMS = $SMS ."You password been reset.\n";
+                $SMS = $SMS . "Your new password is ".$password.". ";
+                $DAT = date("Y-m-d");
+                $TIM = date("H:i:s");
+                $CTX = "Driver";
+                $sql = "insert into sms_log (PHN,MSG,DAT,TIM,CTX,NAM) values ('$DCN','$SMS','$DAT','$TIM','$CTX','$DNM')";
+                DB::insert($sql);
+                SMSFleetops::send($DCN,$SMS); 
             }
 
             return redirect('/fdriver')->with('message', 'Driver Updated Successfully');

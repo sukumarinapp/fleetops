@@ -113,7 +113,7 @@
 
 <div class="row">
   <div class="col-md-12">
-   @if($CEX == "1")
+   @if($file_name != "")
    <a href="" onclick="acceptance_code()"> <i style="float:right;margin-top: 80px;" class="fa fa-eye"></i></a>
    @endif
    <div class="row justify-content-center">

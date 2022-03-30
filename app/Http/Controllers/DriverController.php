@@ -119,6 +119,7 @@ class DriverController extends Controller
         $IEXd = "";
         $REXD = "";
         $CEXD = "";
+        $file_name = "";
         $sql = "select c.VBM,c.DNM,c.DSN,c.DCN,c.DNO from vehicle b,driver c where  b.driver_id=c.id and b.VNO='$VNO'";
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
@@ -171,6 +172,7 @@ class DriverController extends Controller
             if(count($result) > 0){
                $CEX = 1; 
                $CEXD = $result[0]->CEX;
+               $file_name = $result[0]->file_name;
             }else{
                 $sql = "select b.CEX from vehicle a,driver b where VNO = '$VNO'  and a.driver_id = b.id";
                 $result = DB::select(DB::raw($sql));
@@ -178,7 +180,7 @@ class DriverController extends Controller
                     $CEXD = $result[0]->CEX;
                 }
             }
-            return view('driver.tasks',compact('VNO','VBM','DNM','DCN','DNO','LEX','REX','IEX','CEX','LEXD','REXD','IEXD','CEXD'));
+            return view('driver.tasks',compact('VNO','VBM','DNM','DCN','DNO','LEX','REX','IEX','CEX','LEXD','REXD','IEXD','CEXD','file_name'));
         }
     }
     
