@@ -133,10 +133,11 @@
 									</div>
 									<div class="form-group row">
 										<label for="LEX" class="col-sm-4 col-form-label"><span style="color:red">*</span>License Expiry Date</label>
-										<div class="col-6">
+										<div class="col-4">
 											<input min="{{ date('Y-m-d') }}" value="{{ $driver->LEX }}" required="required" onkeydown="return false" type="date" class="form-control" name="LEX" id="LEX" >
 										</div>
-										<div class="col-2">
+										<div class="col-4">
+											<label>Reminder</label>
 											<label class="switch">
 												<input {{ ($driver->AVL == "1" ? "checked":"") }} name="AVL" id="AVL" type="checkbox">
 												<span class="slider round"></span>
@@ -157,10 +158,11 @@
 									</div>
 									<div class="form-group row">
 										<label for="CEX" class="col-sm-4 col-form-label"><span style="color:red">*</span>Contract Expiry Date</label>
-										<div class="col-6">
+										<div class="col-4">
 											<input min="{{ date('Y-m-d') }}" value="{{ $driver->CEX }}" required="required" onkeydown="return false" type="date" class="form-control" name="CEX" id="CEX" >
 										</div>
-										<div class="col-2">
+										<div class="col-4">
+											<label>Reminder</label>
 											<label class="switch">
 												<input {{ ($driver->AVC == "1" ? "checked":"") }} name="AVC" id="AVC" type="checkbox">
 												<span class="slider round"></span>
