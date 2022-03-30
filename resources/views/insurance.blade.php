@@ -71,7 +71,7 @@
 												<tr>
 													<td>{{ date("d/m/Y",strtotime($doc_expiry)) }}</td>
 													<td><a target="_blank" href="../uploads/driver/{{ $file_name }}" >View</a></td>
-													<td><a href="#" class="btn btn-success btn-sm">Approve</a>
+													<td><a onclick="approve_insurance( {{ $upload_id }} )" class="btn btn-success btn-sm">Approve</a>
 													</td>
 												</tr>
 											</tbody>
@@ -93,3 +93,21 @@
 		</section>
 
 		@endsection
+@push('page_scripts')
+<script>
+var approve_insurance_url = "{{ url('approve_insurance') }}";
+function approve_insurance(upload_id){
+  var url =  approve_insurance_url+"/"+upload_id;
+  $.ajax({
+      type: "get",
+      url: url,
+      success: function(response) {
+        window.location.href = "{{ url('workflow') }}";
+      },
+      error: function (jqXHR, exception) {
+        console.log(exception);
+      }
+  });
+}
+</script>
+@endpush

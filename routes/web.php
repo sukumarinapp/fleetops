@@ -114,6 +114,8 @@ Route::post('/auditingsave', 'WorkflowController@auditingsave')->name('auditings
 Route::get('/inspection/{id}', 'WorkflowController@vehicleinspection')->name('inspection');
 Route::post('/saveinspection', 'WorkflowController@saveinspection')->name('saveinspection');
 Route::get('/insurance/{id}', 'WorkflowController@insurance')->name('insurance');
+Route::get('/approve_insurance/{id}', 'WorkflowController@approve_insurance')->name('approve_insurance');
+Route::get('/copy_test', 'WorkflowController@copy_test')->name('copy_test');
 
 
 Route::get('/locations', 'HomeController@locations')->name('locations');

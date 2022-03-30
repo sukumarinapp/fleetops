@@ -545,10 +545,38 @@ class WorkflowController extends Controller
         if(count($result) > 0){
             $DNM = $result[0]->DNM . " " . $result[0]->DSN;
             $VNO = $result[0]->VNO;
+            $upload_id = $result[0]->id;
             $doc_expiry = $result[0]->doc_expiry;
             $file_name = trim($result[0]->file_name);
-        return view('insurance',compact('result','DNM','VNO','file_name','doc_expiry'));
+            return view('insurance',compact('result','DNM','VNO','file_name','doc_expiry','upload_id'));
        }
+    }
+
+    public function approve_insurance($id){
+        $sql = "select a.*,b.id as veid from driver_upload a,vehicle b where a.VNO=b.VNO and a.id=$id and approved=0";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+            $VNO = $result[0]->VNO;
+            $upload_id = $result[0]->id;
+            $veid = $result[0]->veid;
+            $file_name = $result[0]->file_name;
+            $temp = explode(".",$file_name);
+            $extension = $temp[1];
+            $target_filename = $veid . "." . $extension;
+            $doc_expiry = $result[0]->doc_expiry;
+            $source = public_path().DIRECTORY_SEPARATOR."uploads".DIRECTORY_SEPARATOR."driver".DIRECTORY_SEPARATOR.$file_name;
+            $target = public_path().DIRECTORY_SEPARATOR."uploads".DIRECTORY_SEPARATOR."VID".DIRECTORY_SEPARATOR.$target_filename;
+            copy($source,$target);
+            $sql = "update vehicle set IEX='$doc_expiry',VID='$target_filename' where id=$veid";
+            DB::update($sql);
+            $sql = "update driver_upload set approved=1 where id = $upload_id";
+            DB::update($sql);
+       }
+    }
+
+    public function copy_test(){
+        $file_name = "29.pdf";
+        
     }
         
 }
