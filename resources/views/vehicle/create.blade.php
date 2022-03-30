@@ -126,7 +126,7 @@ border-radius: 34px;
 								<input min="{{ date('Y-m-d') }}" value="{{ date('Y-m-d') }}" required="required" onkeydown="return false" type="date" class="form-control" name="IEX" id="IEX" >
 							</div>
 							<div class="col-sm-5">
-								<label>Enable Reminder</label>
+								<label>Reminder</label>
 								<label class="switch">
 									<input name="AVI" id="AVI" type="checkbox">
 									<span class="slider round"></span>
@@ -146,7 +146,7 @@ border-radius: 34px;
 								<input min="{{ date('Y-m-d') }}" value="{{ date('Y-m-d') }}" required="required" onkeydown="return false" type="date" class="form-control" name="REX" id="REX" >
 							</div>
 							<div class="col-5">
-								<label>Enable Reminder</label>
+								<label>Reminder</label>
 								<label class="switch">
 									<input name="AVR" id="AVR" type="checkbox">
 									<span class="slider round"></span>
@@ -359,7 +359,7 @@ border-radius: 34px;
 						<div class="form-group row">
 							<label for="SSD" class="col-sm-3 col-form-label">Next Scheduled Date</label>
 							<div class="col-sm-2">
-								<input min="{{ date('Y-m-d') }}" value="{{ date('Y-m-d') }}" onkeydown="return false" type="date" class="form-control" name="SSD" id="SSD" >
+								<input value="{{ date('Y-m-d') }}" onkeydown="return false" type="date" class="form-control" name="SSD" id="SSD" >
 							</div>
 
 							<label for="SSM" class="col-sm-3 col-form-label">(or) Next Scheduled Mileage</label>
@@ -417,7 +417,7 @@ border-radius: 34px;
 						<div class="form-group row">
 							<label for="ISD" class="col-sm-3 col-form-label">Next Scheduled Date</label>
 							<div class="col-sm-2">
-								<input min="{{ date('Y-m-d') }}" value="{{ date('Y-m-d') }}" onkeydown="return false" type="date" class="form-control" name="ISD" id="ISD" >
+								<input value="{{ date('Y-m-d') }}" onkeydown="return false" type="date" class="form-control" name="ISD" id="ISD" >
 							</div>
 
 							<label for="ISM" class="col-sm-3 col-form-label">(or) Next Scheduled Mileage</label>
