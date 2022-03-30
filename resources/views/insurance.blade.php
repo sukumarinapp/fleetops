@@ -52,7 +52,7 @@
 									</div>
 									<div class="form-group row">
 										<label for="IEX" class="col-sm-4 col-form-label"><span style="color:red">*</span>Insurance Expiry Date</label>
-										<div class="col-sm-8">
+										<div class="col-sm-4">
 											<input min="{{ date('Y-m-d') }}" value="{{ date('Y-m-d') }}" required="required" onkeydown="return false" type="date" class="form-control" name="IEX" id="IEX" >
 										</div>
 									</div>
