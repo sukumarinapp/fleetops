@@ -410,7 +410,7 @@ class DriverController extends Controller
         if(count($result) > 0){
             $id = $result[0]->id;
             if($acceptance_code == $result[0]->acceptance_code){
-                $sql = "update driver_upload set contract_accepted = 1 where id = $id";
+                $sql = "update driver_upload set contract_accepted = 1,approved=1 where id = $id";
                 DB::update(DB::raw($sql)); 
                 return redirect('/tasks')->with('success', 'You have successfully accepted the contract');
             }else{
