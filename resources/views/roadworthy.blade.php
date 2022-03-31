@@ -22,7 +22,7 @@
 			</div>
 			<div class="card card-info">
 				<div class="card-header">
-					<h3 class="card-title">Resolve Roadworthy Expiry</h3>
+					<h3 class="card-title">Resolve Roadworthy Certificate Expiry</h3>
 				</div>
 				<div class="table-responsive">
 					<div class="card-body">
@@ -61,11 +61,11 @@
 										<table class="table table-bordered">
 											<thead>
 												<tr>
-													<th colspan="2" style="text-align:center;">Roadworthy uploaded by driver</th>
+													<th colspan="2" style="text-align:center;">Roadworthy Certificate uploaded by driver</th>
 												</tr> 
 												<tr>
 													<th>Expiry Date</th>
-													<th>Roadworthy</th>
+													<th>Roadworthy Certificate</th>
 													<th>Action</th>
 												</tr>
 											</thead>
