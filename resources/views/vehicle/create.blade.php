@@ -357,6 +357,12 @@ border-radius: 34px;
 					<div class="modal-body">
 						<label>Service Scheduling</label>
 						<div class="form-group row">
+							<label for="SVE" class="col-sm-3 col-form-label">Venue</label>
+							<div class="col-sm-5">
+								<input maxlength="50" type="text" class="form-control" name="SVE" id="SVE" >
+							</div>
+						</div>
+						<div class="form-group row">
 							<label for="SSD" class="col-sm-3 col-form-label">Next Scheduled Date</label>
 							<div class="col-sm-2">
 								<input value="{{ date('Y-m-d') }}" onkeydown="return false" type="date" class="form-control" name="SSD" id="SSD" >
@@ -414,6 +420,12 @@ border-radius: 34px;
 						</div>								
 
 						<br><label>Vehicle Inspection Scheduling</label>
+						<div class="form-group row">
+							<label for="IVE" class="col-sm-3 col-form-label">Venue</label>
+							<div class="col-sm-5">
+								<input maxlength="50" type="text" class="form-control" name="IVE" id="IVE" >
+							</div>
+						</div>
 						<div class="form-group row">
 							<label for="ISD" class="col-sm-3 col-form-label">Next Scheduled Date</label>
 							<div class="col-sm-2">

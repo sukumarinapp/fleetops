@@ -156,3 +156,8 @@ CREATE TABLE `manager_inspect_photo` (
   `filename` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
+
+--31/03/2022
+
+alter table vehicle_service add SVE varchar(50) DEFAULT NULL;
+alter table vehicle_inspect add IVE varchar(50) DEFAULT NULL;
