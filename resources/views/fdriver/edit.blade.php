@@ -208,16 +208,18 @@ border-radius: 34px;
 	<button type="button" class="btn btn-outline-primary float-right" data-toggle="modal" data-target="#RH-Fuel"><i class="nav-icon fas fa-cog"></i>Business settings
 	</button>
 </div>
+@if($vehicle_id != 0)
 <div class="form-group row">
-	<label for="VBM" class="col-sm-4 col-form-label">Password</label>
+	<label for="VBM" class="col-sm-4 col-form-label"><span style="color:red">*</span>Password</label>
 	<div class="col-sm-2">
 		<input value="{{ $password }}" type="text" class="form-control number" name="password" id="password" maxlength="4" minlength="4" placeholder="Password">
 	</div>
 	<div class="col-sm-4 form-check">		
 	<input type="checkbox" class="form-check-input" name="send" id="send">
-	<label class="form-check-label" for="sms"><b>Send Password to Driver</b></label>
+	<label class="form-check-label" for="send"><b>Send Password</b></label>
 	</div>
 </div>
+@endif
 <div class="modal fade" id="RH-Fuel">
 	<div class="modal-dialog modal-xl">
 		<div class="modal-content">

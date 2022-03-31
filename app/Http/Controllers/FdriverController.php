@@ -157,12 +157,14 @@ class FdriverController extends Controller
         $sql = "SELECT PLF FROM driver_platform where driver_id='$id'";
         $driver_platforms = DB::select(DB::raw($sql));
         $password = "";
+        $vehicle_id = 0;
         $sql = "SELECT * FROM vehicle where driver_id = $id";
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
             $password = $result[0]->password;
+            $vehicle_id = $result[0]->id;
         }
-        return view('fdriver.edit', compact('driver','rhplatforms','driver_platforms','password'));
+        return view('fdriver.edit', compact('driver','rhplatforms','driver_platforms','password','vehicle_id'));
     }
    
     public function update(Request $request, $id)
@@ -247,8 +249,8 @@ class FdriverController extends Controller
             $driver->SDP =  $SDP;
             $driver->LEX =  $request->get('LEX');
             $driver->CEX =  $request->get('CEX');
-            $driver->updated_at =  date("Y-m-d H:i:s");  
-            $password = $request->get('password');   
+            $driver->updated_at =  date("Y-m-d H:i:s");
+            $password = ($request->get("password") != null) ? $request->get('password') : "";  
             $driver->save();
 
             $sql = "update vehicle set password='$password' where driver_id=$id";
@@ -269,7 +271,7 @@ class FdriverController extends Controller
             if($send == 1){
                 $SMS = "";
                 $SMS = "Dear ".$DNM.",\n";
-                $SMS = $SMS ."You password been reset.\n";
+                $SMS = $SMS ."You password has been reset.\n";
                 $SMS = $SMS . "Your new password is ".$password.". ";
                 $DAT = date("Y-m-d");
                 $TIM = date("H:i:s");
