@@ -450,7 +450,7 @@ class DriverController extends Controller
         $valid = DB::select(DB::raw($sql));
         if(count($valid) > 0){
             $DNM = $valid[0]->DNM." ".$valid[0]->DSN;
-        return view('driver.uploadservice',compact('DNM'));
+            return view('driver.uploadservice',compact('DNM'));
        }
     }
 

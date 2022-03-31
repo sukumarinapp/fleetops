@@ -123,6 +123,7 @@ Route::get('/roadworthy/{id}', 'WorkflowController@roadworthy')->name('roadworth
 Route::get('/approve_roadworthy/{id}', 'WorkflowController@approve_roadworthy')->name('approve_roadworthy');
 Route::get('/licence/{id}', 'WorkflowController@licence')->name('licence');
 Route::get('/renew/{id}', 'WorkflowController@renew')->name('renew');
+Route::get('/service/{id}', 'WorkflowController@service')->name('service');
 Route::get('/approve_licence/{id}', 'WorkflowController@approve_licence')->name('approve_licence');
 Route::get('/copy_test', 'WorkflowController@copy_test')->name('copy_test');
 
