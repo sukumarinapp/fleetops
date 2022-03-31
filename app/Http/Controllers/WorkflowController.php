@@ -551,9 +551,13 @@ class WorkflowController extends Controller
         $VI09 = ($request->get("VI09") != null) ? 1 : 0;
         $VI10 = ($request->get("VI10") != null) ? 1 : 0;
         $VI11 = ($request->get("VI11") != null) ? 1 : 0;
-        $sql = "insert into manager_inspect (upload_id,VI01,VI02,VI03,VI04,VI05,VI06,VI06,VI06,VI06) values ($upload_id,'$VI01','$VI02','$VI03','$VI04','$VI05','$VI06')";
-            DB::insert($sql);
-        return redirect('/workflow')->with('message', 'Vehicle Inspection Updated Successfully');
+        
+        $sql = "delete from manager_inspect where upload_id=$upload_id";
+        DB::delete(DB::raw($sql));
+        
+        $sql = "insert into manager_inspect (upload_id,VI01,VI02,VI03,VI04,VI05,VI06) values ($upload_id,'$VI01','$VI02','$VI03','$VI04','$VI05','$VI06')";
+        DB::insert($sql);
+        return redirect('/workflow')->with('message', 'Vehicle Inspection Done Successfully');
     }
 
     public function insurance($id){
