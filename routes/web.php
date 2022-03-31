@@ -66,6 +66,7 @@ Route::post('/saveinsurance', 'DriverController@saveinsurance')->name('saveinsur
 Route::post('/save_new_insurance', 'WorkflowController@save_new_insurance')->name('save_new_insurance');
 Route::post('/save_new_roadworthy', 'WorkflowController@save_new_roadworthy')->name('save_new_roadworthy');
 Route::post('/save_new_licence', 'WorkflowController@save_new_licence')->name('save_new_licence');
+Route::post('/save_contract', 'WorkflowController@save_contract')->name('save_contract');
 Route::get('/uploadroadworthy', 'DriverController@uploadroadworthy')->name('uploadroadworthy');
 Route::post('/saveroadworthy', 'DriverController@saveroadworthy')->name('saveroadworthy');
 Route::get('/contract', 'DriverController@contract')->name('contract');
@@ -121,6 +122,7 @@ Route::get('/approve_insurance/{id}', 'WorkflowController@approve_insurance')->n
 Route::get('/roadworthy/{id}', 'WorkflowController@roadworthy')->name('roadworthy');
 Route::get('/approve_roadworthy/{id}', 'WorkflowController@approve_roadworthy')->name('approve_roadworthy');
 Route::get('/licence/{id}', 'WorkflowController@licence')->name('licence');
+Route::get('/renew/{id}', 'WorkflowController@renew')->name('renew');
 Route::get('/approve_licence/{id}', 'WorkflowController@approve_licence')->name('approve_licence');
 Route::get('/copy_test', 'WorkflowController@copy_test')->name('copy_test');
 

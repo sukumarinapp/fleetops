@@ -693,10 +693,8 @@ class WorkflowController extends Controller
         $VNO = $request->get('VNO');
         $upload_id = $request->get('upload_id');
         $sql = "select driver_id from vehicle where VNO='$VNO'";
-        echo$sql;
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
-            $driver_id = $result[0]->driver_id;
             $DLD =  $driver_id.'.'.$request->DLD->extension(); 
             $filepath = public_path('uploads'.DIRECTORY_SEPARATOR.'DLD'.DIRECTORY_SEPARATOR);
             move_uploaded_file($_FILES['DLD']['tmp_name'], $filepath.$DLD);
@@ -706,6 +704,38 @@ class WorkflowController extends Controller
             DB::update($sql);
 
             return redirect('/workflow')->with('message', 'Licence Updated Successfully');
+       }
+    }
+
+    public function renew($id){
+        $sql = "select a.*,b.DNM,b.DSN from driver_upload a,driver b where a.driver_id = b.id and a.id=$id and approved=0";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+            $DNM = $result[0]->DNM . " " . $result[0]->DSN;
+            $VNO = $result[0]->VNO;
+            $driver_id = $result[0]->driver_id;
+            $upload_id = $result[0]->id;
+            return view('renew',compact('result','DNM','VNO','upload_id','driver_id'));
+       }
+    }
+
+    public function save_contract(Request $request){
+        $driver_id = $request->get('driver_id');
+        $CEX = $request->get('CEX');
+        $VNO = $request->get('VNO');
+        $upload_id = $request->get('upload_id');
+        $sql = "select driver_id from vehicle where VNO='$VNO'";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+            $VCC =  $driver_id.'.'.$request->VCC->extension(); 
+            $filepath = public_path('uploads'.DIRECTORY_SEPARATOR.'VCC'.DIRECTORY_SEPARATOR);
+            move_uploaded_file($_FILES['VCC']['tmp_name'], $filepath.$VCC);
+            $sql = "update driver set CEX='$CEX',VCC='$VCC' where id=$driver_id";
+            DB::update($sql);
+            $sql = "update driver_upload set approved=2 where id = $upload_id";
+            DB::update($sql);
+
+            return redirect('/workflow')->with('message', 'Contract Updated Successfully');
        }
     }
 }

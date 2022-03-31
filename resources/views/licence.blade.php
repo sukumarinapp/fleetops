@@ -30,6 +30,7 @@
 							@csrf
 							<input type="hidden" name="driver_id" value="{{ $driver_id }}" />
 							<input type="hidden" name="upload_id" value="{{ $upload_id }}" />
+							<input type="hidden" name="VNO" value="{{ $VNO }}" />
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group row">
