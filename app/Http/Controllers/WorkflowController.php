@@ -530,13 +530,30 @@ class WorkflowController extends Controller
     public function vehicleinspection($id){
         $sql = "select a.*,b.DNM,b.DSN from driver_upload a,driver b where a.driver_id=b.id and a.id=$id and approved=0";
         $result = DB::select(DB::raw($sql));
-        return view('inspection',compact('result'));
+        if(count($result) > 0){
+            $VNO = $result[0]->VNO;
+            $upload_id = $result[0]->id;
+        return view('inspection',compact('result','VNO','upload_id'));
+       }
     }
 
     public function saveinspection(Request $request){
-
-
-      return view('workflow');  
+        $VNO = $request->get('VNO');
+        $upload_id = $request->get('upload_id');
+        $VI01 = ($request->get("VI01") != null) ? 1 : 0;
+        $VI02 = ($request->get("VI02") != null) ? 1 : 0;
+        $VI03 = ($request->get("VI03") != null) ? 1 : 0;
+        $VI04 = ($request->get("VI04") != null) ? 1 : 0;
+        $VI05 = ($request->get("VI05") != null) ? 1 : 0;
+        $VI06 = ($request->get("VI06") != null) ? 1 : 0;
+        $VI07 = ($request->get("VI07") != null) ? 1 : 0;
+        $VI08 = ($request->get("VI08") != null) ? 1 : 0;
+        $VI09 = ($request->get("VI09") != null) ? 1 : 0;
+        $VI10 = ($request->get("VI10") != null) ? 1 : 0;
+        $VI11 = ($request->get("VI11") != null) ? 1 : 0;
+        $sql = "insert into manager_inspect (upload_id,VI01,VI02,VI03,VI04,VI05,VI06,VI06,VI06,VI06) values ($upload_id,'$VI01','$VI02','$VI03','$VI04','$VI05','$VI06')";
+            DB::insert($sql);
+        return redirect('/workflow')->with('message', 'Vehicle Inspection Updated Successfully');
     }
 
     public function insurance($id){

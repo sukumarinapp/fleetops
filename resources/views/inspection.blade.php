@@ -30,13 +30,15 @@
 				<div class="col-sm-6">
 					<div>
 					</div>
-					<div><strong>Vehicle Reg. No :</strong><span></span></div>
+					<div><strong>Vehicle Reg. No :</strong><span>{{ $VNO }}</span></div>
 					<div><strong>Vehicle Chassis No :</strong><span></span></div>
 				</div>
 
 			</div>
 			<form action="{{ route('saveinspection') }}" method="post" enctype="multipart/form-data" class="form-horizontal">
 				@csrf
+				<input type="hidden" name="VNO" value="{{ $VNO }}" />
+				<input type="hidden" name="upload_id" value="{{ $upload_id }}" />
 				<div class="row">
 					<div class="col-md-6">
 
