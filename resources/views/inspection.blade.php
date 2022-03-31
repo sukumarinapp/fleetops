@@ -502,7 +502,7 @@
 						<div class="form-group row">
 							<label for="" class="col-sm-6 col-form-label"><span style="color:red">*</span>Physical Dents & Damages (Pictures)</label>
 							<div class="col-sm-6">
-								<input type="file" accept="image/*" capture="capture">
+								<input type="file" name="VI25[]" multiple accept="image/*" capture="capture">
 							</div>
 						</div>
 

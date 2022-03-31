@@ -540,6 +540,7 @@ class WorkflowController extends Controller
     public function saveinspection(Request $request){
         $VNO = $request->get('VNO');
         $upload_id = $request->get('upload_id');
+
         $VI01 = ($request->get("VI01") != null) ? 1 : 0;
         $VI02 = ($request->get("VI02") != null) ? 1 : 0;
         $VI03 = ($request->get("VI03") != null) ? 1 : 0;
@@ -551,11 +552,49 @@ class WorkflowController extends Controller
         $VI09 = ($request->get("VI09") != null) ? 1 : 0;
         $VI10 = ($request->get("VI10") != null) ? 1 : 0;
         $VI11 = ($request->get("VI11") != null) ? 1 : 0;
+        $VI12 = ($request->get("VI12") != null) ? 1 : 0;
+        $VI13 = ($request->get("VI13") != null) ? 1 : 0;
+        $VI14 = ($request->get("VI14") != null) ? 1 : 0;
+        $VI15 = ($request->get("VI15") != null) ? 1 : 0;
+        $VI16 = ($request->get("VI16") != null) ? 1 : 0;
+        $VI17 = ($request->get("VI17") != null) ? 1 : 0;
+        $VI18 = ($request->get("VI18") != null) ? 1 : 0;
+        $VI19 = ($request->get("VI19") != null) ? 1 : 0;
+        $VI20 = ($request->get("VI20") != null) ? 1 : 0;
+        $VI21 = ($request->get("VI21") != null) ? 1 : 0;
+        $VI22 = ($request->get("VI22") != null) ? 1 : 0;
+        $VI23 = ($request->get("VI23") != null) ? 1 : 0;
+        $VI24 = ($request->get("VI24") != null) ? 1 : 0;
+
+        $CI01 = $request->get('CI01');
+        $CI02 = $request->get('CI02');
+        $CI03 = $request->get('CI03');
+        $CI04 = $request->get('CI04');
+        $CI05 = $request->get('CI05');
+        $CI06 = $request->get('CI06');
+        $CI07 = $request->get('CI07');
+        $CI08 = $request->get('CI08');
+        $CI09 = $request->get('CI09');
+        $CI10 = $request->get('CI10');
+        $CI11 = $request->get('CI11');
+        $CI12 = $request->get('CI12');
+        $CI13 = $request->get('CI13');
+        $CI14 = $request->get('CI14');
+        $CI15 = $request->get('CI15');
+        $CI16 = $request->get('CI16');
+        $CI17 = $request->get('CI17');
+        $CI18 = $request->get('CI18');
+        $CI19 = $request->get('CI19');
+        $CI20 = $request->get('CI20');
+        $CI21 = $request->get('CI21');
+        $CI22 = $request->get('CI22');
+        $CI23 = $request->get('CI23');
+        $CI24 = $request->get('CI24');
         
         $sql = "delete from manager_inspect where upload_id=$upload_id";
         DB::delete(DB::raw($sql));
         
-        $sql = "insert into manager_inspect (upload_id,VI01,VI02,VI03,VI04,VI05,VI06) values ($upload_id,'$VI01','$VI02','$VI03','$VI04','$VI05','$VI06')";
+        $sql = "insert into manager_inspect (upload_id,VI01,VI02,VI03,VI04,VI05,VI06,VI07,VI08,VI09,VI10,VI11,VI12,VI13,VI14,VI15,VI16,VI17,VI18,VI19,VI20,VI21,VI22,VI23,VI24,CI01,CI02,CI03,CI04,CI05,CI06,CI07,CI08,CI09,CI10,CI11,CI12,CI13,CI14,CI15,CI16,CI17,CI18,CI19,CI20,CI21,CI22,CI23,CI24) values ($upload_id,'$VI01','$VI02','$VI03','$VI04','$VI05','$VI06','$VI07','$VI08','$VI09','$VI10','$VI11','$VI12','$VI13','$VI14','$VI15','$VI16','$VI17','$VI18','$VI19','$VI20','$VI21','$VI22','$VI23','$VI24','$CI01','$CI02','$CI03','$CI04','$CI05','$CI06','$CI07','$CI08','$CI09','$CI10','$CI11','$CI12','$CI13','$CI14','$CI15','$CI16','$CI17','$CI18','$CI19','$CI20','$CI21','$CI22','$CI23','$CI24')";
         DB::insert($sql);
         return redirect('/workflow')->with('message', 'Vehicle Inspection Done Successfully');
     }
