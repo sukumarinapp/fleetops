@@ -85,6 +85,8 @@
 		              	<td><a href="{{ url('inspection') }}/{{ $insp->id }}">Resolve</a></td>
 		              @elseif($insp->doc_type == "RdWCert")
 		              	<td><a href="{{ url('roadworthy') }}/{{ $insp->id }}">Resolve</a></td> 
+	              	@elseif($insp->doc_type == "Service")
+	              		<td><a href="{{ url('service') }}/{{ $insp->id }}">Resolve</a></td>
 	              	@elseif($insp->doc_type == "Insurance")
 		              	<td><a href="{{ url('insurance') }}/{{ $insp->id }}">Resolve</a></td>
 	              	@elseif($insp->doc_type == "Licence")

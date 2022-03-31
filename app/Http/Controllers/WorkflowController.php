@@ -755,6 +755,18 @@ class WorkflowController extends Controller
             return redirect('/workflow')->with('message', 'Contract Updated Successfully');
        }
     }
+
+    public function service($id){
+        $sql = "select a.*,b.DNM,b.DSN from driver_upload a,driver b where a.driver_id = b.id and a.id=$id and approved=0";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+            $DNM = $result[0]->DNM . " " . $result[0]->DSN;
+            $VNO = $result[0]->VNO;
+            $driver_id = $result[0]->driver_id;
+            $upload_id = $result[0]->id;
+            return view('service',compact('result','DNM','VNO','upload_id','driver_id'));
+       }
+    }
 }
 
 	

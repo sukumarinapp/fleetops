@@ -33,8 +33,8 @@
       </div>
       <div class="form-group row">
         <label for="current_mileage" class="col-sm-4 col-form-label"><span style="color:red">*</span>Current Mileage</label>
-        <div class="col-sm-8">
-          <input required="required" type="text" maxlength="8" class="form-control" name="current_mileage" id="current_mileage" >
+        <div class="col-sm-4">
+          <input required="required" type="text" maxlength="8" class="number form-control" name="current_mileage" id="current_mileage" >
         </div>
       </div>
     </div>
