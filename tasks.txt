@@ -17,23 +17,8 @@ Business settings popup
 
 PENDING
 Use Google map api to add parking location
-Update Vehicle Inspection Details
-PWA App Development
 Vehicle Handover Form (Screen Design)
-
-
-Business Settings popup in Edit Driver
-
-Save vehicle inspection Details (manager)
-
-View and approve Vehicle Insurance Certificate Details
-View and approve Vehicle Roadworthy Certificate Details
-
-View and approve Driver License Details
-
-Service completion Approval (manager)
-
-Driver Accepting the vehicle inspection checklist
+On document Expiry/ Maintenance due disable edit
 
 
 
