@@ -652,15 +652,16 @@ class WorkflowController extends Controller
     }
 
     public function licence($id){
-        $sql = "select a.*,b.DNM,b.DSN from driver_upload a,driver b where a.driver_id=b.id and a.id=$id and approved=0";
+        $sql = "select a.*,b.DNM,b.DSN from driver_upload a,driver b where a.driver_id = b.id and a.id=$id and approved=0";
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
             $DNM = $result[0]->DNM . " " . $result[0]->DSN;
             $VNO = $result[0]->VNO;
+            $driver_id = $result[0]->driver_id;
             $upload_id = $result[0]->id;
             $doc_expiry = $result[0]->doc_expiry;
             $file_name = trim($result[0]->file_name);
-            return view('licence',compact('result','DNM','VNO','file_name','doc_expiry','upload_id'));
+            return view('licence',compact('result','DNM','VNO','file_name','doc_expiry','upload_id','driver_id'));
        }
     }
 

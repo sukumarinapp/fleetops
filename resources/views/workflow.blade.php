@@ -85,14 +85,12 @@
 		              	<td><a href="{{ url('inspection') }}/{{ $insp->id }}">Resolve</a></td>
 		              @elseif($insp->doc_type == "RdWCert")
 		              	<td><a href="{{ url('roadworthy') }}/{{ $insp->id }}">Resolve</a></td> 
-		              	@elseif($insp->doc_type == "Insurance")
+	              	@elseif($insp->doc_type == "Insurance")
 		              	<td><a href="{{ url('insurance') }}/{{ $insp->id }}">Resolve</a></td>
-		              	@elseif($insp->doc_type == "Licence")
+	              	@elseif($insp->doc_type == "Licence")
 		              	<td><a href="{{ url('licence') }}/{{ $insp->id }}">Resolve</a></td> 
-		              	@elseif($insp->doc_type == "Contract")
+	              	@elseif($insp->doc_type == "Contract")
 		              	<td><a href="{{ url('inspection') }}/{{ $insp->id }}">Resolve</a></td> 
-		              	@else
-		              	<td><a href="{{ url('inspection') }}/{{ $insp->id }}">Resolve</a></td>  
 	              	@endif
 		            </tr>
             @endforeach
