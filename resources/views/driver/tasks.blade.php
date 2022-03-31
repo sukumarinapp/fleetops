@@ -144,10 +144,10 @@
        <label class="col-form-label">Vehicle Servicing</label>
      </div>
      <div class="col-md-12">
-       <label class="col-form-label">Scheduled Date  : </label>
+       <label class="col-form-label">Scheduled Date  : </label> {{ $SSD }} 
      </div>
      <div class="col-md-12">
-       <label class="col-form-label">Venue  : </label>
+       <label class="col-form-label">Venue  : </label> {{ $SVE }} 
      </div> 
      <div class="col-md-12">
       <p>Click icon when servicing is complete</p>
@@ -160,17 +160,17 @@
 <div class="row">
   <div class="col-md-12">
     @if($inspection == 1)
-    <a href=""> <i style="float:right;margin-top: 80px;" class="fa fa-eye"></i></a>
+    <a href="" onclick="accept_code()"> <i style="float:right;margin-top: 80px;" class="fa fa-eye"></i></a>
     @endif
     <div class="row justify-content-center">
      <div class="col-md-12">
        <label class="col-form-label">Vehicle Inspection</label>
      </div>
      <div class="col-md-12">
-       <label class="col-form-label">Scheduled Date  : </label>
+       <label class="col-form-label">Scheduled Date  : </label> {{ $ISD }} 
      </div>
      <div class="col-md-12">
-       <label class="col-form-label">Venue  : </label>
+       <label class="col-form-label">Venue  : </label> {{ $IVE }} 
      </div> 
      <div class="col-md-12">
       <p>Click icon when Inspection is complete</p>
@@ -195,6 +195,21 @@
 var acceptance_code_url = "{{ url('acceptance_code') }}";
 function acceptance_code(){
   var url =  acceptance_code_url;
+  $.ajax({
+      type: "get",
+      url: url,
+      success: function(response) {
+        window.location.href = "{{ url('contract') }}";
+      },
+      error: function (jqXHR, exception) {
+        console.log(exception);
+      }
+  });
+}
+
+var accept_code_url = "{{ url('accept_code') }}";
+function accept_code(){
+  var url =  accept_code_url;
   $.ajax({
       type: "get",
       url: url,

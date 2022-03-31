@@ -196,7 +196,7 @@ class DriverController extends Controller
             $sql = "select a.id,a.expired_date,a.venue from driver_upload a,driver b where VNO = '$VNO' and a.driver_id=b.id and doc_type='Inspection' and approved=0";
             $result = DB::select(DB::raw($sql));
             if(count($result) > 0){
-               $insertion_id = $result[0]->id;
+               $inspection_id = $result[0]->id;
                $ISD = $result[0]->expired_date;
                $IVE = $result[0]->venue;
             }
@@ -452,6 +452,29 @@ class DriverController extends Controller
         $VNO = Session::get('VNO');
         $driver_id = Session::get('driver_id');
         $sql = "select a.id,b.DCN,b.DNM,b.DSN from driver_upload a,driver b where VNO = '$VNO' and a.driver_id=b.id and doc_type='Contract' and approved=0";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+            $acceptance_code = rand(1001,9999);
+            $DCN = $result[0]->DCN;
+            $DNM = $result[0]->DNM." ".$result[0]->DSN;
+            $id = $result[0]->id;
+            $sql = "update driver_upload set acceptance_code='$acceptance_code' where id=$id";
+            DB::update(DB::raw($sql));  
+            $msg = "Hi $DNM, Your flletops contract acceptance code is $acceptance_code";
+            SMSFleetops::send($DCN,$msg);
+            $DAT = date("Y-m-d");
+            $TIM = date("H:i:s");
+            $CTX = "Acceptance Code";
+            $sql = "insert into sms_log (PHN,MSG,DAT,TIM,CTX,NAM) values ('$DCN','$msg','$DAT','$TIM','$CTX','$DNM')";
+            DB::insert($sql);
+        } 
+    }
+
+    public function accept_code()
+     {
+        $VNO = Session::get('VNO');
+        $driver_id = Session::get('driver_id');
+        $sql = "select a.id,b.DCN,b.DNM,b.DSN from driver_upload a,driver b where VNO = '$VNO' and a.driver_id=b.id and doc_type='Inspection' and approved=0";
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
             $acceptance_code = rand(1001,9999);
