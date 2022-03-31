@@ -597,6 +597,8 @@ class WorkflowController extends Controller
         $sql = "insert into manager_inspect (upload_id,VI01,VI02,VI03,VI04,VI05,VI06,VI07,VI08,VI09,VI10,VI11,VI12,VI13,VI14,VI15,VI16,VI17,VI18,VI19,VI20,VI21,VI22,VI23,VI24,CI01,CI02,CI03,CI04,CI05,CI06,CI07,CI08,CI09,CI10,CI11,CI12,CI13,CI14,CI15,CI16,CI17,CI18,CI19,CI20,CI21,CI22,CI23,CI24) values ($upload_id,'$VI01','$VI02','$VI03','$VI04','$VI05','$VI06','$VI07','$VI08','$VI09','$VI10','$VI11','$VI12','$VI13','$VI14','$VI15','$VI16','$VI17','$VI18','$VI19','$VI20','$VI21','$VI22','$VI23','$VI24','$CI01','$CI02','$CI03','$CI04','$CI05','$CI06','$CI07','$CI08','$CI09','$CI10','$CI11','$CI12','$CI13','$CI14','$CI15','$CI16','$CI17','$CI18','$CI19','$CI20','$CI21','$CI22','$CI23','$CI24')";
         DB::insert($sql);
 
+        $sql = "delete from manager_inspect_photo where upload_id=$upload_id";
+        DB::delete(DB::raw($sql));
         $total = count($_FILES['VI25']['name']);
         for( $i=0 ; $i < $total ; $i++ ) {
             $sql = "insert into manager_inspect_photo (upload_id) values ($upload_id)";
