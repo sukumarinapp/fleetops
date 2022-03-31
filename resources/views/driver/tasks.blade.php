@@ -214,7 +214,7 @@ function accept_code(){
       type: "get",
       url: url,
       success: function(response) {
-        window.location.href = "{{ url('contract') }}";
+        window.location.href = "{{ url('inspect') }}";
       },
       error: function (jqXHR, exception) {
         console.log(exception);

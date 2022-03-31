@@ -70,6 +70,7 @@ Route::post('/save_contract', 'WorkflowController@save_contract')->name('save_co
 Route::get('/uploadroadworthy', 'DriverController@uploadroadworthy')->name('uploadroadworthy');
 Route::post('/saveroadworthy', 'DriverController@saveroadworthy')->name('saveroadworthy');
 Route::get('/contract', 'DriverController@contract')->name('contract');
+Route::get('/inspect', 'DriverController@inspect')->name('inspect');
 Route::post('/acceptcontract', 'DriverController@acceptcontract')->name('acceptcontract');
 Route::get('/acceptance_code', 'DriverController@acceptance_code')->name('acceptance_code');
 Route::get('/accept_code', 'DriverController@accept_code')->name('accept_code');
