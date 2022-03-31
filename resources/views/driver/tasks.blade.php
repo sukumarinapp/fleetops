@@ -159,7 +159,9 @@
 
 <div class="row">
   <div class="col-md-12">
-    <a href=""> <i style="float:right;margin-top: 80px;" class="fa fa-upload"></i></a>
+    @if($inspection == 1)
+    <a href=""> <i style="float:right;margin-top: 80px;" class="fa fa-eye"></i></a>
+    @endif
     <div class="row justify-content-center">
      <div class="col-md-12">
        <label class="col-form-label">Vehicle Inspection</label>

@@ -120,6 +120,10 @@ class DriverController extends Controller
         $REXD = "";
         $CEXD = "";
         $file_name = "";
+        $SSD ="";
+        $SVE ="";
+        $ISD ="";
+        $IVE ="";
         $sql = "select c.VBM,c.DNM,c.DSN,c.DCN,c.DNO from vehicle b,driver c where  b.driver_id=c.id and b.VNO='$VNO'";
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
@@ -180,7 +184,30 @@ class DriverController extends Controller
                     $CEXD = $result[0]->CEX;
                 }
             }
-            return view('driver.tasks',compact('VNO','VBM','DNM','DCN','DNO','LEX','REX','IEX','CEX','LEXD','REXD','IEXD','CEXD','file_name'));
+
+            $sql = "select a.id,a.expired_date,a.venue from driver_upload a,driver b where VNO = '$VNO' and a.driver_id=b.id and doc_type='Service' and approved=0";
+            $result = DB::select(DB::raw($sql));
+            if(count($result) > 0){
+               $SSD = $result[0]->expired_date;
+               $SVE = $result[0]->venue;
+            }
+
+            $inspection_id=0;
+            $sql = "select a.id,a.expired_date,a.venue from driver_upload a,driver b where VNO = '$VNO' and a.driver_id=b.id and doc_type='Inspection' and approved=0";
+            $result = DB::select(DB::raw($sql));
+            if(count($result) > 0){
+               $insertion_id = $result[0]->id;
+               $ISD = $result[0]->expired_date;
+               $IVE = $result[0]->venue;
+            }
+
+            $inspection = 0;
+            $sql = "select * from manager_inspect where upload_id=$inspection_id";
+            $result = DB::select(DB::raw($sql));
+            if(count($result) > 0){
+               $inspection = 1;
+            }
+            return view('driver.tasks',compact('VNO','VBM','DNM','DCN','DNO','LEX','REX','IEX','CEX','LEXD','REXD','IEXD','CEXD','file_name','inspection','SSD','SVE','ISD','IVE'));
         }
     }
     
