@@ -57,7 +57,7 @@
   <div class="form-group row">
     <label class="col-6 col-form-label">Term</label>
     <label class="col-1 col-form-label">:</label>
-    <p class="col-5 col-form-label">N/A</p>
+    <p class="col-5 col-form-label">{{ $term }}</p>
   </div>
   <div class="form-group row">
     <label class="col-6 col-form-label">Payment (Amount)</label>
@@ -77,17 +77,17 @@
   <div class="form-group row">
     <label class="col-6 col-form-label">First Payment (Date)</label>
     <label class="col-1 col-form-label">:</label>
-    <p class="col-5 col-form-label">N/A</p>
+    <p class="col-5 col-form-label">{{ $VPD }}</p>
   </div>
   <div class="form-group row">
     <label class="col-6 col-form-label">Last Payment (Date)</label>
     <label class="col-1 col-form-label">:</label>
-    <p class="col-5 col-form-label">N/A</p>
+    <p class="col-5 col-form-label">{{ $last_date }}</p>
   </div>
   <div class="form-group row">
     <label class="col-6 col-form-label">No of Installments</label>
     <label class="col-1 col-form-label">:</label>
-    <p class="col-5 col-form-label">N/A</p>
+    <p class="col-5 col-form-label">{{ $installments }}</p>
   </div>
   <div class="form-group row">
     <label class="col-6 col-form-label">Default Penalty Applicable</label>

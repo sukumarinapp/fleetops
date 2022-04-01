@@ -4,6 +4,43 @@ use DB;
 
 class Formulae{
 
+  public static function get_installments($PPR,$VAM){
+    $installments = $PPR/$VAM;
+    return ceil($installments);
+  }
+
+  public static function get_last_date($VPD,$installments,$VPF){
+    $last_date = date("Y-m-d");
+    if($VPF == "Daily"){
+      $last_date = date('Y-m-d', strtotime("+ ".$installments." days", strtotime($VPD)));
+    }else if($VPF == "Weekly"){
+      $last_date = date('Y-m-d', strtotime("+ ".$installments." weeks", strtotime($VPD)));
+    }else if($VPF == "Monthly"){
+      $last_date = date('Y-m-d', strtotime("+ ".$installments." months", strtotime($VPD)));
+    }
+    return $last_date;
+  }
+
+  public static function get_term($VPD,$last_date,$VPF){
+    $term ="";
+    $start = time(); 
+    $start = strtotime($VPD);
+    $end = strtotime($last_date);
+    $diff = $end - $start;
+    $years = floor($diff / (365*60*60*24));
+    $months = floor(($diff - $years * 365*60*60*24) / (30*60*60*24));
+    $days = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24)/ (60*60*24));
+    if($years != 0){
+      $term = $term .$years ." year(s) ";
+    }
+    if($months != 0){
+      $term = $term .$months ." month(s) ";
+    }
+    if($days != 0){
+      $term = $term .$days ." day(s) ";
+    }
+    return $term;
+  }
   //Covered mileage
   public static function CML($DDT,$VNO){
   	$CML = 0;
