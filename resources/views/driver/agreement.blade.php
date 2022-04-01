@@ -72,17 +72,17 @@
   <div class="form-group row">
     <label class="col-6 col-form-label">Contract End Date</label>
     <label class="col-1 col-form-label">:</label>
-    <p class="col-5 col-form-label">{{ $CEX }}</p>
+    <p class="col-5 col-form-label">{{ date("d/m/Y",strtotime($CEX)) }}</p>
   </div>
   <div class="form-group row">
     <label class="col-6 col-form-label">First Payment (Date)</label>
     <label class="col-1 col-form-label">:</label>
-    <p class="col-5 col-form-label">{{ $VPD }}</p>
+    <p class="col-5 col-form-label">{{ date("d/m/Y",strtotime($VPD)) }}</p>
   </div>
   <div class="form-group row">
     <label class="col-6 col-form-label">Last Payment (Date)</label>
     <label class="col-1 col-form-label">:</label>
-    <p class="col-5 col-form-label">{{ $last_date }}</p>
+    <p class="col-5 col-form-label">{{ date("d/m/Y",strtotime($last_date)) }}</p>
   </div>
   <div class="form-group row">
     <label class="col-6 col-form-label">No of Installments</label>

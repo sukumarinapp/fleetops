@@ -1,6 +1,7 @@
 <?php
 namespace App;
 use DB;
+use DateTime;
 
 class Formulae{
 
@@ -23,13 +24,11 @@ class Formulae{
 
   public static function get_term($VPD,$last_date,$VPF){
     $term ="";
-    $start = time(); 
-    $start = strtotime($VPD);
-    $end = strtotime($last_date);
-    $diff = $end - $start;
-    $years = floor($diff / (365*60*60*24));
-    $months = floor(($diff - $years * 365*60*60*24) / (30*60*60*24));
-    $days = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24)/ (60*60*24));
+    $start = new DateTime($VPD);
+    $diff = $start->diff(new DateTime($last_date));
+    $years = $diff->y;
+    $months = $diff->m;
+    $days = $diff->d;
     if($years != 0){
       $term = $term .$years ." year(s) ";
     }
