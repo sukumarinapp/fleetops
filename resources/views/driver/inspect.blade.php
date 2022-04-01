@@ -25,12 +25,7 @@
     <input type="hidden" id="VNO" name="VNO" value="">
     <form action="{{ route('acceptcontract') }}" method="post" enctype="multipart/form-data" class="form-horizontal">
       @csrf
-      <div class="row">
-        <div class="col-md-12 text-center">
-          <a href="#" target="_blank" class="btn btn-info" >View Inspection checklist</a>
-        </div>
-      </div><br>
-
+   
       <div class="form-group row">
         <label for="" class="col-sm-4 col-form-label"><span style="color:red"></span>Into</label>
         <div class="col-sm-8">
@@ -38,6 +33,277 @@
         </div>
       </div>
 
+       <div class="form-group row">
+        <label for="" class="col-sm-4 col-form-label"><span style="color:red"></span>Vehicle Reg No</label>
+        <div class="col-sm-8">
+          {{ $VNO }}
+        </div>
+      </div>
+   @foreach($inspect as $ins)
+      <div class="form-group row">
+        <label for="" class="col-sm-4 col-form-label"><span style="color:red"></span>Look under the car for leaks</label>
+        <div class="col-sm-8">
+           @if($ins->VI01 == 1)
+         <i class="fa fa-check" style="color:green"></i>
+         @else
+          <i class="fa fa-times" style="color:red"></i>
+          @endif
+        </div>
+      </div> 
+
+      <div class="form-group row">
+        <label for="" class="col-sm-4 col-form-label"><span style="color:red"></span>Check radiator coolant level</label>
+        <div class="col-sm-8">
+           @if($ins->VI02 == 1)
+         <i class="fa fa-check" style="color:green"></i>
+         @else
+          <i class="fa fa-times" style="color:red"></i>
+          @endif
+        </div>
+      </div>    
+
+       <div class="form-group row">
+        <label for="" class="col-sm-4 col-form-label"><span style="color:red"></span>Check engine oil level</label>
+        <div class="col-sm-8">
+           @if($ins->VI03 == 1)
+         <i class="fa fa-check" style="color:green"></i>
+         @else
+          <i class="fa fa-times" style="color:red"></i>
+          @endif
+        </div>
+      </div>
+
+       <div class="form-group row">
+        <label for="" class="col-sm-4 col-form-label"><span style="color:red"></span>Check brake fluid</label>
+        <div class="col-sm-8">
+           @if($ins->VI04 == 1)
+         <i class="fa fa-check" style="color:green"></i>
+         @else
+          <i class="fa fa-times" style="color:red"></i>
+          @endif
+        </div>
+      </div>   
+
+       <div class="form-group row">
+        <label for="" class="col-sm-4 col-form-label"><span style="color:red"></span>Check windshield washer fluid</label>
+        <div class="col-sm-8">
+           @if($ins->VI05 == 1)
+         <i class="fa fa-check" style="color:green"></i>
+         @else
+          <i class="fa fa-times" style="color:red"></i>
+          @endif
+        </div>
+      </div>    
+
+       <div class="form-group row">
+        <label for="" class="col-sm-4 col-form-label"><span style="color:red"></span>Check battery condition</label>
+        <div class="col-sm-8">
+           @if($ins->VI06 == 1)
+         <i class="fa fa-check" style="color:green"></i>
+         @else
+          <i class="fa fa-times" style="color:red"></i>
+          @endif
+        </div>
+      </div>   
+
+        <div class="form-group row">
+        <label for="" class="col-sm-4 col-form-label"><span style="color:red"></span>Check general cleanliness of engine</label>
+        <div class="col-sm-8">
+           @if($ins->VI07 == 1)
+         <i class="fa fa-check" style="color:green"></i>
+         @else
+          <i class="fa fa-times" style="color:red"></i>
+          @endif
+        </div>
+      </div>    
+
+       <div class="form-group row">
+        <label for="" class="col-sm-4 col-form-label"><span style="color:red"></span>Check tire condition, caps, nuts and tools</label>
+        <div class="col-sm-8">
+           @if($ins->VI08 == 1)
+         <i class="fa fa-check" style="color:green"></i>
+         @else
+          <i class="fa fa-times" style="color:red"></i>
+          @endif
+        </div>
+      </div>    
+
+       <div class="form-group row">
+        <label for="" class="col-sm-4 col-form-label"><span style="color:red"></span>Check brakes (Foot/Hand Brakes)</label>
+        <div class="col-sm-8">
+           @if($ins->VI09 == 1)
+         <i class="fa fa-check" style="color:green"></i>
+         @else
+          <i class="fa fa-times" style="color:red"></i>
+          @endif
+        </div>
+      </div>    
+
+       <div class="form-group row">
+        <label for="" class="col-sm-4 col-form-label"><span style="color:red"></span>Check inside mirror and side mirrors:</label>
+        <div class="col-sm-8">
+           @if($ins->VI10 == 1)
+         <i class="fa fa-check" style="color:green"></i>
+         @else
+          <i class="fa fa-times" style="color:red"></i>
+          @endif
+        </div>
+      </div>    
+
+       <div class="form-group row">
+        <label for="" class="col-sm-4 col-form-label"><span style="color:red"></span>Check all windows left/right window</label>
+        <div class="col-sm-8">
+           @if($ins->VI11 == 1)
+         <i class="fa fa-check" style="color:green"></i>
+         @else
+          <i class="fa fa-times" style="color:red"></i>
+          @endif
+        </div>
+      </div>    
+
+       <div class="form-group row">
+        <label for="" class="col-sm-4 col-form-label"><span style="color:red"></span>Check doors, handles, boot and hood</label>
+        <div class="col-sm-8">
+           @if($ins->VI12 == 1)
+         <i class="fa fa-check" style="color:green"></i>
+         @else
+          <i class="fa fa-times" style="color:red"></i>
+          @endif
+        </div>
+      </div>    
+
+       <div class="form-group row">
+        <label for="" class="col-sm-4 col-form-label"><span style="color:red"></span>Check headlights, brakes lights</label>
+        <div class="col-sm-8">
+           @if($ins->VI13 == 1)
+         <i class="fa fa-check" style="color:green"></i>
+         @else
+          <i class="fa fa-times" style="color:red"></i>
+          @endif
+        </div>
+      </div>    
+
+       <div class="form-group row">
+        <label for="" class="col-sm-4 col-form-label"><span style="color:red"></span>Check ignition key and system</label>
+        <div class="col-sm-8">
+           @if($ins->VI14 == 1)
+         <i class="fa fa-check" style="color:green"></i>
+         @else
+          <i class="fa fa-times" style="color:red"></i>
+          @endif
+        </div>
+      </div>    
+
+       <div class="form-group row">
+        <label for="" class="col-sm-4 col-form-label"><span style="color:red"></span>Check steering wheel</label>
+        <div class="col-sm-8">
+           @if($ins->VI15 == 1)
+         <i class="fa fa-check" style="color:green"></i>
+         @else
+          <i class="fa fa-times" style="color:red"></i>
+          @endif
+        </div>
+      </div>    
+
+       <div class="form-group row">
+        <label for="" class="col-sm-4 col-form-label"><span style="color:red"></span>Check dashboard indicator lights</label>
+        <div class="col-sm-8">
+           @if($ins->VI16 == 1)
+         <i class="fa fa-check" style="color:green"></i>
+         @else
+          <i class="fa fa-times" style="color:red"></i>
+          @endif
+        </div>
+      </div>    
+
+       <div class="form-group row">
+        <label for="" class="col-sm-4 col-form-label"><span style="color:red"></span>Check inside lights</label>
+        <div class="col-sm-8">
+           @if($ins->VI17 == 1)
+         <i class="fa fa-check" style="color:green"></i>
+         @else
+          <i class="fa fa-times" style="color:red"></i>
+          @endif
+        </div>
+      </div>    
+
+       <div class="form-group row">
+        <label for="" class="col-sm-4 col-form-label"><span style="color:red"></span>Check radio and CD player/antenna</label>
+        <div class="col-sm-8">
+           @if($ins->VI18 == 1)
+         <i class="fa fa-check" style="color:green"></i>
+         @else
+          <i class="fa fa-times" style="color:red"></i>
+          @endif
+        </div>
+      </div>    
+
+       <div class="form-group row">
+        <label for="" class="col-sm-4 col-form-label"><span style="color:red"></span>Check seat belts and seat covers</label>
+        <div class="col-sm-8">
+           @if($ins->VI19 == 1)
+         <i class="fa fa-check" style="color:green"></i>
+         @else
+          <i class="fa fa-times" style="color:red"></i>
+          @endif
+        </div>
+      </div>    
+
+       <div class="form-group row">
+        <label for="" class="col-sm-4 col-form-label"><span style="color:red"></span>Check cleanliness of the vehicle's interior</label>
+        <div class="col-sm-8">
+           @if($ins->VI20 == 1)
+         <i class="fa fa-check" style="color:green"></i>
+         @else
+          <i class="fa fa-times" style="color:red"></i>
+          @endif
+        </div>
+      </div>   
+
+        <div class="form-group row">
+        <label for="" class="col-sm-4 col-form-label"><span style="color:red"></span>Check first aid kit and fire extinguisher</label>
+        <div class="col-sm-8">
+           @if($ins->VI21 == 1)
+         <i class="fa fa-check" style="color:green"></i>
+         @else
+          <i class="fa fa-times" style="color:red"></i>
+          @endif
+        </div>
+      </div>    
+
+       <div class="form-group row">
+        <label for="" class="col-sm-4 col-form-label"><span style="color:red"></span>Check reflective triangles</label>
+        <div class="col-sm-8">
+           @if($ins->VI22 == 1)
+         <i class="fa fa-check" style="color:green"></i>
+         @else
+          <i class="fa fa-times" style="color:red"></i>
+          @endif
+        </div>
+      </div>    
+
+       <div class="form-group row">
+        <label for="" class="col-sm-4 col-form-label"><span style="color:red"></span>Check validity of insurance (Sticker)</label>
+        <div class="col-sm-8">
+           @if($ins->VI23 == 1)
+         <i class="fa fa-check" style="color:green"></i>
+         @else
+          <i class="fa fa-times" style="color:red"></i>
+          @endif
+        </div>
+      </div>    
+
+       <div class="form-group row">
+        <label for="" class="col-sm-4 col-form-label"><span style="color:red"></span>Check validity of Roadworthy (Sticker)</label>
+        <div class="col-sm-8">
+           @if($ins->VI24 == 1)
+         <i class="fa fa-check" style="color:green"></i>
+         @else
+          <i class="fa fa-times" style="color:red"></i>
+          @endif
+        </div>
+      </div>   
+@endforeach
       <div class="form-group row">
         <label for="" class="col-sm-4 col-form-label"><span style="color:red">*</span>Input Acceptence Code</label>
         <div class="col-sm-4">
