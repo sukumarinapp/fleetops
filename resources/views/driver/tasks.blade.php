@@ -114,7 +114,7 @@
 <div class="row">
   <div class="col-md-12">
    @if($file_name != "")
-   <a  onclick="acceptance_code()"> <i style="float:right;margin-top: 80px;" class="fa fa-eye"></i></a>
+   <a  onclick="acceptance_code()"> <i style="color: blue !important;cursor: pointer;float:right;margin-top: 80px;" class="fa fa-eye"></i></a>
    @endif
    <div class="row justify-content-center">
      <div class="col-md-12">
@@ -160,7 +160,7 @@
 <div class="row">
   <div class="col-md-12">
     @if($inspection == 1)
-    <a  onclick="accept_code();" > <i style="float:right;margin-top: 80px;" class="fa fa-eye"></i></a>
+    <a  onclick="accept_code();" > <i style="color: blue;cursor: pointer;float:right;margin-top: 80px;" class="fa fa-eye"></i></a>
     @endif
     <div class="row justify-content-center">
      <div class="col-md-12">
