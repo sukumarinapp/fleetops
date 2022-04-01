@@ -133,13 +133,13 @@ border-radius: 34px;
 </div>
 
 <div class="form-group row">
-	<label for="DLD" class="col-sm-4 col-form-label"><span style="color:red"></span>License Back</label>
+	<label for="DLD2" class="col-sm-4 col-form-label"><span style="color:red"></span>License Back</label>
 	<div class="col-sm-8">
-		<input accept="image/png, image/jpeg" name="DLD" type="file" id="DLD">
+		<input accept="image/png, image/jpeg" name="DLD2" type="file" id="DLD2">
 		@php
 		$href="";
-		if($driver->DLD != ""){
-			echo "<a target='_blank' href='../../uploads/DLD/".$driver->DLD."'>View</a>";
+		if($driver->DLD2 != ""){
+			echo "<a target='_blank' href='../../uploads/DLD2/".$driver->DLD2."'>View</a>";
 		}
 		@endphp
 	</div>

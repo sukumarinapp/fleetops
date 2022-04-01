@@ -118,24 +118,31 @@
 				</div>
 				
 				<div class="form-group row">
-					<label for="DLD" class="col-sm-4 col-form-label"><span style="color:red"></span>License</label>
+					<label for="DLD" class="col-sm-4 col-form-label"><span style="color:red"></span>License Front</label>
 					<div class="col-sm-8">
-                        <input accept="application/pdf,image/png, image/jpeg" required="required" name="DLD" type="file" id="DLD">
+             <input accept="image/png, image/jpeg" required="required" name="DLD" type="file" id="DLD">
 					</div>
 				</div>
+
+        <div class="form-group row">
+					<label for="DLD2" class="col-sm-4 col-form-label"><span style="color:red"></span>License Back</label>
+					<div class="col-sm-8">
+              <input accept="image/png, image/jpeg" required="required" name="DLD2" type="file" id="DLD2">
+					</div>
+				</div>
+
 				<div class="form-group row">
 										<label for="LEX" class="col-sm-4 col-form-label"><span style="color:red">*</span>License Expiry Date</label>
-										<div class="col-4">
+										<div class="col-sm-5">
 											<input required="required" min="{{ date('Y-m-d') }}" value="{{ date('Y-m-d') }}" onkeydown="return false" type="date" class="form-control" name="LEX" id="LEX" >
 										</div>
-										<div class="col-4">
-											<label>Reminder</label>
-											<label class="switch">
+											<label class="col-form-label">Reminder</label>&nbsp;
+											<label class="switch" style="margin-top:10px">
 												<input name="AVL" id="AVL" type="checkbox">
 												<span class="slider round"></span>
 											</label>
-										</div>
 									</div>
+
                 <div class="form-group row">
 					<label for="VCC" class="col-sm-4 col-form-label"><span style="color:red"></span>Contract</label>
 					<div class="col-sm-8">
@@ -144,16 +151,14 @@
 				</div>
 				<div class="form-group row">
 										<label for="CEX" class="col-sm-4 col-form-label"><span style="color:red">*</span>Contract Expiry Date</label>
-										<div class="col-4">
+										<div class="col-5">
 											<input required="required" min="{{ date('Y-m-d') }}" value="{{ date('Y-m-d') }}" onkeydown="return false" type="date" class="form-control" name="CEX" id="CEX" >
 										</div>
-										<div class="col-4">
-											<label>Reminder</label>
-											<label class="switch">
+											<label class="col-form-label">Reminder</label>&nbsp;
+											<label class="switch" style="margin-top:10px">
 												<input name="AVC" id="AVC" type="checkbox">
 												<span class="slider round"></span>
 											</label>
-										</div>
 									</div>
  				<div class="form-group row">
 					<label for="DCN" class="col-sm-4 col-form-label"><span style="color:red">*</span>Contact Number</label>
