@@ -122,17 +122,16 @@ border-radius: 34px;
 
 						<div class="form-group row">
 							<label for="IEX" class="col-sm-4 col-form-label"><span style="color:red">*</span>Insurance Expiry Date</label>
-							<div class="col-3">
+							<div class="col-sm-5">
 								<input min="{{ date('Y-m-d') }}" value="{{ date('Y-m-d') }}" required="required" onkeydown="return false" type="date" class="form-control" name="IEX" id="IEX" >
 							</div>
-							<div class="col-sm-5">
-								<label>Reminder</label>
-								<label class="switch">
+							
+								<label class="col-form-label">Reminder</label>&nbsp;
+								<label class="switch" style="margin-top:10px">
 									<input name="AVI" id="AVI" type="checkbox">
 									<span class="slider round"></span>
 								</label>
 							</div>
-						</div>
 						<div class="form-group row">
 							<label for="VRD" class="col-sm-4 col-form-label"><span style="color:red">*</span>Roadworthy Cert<br>&nbsp;File Type (pdf/jpg/png)</label>
 							<div class="col-sm-8">
@@ -142,16 +141,14 @@ border-radius: 34px;
 
 						<div class="form-group row">
 							<label for="REX" class="col-sm-4 col-form-label"><span style="color:red">*</span>Roadworthy Expiry Date</label>
-							<div class="col-3">
+							<div class="col-sm-5">
 								<input min="{{ date('Y-m-d') }}" value="{{ date('Y-m-d') }}" required="required" onkeydown="return false" type="date" class="form-control" name="REX" id="REX" >
 							</div>
-							<div class="col-5">
-								<label>Reminder</label>
-								<label class="switch">
+								<label class="col-form-label">Reminder</label>&nbsp;
+								<label class="switch"style="margin-top:10px">
 									<input name="AVR" id="AVR" type="checkbox">
 									<span class="slider round"></span>
 								</label>
-							</div>
 						</div>
 						<div class="form-group row">
 							<label for="VMK" class="col-sm-4 col-form-label"><span style="color:red"></span>Make</label>
