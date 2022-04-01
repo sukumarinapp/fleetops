@@ -313,7 +313,7 @@ class DriverController extends Controller
             $id = $result[0]->id;
             $DLD =  $id.'_front.'.$request->DLD->extension(); 
             move_uploaded_file($_FILES['DLD']['tmp_name'], $filepath.$DLD);
-            $DLD2 =  $id.'_back.'.$request->DLD->extension(); 
+            $DLD2 =  $id.'_back.'.$request->DLD2->extension(); 
             move_uploaded_file($_FILES['DLD2']['tmp_name'], $filepath.$DLD2);
             $sql = "update driver_upload set file_name='$DLD',file_name2='$DLD2',doc_expiry='$LEX',upload_time='$upload_time' where id=$id";
             DB::update(DB::raw($sql));    
