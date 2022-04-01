@@ -753,7 +753,7 @@ class WorkflowController extends Controller
             $VNO = $result[0]->VNO;
             $upload_id = $result[0]->id;
             $veid = $result[0]->veid;
-            $file_name = $result[0]->file_name;
+            $file_name1 = $result[0]->file_name;
             $temp1 = explode(".",$file_name1);
             $extension1 = $temp1[1];
             $target_filename1 = $veid . "_front." . $extension1;

@@ -167,3 +167,10 @@ alter table driver_upload add venue varchar(50) DEFAULT NULL;
 alter table driver add DLD2 varchar(20) DEFAULT NULL;
 alter table driver_upload add file_name2 varchar(20) DEFAULT NULL;
 
+CREATE TABLE `manager_service` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `upload_id` int(11) NOT NULL,
+  `service_date` date DEFAULT NULL,
+   current_mileage varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
