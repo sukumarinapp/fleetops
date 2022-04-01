@@ -78,7 +78,19 @@
             	<tr>
 		              <td>{{ date("d-m-Y",strtotime($insp->expired_date)) }}</td>
 		              <td>{{ $insp->VNO }}</td>
-		              <td>INS{{ str_pad($insp->id,3,'0',STR_PAD_LEFT) }}</td>
+		              	@if($insp->doc_type == "Inspection")
+								      	<td>INP{{ str_pad($insp->id,3,'0',STR_PAD_LEFT) }}</td>
+								    @elseif($insp->doc_type == "RdWCert")
+								      	<td>RDW{{ str_pad($insp->id,3,'0',STR_PAD_LEFT) }}</td>
+								  	@elseif($insp->doc_type == "Service")
+								  		<td>SER{{ str_pad($insp->id,3,'0',STR_PAD_LEFT) }}</td>
+								  	@elseif($insp->doc_type == "Insurance")
+								      	<td>INS{{ str_pad($insp->id,3,'0',STR_PAD_LEFT) }}</td>
+								  	@elseif($insp->doc_type == "Licence")
+								      	<td>LIC{{ str_pad($insp->id,3,'0',STR_PAD_LEFT) }}</td>
+								  	@elseif($insp->doc_type == "Contract")
+								      	<td>CTR{{ str_pad($insp->id,3,'0',STR_PAD_LEFT) }}</td>
+								  	@endif
 		              <td>{{ $insp->doc_type }}</td>
 		              <td>{{ $insp->DNM }} {{ $insp->DSN }}</td>    
 		              @if($insp->doc_type == "Inspection")
