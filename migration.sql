@@ -162,5 +162,7 @@ CREATE TABLE `manager_inspect_photo` (
 alter table vehicle_service add SVE varchar(50) DEFAULT NULL;
 alter table vehicle_inspect add IVE varchar(50) DEFAULT NULL;
 
-alter table driver_upload add venue varchar(50) DEFAULT 0;
+alter table driver_upload add venue varchar(50) DEFAULT NULL;
+
+alter table driver add DLD2 varchar(20) DEFAULT NULL;
 
