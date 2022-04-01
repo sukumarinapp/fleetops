@@ -317,17 +317,6 @@ class DriverController extends Controller
             move_uploaded_file($_FILES['DLD2']['tmp_name'], $filepath.$DLD2);
             $sql = "update driver_upload set file_name='$DLD',file_name2='$DLD2',doc_expiry='$LEX',upload_time='$upload_time' where id=$id";
             DB::update(DB::raw($sql));    
-        }else{
-            $today = date("Y-m-d");
-            $doc_type = "Licence";
-            $approved = 0;
-            $sql = "insert into driver_upload (VNO,driver_id,expired_date,doc_type,approved) values ('$VNO','$driver_id','$today','$doc_type','$approved')";
-            DB::insert(DB::raw($sql));
-            $id = DB::getPdo()->lastInsertId();
-            $DLD =  $id.'.'.$request->DLD->extension(); 
-            move_uploaded_file($_FILES['DLD']['tmp_name'], $filepath.$DLD);
-            $sql = "update driver_upload set file_name='$DLD',doc_expiry='$LEX',upload_time='$upload_time' where id=$id";
-            DB::update(DB::raw($sql));  
         }
         return redirect('/tasks')->with('success', 'Licence uploaded successfully');
      } 
@@ -358,17 +347,6 @@ class DriverController extends Controller
             move_uploaded_file($_FILES['VID']['tmp_name'], $filepath.$VID);
             $sql = "update driver_upload set file_name='$VID',doc_expiry='$IEX',upload_time='$upload_time' where id=$id";
             DB::update(DB::raw($sql));    
-        }else{
-            $today = date("Y-m-d");
-            $doc_type = "Insurance";
-            $approved = 0;
-            $sql = "insert into driver_upload (VNO,driver_id,expired_date,doc_type,approved) values ('$VNO','$driver_id','$today','$doc_type','$approved')";
-            DB::insert(DB::raw($sql));
-            $id = DB::getPdo()->lastInsertId();
-            $VID =  $id.'.'.$request->VID->extension(); 
-            move_uploaded_file($_FILES['VID']['tmp_name'], $filepath.$VID);
-            $sql = "update driver_upload set file_name='$VID',doc_expiry='$LEX',upload_time='$upload_time' where id=$id";
-            DB::update(DB::raw($sql));  
         }
         return redirect('/tasks')->with('success', 'Insurance uploaded successfully');
      } 
@@ -399,16 +377,6 @@ class DriverController extends Controller
             move_uploaded_file($_FILES['VRD']['tmp_name'], $filepath.$VRD);
             $sql = "update driver_upload set file_name='$VRD',doc_expiry='$REX',upload_time='$upload_time' where id=$id";
             DB::update(DB::raw($sql));    
-        }else{
-            $today = date("Y-m-d");
-            $doc_type = "RdWCert";
-            $approved = 0;
-            $sql = "insert into driver_upload (VNO,driver_id,expired_date,doc_type,approved) values ('$VNO','$driver_id','$today','$doc_type','$approved')";
-            DB::insert(DB::raw($sql));
-            $id = DB::getPdo()->lastInsertId();
-            $VRD =  $id.'.'.$request->VRD->extension(); 
-            move_uploaded_file($_FILES['VRD']['tmp_name'], $filepath.$VRD);
-            $sql = "update driver_upload set file_name='$VRD',doc_expiry='$REX',upload_time='$upload_time' where id=$id";
             DB::update(DB::raw($sql));  
         }
         return redirect('/tasks')->with('success', 'Roadworthy Certificate uploaded successfully');
