@@ -27,13 +27,19 @@
                       {{ $DNM }}
                     </div>
                   </div>
-    <div class="form-group row">
-                    <label for="DLD" class="col-md-4 col-form-label"><span style="color:red">*</span>Licence</label>
+                 <div class="form-group row">
+                    <label for="DLD" class="col-md-4 col-form-label"><span style="color:red">*</span>Licence Front</label>
                     <div class="col-md-8">
-                      <input required="required" accept="application/pdf,image/png, image/jpeg" name="DLD" type="file" id="DLD">
+                      <input required="required" accept="image/png, image/jpeg" name="DLD" type="file" id="DLD">
                     </div>
                   </div>
-<div class="form-group row">
+                  <div class="form-group row">
+                    <label for="DLD2" class="col-md-4 col-form-label"><span style="color:red">*</span>Licence Back</label>
+                    <div class="col-md-8">
+                      <input required="required" accept="image/png, image/jpeg" name="DLD2" type="file" id="DLD2">
+                    </div>
+                  </div>
+                  <div class="form-group row">
                     <label for="LEX" class="col-md-4 col-form-label"><span style="color:red">*</span>License Expiry Date</label>
                     <div class="col-md-8">
                       <input required="required" min="{{ date('Y-m-d') }}" value="{{ date('Y-m-d') }}" onkeydown="return false" type="date" class="form-control" name="LEX" id="LEX" >
