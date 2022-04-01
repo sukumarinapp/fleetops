@@ -120,9 +120,9 @@ border-radius: 34px;
 	</div>
 </div>
 <div class="form-group row">
-	<label for="DLD" class="col-sm-4 col-form-label"><span style="color:red"></span>License</label>
+	<label for="DLD" class="col-sm-4 col-form-label"><span style="color:red"></span>License Front</label>
 	<div class="col-sm-8">
-		<input accept="application/pdf,image/png, image/jpeg" name="DLD" type="file" id="DLD">
+		<input accept="image/png, image/jpeg" name="DLD" type="file" id="DLD">
 		@php
 		$href="";
 		if($driver->DLD != ""){
@@ -131,18 +131,31 @@ border-radius: 34px;
 		@endphp
 	</div>
 </div>
+
+<div class="form-group row">
+	<label for="DLD2" class="col-sm-4 col-form-label"><span style="color:red"></span>License Back</label>
+	<div class="col-sm-8">
+		<input accept="image/png, image/jpeg" name="DLD2" type="file" id="DLD2">
+		@php
+		$href="";
+		if($driver->DLD2 != ""){
+			echo "<a target='_blank' href='../../uploads/DLD/".$driver->DLD2."'>View</a>";
+		}
+		@endphp
+	</div>
+</div>
+
 <div class="form-group row">
 	<label for="LEX" class="col-sm-4 col-form-label"><span style="color:red">*</span>License Expiry Date</label>
-	<div class="col-4">
+	<div class="col-sm-5">
 		<input min="{{ date('Y-m-d') }}" value="{{ $driver->LEX }}" required="required" onkeydown="return false" type="date" class="form-control" name="LEX" id="LEX" >
 	</div>
-	<div class="col-4">
-		<label>Reminder</label>
-		<label class="switch">
+	
+		<label class="col-form-label">Reminder</label>&nbsp;
+		<label class="switch" style="margin-top:10px">
 			<input {{ ($driver->AVL == "1" ? "checked":"") }} name="AVL" id="AVL" type="checkbox">
 			<span class="slider round"></span>
 		</label>
-	</div>
 </div>
 <div class="form-group row">
 	<label for="VCC" class="col-sm-4 col-form-label"><span style="color:red"></span>Contract</label>
@@ -158,16 +171,14 @@ border-radius: 34px;
 </div>
 <div class="form-group row">
 	<label for="CEX" class="col-sm-4 col-form-label"><span style="color:red">*</span>Contract Expiry Date</label>
-	<div class="col-4">
+	<div class="col-5">
 		<input min="{{ date('Y-m-d') }}" value="{{ $driver->CEX }}" required="required" onkeydown="return false" type="date" class="form-control" name="CEX" id="CEX" >
 	</div>
-	<div class="col-4">
-		<label>Reminder</label>
-		<label class="switch">
+		<label class="col-form-label">Reminder</label>&nbsp;
+		<label class="switch" style="margin-top:10px">
 			<input {{ ($driver->AVC == "1" ? "checked":"") }} name="AVC" id="AVC" type="checkbox">
 			<span class="slider round"></span>
 		</label>
-	</div>
 </div>
 <div class="form-group row">
 	<label for="DCN" class="col-sm-4 col-form-label"><span style="color:red">*</span>Contact Number</label>
@@ -193,6 +204,19 @@ border-radius: 34px;
 </div>
 <!-- /.col -->
 <div class="col-md-6">
+	@if($vehicle_id != 0)
+<div class="form-group row">
+	<label for="VBM" class="col-sm-4 col-form-label"><span style="color:red">*</span>Password</label>
+	<div class="col-sm-2">
+		<input value="{{ $password }}" type="text" class="form-control number" name="password" id="password" maxlength="4" minlength="4" placeholder="Password">
+	</div>
+	<div class="col-sm-4 form-check">		
+	<input type="checkbox" class="form-check-input" name="send" id="send">
+	<label class="form-check-label" for="send"><b>Send Password</b></label>
+	</div>
+</div>
+@endif
+
 <div class="form-group row">
 	<label for="VBM" class="col-sm-4 col-form-label"><span style="color:red"></span>Business Model</label>
 	<div class="col-sm-8">
@@ -208,18 +232,7 @@ border-radius: 34px;
 	<button type="button" class="btn btn-outline-primary float-right" data-toggle="modal" data-target="#RH-Fuel"><i class="nav-icon fas fa-cog"></i>Business settings
 	</button>
 </div>
-@if($vehicle_id != 0)
-<div class="form-group row">
-	<label for="VBM" class="col-sm-4 col-form-label"><span style="color:red">*</span>Password</label>
-	<div class="col-sm-2">
-		<input value="{{ $password }}" type="text" class="form-control number" name="password" id="password" maxlength="4" minlength="4" placeholder="Password">
-	</div>
-	<div class="col-sm-4 form-check">		
-	<input type="checkbox" class="form-check-input" name="send" id="send">
-	<label class="form-check-label" for="send"><b>Send Password</b></label>
-	</div>
-</div>
-@endif
+
 <div class="modal fade" id="RH-Fuel">
 	<div class="modal-dialog modal-xl">
 		<div class="modal-content">
