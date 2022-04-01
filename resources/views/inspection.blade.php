@@ -47,12 +47,12 @@
 							<div class="col-sm-3">
 								<div class="form-check-inline">
 									<label class="form-check-label">
-										<input type="radio" class="form-check-input" name="VI01" value="1">Yes
+										<input checked="checked" value="1" type="radio" class="form-check-input" name="VI01" >Yes
 									</label>
 								</div>
 								<div class="form-check-inline">
 									<label class="form-check-label">
-										<input type="radio" class="form-check-input" name="VI01" >No
+										<input value="0" type="radio" class="form-check-input" name="VI01" >No
 									</label>
 								</div>
 							</div>

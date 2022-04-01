@@ -470,13 +470,17 @@ class DriverController extends Controller
 
     public function inspect()
      {
+        $images = array();
         $VNO = Session::get('VNO');
         $sql = " SELECT a. *,b.driver_id,b.VNO,c.DNM,c.DSN from manager_inspect a,driver_upload b,driver c where a.upload_id=b.id and b.driver_id=c.id and VNO ='$VNO'";
         $inspect = DB::select(DB::raw($sql));
+        $sql = " SELECT a.* from manager_inspect_photo a,driver_upload b where a.upload_id=b.id and VNO ='$VNO'";
+        $images = DB::select(DB::raw($sql));
+        print_r($images);die;
         if(count($inspect) > 0){
             $VNO = $inspect[0]->VNO;
             $DNM = $inspect[0]->DNM." ".$inspect[0]->DSN;
-            return view('driver.inspect',compact('inspect','DNM','VNO'));
+            return view('driver.inspect',compact('images','inspect','DNM','VNO'));
         }
      }
 
