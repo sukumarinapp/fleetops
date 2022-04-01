@@ -232,7 +232,7 @@ class DriverController extends Controller
             $installments = Formulae::get_installments($PPR,$VAM);
             $last_date = Formulae::get_last_date($VPD,$installments,$VPF);
             $term = Formulae::get_term($VPD,$last_date,$VPF);
-            
+
             return view('driver.agreement',compact('VNO','VBM','PPR','PDP','SDP','VAM','VPF','CEX','EPD','NOD','PAM','PAT','installments','last_date','term','VPD'));
         }
      }
