@@ -537,6 +537,19 @@ class WorkflowController extends Controller
        }
     }
 
+    public function saveservice(Request $request){
+        $VNO = $request->get('VNO');
+        $upload_id = $request->get('upload_id');
+        $service_date = $request->get('service_date');
+        $current_mileage = $request->get('current_mileage');
+        $sql = "insert into manager_service (upload_id,service_date,current_mileage) values (upload_id,'$service_date','$current_mileage')";
+        DB::insert($sql);
+
+        $sql = "update driver_upload set approved=1 where id=$upload_id"; 
+        DB::update($sql);
+        return redirect('/workflow')->with('message', 'Vehicle Service Done Successfully');
+    }
+
     public function saveinspection(Request $request){
         $VNO = $request->get('VNO');
         $upload_id = $request->get('upload_id');
@@ -838,7 +851,9 @@ class WorkflowController extends Controller
             $VNO = $result[0]->VNO;
             $driver_id = $result[0]->driver_id;
             $upload_id = $result[0]->id;
-            return view('service',compact('result','DNM','VNO','upload_id','driver_id'));
+            $file_name = $result[0]->file_name;
+            $current_mileage = $result[0]->current_mileage;
+            return view('service',compact('result','DNM','VNO','upload_id','driver_id','file_name','current_mileage'));
        }
     }
 }

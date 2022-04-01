@@ -26,7 +26,7 @@
 				</div>
 				<div class="table-responsive">
 					<div class="card-body">
-						<form action="{{ route('save_new_licence') }}" method="post" enctype="multipart/form-data" class="form-horizontal">
+						<form action="{{ route('saveservice') }}" method="post" enctype="multipart/form-data" class="form-horizontal">
 							@csrf
 							<input type="hidden" name="driver_id" value="{{ $driver_id }}" />
 							<input type="hidden" name="upload_id" value="{{ $upload_id }}" />
@@ -45,16 +45,29 @@
 											{{ $VNO }}
 										</div>
 									</div>
+									@if($file_name != "")
 									<div class="form-group row">
-										<label for="SSD" class="col-sm-4 col-form-label"><span style="color:red">*</span>Service Date</label>
+										<a target="_blank" href="../uploads/driver/{{ $file_name }}" >File uploaded by driver</a>
+									</div>	
+									@endif
+									@if($current_mileage != "")
+									<div class="form-group row">
+										<label for="" class="col-sm-4 col-form-label"><span style="color:red"></span>Current Mileage entered by driver</label>
+										<div class="col-sm-8">
+											{{ $current_mileage }}
+										</div>
+									</div>	
+									@endif
+									<div class="form-group row">
+										<label for="service_date" class="col-sm-4 col-form-label"><span style="color:red">*</span>Service Date</label>
 										<div class="col-sm-4">
-											<input min="{{ date('Y-m-d') }}" value="{{ date('Y-m-d') }}" required="required" onkeydown="return false" type="date" class="form-control" name="SSD" id="SSD" >
+											<input min="{{ date('Y-m-d') }}" value="{{ date('Y-m-d') }}" required="required" onkeydown="return false" type="date" class="form-control" name="service_date" id="service_date" >
 										</div>
 									</div>
 									<div class="form-group row">
-										<label for="SSM" class="col-sm-4 col-form-label"><span style="color:red">*</span>Current Mileage</label>
+										<label for="current_mileage" class="col-sm-4 col-form-label"><span style="color:red">*</span>Current Mileage</label>
 										<div class="col-sm-4">
-											<input required="required" maxlength="8" type="text" class="form-control number" name="SSM" id="SSM" >
+											<input required="required" maxlength="8" type="text" class="form-control number" name="current_mileage" id="current_mileage" >
 										</div>
 									</div>
 									

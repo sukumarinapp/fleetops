@@ -164,6 +164,8 @@ alter table vehicle_inspect add IVE varchar(50) DEFAULT NULL;
 
 alter table driver_upload add venue varchar(50) DEFAULT NULL;
 
+
+--01/04/2022
 alter table driver add DLD2 varchar(20) DEFAULT NULL;
 alter table driver_upload add file_name2 varchar(20) DEFAULT NULL;
 
@@ -174,3 +176,6 @@ CREATE TABLE `manager_service` (
    current_mileage varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
+
+alter table driver_upload drop current_mileage;
+alter table driver_upload add current_mileage varchar(10) DEFAULT NULL;

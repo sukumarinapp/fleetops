@@ -119,6 +119,7 @@ Route::post('/resendsms/{id}', 'WorkflowController@resendsms')->name('resendsms'
 Route::post('/auditingsave', 'WorkflowController@auditingsave')->name('auditingsave');
 Route::get('/inspection/{id}', 'WorkflowController@vehicleinspection')->name('inspection');
 Route::post('/saveinspection', 'WorkflowController@saveinspection')->name('saveinspection');
+Route::post('/saveservice', 'WorkflowController@saveservice')->name('saveservice');
 Route::get('/insurance/{id}', 'WorkflowController@insurance')->name('insurance');
 Route::get('/approve_insurance/{id}', 'WorkflowController@approve_insurance')->name('approve_insurance');
 Route::get('/roadworthy/{id}', 'WorkflowController@roadworthy')->name('roadworthy');

@@ -504,18 +504,6 @@ class DriverController extends Controller
             }
             $sql = "update driver_upload set file_name='$SER',current_mileage='$current_mileage',upload_time='$upload_time' where id=$id";
             DB::update(DB::raw($sql));    
-        }else{
-            $doc_type = "Service";
-            $approved = 0;
-            $sql = "insert into driver_upload (VNO,driver_id,doc_type,current_mileage,approved) values ('$VNO','$driver_id','$doc_type','$current_mileage','$approved')";
-            DB::insert(DB::raw($sql));
-            $id = DB::getPdo()->lastInsertId();
-            if(trim($_FILES['SER']['tmp_name']) != ""){
-                $SER =  $id.'.'.$request->SER->extension(); 
-                move_uploaded_file($_FILES['SER']['tmp_name'], $filepath.$SER);
-            }
-            $sql = "update driver_upload set file_name='$SER',current_mileage='$current_mileage',upload_time='$upload_time' where id=$id";
-            DB::update(DB::raw($sql));  
         }
         return redirect('/tasks')->with('success', 'Service details updated successfully');
      } 
