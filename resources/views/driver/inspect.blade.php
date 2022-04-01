@@ -23,7 +23,7 @@
     </div>
     @endif
     <input type="hidden" id="VNO" name="VNO" value="">
-    <form action="{{ route('acceptcontract') }}" method="post" enctype="multipart/form-data" class="form-horizontal">
+    <form action="{{ route('acceptinspection') }}" method="post" enctype="multipart/form-data" class="form-horizontal">
       @csrf
    
       <div class="form-group row">
@@ -303,11 +303,14 @@
           @endif
         </div>
       </div>   
-@endforeach
+   @endforeach
       @foreach($images as $image)
          <div class="form-group row">
-           <img src="../uploads/inspection/{{ $image->filename }}"> 
+          <div class="col-md-4">
+           <img class="img-responsive img-rounded" src="../uploads/inspection/{{ $image->filename }}">
          </div>
+         </div>
+         
       @endforeach
       <div class="form-group row">
         <label for="" class="col-sm-4 col-form-label"><span style="color:red">*</span>Input Acceptence Code</label>

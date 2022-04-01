@@ -72,6 +72,7 @@ Route::post('/saveroadworthy', 'DriverController@saveroadworthy')->name('saveroa
 Route::get('/contract', 'DriverController@contract')->name('contract');
 Route::get('/inspect', 'DriverController@inspect')->name('inspect');
 Route::post('/acceptcontract', 'DriverController@acceptcontract')->name('acceptcontract');
+Route::post('/acceptinspection', 'DriverController@acceptinspection')->name('acceptinspection');
 Route::get('/acceptance_code', 'DriverController@acceptance_code')->name('acceptance_code');
 Route::get('/accept_code', 'DriverController@accept_code')->name('accept_code');
 Route::get('/uploadservice', 'DriverController@uploadservice')->name('uploadservice');

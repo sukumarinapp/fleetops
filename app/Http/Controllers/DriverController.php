@@ -458,7 +458,7 @@ class DriverController extends Controller
             $id = $result[0]->id;
             $sql = "update driver_upload set acceptance_code='$acceptance_code' where id=$id";
             DB::update(DB::raw($sql));  
-            $msg = "Hi $DNM, Your flletops contract acceptance code is $acceptance_code";
+            $msg = "Hi $DNM, Your flletops Inspection acceptance code is $acceptance_code";
             SMSFleetops::send($DCN,$msg);
             $DAT = date("Y-m-d");
             $TIM = date("H:i:s");
@@ -482,6 +482,25 @@ class DriverController extends Controller
             return view('driver.inspect',compact('images','inspect','DNM','VNO'));
         }
      }
+
+    public function acceptinspection(Request $request)
+     {
+        $VNO = Session::get('VNO');
+        $driver_id = Session::get('driver_id');
+        $acceptance_code = trim($request->get("acceptance_code"));
+        $sql = "select id,acceptance_code from driver_upload where VNO = '$VNO' and doc_type='Inspection' and approved=0";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+            $id = $result[0]->id;
+            if($acceptance_code == $result[0]->acceptance_code){
+                $sql = "update driver_upload set contract_accepted = 1,approved=1 where id = $id";
+                DB::update(DB::raw($sql)); 
+                return redirect('/tasks')->with('success', 'You have successfully accepted the Inspection');
+            }else{
+                return redirect('/inspect')->with('error', 'Invalid Acceptence Code');
+            }
+        }
+    }
 
     public function uploadservice()
     {
