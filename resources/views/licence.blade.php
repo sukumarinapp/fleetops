@@ -46,9 +46,15 @@
 										</div>
 									</div>
 									<div class="form-group row">
-										<label for="DLD" class="col-sm-4 col-form-label"><span style="color:red">*</span>Licence</label>
+										<label for="DLD" class="col-sm-4 col-form-label"><span style="color:red">*</span>Licence Front</label>
 										<div class="col-sm-8">
-											<input required="required" accept="application/pdf,image/png, image/jpeg" name="DLD" type="file" id="DLD">
+											<input required="required" accept="image/png, image/jpeg" name="DLD" type="file" id="DLD">
+										</div>
+									</div>
+									<div class="form-group row">
+										<label for="DLD2" class="col-sm-4 col-form-label"><span style="color:red">*</span>Licence Back</label>
+										<div class="col-sm-8">
+											<input required="required" accept="image/png, image/jpeg" name="DLD2" type="file" id="DLD2">
 										</div>
 									</div>
 									<div class="form-group row">
@@ -73,7 +79,11 @@
 											<tbody>
 												<tr>
 													<td>{{ date("d/m/Y",strtotime($doc_expiry)) }}</td>
-													<td><a target="_blank" href="../uploads/driver/{{ $file_name }}" >View</a></td>
+													<td>
+														<a target="_blank" href="../uploads/driver/{{ $file_name }}" >Licence Front</a>
+													<br>
+													  <a target="_blank" href="../uploads/driver/{{ $file_name2 }}" >Licence Back</a>
+													</td>
 													<td><a onclick="approve_licence( {{ $upload_id }} )" class="btn btn-success btn-sm">Approve</a>
 													</td>
 												</tr>

@@ -741,7 +741,8 @@ class WorkflowController extends Controller
             $upload_id = $result[0]->id;
             $doc_expiry = $result[0]->doc_expiry;
             $file_name = trim($result[0]->file_name);
-            return view('licence',compact('result','DNM','VNO','file_name','doc_expiry','upload_id','driver_id'));
+            $file_name2 = trim($result[0]->file_name2);
+            return view('licence',compact('result','DNM','VNO','file_name','file_name2','doc_expiry','upload_id','driver_id'));
        }
     }
 
@@ -753,14 +754,21 @@ class WorkflowController extends Controller
             $upload_id = $result[0]->id;
             $veid = $result[0]->veid;
             $file_name = $result[0]->file_name;
-            $temp = explode(".",$file_name);
-            $extension = $temp[1];
-            $target_filename = $veid . "." . $extension;
+            $temp1 = explode(".",$file_name1);
+            $extension1 = $temp1[1];
+            $target_filename1 = $veid . "_front." . $extension1;
+            $file_name2 = $result[0]->file_name2;
+            $temp2 = explode(".",$file_name2);
+            $extension2 = $temp2[1];
+            $target_filename2 = $veid . "_back." . $extension2;
             $doc_expiry = $result[0]->doc_expiry;
-            $source = public_path().DIRECTORY_SEPARATOR."uploads".DIRECTORY_SEPARATOR."driver".DIRECTORY_SEPARATOR.$file_name;
-            $target = public_path().DIRECTORY_SEPARATOR."uploads".DIRECTORY_SEPARATOR."DLD".DIRECTORY_SEPARATOR.$target_filename;
-            copy($source,$target);
-            $sql = "update driver set LEX='$doc_expiry',DLD='$target_filename' where id=$veid";
+            $source1 = public_path().DIRECTORY_SEPARATOR."uploads".DIRECTORY_SEPARATOR."driver".DIRECTORY_SEPARATOR.$file_name1;
+            $target1 = public_path().DIRECTORY_SEPARATOR."uploads".DIRECTORY_SEPARATOR."DLD".DIRECTORY_SEPARATOR.$target_filename1;
+            copy($source1,$target1);
+            $source2 = public_path().DIRECTORY_SEPARATOR."uploads".DIRECTORY_SEPARATOR."driver".DIRECTORY_SEPARATOR.$file_name2;
+            $target2 = public_path().DIRECTORY_SEPARATOR."uploads".DIRECTORY_SEPARATOR."DLD".DIRECTORY_SEPARATOR.$target_filename2;
+            copy($source2,$target2);
+            $sql = "update driver set LEX='$doc_expiry',DLD='$target_filename1',DLD2='$target_filename2' where id=$veid";
             DB::update($sql);
             $sql = "update driver_upload set approved=1 where id = $upload_id";
             DB::update($sql);
@@ -775,10 +783,13 @@ class WorkflowController extends Controller
         $sql = "select driver_id from vehicle where VNO='$VNO'";
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
-            $DLD =  $driver_id.'.'.$request->DLD->extension(); 
+            $DLD =  $driver_id.'_front.'.$request->DLD->extension(); 
             $filepath = public_path('uploads'.DIRECTORY_SEPARATOR.'DLD'.DIRECTORY_SEPARATOR);
             move_uploaded_file($_FILES['DLD']['tmp_name'], $filepath.$DLD);
-            $sql = "update driver set LEX='$LEX',DLD='$DLD' where id=$driver_id";
+            $DLD2 =  $driver_id.'_back.'.$request->DLD2->extension(); 
+            $filepath = public_path('uploads'.DIRECTORY_SEPARATOR.'DLD'.DIRECTORY_SEPARATOR);
+            move_uploaded_file($_FILES['DLD']['tmp_name'], $filepath.$DLD2);
+            $sql = "update driver set LEX='$LEX',DLD='$DLD',DLD2='$DLD2' where id=$driver_id";
             DB::update($sql);
             $sql = "update driver_upload set approved=2 where id = $upload_id";
             DB::update($sql);
