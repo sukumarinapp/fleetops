@@ -40,6 +40,7 @@ class Formulae{
     }
     return $term;
   }
+  
   //Covered mileage
   public static function CML($DDT,$VNO){
   	$CML = 0;
