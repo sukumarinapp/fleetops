@@ -122,7 +122,7 @@ border-radius: 34px;
 
 						<div class="form-group row">
 							<label for="IEX" class="col-sm-4 col-form-label"><span style="color:red">*</span>Insurance Expiry Date</label>
-							<div class="col-sm-4">
+							<div class="col-sm-5">
 								<input min="{{ date('Y-m-d') }}" value="{{ date('Y-m-d') }}" required="required" onkeydown="return false" type="date" class="form-control" name="IEX" id="IEX" >
 							</div>
 							
@@ -141,7 +141,7 @@ border-radius: 34px;
 
 						<div class="form-group row">
 							<label for="REX" class="col-sm-4 col-form-label"><span style="color:red">*</span>Roadworthy Expiry Date</label>
-							<div class="col-sm-4">
+							<div class="col-sm-5">
 								<input min="{{ date('Y-m-d') }}" value="{{ date('Y-m-d') }}" required="required" onkeydown="return false" type="date" class="form-control" name="REX" id="REX" >
 							</div>
 								<label class="col-form-label">Reminder</label>&nbsp;
