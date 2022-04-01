@@ -12,7 +12,7 @@
 <div class="card card-primary">
   <div class="card-header">
 
-    <h5 class="title" style="text-align:center;">Inspection Completed</h5>
+    <h5 class="title" style="text-align:center;">Inspection Checklist</h5>
 
   </div>
   <div class="card-body">
