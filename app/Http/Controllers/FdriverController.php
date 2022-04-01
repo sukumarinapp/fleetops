@@ -119,9 +119,15 @@ class FdriverController extends Controller
 
             $DLD = "";
             if($request->DLD != null){
-                $DLD =  $last_insert_id.'.'.$request->DLD->extension(); 
+                $DLD =  $last_insert_id.'_front.'.$request->DLD->extension(); 
                 $filepath = public_path('uploads'.DIRECTORY_SEPARATOR.'DLD'.DIRECTORY_SEPARATOR);
                 move_uploaded_file($_FILES['DLD']['tmp_name'], $filepath.$DLD);
+            }
+            $DLD2 = "";
+            if($request->DLD2 != null){
+                $DLD2 =  $last_insert_id.'_back.'.$request->DLD2->extension(); 
+                $filepath = public_path('uploads'.DIRECTORY_SEPARATOR.'DLD'.DIRECTORY_SEPARATOR);
+                move_uploaded_file($_FILES['DLD2']['tmp_name'], $filepath.$DLD2);
             }
             $VCC = "";
             if($request->VCC != null){
@@ -131,6 +137,7 @@ class FdriverController extends Controller
             }
             $driver = Driver::find($last_insert_id);
             $driver->DLD  =  $DLD;
+            $driver->DLD2  =  $DLD2;
             $driver->VCC  =  $VCC;
             $driver->save();
 
@@ -178,11 +185,16 @@ class FdriverController extends Controller
         }else{
             $DLD = "";
             if($request->DLD != null){
-                $DLD =  $id.'.'.$request->DLD->extension(); 
+                $DLD =  $id.'_front.'.$request->DLD->extension(); 
                 $filepath = public_path('uploads'.DIRECTORY_SEPARATOR.'DLD'.DIRECTORY_SEPARATOR);
                 move_uploaded_file($_FILES['DLD']['tmp_name'], $filepath.$DLD);
             }
-            
+            $DLD2 = "";
+            if($request->DLD2 != null){
+                $DLD2 =  $id.'_back.'.$request->DLD2->extension(); 
+                $filepath = public_path('uploads'.DIRECTORY_SEPARATOR.'DLD'.DIRECTORY_SEPARATOR);
+                move_uploaded_file($_FILES['DLD2']['tmp_name'], $filepath.$DLD2);
+            }
             $VCC = "";
             if($request->VCC != null){
                 $VCC =  $id.'.'.$request->VCC->extension(); 
@@ -230,6 +242,7 @@ class FdriverController extends Controller
             $DCN = $driver->DCN;
             $driver->VPL =  $request->get('VPL');
             if($DLD != "") $driver->DLD  =  $DLD;
+            if($DLD2 != "") $driver->DLD2  =  $DLD2;
             if($VCC != "") $driver->VCC  =  $VCC;
             if($request->get('VBM') != ""){
                 $driver->VBM =  $request->get('VBM');
