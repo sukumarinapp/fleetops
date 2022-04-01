@@ -22,7 +22,7 @@
 			</div>
 			<div class="card card-info">
 				<div class="card-header">
-					<h3 class="card-title">Renew Vehicle Service Due Date</h3>
+					<h3 class="card-title">Complete Vehicle Service</h3>
 				</div>
 				<div class="table-responsive">
 					<div class="card-body">
@@ -46,13 +46,13 @@
 										</div>
 									</div>
 									<div class="form-group row">
-										<label for="SSD" class="col-sm-4 col-form-label"><span style="color:red">*</span>New Service Due Date</label>
+										<label for="SSD" class="col-sm-4 col-form-label"><span style="color:red">*</span>Service Date</label>
 										<div class="col-sm-4">
 											<input min="{{ date('Y-m-d') }}" value="{{ date('Y-m-d') }}" required="required" onkeydown="return false" type="date" class="form-control" name="SSD" id="SSD" >
 										</div>
 									</div>
 									<div class="form-group row">
-										<label for="SSM" class="col-sm-4 col-form-label"><span style="color:red">*</span>New Service Due Mileage</label>
+										<label for="SSM" class="col-sm-4 col-form-label"><span style="color:red">*</span>Current Mileage</label>
 										<div class="col-sm-4">
 											<input required="required" maxlength="8" type="text" class="form-control number" name="SSM" id="SSM" >
 										</div>
