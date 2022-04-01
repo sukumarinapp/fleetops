@@ -835,11 +835,9 @@ class WorkflowController extends Controller
             $VCC =  $driver_id.'.'.$request->VCC->extension(); 
             $filepath = public_path('uploads'.DIRECTORY_SEPARATOR.'VCC'.DIRECTORY_SEPARATOR);
             move_uploaded_file($_FILES['VCC']['tmp_name'], $filepath.$VCC);
-            $sql = "update driver set CEX='$CEX',VCC='$VCC' where id=$driver_id";
+            $sql = "update driver_upload set  doc_expiry='$CEX',file_name='$VCC' where id=$upload_id";
             DB::update($sql);
-            $sql = "update driver_upload set approved=2 where id = $upload_id";
-            DB::update($sql);
-
+            
             return redirect('/workflow')->with('message', 'Contract Updated Successfully');
        }
     }
