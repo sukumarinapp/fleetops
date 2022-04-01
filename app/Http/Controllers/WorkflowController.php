@@ -613,18 +613,20 @@ class WorkflowController extends Controller
         DB::delete(DB::raw($sql));
         $total = count($_FILES['VI25']['name']);
         for( $i=0 ; $i < $total ; $i++ ) {
-            $sql = "insert into manager_inspect_photo (upload_id) values ($upload_id)";
-            DB::insert($sql);
-            $file_id = DB::getPdo()->lastInsertId();
-            $extension = pathinfo($_FILES['VI25']['name'][$i], PATHINFO_EXTENSION);
-            $target_filename = $file_id . "." . $extension;
-            $tmpFilePath = $_FILES['VI25']['tmp_name'][$i];
-            $filepath = public_path('uploads'.DIRECTORY_SEPARATOR.'inspection'.DIRECTORY_SEPARATOR);
-            if ($tmpFilePath != ""){
-                $newFilePath = $filepath.$target_filename;
-                move_uploaded_file($tmpFilePath, $newFilePath);
-                $sql = "update manager_inspect_photo set filename='$target_filename' where id=$file_id";
-                DB::update($sql);
+            if($_FILES['VI25']['tmp_name'][$i] != ""){
+                $sql = "insert into manager_inspect_photo (upload_id) values ($upload_id)";
+                DB::insert($sql);
+                $file_id = DB::getPdo()->lastInsertId();
+                $extension = pathinfo($_FILES['VI25']['name'][$i], PATHINFO_EXTENSION);
+                $target_filename = $file_id . "." . $extension;
+                $tmpFilePath = $_FILES['VI25']['tmp_name'][$i];
+                $filepath = public_path('uploads'.DIRECTORY_SEPARATOR.'inspection'.DIRECTORY_SEPARATOR);
+                if ($tmpFilePath != ""){
+                    $newFilePath = $filepath.$target_filename;
+                    move_uploaded_file($tmpFilePath, $newFilePath);
+                    $sql = "update manager_inspect_photo set filename='$target_filename' where id=$file_id";
+                    DB::update($sql);
+                }
             }
         }
 

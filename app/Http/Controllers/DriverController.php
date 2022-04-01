@@ -476,7 +476,6 @@ class DriverController extends Controller
         $inspect = DB::select(DB::raw($sql));
         $sql = " SELECT a.* from manager_inspect_photo a,driver_upload b where a.upload_id=b.id and VNO ='$VNO'";
         $images = DB::select(DB::raw($sql));
-        print_r($images);die;
         if(count($inspect) > 0){
             $VNO = $inspect[0]->VNO;
             $DNM = $inspect[0]->DNM." ".$inspect[0]->DSN;

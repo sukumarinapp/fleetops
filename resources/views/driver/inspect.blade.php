@@ -304,6 +304,11 @@
         </div>
       </div>   
 @endforeach
+      @foreach($images as $image)
+         <div class="form-group row">
+           <img src="../uploads/inspection/{{ $image->filename }}"> 
+         </div>
+      @endforeach
       <div class="form-group row">
         <label for="" class="col-sm-4 col-form-label"><span style="color:red">*</span>Input Acceptence Code</label>
         <div class="col-sm-4">
