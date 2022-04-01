@@ -139,7 +139,7 @@ border-radius: 34px;
 		@php
 		$href="";
 		if($driver->DLD2 != ""){
-			echo "<a target='_blank' href='../../uploads/DLD2/".$driver->DLD2."'>View</a>";
+			echo "<a target='_blank' href='../../uploads/DLD/".$driver->DLD2."'>View</a>";
 		}
 		@endphp
 	</div>
