@@ -588,8 +588,10 @@ class="form-group row" id="due">
 
 <div class="form-group row">
 <div class="col-md-12 text-center">
+@if($workflow == 0)
 <input required="required" class="btn btn-info"
 type="submit" id="save" name="submit" value="Update"/>
+@endif
 <a href="{{ route('fdriver.index') }}" class="btn btn-info">Back</a>
 </div>
 </div>	

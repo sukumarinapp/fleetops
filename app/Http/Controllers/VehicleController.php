@@ -225,8 +225,13 @@ class VehicleController extends Controller
             $vehicle->ISFD = $service[0]->ISFD;
             $vehicle->IVE = $service[0]->IVE;
         }
-        //dd($vehicle);
-        return view('vehicle.edit', compact('vehicle','rhplatforms','clients','online'));
+        $workflow = 0;
+        $sql = "select * from driver_upload where doc_type in ('Insurance','RdWCert','Service','Inspection') and approved=0";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+            $workflow = 1;
+        }
+        return view('vehicle.edit', compact('vehicle','rhplatforms','clients','online','workflow'));
     }
    
     public function update(Request $request, $id)
