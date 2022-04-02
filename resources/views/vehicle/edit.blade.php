@@ -358,7 +358,9 @@ input:checked + .slider:before {
 						</div>
 						<div class="form-group row">
 							<div class="col-md-12 text-center">
+								@if($workflow == 0)
 								<input id="save" required="required" class="btn btn-info" type="submit" name="submit" value="Update"/>
+								@endif
 								<a href="{{ route('vehicle.index') }}" class="btn btn-info">Back</a>
 							</div>
 						</div>	

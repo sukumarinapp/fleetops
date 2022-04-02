@@ -171,7 +171,13 @@ class FdriverController extends Controller
             $password = $result[0]->password;
             $vehicle_id = $result[0]->id;
         }
-        return view('fdriver.edit', compact('driver','rhplatforms','driver_platforms','password','vehicle_id'));
+        $workflow = 0;
+        $sql = "select * from driver_upload where doc_type in ('Licence','Contract') and approved=0";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+            $workflow = 1;
+        }
+        return view('fdriver.edit', compact('driver','rhplatforms','driver_platforms','password','vehicle_id','workflow'));
     }
    
     public function update(Request $request, $id)
