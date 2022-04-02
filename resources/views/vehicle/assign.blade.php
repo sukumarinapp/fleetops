@@ -67,7 +67,389 @@
 	                    </select>
                 	</div>
 				</div>
+<!-- <div class="col-md-12">
+				<div class="row mb-4">
+<div class="col-sm-6">
+  <h6 class="mb-3"></h6>
+<div><strong>Date : </strong> <span>{{ date("l M d Y")}}</span></div>
+<div><strong>Customer : </strong> <span></span></div>
+<div><strong>Address : </strong> <span>Accra</span></div>
+</div>
+
+</div>
+<div class="col-6 text-center d-flex align-items-center justify-content-center">
+              <div class="card-body">
+                <h4 style=" border: 1px solid grey;padding: 25px 25px 25px 25px;"></h4>
+                <br>
+        </div>
       </div>
+      </div> -->
+    </div>
+                <div class="card-body row">
+             
+               <div class="col-md-6">
+           <div class="form-group row">
+							<label for="VMD" class="col-sm-5 col-form-label"><span style="color:red"></span>Vehicle Reg. No.:</label>
+							<div class="col-sm-4" style="margin-top:8px">
+								GN7119-17
+							</div>
+						</div>  
+						<div class="form-group row">
+							<label for="VMD" class="col-sm-5 col-form-label"><span style="color:red"></span>Vehicle Chassis No.:</label>
+							<div class="col-sm-4" style="margin-top:8px">
+								E556807VU65546
+							</div>
+						</div> 
+						 <div class="form-group row">
+							<label for="VMD" class="col-sm-5 col-form-label"><span style="color:red"></span>Insurance Expiry Date:</label>
+							<div class="col-sm-4" style="margin-top:8px">
+								26-09-2023
+							</div>
+						</div>  
+						<div class="form-group row">
+							<label for="VMD" class="col-sm-5 col-form-label"><span style="color:red"></span>Roadworthy Cert Expiry Date:</label>
+							<div class="col-sm-4" style="margin-top:8px">
+								26-09-2023
+							</div>
+						</div>
+					</div>
+					 <div class="col-md-2 text-right d-flex align-items-right justify-content-center">
+             <img class="img-fluid img-thumbnail" src="{{ URL::to('/') }}/images/test.jpg" style="width:70%;height:80%"> 
+      </div>
+      <div class="col-md-3 text-right d-flex align-items-right justify-content-center">
+              <div class="card-body">
+                <h4 style=" border: 1px solid grey;padding: 25px 25px 25px 25px;"></h4>
+        </div>
+      </div>
+<div class="col-md-12">
+						<div class="form-group row">
+							<label for="VMD" class="col-sm-3 col-form-label"><span style="color:red">*</span>Starting Mileage</label>
+							<div class="col-sm-6">
+								<input type="text" class="form-control" name="VMD" id="VMD" maxlength="50" placeholder="">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="VMD" class="col-sm-3 col-form-label"><span style="color:red">*</span>Spare Tire</label>
+							<div class="col-sm-2">
+								<div class="form-check-inline">
+									<label class="form-check-label">
+										<input checked="checked" value="1" type="radio" class="form-check-input" name="VI01" >Yes
+									</label>
+								</div>
+								<div class="form-check-inline">
+									<label class="form-check-label">
+										<input value="0" type="radio" class="form-check-input" name="VI01" >No
+									</label>
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<input type="text" class="form-control form-control-sm" name="CI01" id="CI01" maxlength="20">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="VMD" class="col-sm-3 col-form-label"><span style="color:red">*</span>Warning Triangle</label>
+														<div class="col-sm-2">
+								<div class="form-check-inline">
+									<label class="form-check-label">
+										<input checked="checked" value="1" type="radio" class="form-check-input" name="VI01" >Yes
+									</label>
+								</div>
+								<div class="form-check-inline">
+									<label class="form-check-label">
+										<input value="0" type="radio" class="form-check-input" name="VI01" >No
+									</label>
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<input type="text" class="form-control form-control-sm" name="CI01" id="CI01" maxlength="20">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="VMD" class="col-sm-3 col-form-label"><span style="color:red">*</span>Vehicle Tools</label>
+														<div class="col-sm-2">
+								<div class="form-check-inline">
+									<label class="form-check-label">
+										<input checked="checked" value="1" type="radio" class="form-check-input" name="VI01" >Yes
+									</label>
+								</div>
+								<div class="form-check-inline">
+									<label class="form-check-label">
+										<input value="0" type="radio" class="form-check-input" name="VI01" >No
+									</label>
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<input type="text" class="form-control form-control-sm" name="CI01" id="CI01" maxlength="20">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="VMD" class="col-sm-3 col-form-label"><span style="color:red">*</span>Fire Extinguisher</label>
+														<div class="col-sm-2">
+								<div class="form-check-inline">
+									<label class="form-check-label">
+										<input checked="checked" value="1" type="radio" class="form-check-input" name="VI01" >Yes
+									</label>
+								</div>
+								<div class="form-check-inline">
+									<label class="form-check-label">
+										<input value="0" type="radio" class="form-check-input" name="VI01" >No
+									</label>
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<input type="text" class="form-control form-control-sm" name="CI01" id="CI01" maxlength="20">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="VMD" class="col-sm-3 col-form-label"><span style="color:red">*</span>Front Lights (Deem) L/R</label>
+														<div class="col-sm-2">
+								<div class="form-check-inline">
+									<label class="form-check-label">
+										<input checked="checked" value="1" type="radio" class="form-check-input" name="VI01" >Yes
+									</label>
+								</div>
+								<div class="form-check-inline">
+									<label class="form-check-label">
+										<input value="0" type="radio" class="form-check-input" name="VI01" >No
+									</label>
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<input type="text" class="form-control form-control-sm" name="CI01" id="CI01" maxlength="20">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="VMD" class="col-sm-3 col-form-label"><span style="color:red">*</span>Front Lights (High) L/R</label>
+														<div class="col-sm-2">
+								<div class="form-check-inline">
+									<label class="form-check-label">
+										<input checked="checked" value="1" type="radio" class="form-check-input" name="VI01" >Yes
+									</label>
+								</div>
+								<div class="form-check-inline">
+									<label class="form-check-label">
+										<input value="0" type="radio" class="form-check-input" name="VI01" >No
+									</label>
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<input type="text" class="form-control form-control-sm" name="CI01" id="CI01" maxlength="20">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="VMD" class="col-sm-3 col-form-label"><span style="color:red">*</span>Indicator Lights (FL/FR/RL/RR)</label>
+														<div class="col-sm-2">
+								<div class="form-check-inline">
+									<label class="form-check-label">
+										<input checked="checked" value="1" type="radio" class="form-check-input" name="VI01" >Yes
+									</label>
+								</div>
+								<div class="form-check-inline">
+									<label class="form-check-label">
+										<input value="0" type="radio" class="form-check-input" name="VI01" >No
+									</label>
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<input type="text" class="form-control form-control-sm" name="CI01" id="CI01" maxlength="20">
+							</div>
+						</div>
+												<div class="form-group row">
+							<label for="VMD" class="col-sm-3 col-form-label"><span style="color:red">*</span>Parking Lights L/R</label>
+														<div class="col-sm-2">
+								<div class="form-check-inline">
+									<label class="form-check-label">
+										<input checked="checked" value="1" type="radio" class="form-check-input" name="VI01" >Yes
+									</label>
+								</div>
+								<div class="form-check-inline">
+									<label class="form-check-label">
+										<input value="0" type="radio" class="form-check-input" name="VI01" >No
+									</label>
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<input type="text" class="form-control form-control-sm" name="CI01" id="CI01" maxlength="20">
+							</div>
+						</div>
+												<div class="form-group row">
+							<label for="VMD" class="col-sm-3 col-form-label"><span style="color:red">*</span>Brake Lights L/R</label>
+														<div class="col-sm-2">
+								<div class="form-check-inline">
+									<label class="form-check-label">
+										<input checked="checked" value="1" type="radio" class="form-check-input" name="VI01" >Yes
+									</label>
+								</div>
+								<div class="form-check-inline">
+									<label class="form-check-label">
+										<input value="0" type="radio" class="form-check-input" name="VI01" >No
+									</label>
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<input type="text" class="form-control form-control-sm" name="CI01" id="CI01" maxlength="20">
+							</div>
+						</div>
+												<div class="form-group row">
+							<label for="VMD" class="col-sm-3 col-form-label"><span style="color:red">*</span>Reverse Lights L/R</label>
+														<div class="col-sm-2">
+								<div class="form-check-inline">
+									<label class="form-check-label">
+										<input checked="checked" value="1" type="radio" class="form-check-input" name="VI01" >Yes
+									</label>
+								</div>
+								<div class="form-check-inline">
+									<label class="form-check-label">
+										<input value="0" type="radio" class="form-check-input" name="VI01" >No
+									</label>
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<input type="text" class="form-control form-control-sm" name="CI01" id="CI01" maxlength="20">
+							</div>
+						</div>
+												<div class="form-group row">
+							<label for="VMD" class="col-sm-3 col-form-label"><span style="color:red">*</span>Wiper Function</label>
+														<div class="col-sm-2">
+								<div class="form-check-inline">
+									<label class="form-check-label">
+										<input checked="checked" value="1" type="radio" class="form-check-input" name="VI01" >Yes
+									</label>
+								</div>
+								<div class="form-check-inline">
+									<label class="form-check-label">
+										<input value="0" type="radio" class="form-check-input" name="VI01" >No
+									</label>
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<input type="text" class="form-control form-control-sm" name="CI01" id="CI01" maxlength="20">
+							</div>
+						</div>
+												<div class="form-group row">
+							<label for="VMD" class="col-sm-3 col-form-label"><span style="color:red">*</span>Horn</label>
+														<div class="col-sm-2">
+								<div class="form-check-inline">
+									<label class="form-check-label">
+										<input checked="checked" value="1" type="radio" class="form-check-input" name="VI01" >Yes
+									</label>
+								</div>
+								<div class="form-check-inline">
+									<label class="form-check-label">
+										<input value="0" type="radio" class="form-check-input" name="VI01" >No
+									</label>
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<input type="text" class="form-control form-control-sm" name="CI01" id="CI01" maxlength="20">
+							</div>
+						</div>
+												<div class="form-group row">
+							<label for="VMD" class="col-sm-3 col-form-label"><span style="color:red">*</span>Air-Conditioner</label>
+														<div class="col-sm-2">
+								<div class="form-check-inline">
+									<label class="form-check-label">
+										<input checked="checked" value="1" type="radio" class="form-check-input" name="VI01" >Yes
+									</label>
+								</div>
+								<div class="form-check-inline">
+									<label class="form-check-label">
+										<input value="0" type="radio" class="form-check-input" name="VI01" >No
+									</label>
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<input type="text" class="form-control form-control-sm" name="CI01" id="CI01" maxlength="20">
+							</div>
+						</div>
+												<div class="form-group row">
+							<label for="VMD" class="col-sm-3 col-form-label"><span style="color:red">*</span>Radio</label>
+														<div class="col-sm-2">
+								<div class="form-check-inline">
+									<label class="form-check-label">
+										<input checked="checked" value="1" type="radio" class="form-check-input" name="VI01" >Yes
+									</label>
+								</div>
+								<div class="form-check-inline">
+									<label class="form-check-label">
+										<input value="0" type="radio" class="form-check-input" name="VI01" >No
+									</label>
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<input type="text" class="form-control form-control-sm" name="CI01" id="CI01" maxlength="20">
+							</div>
+						</div>
+												<div class="form-group row">
+							<label for="VMD" class="col-sm-3 col-form-label"><span style="color:red">*</span>Wheel Caps (FL/FR/RL/RR</label>
+														<div class="col-sm-2">
+								<div class="form-check-inline">
+									<label class="form-check-label">
+										<input checked="checked" value="1" type="radio" class="form-check-input" name="VI01" >Yes
+									</label>
+								</div>
+								<div class="form-check-inline">
+									<label class="form-check-label">
+										<input value="0" type="radio" class="form-check-input" name="VI01" >No
+									</label>
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<input type="text" class="form-control form-control-sm" name="CI01" id="CI01" maxlength="20">
+							</div>
+						</div>
+												<div class="form-group row">
+							<label for="VMD" class="col-sm-3 col-form-label"><span style="color:red">*</span>Road Test</label>
+														<div class="col-sm-2">
+								<div class="form-check-inline">
+									<label class="form-check-label">
+										<input checked="checked" value="1" type="radio" class="form-check-input" name="VI01" >Yes
+									</label>
+								</div>
+								<div class="form-check-inline">
+									<label class="form-check-label">
+										<input value="0" type="radio" class="form-check-input" name="VI01" >No
+									</label>
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<input type="text" class="form-control form-control-sm" name="CI01" id="CI01" maxlength="20">
+							</div>
+						</div>
+												<div class="form-group row">
+							<label for="VMD" class="col-sm-3 col-form-label"><span style="color:red">*</span>Comments</label>
+							<div class="col-sm-6">
+								<input type="text" class="form-control form-control-sm" name="CI01" id="CI01" maxlength="20">
+							</div>
+						</div>
+
+												<div class="form-group row">
+							<label for="VRD" class="col-sm-3 col-form-label"><span style="color:red">*</span>FRONT</label>
+							<div class="col-sm-6">
+								<input required="required" accept="image/png, image/jpeg" name="VRD" type="file" id="VRD">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="VRD" class="col-sm-3 col-form-label"><span style="color:red">*</span>RIGHT</label>
+							<div class="col-sm-6">
+								<input required="required" accept="image/png, image/jpeg" name="VRD" type="file" id="VRD">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="VRD" class="col-sm-3 col-form-label"><span style="color:red">*</span>REAR</label>
+							<div class="col-sm-6">
+								<input required="required" accept="image/png, image/jpeg" name="VRD" type="file" id="VRD">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="VRD" class="col-sm-3 col-form-label"><span style="color:red">*</span>LEFT</label>
+							<div class="col-sm-6">
+								<input required="required" accept="image/png, image/jpeg" name="VRD" type="file" id="VRD">
+							</div>
+						</div>
+					</div>
+           
+    </div>
 
 				<div class="form-group row">
 					<div class="col-md-12 text-center">
