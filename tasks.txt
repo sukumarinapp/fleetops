@@ -19,7 +19,7 @@ PENDING
 Use Google map api to add parking location
 Vehicle Handover Form (Screen Design)
 Driver Photo
-Maintenance Recurring login in BGP
+Maintenance Recurring process in BGP
 
 
 
