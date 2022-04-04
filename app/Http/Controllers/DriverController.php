@@ -448,7 +448,7 @@ class DriverController extends Controller
             $id = $result[0]->id;
             $sql = "update driver_upload set acceptance_code='$acceptance_code' where id=$id";
             DB::update(DB::raw($sql));  
-            $msg = "Hi $DNM, Your flletops contract acceptance code is $acceptance_code";
+            $msg = "Hi $DNM, Your fleetops contract acceptance code is $acceptance_code";
             SMSFleetops::send($DCN,$msg);
             $DAT = date("Y-m-d");
             $TIM = date("H:i:s");
@@ -471,7 +471,7 @@ class DriverController extends Controller
             $id = $result[0]->id;
             $sql = "update driver_upload set acceptance_code='$acceptance_code' where id=$id";
             DB::update(DB::raw($sql));  
-            $msg = "Hi $DNM, Your flletops Inspection acceptance code is $acceptance_code";
+            $msg = "Hi $DNM, Your fleetops Inspection acceptance code is $acceptance_code";
             SMSFleetops::send($DCN,$msg);
             $DAT = date("Y-m-d");
             $TIM = date("H:i:s");

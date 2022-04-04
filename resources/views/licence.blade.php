@@ -85,6 +85,7 @@
 													  <a target="_blank" href="../uploads/driver/{{ $file_name2 }}" >Licence Back</a>
 													</td>
 													<td><a onclick="approve_licence( {{ $upload_id }} )" class="btn btn-success btn-sm">Approve</a>
+														<a onclick="reject( {{ $upload_id }} )" class="btn btn-danger btn-sm">Reject</a>
 													</td>
 												</tr>
 											</tbody>
@@ -116,6 +117,20 @@ function approve_licence(upload_id){
       url: url,
       success: function(response) {
         window.location.href = "{{ url('workflow') }}";
+      },
+      error: function (jqXHR, exception) {
+        console.log(exception);
+      }
+  });
+}
+var reject_url = "{{ url('reject') }}";
+function reject(upload_id){
+  var url =  reject_url+"/"+upload_id;
+  $.ajax({
+      type: "get",
+      url: url,
+      success: function(response) {
+        window.location.href = "{{ url('licence') }}";
       },
       error: function (jqXHR, exception) {
         console.log(exception);

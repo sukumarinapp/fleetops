@@ -123,6 +123,7 @@ Route::post('/saveinspection', 'WorkflowController@saveinspection')->name('savei
 Route::post('/saveservice', 'WorkflowController@saveservice')->name('saveservice');
 Route::get('/insurance/{id}', 'WorkflowController@insurance')->name('insurance');
 Route::get('/approve_insurance/{id}', 'WorkflowController@approve_insurance')->name('approve_insurance');
+Route::get('/reject/{id}', 'WorkflowController@reject')->name('reject');
 Route::get('/roadworthy/{id}', 'WorkflowController@roadworthy')->name('roadworthy');
 Route::get('/approve_roadworthy/{id}', 'WorkflowController@approve_roadworthy')->name('approve_roadworthy');
 Route::get('/licence/{id}', 'WorkflowController@licence')->name('licence');
