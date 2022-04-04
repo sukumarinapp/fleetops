@@ -27,7 +27,7 @@
       @csrf
       <div class="row">
         <div class="col-md-12 text-center">
-          <a href="../../uploads/VCC/{{ $VCC }}" target="_blank" class="btn btn-info" >View Contract</a>
+          <a href="../../uploads/VCC/{{ $file_name }}" target="_blank" class="btn btn-info" >View Contract</a>
         </div>
       </div><br>
 

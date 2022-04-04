@@ -16,7 +16,7 @@
 
  <div class="card-body">
   <input type="hidden" id="VNO" name="VNO" value="">
-  <form action="{{ route('saveinsurance') }}" method="post" enctype="multipart/form-data" class="form-horizontal">
+  <form onsubmit="return validate_size(event)" action="{{ route('saveinsurance') }}" method="post" enctype="multipart/form-data" class="form-horizontal">
     @csrf
     <div class="row">
      <div class="col-md-6">
@@ -51,4 +51,20 @@
 </div>
 </div>
 
+@endsection
+
+@section('third_party_scripts')
+<script>
+  $(document).ready(function() {
+    $('#VID').on('change', function(evt) {
+      var size = this.files[0].size;
+      size = size.toFixed();
+      if(size > 1){
+        alert("disable");
+      }else{
+        
+      }
+    });
+  });
+</script>
 @endsection
