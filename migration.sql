@@ -181,3 +181,4 @@ alter table driver_upload drop current_mileage;
 alter table driver_upload add current_mileage varchar(10) DEFAULT NULL;
 
 alter table driver_upload add inspection int(1) DEFAULT 0;
+alter table driver_upload add rejected int(1) DEFAULT 0;

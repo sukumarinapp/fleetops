@@ -117,6 +117,8 @@
 		              	<td><a href="{{ url('roadworthy') }}/{{ $insp->id }}">Resolve</a></td> 
 		              	@if($insp->file_name == "")
 		              	<td>Driver Upload Pending</td>
+		              	@elseif($insp->rejected == 1)
+		              	<td>Rejected</td>
 		              	@else
 		              	<td>Approval Pending</td>
 		              	@endif
@@ -131,6 +133,8 @@
 		              	<td><a href="{{ url('insurance') }}/{{ $insp->id }}">Resolve</a></td>
 		              	@if($insp->file_name == "")
 		              	<td>Driver Upload Pending</td>
+		              	@elseif($insp->rejected == 1)
+		              	<td>Rejected</td>
 		              	@else
 		              	<td>Approval Pending</td>
 		              	@endif
@@ -138,6 +142,8 @@
 		              	<td><a href="{{ url('licence') }}/{{ $insp->id }}">Resolve</a></td>
 		              	@if($insp->file_name == "")
 		              	<td>Driver Upload Pending</td>
+		              	@elseif($insp->rejected == 1)
+		              	<td>Rejected</td>
 		              	@else
 		              	<td>Approval Pending</td>
 		              	@endif 
