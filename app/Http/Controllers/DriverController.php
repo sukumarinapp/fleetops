@@ -123,6 +123,12 @@ class DriverController extends Controller
         $SVE ="";
         $ISD ="";
         $IVE ="";
+        $insurance_approved = 1;
+        $roadworthy_approved = 1;
+        $licence_approved = 1;
+        $contract_approved = 1;
+        $service_approved = 1;
+        $inspection_approved = 1;
         $sql = "select c.VBM,c.DNM,c.DSN,c.DCN,c.DNO from vehicle b,driver c where  b.driver_id=c.id and b.VNO='$VNO'";
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
@@ -134,6 +140,7 @@ class DriverController extends Controller
             $sql = "select b.LEX from driver_upload a,driver b where VNO = '$VNO' and a.driver_id=b.id and doc_type='Licence' and approved=0";
             $result = DB::select(DB::raw($sql));
             if(count($result) > 0){
+               $licence_approved = 0;
                $LEX = 1; 
                $LEXD = $result[0]->LEX;
             }else{
@@ -147,6 +154,7 @@ class DriverController extends Controller
             $sql = "select b.REX from driver_upload a,vehicle b where a.VNO = '$VNO' and a.driver_id=b.driver_id and doc_type='RdWCert' and approved=0";
             $result = DB::select(DB::raw($sql));
             if(count($result) > 0){
+               $roadworthy_approved = 0;
                $REX = 1; 
                $REXD = $result[0]->REX;
             }else{
@@ -160,6 +168,7 @@ class DriverController extends Controller
             $sql = "select b.IEX from driver_upload a,vehicle b where a.VNO = '$VNO' and a.driver_id=b.driver_id and doc_type='Insurance' and approved=0";
             $result = DB::select(DB::raw($sql));
             if(count($result) > 0){
+               $insurance_approved = 0;
                $IEX = 1; 
                $IEXD = $result[0]->IEX;
             }else{
@@ -173,6 +182,7 @@ class DriverController extends Controller
             $sql = "select * from driver_upload a,driver b where VNO = '$VNO' and a.driver_id=b.id and doc_type='Contract' and approved=0";
             $result = DB::select(DB::raw($sql));
             if(count($result) > 0){
+               $contract_approved = 0; 
                $CEX = 1; 
                $CEXD = $result[0]->CEX;
                $file_name = $result[0]->file_name;
@@ -187,6 +197,7 @@ class DriverController extends Controller
             $sql = "select a.id,a.expired_date,a.venue from driver_upload a,driver b where VNO = '$VNO' and a.driver_id=b.id and doc_type='Service' and approved=0";
             $result = DB::select(DB::raw($sql));
             if(count($result) > 0){
+               $service_approved = 0;
                $SSD = $result[0]->expired_date;
                $SVE = $result[0]->venue;
             }
@@ -195,6 +206,7 @@ class DriverController extends Controller
             $sql = "select a.id,a.expired_date,a.venue from driver_upload a,driver b where VNO = '$VNO' and a.driver_id=b.id and doc_type='Inspection' and approved=0";
             $result = DB::select(DB::raw($sql));
             if(count($result) > 0){
+               $service_approved = 0;
                $inspection_id = $result[0]->id;
                $ISD = $result[0]->expired_date;
                $IVE = $result[0]->venue;
@@ -206,7 +218,7 @@ class DriverController extends Controller
             if(count($result) > 0){
                $inspection = 1;
             }
-            return view('driver.tasks',compact('VNO','VBM','DNM','DCN','DNO','LEX','REX','IEX','CEX','LEXD','REXD','IEXD','CEXD','file_name','inspection','SSD','SVE','ISD','IVE'));
+            return view('driver.tasks',compact('VNO','VBM','DNM','DCN','DNO','LEX','REX','IEX','CEX','LEXD','REXD','IEXD','CEXD','file_name','inspection','SSD','SVE','ISD','IVE','insurance_approved','roadworthy_approved','licence_approved','contract_approved','service_approved','inspection_approved'));
         }
     }
     

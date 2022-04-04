@@ -41,6 +41,7 @@
  </div>
  <hr>
 
+ @if($licence_approved == 0)
  <div class="row">
   <div class="col-md-12">
     @if($LEX == 1)
@@ -64,7 +65,9 @@
 </div>
 </div>
 <hr>
+@endif
 
+ @if($insurance_approved == 0)
 <div class="row">
   <div class="col-md-12">
    @if($IEX == "1")
@@ -87,7 +90,8 @@
 </div>
 </div>
 <hr>
-
+@endif
+ @if($roadworthy_approved == 0)
 <div class="row">
   <div class="col-md-12">
    @if($REX == "1")
@@ -110,7 +114,9 @@
 </div>
 </div>
 <hr>
+@endif
 
+ @if($contract_approved == 0)
 <div class="row">
   <div class="col-md-12">
    @if($file_name != "")
@@ -135,7 +141,8 @@
 </div>
 </div>
 <hr>
-
+@endif
+ @if($service_approved == 0)
 <div class="row">
   <div class="col-md-12">
     <a href="{{ url('uploadservice') }}"> <i style="float:right;margin-top: 80px;" class="fa fa-upload"></i></a>
@@ -156,7 +163,8 @@
 </div>
 </div>
 <hr>
-
+@endif
+ @if($inspection_approved == 0)
 <div class="row">
   <div class="col-md-12">
     @if($inspection == 1)
@@ -179,7 +187,7 @@
 </div>
 </div>
 <hr>
-
+@endif
 <nav class="navbar fixed-bottom navbar-expand-lg justify-content-center">      
   <a href="{{ url('myaccount') }}" class="btn btn-info">Back</a>&nbsp;
   <a href="{{ route('driver') }}" class="btn btn-info">Logout</a>
