@@ -391,7 +391,7 @@ class DriverController extends Controller
      public function contract()
      {
         $VNO = Session::get('VNO');
-        $sql = "SELECT a.*,b.DCN,b.DNM,b.DSN FROM driver_upload a,driver b where a.driver_id=b.id and VNO = '$VNO' and VTV=1";
+        $sql = "SELECT a.*,b.DCN,b.DNM,b.DSN FROM driver_upload a,driver b where a.driver_id=b.id and VNO = '$VNO'";
         $valid = DB::select(DB::raw($sql));
         if(count($valid) > 0){
             $VNO = $valid[0]->VNO;
