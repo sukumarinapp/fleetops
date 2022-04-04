@@ -44,6 +44,7 @@
             <th>Workflow Type</th>
             <th>Case Initiator</th>
             <th>Action</th>
+            <th>Remarks</th>
           </tr>
           </thead>
           <tbody>
@@ -61,6 +62,7 @@
 		              @endif
 		              <td>{{ $vehicle->DNM }} {{ $vehicle->DSN }}</td>              
 		              <td><a href="{{ url('override') }}/{{ $vehicle->vid }}">Resolve</a></td>
+		              <td></td>
 		            </tr>
 	            @endif
 	            @if($vehicle->VBM == "Ride Hailing" && $vehicle->RMT > 0 && $vehicle->ADT == 0)
@@ -71,11 +73,22 @@
 		              <td>Sales Audit Request</td>
 		              <td>{{ $vehicle->DNM }} {{ $vehicle->DSN }}</td>    
 		              <td><a href="{{ url('auditing') }}/{{ $vehicle->vid }}/{{ $vehicle->id }}">Resolve</a></td> 
+		              <td></td>
 		            </tr>
 	            @endif
             @endforeach
             @foreach($inspect as $insp)
-            	<tr>
+            	<tr 
+            	@if($insp->file_name != "" && ($insp->doc_type == "RdWCert" || $insp->doc_type == "Insurance" || $insp->doc_type == "Licence" || $insp->doc_type == "Contract")) 
+            		style="font-weight:bold" 
+            	@endif
+            	@if($insp->current_mileage != "" && ($insp->doc_type == "Service")) 
+            		style="font-weight:bold" 
+            	@endif
+            	@if($insp->inspection == "1" && ($insp->doc_type == "Inspection")) 
+            		style="font-weight:bold" 
+            	@endif
+            	>
 		              <td>{{ date("d-m-Y",strtotime($insp->expired_date)) }}</td>
 		              <td>{{ $insp->VNO }}</td>
 		              	@if($insp->doc_type == "Inspection")
@@ -95,16 +108,46 @@
 		              <td>{{ $insp->DNM }} {{ $insp->DSN }}</td>    
 		              @if($insp->doc_type == "Inspection")
 		              	<td><a href="{{ url('inspection') }}/{{ $insp->id }}">Resolve</a></td>
+		              	@if($insp->inspection == "0")
+		              	<td>Inspection Pending</td>
+		              	@else
+		              	<td>Driver Approval Pending</td>
+		              	@endif
 		              @elseif($insp->doc_type == "RdWCert")
 		              	<td><a href="{{ url('roadworthy') }}/{{ $insp->id }}">Resolve</a></td> 
+		              	@if($insp->file_name == "")
+		              	<td>Driver Upload Pending</td>
+		              	@else
+		              	<td>Approval Pending</td>
+		              	@endif
 	              	@elseif($insp->doc_type == "Service")
 	              		<td><a href="{{ url('service') }}/{{ $insp->id }}">Resolve</a></td>
+	              		@if($insp->current_mileage == "")
+		              	<td>Driver Updation Pending</td>
+		              	@else
+		              	<td>Approval Pending</td>
+		              	@endif
 	              	@elseif($insp->doc_type == "Insurance")
 		              	<td><a href="{{ url('insurance') }}/{{ $insp->id }}">Resolve</a></td>
+		              	@if($insp->file_name == "")
+		              	<td>Driver Upload Pending</td>
+		              	@else
+		              	<td>Approval Pending</td>
+		              	@endif
 	              	@elseif($insp->doc_type == "Licence")
-		              	<td><a href="{{ url('licence') }}/{{ $insp->id }}">Resolve</a></td> 
+		              	<td><a href="{{ url('licence') }}/{{ $insp->id }}">Resolve</a></td>
+		              	@if($insp->file_name == "")
+		              	<td>Driver Upload Pending</td>
+		              	@else
+		              	<td>Approval Pending</td>
+		              	@endif 
 	              	@elseif($insp->doc_type == "Contract")
 		              	<td><a href="{{ url('renew') }}/{{ $insp->id }}">Resolve</a></td> 
+		              	@if($insp->file_name == "")
+		              	<td>Contract Updation Pending</td>
+		              	@else
+		              	<td>Driver Approval Pending</td>
+		              	@endif
 	              	@endif
 		            </tr>
             @endforeach

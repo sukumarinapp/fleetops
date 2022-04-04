@@ -603,6 +603,9 @@ class WorkflowController extends Controller
         $CI23 = $request->get('CI23');
         $CI24 = $request->get('CI24');
         
+        $sql = "update driver_upload set inspection=1 where id=$upload_id";
+        DB::update(DB::raw($sql));
+
         $sql = "delete from manager_inspect where upload_id=$upload_id";
         DB::delete(DB::raw($sql));
         
