@@ -792,15 +792,14 @@ class WorkflowController extends Controller
        }
     }
 
-    public function reject($id){
-        $VNO = $request->get('VNO');
-        $sql = "select a.id,b.DCN,b.DNM,b.DSN from driver_upload a,driver b where VNO = '$VNO' and a.driver_id=b.id and approved=0";
+    public function reject_doc($id){
+        $sql = "select a.id,b.DCN,b.DNM,b.DSN from driver_upload a,driver b where a.id=$id and a.driver_id=b.id and approved=0";
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
             $DCN = $result[0]->DCN;
             $DNM = $result[0]->DNM." ".$result[0]->DSN;
             $id = $result[0]->id;
-            $msg = "Hi $DNM, Your licence is rejected";
+            $msg = "Hi $DNM, Your licence upload is rejected.Please upload again";
             SMSFleetops::send($DCN,$msg);
             $DAT = date("Y-m-d");
             $TIM = date("H:i:s");
