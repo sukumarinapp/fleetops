@@ -334,7 +334,7 @@ class DriverController extends Controller
             move_uploaded_file($_FILES['DLD']['tmp_name'], $filepath.$DLD);
             $DLD2 =  $id.'_back.'.$request->DLD2->extension(); 
             move_uploaded_file($_FILES['DLD2']['tmp_name'], $filepath.$DLD2);
-            $sql = "update driver_upload set file_name='$DLD',file_name2='$DLD2',doc_expiry='$LEX',upload_time='$upload_time' where id=$id";
+            $sql = "update driver_upload set rejected=0,file_name='$DLD',file_name2='$DLD2',doc_expiry='$LEX',upload_time='$upload_time' where id=$id";
             DB::update(DB::raw($sql));    
         }
         return redirect('/tasks')->with('success', 'Licence uploaded successfully');
@@ -364,7 +364,7 @@ class DriverController extends Controller
             $id = $result[0]->id;
             $VID =  $id.'.'.$request->VID->extension(); 
             move_uploaded_file($_FILES['VID']['tmp_name'], $filepath.$VID);
-            $sql = "update driver_upload set file_name='$VID',doc_expiry='$IEX',upload_time='$upload_time' where id=$id";
+            $sql = "update driver_upload set rejected=0,file_name='$VID',doc_expiry='$IEX',upload_time='$upload_time' where id=$id";
             DB::update(DB::raw($sql));    
         }
         return redirect('/tasks')->with('success', 'Insurance uploaded successfully');
@@ -394,7 +394,7 @@ class DriverController extends Controller
             $id = $result[0]->id;
             $VRD =  $id.'.'.$request->VRD->extension(); 
             move_uploaded_file($_FILES['VRD']['tmp_name'], $filepath.$VRD);
-            $sql = "update driver_upload set file_name='$VRD',doc_expiry='$REX',upload_time='$upload_time' where id=$id";
+            $sql = "update driver_upload set rejected=0,file_name='$VRD',doc_expiry='$REX',upload_time='$upload_time' where id=$id";
             DB::update(DB::raw($sql));    
             DB::update(DB::raw($sql));  
         }
