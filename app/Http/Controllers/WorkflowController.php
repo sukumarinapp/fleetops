@@ -799,7 +799,7 @@ class WorkflowController extends Controller
             $DCN = $result[0]->DCN;
             $DNM = $result[0]->DNM." ".$result[0]->DSN;
             $id = $result[0]->id;
-            $sql = "update driver_upload set rejected=1 where id = $id";
+            $sql = "update driver_upload set doc_expiry = null ,file_name='',file_name2='',rejected=1 where id = $id";
             DB::update(DB::raw($sql));
             $msg = "Hi $DNM, Your licence upload is rejected.Please upload again";
             SMSFleetops::send($DCN,$msg);
