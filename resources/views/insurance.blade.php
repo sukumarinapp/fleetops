@@ -13,8 +13,8 @@
 							<ol class="breadcrumb float-sm-right">
 								<li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
 								<li class="breadcrumb-item">Operations</li>
-								<li class="breadcrumb-item"><a href="{{ route('vehicle.index') }}">Vehicle</a></li>
-								<li class="breadcrumb-item">Add Vehicle</li>
+								<li class="breadcrumb-item"><a href="{{ route('workflow') }}">Workflow</a></li>
+								<li class="breadcrumb-item">Resolve Insurance</li>
 							</ol>
 						</div>
 					</div>
@@ -74,6 +74,7 @@
 													<td>{{ date("d/m/Y",strtotime($doc_expiry)) }}</td>
 													<td><a target="_blank" href="../uploads/driver/{{ $file_name }}" >View</a></td>
 													<td><a onclick="approve_insurance( {{ $upload_id }} )" class="btn btn-success btn-sm">Approve</a>
+														<a onclick="reject_insurance( {{ $upload_id }} )" class="btn btn-danger btn-sm">Reject</a>
 													</td>
 												</tr>
 											</tbody>
@@ -100,6 +101,21 @@
 var approve_insurance_url = "{{ url('approve_insurance') }}";
 function approve_insurance(upload_id){
   var url =  approve_insurance_url+"/"+upload_id;
+  $.ajax({
+      type: "get",
+      url: url,
+      success: function(response) {
+        window.location.href = "{{ url('workflow') }}";
+      },
+      error: function (jqXHR, exception) {
+        console.log(exception);
+      }
+  });
+}
+
+var reject_url = "{{ url('reject_insurance') }}";
+function reject_insurance(upload_id){
+  var url =  reject_url +"/" + upload_id;
   $.ajax({
       type: "get",
       url: url,

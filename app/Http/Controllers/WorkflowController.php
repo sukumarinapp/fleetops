@@ -811,6 +811,46 @@ class WorkflowController extends Controller
         }
     }
 
+    public function reject_insurance($id){
+        $sql = "select a.id,b.DCN,b.DNM,b.DSN from driver_upload a,driver b where a.id=$id and a.driver_id=b.id and approved=0";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+            $DCN = $result[0]->DCN;
+            $DNM = $result[0]->DNM." ".$result[0]->DSN;
+            $id = $result[0]->id;
+            $sql = "update driver_upload set rejected=1 where id = $id";
+            DB::update(DB::raw($sql));
+            $msg = "Hi $DNM, Your insurance upload is rejected.Please upload again";
+            SMSFleetops::send($DCN,$msg);
+            $DAT = date("Y-m-d");
+            $TIM = date("H:i:s");
+            $CTX = "Insurance rejected";
+            $sql = "insert into sms_log (PHN,MSG,DAT,TIM,CTX,NAM) values ('$DCN','$msg','$DAT','$TIM','$CTX','$DNM')";
+            DB::insert($sql);
+        }
+    }
+
+
+    public function reject_roadworthy($id){
+        $sql = "select a.id,b.DCN,b.DNM,b.DSN from driver_upload a,driver b where a.id=$id and a.driver_id=b.id and approved=0";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+            $DCN = $result[0]->DCN;
+            $DNM = $result[0]->DNM." ".$result[0]->DSN;
+            $id = $result[0]->id;
+            $sql = "update driver_upload set rejected=1 where id = $id";
+            DB::update(DB::raw($sql));
+            $msg = "Hi $DNM, Your Roadworthy Certificate upload is rejected.Please upload again";
+            SMSFleetops::send($DCN,$msg);
+            $DAT = date("Y-m-d");
+            $TIM = date("H:i:s");
+            $CTX = "Roadworthy Certificate rejected";
+            $sql = "insert into sms_log (PHN,MSG,DAT,TIM,CTX,NAM) values ('$DCN','$msg','$DAT','$TIM','$CTX','$DNM')";
+            DB::insert($sql);
+        }
+    }
+
+
     public function save_new_licence(Request $request){
         $driver_id = $request->get('driver_id');
         $LEX = $request->get('LEX');

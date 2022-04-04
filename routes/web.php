@@ -124,6 +124,8 @@ Route::post('/saveservice', 'WorkflowController@saveservice')->name('saveservice
 Route::get('/insurance/{id}', 'WorkflowController@insurance')->name('insurance');
 Route::get('/approve_insurance/{id}', 'WorkflowController@approve_insurance')->name('approve_insurance');
 Route::get('/reject_doc/{id}', 'WorkflowController@reject_doc')->name('reject_doc');
+Route::get('/reject_insurance/{id}', 'WorkflowController@reject_insurance')->name('reject_insurance');
+Route::get('/reject_roadworthy/{id}', 'WorkflowController@reject_roadworthy')->name('reject_roadworthy');
 Route::get('/roadworthy/{id}', 'WorkflowController@roadworthy')->name('roadworthy');
 Route::get('/approve_roadworthy/{id}', 'WorkflowController@approve_roadworthy')->name('approve_roadworthy');
 Route::get('/licence/{id}', 'WorkflowController@licence')->name('licence');
