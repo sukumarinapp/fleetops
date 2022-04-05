@@ -107,7 +107,7 @@ class DriverController extends Controller
             $DNM = $result[0]->DNM . " " . $result[0]->DSN;
             $DCN = $result[0]->DCN;
         }
-        $sql = "select a.acceptance_code,c.VBM,c.DNM,c.DSN,c.DCN from driver_upload a,vehicle b,driver c where  b.driver_id=c.id and b.VNO='$VNO' and a.VNO='$VNO' order by acceptance_code desc limit 1";
+        $sql = "select acceptance_code from driver_upload where VNO='$VNO' and driver_id=$driver_id and approved=1 order by id desc limit 1";
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
             $acceptance_code = $result[0]->acceptance_code;
