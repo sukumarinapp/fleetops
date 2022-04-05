@@ -199,9 +199,13 @@ border-radius: 34px;
 	<div class="col-sm-1">
 		<button type="button" class="btn btn-primary btn-sm btn-block"  data-toggle="modal" data-target="#myMapModal" ><i class="nav-icon fa fa-map-marker"></i></button>
 	</div>
+</div>
+<div class="form-group row">
+	<label class="col-sm-4 col-form-label"></label>
 	<div class="col-sm-4">
-		<button type="button" onclick="getcurrentLocation()" class="btn btn-primary btn-sm btn-block">Get Location</button>
+		<button type="button" onclick="getcurrentLocation()" class="btn btn-primary btn-sm btn-block ">Get Current Location</button>
 	</div>
+</div>
 		<div class="modal fade" id="myMapModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -221,9 +225,6 @@ border-radius: 34px;
     </div>
   </div>
 </div>
-	</div>
-</div>
-<!-- /.form-group -->
 </div>
 <!-- /.col -->
 <div class="col-md-6">
