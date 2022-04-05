@@ -116,7 +116,7 @@
 		              @elseif($insp->doc_type == "RdWCert")
 		              	<td><a href="{{ url('roadworthy') }}/{{ $insp->id }}">Resolve</a></td> 
 		              	@if($insp->file_name == "")
-		              	<td>Driver Upload Pending</td>
+		              	<td>Pending driver action</td>
 		              	@elseif($insp->rejected == 1)
 		              	<td>Rejected</td>
 		              	@else
