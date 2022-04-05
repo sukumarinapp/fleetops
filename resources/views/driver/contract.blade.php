@@ -76,7 +76,7 @@ function acceptance_code(){
       type: "get",
       url: url,
       success: function(response) {
-        window.open  ('../../uploads/VCC/{{ $file_name }}', '_blank');
+        window.open  ('../../uploads/driver/{{ $file_name }}', '_blank');
       },
       error: function (jqXHR, exception) {
         console.log(exception);
