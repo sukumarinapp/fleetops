@@ -26,6 +26,7 @@
     <form action="{{ route('acceptcontract') }}" method="post" enctype="multipart/form-data" class="form-horizontal">
       @csrf
       <div class="row">
+
         <div class="col-md-12 text-center">
           <a href="../../uploads/VCC/{{ $file_name }}" target="_blank" class="btn btn-info" >Read Contract</a>
         </div>
@@ -39,6 +40,9 @@
       </div>
 
       <div class="form-group row">
+        <p class="col-sm-12 col-form-label">I have read and understood the terms and conditions of this contract (or it has been read and interpreted to you in a language that you understand) and by inputting this acceptance code below I willingly accept it.</p>
+     </div>
+        <div class="form-group row">
         <label for="" class="col-sm-4 col-form-label"><span style="color:red">*</span>Input Acceptence Code</label>
         <div class="col-sm-2">
           <input required="required" type="text" maxlength="4" class="form-control number" name="acceptance_code" id="acceptance_code" >
