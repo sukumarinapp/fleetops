@@ -798,10 +798,9 @@ class WorkflowController extends Controller
         if(count($result) > 0){
             $DCN = $result[0]->DCN;
             $DNM = $result[0]->DNM." ".$result[0]->DSN;
-            $id = $result[0]->id;
-            $sql = "update driver_upload set doc_expiry = null ,file_name='',file_name2='',rejected=1 where id = $id";
+            $sql = "update driver_upload set file_name='', file_name2='',rejected=1 where id = $id";
             DB::update(DB::raw($sql));
-            $msg = "Hi $DNM, Your licence upload is rejected.Please upload again";
+            $msg = "Hi $DNM, The licence you have uploaded is rejected.Please upload again";
             SMSFleetops::send($DCN,$msg);
             $DAT = date("Y-m-d");
             $TIM = date("H:i:s");
@@ -817,10 +816,9 @@ class WorkflowController extends Controller
         if(count($result) > 0){
             $DCN = $result[0]->DCN;
             $DNM = $result[0]->DNM." ".$result[0]->DSN;
-            $id = $result[0]->id;
-            $sql = "update driver_upload set rejected=1 where id = $id";
+            $sql = "update driver_upload set file_name='',file_name2='',rejected=1 where id = $id";
             DB::update(DB::raw($sql));
-            $msg = "Hi $DNM, Your insurance upload is rejected.Please upload again";
+            $msg = "Hi $DNM, The insurance you have upload is rejected.Please upload again";
             SMSFleetops::send($DCN,$msg);
             $DAT = date("Y-m-d");
             $TIM = date("H:i:s");
@@ -837,10 +835,9 @@ class WorkflowController extends Controller
         if(count($result) > 0){
             $DCN = $result[0]->DCN;
             $DNM = $result[0]->DNM." ".$result[0]->DSN;
-            $id = $result[0]->id;
-            $sql = "update driver_upload set rejected=1 where id = $id";
+            $sql = "update driver_upload set file_name='',file_name2='',rejected=1 where id = $id";
             DB::update(DB::raw($sql));
-            $msg = "Hi $DNM, Your Roadworthy Certificate upload is rejected.Please upload again";
+            $msg = "Hi $DNM, The Roadworthy Certificate you have uploaded is rejected.Please upload again";
             SMSFleetops::send($DCN,$msg);
             $DAT = date("Y-m-d");
             $TIM = date("H:i:s");

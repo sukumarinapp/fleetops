@@ -29,12 +29,12 @@
       <div class="form-group row">
         <label for="VRD" class="col-sm-4 col-form-label"><span style="color:red">*</span>Roadworthy Cert</label>
         <div class="col-sm-8">
-          <input required="required" accept="application/pdf,image/png, image/jpeg" name="VRD" type="file" id="VRD">
+          <input required="required" accept="image/png, image/jpeg" name="VRD" type="file" id="VRD">
         </div>
       </div>
       <div class="form-group row">
         <label for="REX" class="col-sm-4 col-form-label"><span style="color:red">*</span>Roadworthy Expiry Date</label>
-        <div class="col-sm-8">
+        <div class="col-sm-4">
           <input min="{{ date('Y-m-d') }}" value="{{ date('Y-m-d') }}" required="required" onkeydown="return false" type="date" class="form-control" name="REX" id="REX" >
         </div>
       </div>

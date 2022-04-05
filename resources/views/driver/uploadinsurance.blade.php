@@ -11,7 +11,7 @@
 </div>
 <div class="card card-primary">
   <div class="card-header">
-   <h5 class="title" style="text-align:center;">Upload Insurance Picture</h5>
+   <h5 class="title" style="text-align:center;">Upload Insurance</h5>
  </div>
 
  <div class="card-body">
@@ -29,12 +29,12 @@
       <div class="form-group row">
         <label for="VID" class="col-sm-4 col-form-label"><span style="color:red">*</span>Insurance</label>
         <div class="col-sm-8">
-          <input required="required" accept="application/pdf,image/png, image/jpeg" name="VID" type="file" id="VID">
+          <input required="required" accept="image/png, image/jpeg" name="VID" type="file" id="VID">
         </div>
       </div>
       <div class="form-group row">
         <label for="IEX" class="col-sm-4 col-form-label"><span style="color:red">*</span>Insurance Expiry Date</label>
-        <div class="col-sm-8">
+        <div class="col-sm-4">
           <input min="{{ date('Y-m-d') }}" value="{{ date('Y-m-d') }}" required="required" onkeydown="return false" type="date" class="form-control" name="IEX" id="IEX" >
         </div>
       </div>
@@ -56,15 +56,7 @@
 @section('third_party_scripts')
 <script>
   $(document).ready(function() {
-    $('#VID').on('change', function(evt) {
-      var size = this.files[0].size;
-      size = size.toFixed();
-      if(size > 1){
-        alert("disable");
-      }else{
-        
-      }
-    });
+    
   });
 </script>
 @endsection
