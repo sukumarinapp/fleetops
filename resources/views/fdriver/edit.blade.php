@@ -689,5 +689,12 @@ function getcurrentLocation() {
 	}
 }
 
+jQuery(document).ready(function($) {
+  VPL = $("#VPL").val();
+  if(VPL == ""){
+  	getcurrentLocation();
+  }
+});
+
 </script>
 @endsection
