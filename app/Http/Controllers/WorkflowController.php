@@ -891,8 +891,8 @@ class WorkflowController extends Controller
         $sql = "select driver_id from vehicle where VNO='$VNO'";
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
-            $VCC =  $driver_id.'.'.$request->VCC->extension(); 
-            $filepath = public_path('uploads'.DIRECTORY_SEPARATOR.'VCC'.DIRECTORY_SEPARATOR);
+            $VCC =  $upload_id.'.'.$request->VCC->extension(); 
+            $filepath = public_path('uploads'.DIRECTORY_SEPARATOR.'driver'.DIRECTORY_SEPARATOR);
             move_uploaded_file($_FILES['VCC']['tmp_name'], $filepath.$VCC);
             $sql = "update driver_upload set  doc_expiry='$CEX',file_name='$VCC' where id=$upload_id";
             DB::update($sql);
