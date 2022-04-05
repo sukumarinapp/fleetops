@@ -28,7 +28,7 @@
       <div class="row">
 
         <div class="col-md-12 text-center">
-          <a href="../../uploads/VCC/{{ $file_name }}" target="_blank" class="btn btn-info" >Read Contract</a>
+          <a onclick="acceptance_code();" class="btn btn-info" style="color:white" >Read Contract</a>
         </div>
       </div><br>
 
@@ -62,3 +62,20 @@
 </div>
 
 @endsection
+@push('page_scripts')
+<script>
+var acceptance_code_url = "{{ url('acceptance_code') }}";
+function acceptance_code(){
+  var url =  acceptance_code_url;
+  $.ajax({
+      type: "get",
+      url: url,
+      success: function(response) {
+        window.open  ('../../uploads/VCC/{{ $file_name }}', '_blank');
+      },
+      error: function (jqXHR, exception) {
+        console.log(exception);
+      }
+  });
+}
+</script>

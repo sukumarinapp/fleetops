@@ -120,7 +120,7 @@
 <div class="row">
   <div class="col-md-12">
    @if($file_name != "")
-   <a  onclick="acceptance_code()"> <i style="color: blue !important;cursor: pointer;float:right;margin-top: 80px;" class="fa fa-eye"></i></a>
+   <a href="{{ url('contract') }}"> <i style="color: blue !important;cursor: pointer;float:right;margin-top: 80px;" class="fa fa-eye"></i></a>
    @endif
    <div class="row justify-content-center">
      <div class="col-md-12">
@@ -200,21 +200,6 @@
 
 @push('page_scripts')
 <script>
-var acceptance_code_url = "{{ url('acceptance_code') }}";
-function acceptance_code(){
-  var url =  acceptance_code_url;
-  $.ajax({
-      type: "get",
-      url: url,
-      success: function(response) {
-        window.location.href = "{{ url('contract') }}";
-      },
-      error: function (jqXHR, exception) {
-        console.log(exception);
-      }
-  });
-}
-
 var accept_code_url = "{{ url('accept_code') }}";
 function accept_code(){
   var url =  accept_code_url;
