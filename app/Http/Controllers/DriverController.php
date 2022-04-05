@@ -98,13 +98,14 @@ class DriverController extends Controller
      public function myaccount()
      {
         $VNO = Session::get('VNO');
-        $sql = "select c.VBM,c.DNM,c.DSN,c.DCN from vehicle b,driver c where  b.driver_id=c.id and b.VNO='$VNO'";
+        $sql = "select a.acceptance_code,c.VBM,c.DNM,c.DSN,c.DCN from driver_upload a,vehicle b,driver c where  b.driver_id=c.id and b.VNO='$VNO' and a.VNO='$VNO' order by acceptance_code desc limit 1";
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
             $VBM = $result[0]->VBM;
             $DNM = $result[0]->DNM . " " . $result[0]->DSN;
             $DCN = $result[0]->DCN;
-            return view('driver.myaccount',compact('VNO','VBM','DNM','DCN'));
+            $acceptance_code = $result[0]->acceptance_code;
+            return view('driver.myaccount',compact('VNO','VBM','DNM','DCN','acceptance_code'));
         }
      }
 
