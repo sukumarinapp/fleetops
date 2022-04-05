@@ -150,7 +150,7 @@
 	              	@elseif($insp->doc_type == "Contract")
 		              	<td><a href="{{ url('renew') }}/{{ $insp->id }}">Resolve</a></td> 
 		              	@if($insp->file_name == "")
-		              	<td>Contract Updation Pending</td>
+		              	<td>Upload Contract</td>
 		              	@else
 		              	<td>Driver Acceptance Pending</td>
 		              	@endif
