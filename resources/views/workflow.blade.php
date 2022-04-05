@@ -109,7 +109,7 @@
 		              @if($insp->doc_type == "Inspection")
 		              	<td><a href="{{ url('inspection') }}/{{ $insp->id }}">Resolve</a></td>
 		              	@if($insp->inspection == "0")
-		              	<td>Inspection Pending</td>
+		              	<td>Inspect Vehicle</td>
 		              	@else
 		              	<td>Driver Acceptance Pending</td>
 		              	@endif
@@ -125,14 +125,14 @@
 	              	@elseif($insp->doc_type == "Service")
 	              		<td><a href="{{ url('service') }}/{{ $insp->id }}">Resolve</a></td>
 	              		@if($insp->current_mileage == "")
-		              	<td>Driver Updation Pending</td>
+		              	<td>Pending driver action</td>
 		              	@else
 		              	<td>Approval Pending</td>
 		              	@endif
 	              	@elseif($insp->doc_type == "Insurance")
 		              	<td><a href="{{ url('insurance') }}/{{ $insp->id }}">Resolve</a></td>
 		              	@if($insp->file_name == "")
-		              	<td>Driver Upload Pending</td>
+		              	<td>Pending driver action</td>
 		              	@elseif($insp->rejected == 1)
 		              	<td>Rejected</td>
 		              	@else
@@ -141,7 +141,7 @@
 	              	@elseif($insp->doc_type == "Licence")
 		              	<td><a href="{{ url('licence') }}/{{ $insp->id }}">Resolve</a></td>
 		              	@if($insp->file_name == "")
-		              	<td>Driver Upload Pending</td>
+		              	<td>Pending driver action</td>
 		              	@elseif($insp->rejected == 1)
 		              	<td>Rejected</td>
 		              	@else
@@ -150,7 +150,7 @@
 	              	@elseif($insp->doc_type == "Contract")
 		              	<td><a href="{{ url('renew') }}/{{ $insp->id }}">Resolve</a></td> 
 		              	@if($insp->file_name == "")
-		              	<td>Contract Updation Pending</td>
+		              	<td>Upload Contract</td>
 		              	@else
 		              	<td>Driver Acceptance Pending</td>
 		              	@endif
