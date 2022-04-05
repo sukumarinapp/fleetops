@@ -428,13 +428,23 @@ class DriverController extends Controller
         $VNO = Session::get('VNO');
         $driver_id = Session::get('driver_id');
         $acceptance_code = trim($request->get("acceptance_code"));
-        $sql = "select id,acceptance_code from driver_upload where VNO = '$VNO' and doc_type='Contract' and approved=0";
+        $sql = "select id,acceptance_code from driver_upload where VNO = '$VNO' and driver_id=$driver_id and doc_type='Contract' and approved=0";
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
-            $id = $result[0]->id;
+            $upload_id = $result[0]->id;
+            $file_name = $result[0]->file_name;
+            $doc_expiry = $result[0]->doc_expiry;
             if($acceptance_code == $result[0]->acceptance_code){
-                $sql = "update driver_upload set contract_accepted = 1,approved=1 where id = $id";
+                $temp = explode(".",$file_name);
+                $extension = $temp[1];
+                $target_filename = $driver_id . "." . $extension;
+                $source = public_path().DIRECTORY_SEPARATOR."uploads".DIRECTORY_SEPARATOR."driver".DIRECTORY_SEPARATOR.$file_name;
+                $target = public_path().DIRECTORY_SEPARATOR."uploads".DIRECTORY_SEPARATOR."VCC".DIRECTORY_SEPARATOR.$target_filename;
+                copy($source,$target);
+                $sql = "update driver_upload set contract_accepted = 1,approved=1 where id = $upload_id";
                 DB::update(DB::raw($sql)); 
+                $sql = "update driver set CEX='$doc_expiry',VCC='$target_filename' where id=$driver_id";
+                DB::update($sql);
                 return redirect('/tasks')->with('success', 'You have successfully accepted the contract');
             }else{
                 return redirect('/contract')->with('error', 'Invalid Acceptence Code');
