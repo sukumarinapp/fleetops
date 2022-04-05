@@ -662,7 +662,7 @@ function initialize(myCenter) {
 }
 
 function get_location(){
-	$("#VPL").val(lat+","+lng);
+	if(lat != "") $("#VPL").val(lat+","+lng);
 }
 
 function showLocation(position) {
