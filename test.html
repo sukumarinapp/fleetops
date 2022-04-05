@@ -1,3 +1,7 @@
+<span><i onclick="select_parking({{ trim($driver->VPL) }})" class="nav-icon fa fa-map-marker" style="font-size:30px"></i></span>
+
+
+
 <button type="button" class="btn btn-primary btn-sm btn-block" data-lat="{{ $alert['latitude'] }},{{ $alert['longitude'] }}" data-toggle="modal" data-target="#myMapModal" >View</button>
 
 <div class="modal fade" id="myMapModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
