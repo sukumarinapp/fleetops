@@ -1,64 +1,40 @@
-<div id="treeview_container" class="hummingbird-treeview" style="height: 600px;">
-<ul style="float: left; " id="treeview" class="hummingbird-base">
-  <li data-id="0">
-    <i class="fa fa-plus"></i>
-    <label>
-      <input id="xnode-0" data-id="custom-{{ Auth::user()->id }}" type="checkbox" /> {{ Auth::user()->name }}
-    </label>
-    <ul>
-      <li data-id="1">
-        <i class="fa fa-plus"></i>
-        <label>
-          <input  id="xnode-0-1" data-id="custom-0-1" type="checkbox" /> Manager
-        </label>
-        <ul>
-          <li data-id="2">
-            <i class="fa fa-plus"></i>
-            <label>
-              <input  id="xnode-0-1-2" data-id="custom-0-1-2" type="checkbox" /> Sub Manager
-            </label>
-            <ul>
-              <li data-id="3">
-                <i class="fa fa-plus"></i>
-                <label>
-                  <input  id="xnode-0-1-2-3" data-id="custom-0-1-2-3" type="checkbox" /> Client
-                </label>
-                <ul>
-                  <li>
-                    <label>
-                      <input class="hummingbird-end-node" id="xnode-0-1-2-3-1" data-id="custom-0-1-2-3-1" type="checkbox" /> Alto
-                    </label>
-                  </li>
-                  <li>
-                    <label>
-                      <input class="hummingbird-end-node" id="xnode-0-1-2-3-2" data-id="custom-0-1-2-3-2" type="checkbox" /> Toyota
-                    </label>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </li>                            
-        </ul>
-      </li>
-      <li data-id="1">
-        <i class="fa fa-plus"></i>
-        <label>
-          <input  id="xnode-0-2" data-id="custom-0-2" type="checkbox" /> node-0-2
-        </label>
-        <ul>
-          <li>
-            <label>
-              <input class="hummingbird-end-node" id="xnode-0-2-1" data-id="custom-0-2-1" type="checkbox" /> node-0-2-1
-            </label>
-          </li>
-          <li>
-            <label>
-              <input class="hummingbird-end-node" id="xnode-0-2-2" data-id="custom-0-2-2" type="checkbox" /> node-0-2-2
-            </label>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
+<button type="button" class="btn btn-primary btn-sm btn-block" data-lat="{{ $alert['latitude'] }},{{ $alert['longitude'] }}" data-toggle="modal" data-target="#myMapModal" >View</button>
+
+<div class="modal fade" id="myMapModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Parking Location</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div id="map-canvas" style="height: 400px;"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>
+
+$('#myMapModal').on('shown.bs.modal', function(e) {
+  var element = $(e.relatedTarget);
+  var data = element.data("lat").split(',')
+  initialize(new google.maps.LatLng(data[0], data[1]));
+});
+
+var map;
+function initialize(myCenter) {
+var marker = new google.maps.Marker({
+  position: myCenter
+});
+var mapProp = {
+  center: myCenter,
+  zoom: 16,
+  mapTypeId: google.maps.MapTypeId.ROADMAP
+};
+map = new google.maps.Map(document.getElementById("map-canvas"), mapProp);
+marker.setMap(map);
+};

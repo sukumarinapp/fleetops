@@ -17,10 +17,11 @@ class SMSFleetops
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $sms_response = curl_exec($ch);
-        #echo $sms_response;die;
+        /*echo $sms_response;
         if (curl_errno($ch)) {
-            //$error_msg = curl_error($ch);
-        }
+            $error_msg = curl_error($ch);
+            echo $error_msg;
+        }*/
         curl_close($ch);
     }
 }

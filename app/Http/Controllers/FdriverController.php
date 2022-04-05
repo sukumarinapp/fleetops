@@ -172,7 +172,7 @@ class FdriverController extends Controller
             $vehicle_id = $result[0]->id;
         }
         $workflow = 0;
-        $sql = "select * from driver_upload where doc_type in ('Licence','Contract') and approved=0";
+        $sql = "select * from driver_upload where doc_type in ('Licence','Contract') and approved=0 and driver_id=$id";
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
             $workflow = 1;
