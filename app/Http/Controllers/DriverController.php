@@ -412,7 +412,7 @@ class DriverController extends Controller
      public function contract()
      {
         $VNO = Session::get('VNO');
-        $sql = "SELECT a.*,b.DCN,b.DNM,b.DSN FROM driver_upload a,driver b where a.driver_id=b.id and VNO = '$VNO'";
+        $sql = "SELECT a.*,b.DCN,b.DNM,b.DSN FROM driver_upload a,driver b where a.driver_id=b.id and VNO = '$VNO' and doc_type='Contract' and approved=0";
         $valid = DB::select(DB::raw($sql));
         if(count($valid) > 0){
             $VNO = $valid[0]->VNO;
@@ -428,7 +428,7 @@ class DriverController extends Controller
         $VNO = Session::get('VNO');
         $driver_id = Session::get('driver_id');
         $acceptance_code = trim($request->get("acceptance_code"));
-        $sql = "select id,acceptance_code from driver_upload where VNO = '$VNO' and driver_id=$driver_id and doc_type='Contract' and approved=0";
+        $sql = "select * from driver_upload where VNO = '$VNO' and driver_id=$driver_id and doc_type='Contract' and approved=0";
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
             $upload_id = $result[0]->id;
