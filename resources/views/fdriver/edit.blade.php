@@ -194,7 +194,7 @@ border-radius: 34px;
 <div class="form-group row">
 	<label for="VPL" class="col-sm-4 col-form-label"><span style="color:red"></span>Parking Location</label>
 	<div class="col-sm-7">
-		<input value="{{ $driver->VPL }}" type="text" class="form-control" name="VPL" id="VPL" maxlength="50" placeholder="location">
+		<input value="{{ $driver->VPL }}" type="text" readonly class="form-control" name="VPL" id="VPL" maxlength="50" placeholder="location">
 	</div>
 	<div class="col-sm-1">
 		<button type="button" class="btn btn-primary btn-sm btn-block"  data-toggle="modal" data-target="#myMapModal" ><i class="nav-icon fa fa-map-marker"></i></button>
@@ -626,7 +626,6 @@ type="submit" id="save" name="submit" value="Update"/>
 <script>
 $('#myMapModal').on('shown.bs.modal', function(e) {
   VPL = $("#VPL").val();
-  console.log(VPL);
   if(VPL == ""){
   	initialize(new google.maps.LatLng("5.605884551566098","-0.19313015133623626"));
   }else{

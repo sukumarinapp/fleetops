@@ -173,10 +173,29 @@
 				<div class="form-group row">
 										<label for="VPL" class="col-sm-4 col-form-label"><span style="color:red"></span>Parking Location</label>
 										<div class="col-sm-7">
-											<input type="text" class="form-control" name="VPL" id="VPL" maxlength="50" placeholder="location">
+											<input type="text" readonly class="form-control" name="VPL" id="VPL" maxlength="50" placeholder="location">
 										</div>
-										<div class="col-sm-1">
-              <span><i onclick="select_parking()" class="nav-icon fa fa-map-marker" style="font-size:30px"></i></span>
+											<div class="col-sm-1">
+		<button type="button" class="btn btn-primary btn-sm btn-block"  data-toggle="modal" data-target="#myMapModal" ><i class="nav-icon fa fa-map-marker"></i></button>
+		<div class="modal fade" id="myMapModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Parking Location<br>Click on a location and Confirm</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div id="map-canvas" style="height: 400px;"></div>
+      </div>
+      <div class="modal-footer">
+        <button onclick="get_location()" type="button" class="btn btn-primary" data-dismiss="modal">Confirm</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
              </div>
 									</div>
                 <!-- /.form-group -->
@@ -520,10 +539,34 @@
 
 @section('third_party_scripts')
 <script>
-	function select_parking(){
-		latitude = "5.605884551566098";
-		longitude = "-0.19313015133623626";
-		window.open("https://maps.google.com/?q="+latitude+","+longitude);
-	}
+$('#myMapModal').on('shown.bs.modal', function(e) {
+  	initialize(new google.maps.LatLng("5.605884551566098","-0.19313015133623626"));
+});
+
+var lat = "";
+var lng = "";
+var map;
+function initialize(myCenter) {
+	var marker = new google.maps.Marker({
+	  position: myCenter
+	});
+	var mapProp = {
+	  center: myCenter,
+	  zoom: 14,
+	  mapTypeId: google.maps.MapTypeId.ROADMAP
+	};
+	map = new google.maps.Map(document.getElementById("map-canvas"), mapProp);
+	marker.setMap(map);
+
+	google.maps.event.addListener(map, "click", function (event) {
+        var myLatLng = event.latLng;
+	    lat = myLatLng.lat();
+	    lng = myLatLng.lng();
+    });
+}
+
+function get_location(){
+	$("#VPL").val(lat+","+lng);
+}
 </script>
 @endsection
