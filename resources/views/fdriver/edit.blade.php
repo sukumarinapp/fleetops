@@ -198,6 +198,10 @@ border-radius: 34px;
 	</div>
 	<div class="col-sm-1">
 		<button type="button" class="btn btn-primary btn-sm btn-block"  data-toggle="modal" data-target="#myMapModal" ><i class="nav-icon fa fa-map-marker"></i></button>
+	</div>
+	<div class="col-sm-4">
+		<button type="button" onclick="getcurrentLocation()" class="btn btn-primary btn-sm btn-block">Get Location</button>
+	</div>
 		<div class="modal fade" id="myMapModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -659,5 +663,31 @@ function initialize(myCenter) {
 function get_location(){
 	$("#VPL").val(lat+","+lng);
 }
+
+function showLocation(position) {
+	var latitude = position.coords.latitude;
+	var longitude = position.coords.longitude;
+	$("#VPL").val(latitude+","+longitude);
+	alert("Latitude : " + latitude + " Longitude: " + longitude);
+}
+
+function errorHandler(err) {
+	if(err.code == 1) {
+	   alert("Error: Access is denied!");
+	} else if( err.code == 2) {
+	   alert("Error: Position is unavailable!");
+	}
+}
+      
+function getcurrentLocation() {
+	if(navigator.geolocation) {
+	   // timeout at 60000 milliseconds (60 seconds)
+	   var options = {timeout:60000};
+	   navigator.geolocation.getCurrentPosition(showLocation, errorHandler, options);
+	} else {
+	   alert("Sorry, browser does not support geolocation!");
+	}
+}
+
 </script>
 @endsection

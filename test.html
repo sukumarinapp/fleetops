@@ -1,44 +1,41 @@
-<span><i onclick="select_parking({{ trim($driver->VPL) }})" class="nav-icon fa fa-map-marker" style="font-size:30px"></i></span>
+<html>
+   <head>
+   
+      <script type = "text/javascript">
+    
+         function showLocation(position) {
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+            alert("Latitude : " + latitude + " Longitude: " + longitude);
+         }
 
+         function errorHandler(err) {
+            if(err.code == 1) {
+               alert("Error: Access is denied!");
+            } else if( err.code == 2) {
+               alert("Error: Position is unavailable!");
+            }
+         }
+      
+         function getLocation() {
 
-
-<button type="button" class="btn btn-primary btn-sm btn-block" data-lat="{{ $alert['latitude'] }},{{ $alert['longitude'] }}" data-toggle="modal" data-target="#myMapModal" >View</button>
-
-<div class="modal fade" id="myMapModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Parking Location</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div id="map-canvas" style="height: 400px;"></div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-$('#myMapModal').on('shown.bs.modal', function(e) {
-  var element = $(e.relatedTarget);
-  var data = element.data("lat").split(',')
-  initialize(new google.maps.LatLng(data[0], data[1]));
-});
-
-var map;
-function initialize(myCenter) {
-var marker = new google.maps.Marker({
-  position: myCenter
-});
-var mapProp = {
-  center: myCenter,
-  zoom: 16,
-  mapTypeId: google.maps.MapTypeId.ROADMAP
-};
-map = new google.maps.Map(document.getElementById("map-canvas"), mapProp);
-marker.setMap(map);
-};
+            if(navigator.geolocation) {
+               
+               // timeout at 60000 milliseconds (60 seconds)
+               var options = {timeout:60000};
+               navigator.geolocation.getCurrentPosition(showLocation, errorHandler, options);
+            } else {
+               alert("Sorry, browser does not support geolocation!");
+            }
+         }
+      
+      </script>
+   </head>
+   <body>
+      
+      <form>
+         <input type = "button" onclick = "getLocation();" value = "Get Location"/>
+      </form>
+      
+   </body>
+</html>
