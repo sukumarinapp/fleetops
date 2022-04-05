@@ -51,7 +51,7 @@ class DriverController extends Controller
             $DNM = $valid[0]->DNM." ".$valid[0]->DSN;
             $login_time = date("Y-m-d H:i:s");
             $otp = rand(1001,9999);
-            //$otp = "1234";
+            $otp = "1234";
             $msg = "Your fleetops account login otp is ".$otp;
             $sql = "insert into driver_login (VNO,driver_id,login_time,otp) values ('$VNO','$driver_id','$login_time','$otp')";
             DB::insert($sql);
@@ -97,16 +97,22 @@ class DriverController extends Controller
 
      public function myaccount()
      {
+        $acceptance_code = "";
         $VNO = Session::get('VNO');
-        $sql = "select a.acceptance_code,c.VBM,c.DNM,c.DSN,c.DCN from driver_upload a,vehicle b,driver c where  b.driver_id=c.id and b.VNO='$VNO' and a.VNO='$VNO' order by acceptance_code desc limit 1";
+        $driver_id = Session::get('driver_id');
+        $sql = "select * from driver where  id=$driver_id";
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
             $VBM = $result[0]->VBM;
             $DNM = $result[0]->DNM . " " . $result[0]->DSN;
             $DCN = $result[0]->DCN;
-            $acceptance_code = $result[0]->acceptance_code;
-            return view('driver.myaccount',compact('VNO','VBM','DNM','DCN','acceptance_code'));
         }
+        $sql = "select a.acceptance_code,c.VBM,c.DNM,c.DSN,c.DCN from driver_upload a,vehicle b,driver c where  b.driver_id=c.id and b.VNO='$VNO' and a.VNO='$VNO' order by acceptance_code desc limit 1";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+            $acceptance_code = $result[0]->acceptance_code;
+        }
+        return view('driver.myaccount',compact('VNO','VBM','DNM','DCN','acceptance_code'));
      }
 
     public function tasks()

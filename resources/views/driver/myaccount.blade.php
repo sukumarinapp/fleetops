@@ -61,7 +61,10 @@
       <a href="{{ url('agreement') }}">Agreement Summary</a>
    </div>
    <div class="col-md-12">
-     <a href="">Agreement Terms & Conditions</a> <span>(Acceptence Code : {{ $acceptance_code }} )</span>
+     <a href="">Agreement Terms & Conditions</a>
+     @if($acceptance_code != "") 
+     <span>(Acceptence Code : {{ $acceptance_code }} )</span>
+     @endif
    </div>
    <div class="col-md-12">
      <a href="">Vehicle Hand-over Form</a>
