@@ -529,7 +529,13 @@
 @section('third_party_scripts')
 <script>
 $('#myMapModal').on('shown.bs.modal', function(e) {
+	VPL = $("#VPL").val();
+  if(VPL == ""){
   	initialize(new google.maps.LatLng("5.605884551566098","-0.19313015133623626"));
+  }else{
+  	var data = VPL.split(',')
+	initialize(new google.maps.LatLng(data[0], data[1]));
+  }
 });
 
 var lat = "";
