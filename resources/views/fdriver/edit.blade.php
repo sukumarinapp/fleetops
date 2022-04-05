@@ -655,7 +655,7 @@ function initialize(myCenter) {
 	marker.setMap(map);
 
 	google.maps.event.addListener(map, "click", function (event) {
-        var myLatLng = event.latLng;
+      var myLatLng = event.latLng;
 	    lat = myLatLng.lat();
 	    lng = myLatLng.lng();
     });
