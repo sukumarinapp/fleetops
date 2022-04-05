@@ -106,13 +106,14 @@ class DriverController extends Controller
             $VBM = $result[0]->VBM;
             $DNM = $result[0]->DNM . " " . $result[0]->DSN;
             $DCN = $result[0]->DCN;
+            $VCC = $result[0]->VCC;
         }
         $sql = "select acceptance_code from driver_upload where VNO='$VNO' and driver_id=$driver_id and approved=1 order by id desc limit 1";
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
             $acceptance_code = $result[0]->acceptance_code;
         }
-        return view('driver.myaccount',compact('VNO','VBM','DNM','DCN','acceptance_code'));
+        return view('driver.myaccount',compact('VNO','VBM','DNM','DCN','acceptance_code','VCC'));
      }
 
     public function tasks()

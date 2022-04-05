@@ -26,7 +26,12 @@
     <form action="{{ route('acceptcontract') }}" method="post" enctype="multipart/form-data" class="form-horizontal">
       @csrf
       <div class="row">
-
+        
+        <div class="col-md-12 text-center">
+         <label>Please read contract to receive Acceptance Code</label> 
+        </div>
+      </div>
+      <div class="row">
         <div class="col-md-12 text-center">
           <a onclick="acceptance_code();" class="btn btn-info" style="color:white" >Read Contract</a>
         </div>
