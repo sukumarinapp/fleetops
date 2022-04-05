@@ -111,7 +111,7 @@
 		              	@if($insp->inspection == "0")
 		              	<td>Inspection Pending</td>
 		              	@else
-		              	<td>Driver Approval Pending</td>
+		              	<td>Driver Acceptance Pending</td>
 		              	@endif
 		              @elseif($insp->doc_type == "RdWCert")
 		              	<td><a href="{{ url('roadworthy') }}/{{ $insp->id }}">Resolve</a></td> 
@@ -152,7 +152,7 @@
 		              	@if($insp->file_name == "")
 		              	<td>Contract Updation Pending</td>
 		              	@else
-		              	<td>Driver Approval Pending</td>
+		              	<td>Driver Acceptance Pending</td>
 		              	@endif
 	              	@endif
 		            </tr>
