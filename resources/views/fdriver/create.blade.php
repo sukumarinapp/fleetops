@@ -198,7 +198,7 @@
         <div id="map-canvas" style="height: 400px;"></div>
       </div>
       <div class="modal-footer">
-        <button onclick="get_location()" type="button" class="btn btn-primary" data-dismiss="modal">Confirm</button>
+        <button id="confirm_btn" onclick="get_location()" type="button" class="btn btn-primary" data-dismiss="modal">Confirm</button>
         <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
       </div>
     </div>
@@ -529,6 +529,7 @@
 @section('third_party_scripts')
 <script>
 $('#myMapModal').on('shown.bs.modal', function(e) {
+	$("#confirm_btn").attr("disabled", true);
 	VPL = $("#VPL").val();
   if(VPL == ""){
   	initialize(new google.maps.LatLng("5.605884551566098","-0.19313015133623626"));
@@ -557,6 +558,7 @@ function initialize(myCenter) {
       var myLatLng = event.latLng;
 	    lat = myLatLng.lat();
 	    lng = myLatLng.lng();
+	    $("#confirm_btn").removeAttr("disabled");
     });
 }
 
