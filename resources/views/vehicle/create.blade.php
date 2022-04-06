@@ -168,6 +168,12 @@ border-radius: 34px;
 								<input type="text" class="form-control" name="VCL" id="VCL" maxlength="50" placeholder="Color">
 							</div>
 						</div>
+						<div class="form-group row">
+							<label for="chassis_no" class="col-sm-4 col-form-label"><span style="color:red"></span>Vehicle Chassis No</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" name="chassis_no" id="chassis_no" maxlength="30" placeholder="Vehicle Chassis No">
+							</div>
+						</div>
 					</div>
 
 					<div class="col-md-6">

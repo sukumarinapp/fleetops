@@ -102,6 +102,7 @@ class VehicleController extends Controller
                 'VMK' => $request->get('VMK'),
                 'VMD' => $request->get('VMD'),
                 'VCL' => $request->get('VCL'),
+                'chassis_no' => $request->get('chassis_no'),
                 'ECY' => $ECY,
                 'CON' => $CON,
                 'VFT' => $request->get('VFT'),
@@ -275,6 +276,7 @@ class VehicleController extends Controller
             $vehicle->VMK  =  $request->get('VMK');
             $vehicle->VMD  =  $request->get('VMD');            
             $vehicle->VCL =  $request->get('VCL');
+            $vehicle->chassis_no =  $request->get('chassis_no');
             $vehicle->ECY = $ECY;
             $vehicle->CON = $CON;
             $vehicle->VFT =  $request->get('VFT');
