@@ -541,7 +541,6 @@
 		        return false;
 		    }
 		} 
-		//document.getElementById("inspectForm").submit();
 	}
 </script>
 @endpush

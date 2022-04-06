@@ -26,7 +26,7 @@
 				</div>
 				<div class="table-responsive">
 					<div class="card-body">
-						<form action="{{ route('save_new_licence') }}" method="post" enctype="multipart/form-data" class="form-horizontal">
+						<form onsubmit="return validate_all(event)" action="{{ route('save_new_licence') }}" method="post" enctype="multipart/form-data" class="form-horizontal">
 							@csrf
 							<input type="hidden" name="driver_id" value="{{ $driver_id }}" />
 							<input type="hidden" name="upload_id" value="{{ $upload_id }}" />
@@ -48,13 +48,13 @@
 									<div class="form-group row">
 										<label for="DLD" class="col-sm-4 col-form-label"><span style="color:red">*</span>Licence Front</label>
 										<div class="col-sm-8">
-											<input required="required" accept="image/png, image/jpeg" name="DLD" type="file" id="DLD">
+											<input required="required" accept="application/pdf,image/png, image/jpeg" name="DLD" type="file" id="DLD">
 										</div>
 									</div>
 									<div class="form-group row">
 										<label for="DLD2" class="col-sm-4 col-form-label"><span style="color:red">*</span>Licence Back</label>
 										<div class="col-sm-8">
-											<input required="required" accept="image/png, image/jpeg" name="DLD2" type="file" id="DLD2">
+											<input required="required" accept="application/pdf,image/png, image/jpeg" name="DLD2" type="file" id="DLD2">
 										</div>
 									</div>
 									<div class="form-group row">
@@ -137,5 +137,22 @@ function reject_doc(upload_id){
       }
   });
 }
+
+function validate_all(e){
+		var selection = document.getElementById('DLD');
+		for (var i=0; i<selection.files.length; i++) {
+		    if(selection.files[i].size > 5000000){
+		    	alert('Licence front file size can be a maximum of 5MB');
+		        return false;
+		    }
+		} 
+		selection = document.getElementById('DLD2');
+		for (var i=0; i<selection.files.length; i++) {
+		    if(selection.files[i].size > 5000000){
+		    	alert('Licence back file size can be a maximum of 5MB');
+		        return false;
+		    }
+		} 
+	}
 </script>
 @endpush
