@@ -92,7 +92,7 @@
                         <strong> {{ session('error') }} </strong>
                     </div>
                 @endif
-                <form onsubmit="return (validate_amount() & validate_all(event));" action="{{ route('fdriver.store') }}" method="post" enctype="multipart/form-data" class="form-horizontal">
+                <form onsubmit="return validate_all(event);" action="{{ route('fdriver.store') }}" method="post" enctype="multipart/form-data" class="form-horizontal">
                 @csrf
             <div class="row">
               <div class="col-md-6">
