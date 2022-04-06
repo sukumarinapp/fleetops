@@ -34,30 +34,30 @@
            <div class="form-group row">
 							<label for="VMD" class="col-sm-5 col-form-label"><span style="color:red"></span>Vehicle Reg. No.:</label>
 							<div class="col-sm-4" style="margin-top:8px">
-								GN7119-17
+								{{ $vehicle->VNO }}
 							</div>
 						</div>  
 						<div class="form-group row">
 							<label for="VMD" class="col-sm-5 col-form-label"><span style="color:red"></span>Vehicle Chassis No.:</label>
 							<div class="col-sm-4" style="margin-top:8px">
-								E556807VU65546
+								{{ $vehicle->chassis_no }}
 							</div>
 						</div> 
 						 <div class="form-group row">
 							<label for="VMD" class="col-sm-5 col-form-label"><span style="color:red"></span>Insurance Expiry Date:</label>
 							<div class="col-sm-4" style="margin-top:8px">
-								26-09-2023
+								{{ $vehicle->IEX }}
 							</div>
 						</div>  
 						<div class="form-group row">
 							<label for="VMD" class="col-sm-5 col-form-label"><span style="color:red"></span>Roadworthy Expiry Date:</label>
 							<div class="col-sm-4" style="margin-top:8px">
-								26-09-2023
+								{{ $vehicle->REX }}
 							</div>
 						</div>
 					</div>
 					 <div class="col-md-2 text-right d-flex align-items-right  justify-content-center" style="margin-top: 30px;">
-             <input accept="image/png, image/jpeg" name="VRD" type="file" id="VRD">
+             <input accept="image/png, image/jpeg" name="photo" type="file" id="photo">
       </div>
       <div class="col-md-5 text-right d-flex align-items-right justify-content-center">
               <div class="card-body">
@@ -82,7 +82,7 @@
 						<div class="form-group row">
 							<label for="CF01" class="col-sm-3 col-form-label"><span style="color:red">*</span>Starting Mileage</label>
 							<div class="col-sm-6">
-								<input type="text" class="form-control" name="CF01" id="CF01" maxlength="50" placeholder="">
+								<input type="text" class="form-control number" name="CF01" id="CF01" maxlength="50" placeholder="">
 							</div>
 						</div>
 						<div class="form-group row">
@@ -381,27 +381,27 @@
 						</div>
 
 												<div class="form-group row">
-							<label for="VRD" class="col-sm-3 col-form-label"><span style="color:red">*</span>FRONT</label>
+							<label for="CFP2" class="col-sm-3 col-form-label"><span style="color:red">*</span>FRONT</label>
 							<div class="col-sm-6">
-								<input  accept="image/png, image/jpeg" name="VRD" type="file" id="VRD">
+								<input  accept="image/png, image/jpeg" name="CFP2" type="file" id="CFP2">
 							</div>
 						</div>
 						<div class="form-group row">
-							<label for="VRD" class="col-sm-3 col-form-label"><span style="color:red">*</span>RIGHT</label>
+							<label for="CFP3" class="col-sm-3 col-form-label"><span style="color:red">*</span>RIGHT</label>
 							<div class="col-sm-6">
-								<input  accept="image/png, image/jpeg" name="VRD" type="file" id="VRD">
+								<input  accept="image/png, image/jpeg" name="CFP3" type="file" id="CFP3">
 							</div>
 						</div>
 						<div class="form-group row">
-							<label for="VRD" class="col-sm-3 col-form-label"><span style="color:red">*</span>REAR</label>
+							<label for="CFP4" class="col-sm-3 col-form-label"><span style="color:red">*</span>REAR</label>
 							<div class="col-sm-6">
-								<input  accept="image/png, image/jpeg" name="VRD" type="file" id="VRD">
+								<input  accept="image/png, image/jpeg" name="CFP4" type="file" id="CFP4">
 							</div>
 						</div>
 						<div class="form-group row">
-							<label for="VRD" class="col-sm-3 col-form-label"><span style="color:red">*</span>LEFT</label>
+							<label for="CFP5" class="col-sm-3 col-form-label"><span style="color:red">*</span>LEFT</label>
 							<div class="col-sm-6">
-								<input  accept="image/png, image/jpeg" name="VRD" type="file" id="VRD">
+								<input  accept="image/png, image/jpeg" name="CFP5" type="file" id="CFP5">
 							</div>
 						</div>
 					</div>

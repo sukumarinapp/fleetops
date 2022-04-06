@@ -95,330 +95,330 @@
                 <h4 style=" border: 1px solid grey;padding: 25px 25px 25px 25px;"></h4>
         </div>
       </div>
-<div class="col-md-12">
+          <div class="col-md-12">
             <div class="form-group row">
-              <label for="VMD" class="col-sm-3 col-form-label"><span style="color:red">*</span>Ending Mileage</label>
+              <label for="CF01" class="col-sm-3 col-form-label"><span style="color:red">*</span>Ending Mileage</label>
               <div class="col-sm-6">
-                <input type="text" class="form-control" name="VMD" id="VMD" maxlength="50" placeholder="">
+                <input type="text" required="required" class="form-control number" name="CF01" id="CF01" maxlength="50" placeholder="">
               </div>
             </div>
             <div class="form-group row">
-              <label for="VMD" class="col-sm-3 col-form-label"><span style="color:red">*</span>Spare Tire</label>
+              <label for="CF02" class="col-sm-3 col-form-label"><span style="color:red">*</span>Spare Tire</label>
               <div class="col-sm-2">
                 <div class="form-check-inline">
                   <label class="form-check-label">
-                    <input checked="checked" value="1" type="radio" class="form-check-input" name="VI01" >Yes
+                    <input checked="checked" value="1" type="radio" class="form-check-input" name="CF02" >Yes
                   </label>
                 </div>
                 <div class="form-check-inline">
                   <label class="form-check-label">
-                    <input value="0" type="radio" class="form-check-input" name="VI01" >No
+                    <input value="0" type="radio" class="form-check-input" name="CF02" >No
                   </label>
                 </div>
               </div>
               <div class="col-sm-4">
-                <input type="text" class="form-control form-control-sm" name="CI01" id="CI01" maxlength="20">
+                <input type="text" class="form-control form-control-sm" name="CC01" id="CC01" maxlength="20">
               </div>
             </div>
             <div class="form-group row">
-              <label for="VMD" class="col-sm-3 col-form-label"><span style="color:red">*</span>Warning Triangle</label>
+              <label for="CF03" class="col-sm-3 col-form-label"><span style="color:red">*</span>Warning Triangle</label>
                             <div class="col-sm-2">
                 <div class="form-check-inline">
                   <label class="form-check-label">
-                    <input checked="checked" value="1" type="radio" class="form-check-input" name="VI01" >Yes
+                    <input checked="checked" value="1" type="radio" class="form-check-input" name="CF03" >Yes
                   </label>
                 </div>
                 <div class="form-check-inline">
                   <label class="form-check-label">
-                    <input value="0" type="radio" class="form-check-input" name="VI01" >No
+                    <input value="0" type="radio" class="form-check-input" name="CF03" >No
                   </label>
                 </div>
               </div>
               <div class="col-sm-4">
-                <input type="text" class="form-control form-control-sm" name="CI01" id="CI01" maxlength="20">
+                <input type="text" class="form-control form-control-sm" name="CC02" id="CC02" maxlength="20">
               </div>
             </div>
             <div class="form-group row">
-              <label for="VMD" class="col-sm-3 col-form-label"><span style="color:red">*</span>Vehicle Tools</label>
+              <label for="CF04" class="col-sm-3 col-form-label"><span style="color:red">*</span>Vehicle Tools</label>
                             <div class="col-sm-2">
                 <div class="form-check-inline">
                   <label class="form-check-label">
-                    <input checked="checked" value="1" type="radio" class="form-check-input" name="VI01" >Yes
+                    <input checked="checked" value="1" type="radio" class="form-check-input" name="CF04" >Yes
                   </label>
                 </div>
                 <div class="form-check-inline">
                   <label class="form-check-label">
-                    <input value="0" type="radio" class="form-check-input" name="VI01" >No
+                    <input value="0" type="radio" class="form-check-input" name="CF04" >No
                   </label>
                 </div>
               </div>
               <div class="col-sm-4">
-                <input type="text" class="form-control form-control-sm" name="CI01" id="CI01" maxlength="20">
+                <input type="text" class="form-control form-control-sm" name="CC03" id="CC03" maxlength="20">
               </div>
             </div>
             <div class="form-group row">
-              <label for="VMD" class="col-sm-3 col-form-label"><span style="color:red">*</span>Fire Extinguisher</label>
+              <label for="CF05" class="col-sm-3 col-form-label"><span style="color:red">*</span>Fire Extinguisher</label>
                             <div class="col-sm-2">
                 <div class="form-check-inline">
                   <label class="form-check-label">
-                    <input checked="checked" value="1" type="radio" class="form-check-input" name="VI01" >Yes
+                    <input checked="checked" value="1" type="radio" class="form-check-input" name="CF05" >Yes
                   </label>
                 </div>
                 <div class="form-check-inline">
                   <label class="form-check-label">
-                    <input value="0" type="radio" class="form-check-input" name="VI01" >No
+                    <input value="0" type="radio" class="form-check-input" name="CF05" >No
                   </label>
                 </div>
               </div>
               <div class="col-sm-4">
-                <input type="text" class="form-control form-control-sm" name="CI01" id="CI01" maxlength="20">
+                <input type="text" class="form-control form-control-sm" name="CC04" id="CC04" maxlength="20">
               </div>
             </div>
             <div class="form-group row">
-              <label for="VMD" class="col-sm-3 col-form-label"><span style="color:red">*</span>Front Lights (Deem) L/R</label>
+              <label for="CF06" class="col-sm-3 col-form-label"><span style="color:red">*</span>Front Lights (Deem) L/R</label>
                             <div class="col-sm-2">
                 <div class="form-check-inline">
                   <label class="form-check-label">
-                    <input checked="checked" value="1" type="radio" class="form-check-input" name="VI01" >Yes
+                    <input checked="checked" value="1" type="radio" class="form-check-input" name="CF06" >Yes
                   </label>
                 </div>
                 <div class="form-check-inline">
                   <label class="form-check-label">
-                    <input value="0" type="radio" class="form-check-input" name="VI01" >No
+                    <input value="0" type="radio" class="form-check-input" name="CF06" >No
                   </label>
                 </div>
               </div>
               <div class="col-sm-4">
-                <input type="text" class="form-control form-control-sm" name="CI01" id="CI01" maxlength="20">
+                <input type="text" class="form-control form-control-sm" name="CC05" id="CC05" maxlength="20">
               </div>
             </div>
             <div class="form-group row">
-              <label for="VMD" class="col-sm-3 col-form-label"><span style="color:red">*</span>Front Lights (High) L/R</label>
+              <label for="CF07" class="col-sm-3 col-form-label"><span style="color:red">*</span>Front Lights (High) L/R</label>
                             <div class="col-sm-2">
                 <div class="form-check-inline">
                   <label class="form-check-label">
-                    <input checked="checked" value="1" type="radio" class="form-check-input" name="VI01" >Yes
+                    <input checked="checked" value="1" type="radio" class="form-check-input" name="CF07" >Yes
                   </label>
                 </div>
                 <div class="form-check-inline">
                   <label class="form-check-label">
-                    <input value="0" type="radio" class="form-check-input" name="VI01" >No
+                    <input value="0" type="radio" class="form-check-input" name="CF07" >No
                   </label>
                 </div>
               </div>
               <div class="col-sm-4">
-                <input type="text" class="form-control form-control-sm" name="CI01" id="CI01" maxlength="20">
+                <input type="text" class="form-control form-control-sm" name="CC06" id="CC06" maxlength="20">
               </div>
             </div>
             <div class="form-group row">
-              <label for="VMD" class="col-sm-3 col-form-label"><span style="color:red">*</span>Indicator Lights (FL/FR/RL/RR)</label>
+              <label for="CF08" class="col-sm-3 col-form-label"><span style="color:red">*</span>Indicator Lights (FL/FR/RL/RR)</label>
                             <div class="col-sm-2">
                 <div class="form-check-inline">
                   <label class="form-check-label">
-                    <input checked="checked" value="1" type="radio" class="form-check-input" name="VI01" >Yes
+                    <input checked="checked" value="1" type="radio" class="form-check-input" name="CF08" >Yes
                   </label>
                 </div>
                 <div class="form-check-inline">
                   <label class="form-check-label">
-                    <input value="0" type="radio" class="form-check-input" name="VI01" >No
+                    <input value="0" type="radio" class="form-check-input" name="CF08" >No
                   </label>
                 </div>
               </div>
               <div class="col-sm-4">
-                <input type="text" class="form-control form-control-sm" name="CI01" id="CI01" maxlength="20">
+                <input type="text" class="form-control form-control-sm" name="CC07" id="CC07" maxlength="20">
               </div>
             </div>
                         <div class="form-group row">
-              <label for="VMD" class="col-sm-3 col-form-label"><span style="color:red">*</span>Parking Lights L/R</label>
+              <label for="CF09" class="col-sm-3 col-form-label"><span style="color:red">*</span>Parking Lights L/R</label>
                             <div class="col-sm-2">
                 <div class="form-check-inline">
                   <label class="form-check-label">
-                    <input checked="checked" value="1" type="radio" class="form-check-input" name="VI01" >Yes
+                    <input checked="checked" value="1" type="radio" class="form-check-input" name="CF09" >Yes
                   </label>
                 </div>
                 <div class="form-check-inline">
                   <label class="form-check-label">
-                    <input value="0" type="radio" class="form-check-input" name="VI01" >No
+                    <input value="0" type="radio" class="form-check-input" name="CF09" >No
                   </label>
                 </div>
               </div>
               <div class="col-sm-4">
-                <input type="text" class="form-control form-control-sm" name="CI01" id="CI01" maxlength="20">
+                <input type="text" class="form-control form-control-sm" name="CC08" id="CC08" maxlength="20">
               </div>
             </div>
                         <div class="form-group row">
-              <label for="VMD" class="col-sm-3 col-form-label"><span style="color:red">*</span>Brake Lights L/R</label>
+              <label for="CF10" class="col-sm-3 col-form-label"><span style="color:red">*</span>Brake Lights L/R</label>
                             <div class="col-sm-2">
                 <div class="form-check-inline">
                   <label class="form-check-label">
-                    <input checked="checked" value="1" type="radio" class="form-check-input" name="VI01" >Yes
+                    <input checked="checked" value="1" type="radio" class="form-check-input" name="CF10" >Yes
                   </label>
                 </div>
                 <div class="form-check-inline">
                   <label class="form-check-label">
-                    <input value="0" type="radio" class="form-check-input" name="VI01" >No
+                    <input value="0" type="radio" class="form-check-input" name="CF10" >No
                   </label>
                 </div>
               </div>
               <div class="col-sm-4">
-                <input type="text" class="form-control form-control-sm" name="CI01" id="CI01" maxlength="20">
+                <input type="text" class="form-control form-control-sm" name="CC09" id="CC09" maxlength="20">
               </div>
             </div>
                         <div class="form-group row">
-              <label for="VMD" class="col-sm-3 col-form-label"><span style="color:red">*</span>Reverse Lights L/R</label>
+              <label for="CF11" class="col-sm-3 col-form-label"><span style="color:red">*</span>Reverse Lights L/R</label>
                             <div class="col-sm-2">
                 <div class="form-check-inline">
                   <label class="form-check-label">
-                    <input checked="checked" value="1" type="radio" class="form-check-input" name="VI01" >Yes
+                    <input checked="checked" value="1" type="radio" class="form-check-input" name="CF11" >Yes
                   </label>
                 </div>
                 <div class="form-check-inline">
                   <label class="form-check-label">
-                    <input value="0" type="radio" class="form-check-input" name="VI01" >No
+                    <input value="0" type="radio" class="form-check-input" name="CF11" >No
                   </label>
                 </div>
               </div>
               <div class="col-sm-4">
-                <input type="text" class="form-control form-control-sm" name="CI01" id="CI01" maxlength="20">
+                <input type="text" class="form-control form-control-sm" name="CC10" id="CC10" maxlength="20">
               </div>
             </div>
                         <div class="form-group row">
-              <label for="VMD" class="col-sm-3 col-form-label"><span style="color:red">*</span>Wiper Function</label>
+              <label for="CF12" class="col-sm-3 col-form-label"><span style="color:red">*</span>Wiper Function</label>
                             <div class="col-sm-2">
                 <div class="form-check-inline">
                   <label class="form-check-label">
-                    <input checked="checked" value="1" type="radio" class="form-check-input" name="VI01" >Yes
+                    <input checked="checked" value="1" type="radio" class="form-check-input" name="CF12" >Yes
                   </label>
                 </div>
                 <div class="form-check-inline">
                   <label class="form-check-label">
-                    <input value="0" type="radio" class="form-check-input" name="VI01" >No
+                    <input value="0" type="radio" class="form-check-input" name="CF12" >No
                   </label>
                 </div>
               </div>
               <div class="col-sm-4">
-                <input type="text" class="form-control form-control-sm" name="CI01" id="CI01" maxlength="20">
+                <input type="text" class="form-control form-control-sm" name="CC11" id="CC11" maxlength="20">
               </div>
             </div>
                         <div class="form-group row">
-              <label for="VMD" class="col-sm-3 col-form-label"><span style="color:red">*</span>Horn</label>
+              <label for="CF13" class="col-sm-3 col-form-label"><span style="color:red">*</span>Horn</label>
                             <div class="col-sm-2">
                 <div class="form-check-inline">
                   <label class="form-check-label">
-                    <input checked="checked" value="1" type="radio" class="form-check-input" name="VI01" >Yes
+                    <input checked="checked" value="1" type="radio" class="form-check-input" name="CF13" >Yes
                   </label>
                 </div>
                 <div class="form-check-inline">
                   <label class="form-check-label">
-                    <input value="0" type="radio" class="form-check-input" name="VI01" >No
+                    <input value="0" type="radio" class="form-check-input" name="CF13" >No
                   </label>
                 </div>
               </div>
               <div class="col-sm-4">
-                <input type="text" class="form-control form-control-sm" name="CI01" id="CI01" maxlength="20">
+                <input type="text" class="form-control form-control-sm" name="CC12" id="CC12" maxlength="20">
               </div>
             </div>
                         <div class="form-group row">
-              <label for="VMD" class="col-sm-3 col-form-label"><span style="color:red">*</span>Air-Conditioner</label>
+              <label for="CF14" class="col-sm-3 col-form-label"><span style="color:red">*</span>Air-Conditioner</label>
                             <div class="col-sm-2">
                 <div class="form-check-inline">
                   <label class="form-check-label">
-                    <input checked="checked" value="1" type="radio" class="form-check-input" name="VI01" >Yes
+                    <input checked="checked" value="1" type="radio" class="form-check-input" name="CF14" >Yes
                   </label>
                 </div>
                 <div class="form-check-inline">
                   <label class="form-check-label">
-                    <input value="0" type="radio" class="form-check-input" name="VI01" >No
+                    <input value="0" type="radio" class="form-check-input" name="CF14" >No
                   </label>
                 </div>
               </div>
               <div class="col-sm-4">
-                <input type="text" class="form-control form-control-sm" name="CI01" id="CI01" maxlength="20">
+                <input type="text" class="form-control form-control-sm" name="CC13" id="CC13" maxlength="20">
               </div>
             </div>
                         <div class="form-group row">
-              <label for="VMD" class="col-sm-3 col-form-label"><span style="color:red">*</span>Radio</label>
+              <label for="CF15" class="col-sm-3 col-form-label"><span style="color:red">*</span>Radio</label>
                             <div class="col-sm-2">
                 <div class="form-check-inline">
                   <label class="form-check-label">
-                    <input checked="checked" value="1" type="radio" class="form-check-input" name="VI01" >Yes
+                    <input checked="checked" value="1" type="radio" class="form-check-input" name="CF15" >Yes
                   </label>
                 </div>
                 <div class="form-check-inline">
                   <label class="form-check-label">
-                    <input value="0" type="radio" class="form-check-input" name="VI01" >No
+                    <input value="0" type="radio" class="form-check-input" name="CF15" >No
                   </label>
                 </div>
               </div>
               <div class="col-sm-4">
-                <input type="text" class="form-control form-control-sm" name="CI01" id="CI01" maxlength="20">
+                <input type="text" class="form-control form-control-sm" name="CC14" id="CC14" maxlength="20">
               </div>
             </div>
                         <div class="form-group row">
-              <label for="VMD" class="col-sm-3 col-form-label"><span style="color:red">*</span>Wheel Caps (FL/FR/RL/RR</label>
+              <label for="CF16" class="col-sm-3 col-form-label"><span style="color:red">*</span>Wheel Caps (FL/FR/RL/RR</label>
                             <div class="col-sm-2">
                 <div class="form-check-inline">
                   <label class="form-check-label">
-                    <input checked="checked" value="1" type="radio" class="form-check-input" name="VI01" >Yes
+                    <input checked="checked" value="1" type="radio" class="form-check-input" name="CF16" >Yes
                   </label>
                 </div>
                 <div class="form-check-inline">
                   <label class="form-check-label">
-                    <input value="0" type="radio" class="form-check-input" name="VI01" >No
+                    <input value="0" type="radio" class="form-check-input" name="CF16" >No
                   </label>
                 </div>
               </div>
               <div class="col-sm-4">
-                <input type="text" class="form-control form-control-sm" name="CI01" id="CI01" maxlength="20">
+                <input type="text" class="form-control form-control-sm" name="CC15" id="CC15" maxlength="20">
               </div>
             </div>
                         <div class="form-group row">
-              <label for="VMD" class="col-sm-3 col-form-label"><span style="color:red">*</span>Road Test</label>
+              <label for="CF17" class="col-sm-3 col-form-label"><span style="color:red">*</span>Road Test</label>
                             <div class="col-sm-2">
                 <div class="form-check-inline">
                   <label class="form-check-label">
-                    <input checked="checked" value="1" type="radio" class="form-check-input" name="VI01" >Yes
+                    <input checked="checked" value="1" type="radio" class="form-check-input" name="CF17" >Yes
                   </label>
                 </div>
                 <div class="form-check-inline">
                   <label class="form-check-label">
-                    <input value="0" type="radio" class="form-check-input" name="VI01" >No
+                    <input value="0" type="radio" class="form-check-input" name="CF17" >No
                   </label>
                 </div>
               </div>
               <div class="col-sm-4">
-                <input type="text" class="form-control form-control-sm" name="CI01" id="CI01" maxlength="20">
+                <input type="text" class="form-control form-control-sm" name="CC16" id="CC16" maxlength="20">
               </div>
             </div>
                         <div class="form-group row">
-              <label for="VMD" class="col-sm-3 col-form-label"><span style="color:red">*</span>Comments</label>
+              <label for="CF18" class="col-sm-3 col-form-label"><span style="color:red">*</span>Comments</label>
               <div class="col-sm-6">
-                <input type="text" class="form-control form-control-sm" name="CI01" id="CI01" maxlength="20">
+                <input type="text" class="form-control form-control-sm" name="CF18" id="CF18" maxlength="20">
               </div>
             </div>
 
                         <div class="form-group row">
-              <label for="VRD" class="col-sm-3 col-form-label"><span style="color:red">*</span>FRONT</label>
+              <label for="CFP2" class="col-sm-3 col-form-label"><span style="color:red">*</span>FRONT</label>
               <div class="col-sm-6">
-                <input required="required" accept="image/png, image/jpeg" name="VRD" type="file" id="VRD">
+                <input  accept="image/png, image/jpeg" name="CFP2" type="file" id="CFP2">
               </div>
             </div>
             <div class="form-group row">
-              <label for="VRD" class="col-sm-3 col-form-label"><span style="color:red">*</span>RIGHT</label>
+              <label for="CFP3" class="col-sm-3 col-form-label"><span style="color:red">*</span>RIGHT</label>
               <div class="col-sm-6">
-                <input required="required" accept="image/png, image/jpeg" name="VRD" type="file" id="VRD">
+                <input  accept="image/png, image/jpeg" name="CFP3" type="file" id="CFP3">
               </div>
             </div>
             <div class="form-group row">
-              <label for="VRD" class="col-sm-3 col-form-label"><span style="color:red">*</span>REAR</label>
+              <label for="CFP4" class="col-sm-3 col-form-label"><span style="color:red">*</span>REAR</label>
               <div class="col-sm-6">
-                <input required="required" accept="image/png, image/jpeg" name="VRD" type="file" id="VRD">
+                <input  accept="image/png, image/jpeg" name="CFP4" type="file" id="CFP4">
               </div>
             </div>
             <div class="form-group row">
-              <label for="VRD" class="col-sm-3 col-form-label"><span style="color:red">*</span>LEFT</label>
+              <label for="CFP5" class="col-sm-3 col-form-label"><span style="color:red">*</span>LEFT</label>
               <div class="col-sm-6">
-                <input required="required" accept="image/png, image/jpeg" name="VRD" type="file" id="VRD">
+                <input  accept="image/png, image/jpeg" name="CFP5" type="file" id="CFP5">
               </div>
             </div>
           </div>
