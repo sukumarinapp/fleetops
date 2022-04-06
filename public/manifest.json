@@ -1,16 +1,16 @@
 {
     "name": "Fleetops",
     "short_name": "Fleetops",
-    "start_url": "/index.php",
+    "start_url": "/driver",
     "background_color": "#6777ef",
     "description": "Fleetops",
     "display": "fullscreen",
     "theme_color": "#6777ef",
     "icons": [
         {
-            "src": "logo.jpg",
+            "src": "logo.png",
             "sizes": "512x512",
-            "type": "image/jpg",
+            "type": "image/png",
             "purpose": "any maskable"
         }
     ]
