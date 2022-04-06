@@ -390,13 +390,10 @@ class VehicleController extends Controller
         $LDT = date("Y-m-d");
         $sql = "insert into vehicle_log (LDT,CAN,VNO,DID,UAN,TIM,ATN) values ('$LDT','$CAN','$VNO','$DID','$UAN','$TIM','Assign Vehicle')";
         DB::insert($sql);
-        self::send_sms($VID);
-
-        $log_id = DB::getPdo()->id();
-        $driver_id = $request->get('driver_id');
-        $sql = "insert into handover (log_id,VNO,driver_id) values ('$log_id','$VNO','$driver_id')";
+        $log_id = DB::getPdo()->lastInsertId();
+        $sql = "insert into handover (log_id,VNO,driver_id) values ('$log_id','$VNO','$DID')";
         DB::insert($sql);
-        echo $sql;die;
+        self::send_sms($VID);
         return redirect('/vehicle')->with('message', 'Driver Assigned Successfully');
     }
 
