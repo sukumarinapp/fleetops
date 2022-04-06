@@ -277,3 +277,5 @@ CREATE TABLE `retrieval` (
   `CC16` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
+
+alter table vehicle add chassis_no varchar(50) DEFAULT NULL;
