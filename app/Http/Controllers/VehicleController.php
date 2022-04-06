@@ -465,6 +465,8 @@ class VehicleController extends Controller
         }
         $sql = "update handover set photo='$photo',CFP2='$CFP2',CFP3='$CFP3',CFP4='$CFP4',CFP5='$CFP5' where id=$handover_id";
         DB::update($sql);
+        $sql = "update vehicle set handover_id=$handover_id where id=$VID";
+        DB::update($sql);
         self::send_sms($VID);
         return redirect('/vehicle')->with('message', 'Driver Assigned Successfully');
     }
