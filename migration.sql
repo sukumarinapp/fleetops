@@ -190,6 +190,7 @@ CREATE TABLE `handover` (
   `log_id` int(11) NOT NULL,
   `VNO` varchar(20) DEFAULT NULL,
   `driver_id` int(11) DEFAULT NULL,
+  `photo` varchar(10) DEFAULT NULL,
   `CF01` varchar(10) DEFAULT NULL,
   `CF02` int(1) DEFAULT 0,
   `CF03` int(1) DEFAULT 0,
