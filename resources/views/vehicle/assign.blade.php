@@ -87,7 +87,7 @@
     </div>
                 <div class="card-body row">
              
-               <div class="col-md-6">
+               <div class="col-md-5">
            <div class="form-group row">
 							<label for="VMD" class="col-sm-5 col-form-label"><span style="color:red"></span>Vehicle Reg. No.:</label>
 							<div class="col-sm-4" style="margin-top:8px">
@@ -107,7 +107,7 @@
 							</div>
 						</div>  
 						<div class="form-group row">
-							<label for="VMD" class="col-sm-5 col-form-label"><span style="color:red"></span>Roadworthy Cert Expiry Date:</label>
+							<label for="VMD" class="col-sm-5 col-form-label"><span style="color:red"></span>Roadworthy Expiry Date:</label>
 							<div class="col-sm-4" style="margin-top:8px">
 								26-09-2023
 							</div>
@@ -116,9 +116,21 @@
 					 <div class="col-md-2 text-right d-flex align-items-right justify-content-center">
              <img class="img-fluid img-thumbnail" src="{{ URL::to('/') }}/images/test.jpg" style="width:70%;height:80%"> 
       </div>
-      <div class="col-md-3 text-right d-flex align-items-right justify-content-center">
+      <div class="col-md-5 text-right d-flex align-items-right justify-content-center">
               <div class="card-body">
-                <h4 style=" border: 1px solid grey;padding: 25px 25px 25px 25px;"></h4>
+                <div style=" border: 1px solid grey;padding: 10px 10px 10px 10px;">
+                	<div class="form-group row">
+					<div class="col-md-12">
+						<select style="width: 100%;" required="required" class="form-control select2" name="driver_id" id="driver_id" >
+							<option value="">Search Driver</option>
+	                        @foreach($drivers as $driver)
+		                     	<option value="{{ $driver->id }}" >{{ $driver->DNM }} {{ $driver->DSN }} -  {{ $driver->DNO }} - {{ $driver->DCN }}</option>
+		                    @endforeach
+	                    </select>
+                	</div>
+				</div>
+
+                </div>
         </div>
       </div>
 <div class="col-md-12">
