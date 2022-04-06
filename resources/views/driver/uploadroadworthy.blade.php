@@ -16,7 +16,7 @@
 
  <div class="card-body">
   <input type="hidden" id="VNO" name="VNO" value="">
-  <form action="{{ route('saveroadworthy') }}" method="post" enctype="multipart/form-data" class="form-horizontal">
+  <form onsubmit="return validate_all(event);" action="{{ route('saveroadworthy') }}" method="post" enctype="multipart/form-data" class="form-horizontal">
     @csrf
     <div class="row">
      <div class="col-md-6">
@@ -52,4 +52,18 @@
 </div>
 </div>
 
+@endsection
+
+@section('third_party_scripts')
+<script>
+function validate_all(e){
+    var selection = document.getElementById('VRD');
+    for (var i=0; i<selection.files.length; i++) {
+        if(selection.files[i].size > 5000000){
+          alert('Roadworthy Certificate size can be a maximum of 5MB');
+            return false;
+        }
+    } 
+  }
+</script>
 @endsection

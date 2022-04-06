@@ -92,7 +92,7 @@
                         <strong> {{ session('error') }} </strong>
                     </div>
                 @endif
-                <form onsubmit="return validate_amount()" action="{{ route('fdriver.store') }}" method="post" enctype="multipart/form-data" class="form-horizontal">
+                <form onsubmit="return (validate_amount() & validate_all(event));" action="{{ route('fdriver.store') }}" method="post" enctype="multipart/form-data" class="form-horizontal">
                 @csrf
             <div class="row">
               <div class="col-md-6">
@@ -595,5 +595,29 @@ jQuery(document).ready(function($) {
   	getcurrentLocation();
   }
 });
+
+  function validate_all(e){
+		var selection = document.getElementById('DLD');
+		for (var i=0; i<selection.files.length; i++) {
+		    if(selection.files[i].size > 5000000){
+		    	alert('Licence front file size can be a maximum of 5MB');
+		        return false;
+		    }
+		} 
+		selection = document.getElementById('DLD2');
+		for (var i=0; i<selection.files.length; i++) {
+		    if(selection.files[i].size > 5000000){
+		    	alert('Licence back file size can be a maximum of 5MB');
+		        return false;
+		    }
+		} 
+    selection = document.getElementById('VCC');
+		for (var i=0; i<selection.files.length; i++) {
+		    if(selection.files[i].size > 5000000){
+		    	alert('Contract file size can be a maximum of 5MB');
+		        return false;
+		    }
+		} 
+	}
 </script>
 @endsection
