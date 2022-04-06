@@ -599,6 +599,18 @@ jQuery(document).ready(function($) {
 });
 
   function validate_all(e){
+  	if($("#VBM").val()!="Ride Hailing"){
+        if($("#VPD").val().trim() == ""){
+            alert("Enter payment date");
+            $("#VPD").focus();
+            return false;
+        }
+        if($("#VAM").val().trim() == ""){
+            alert("Enter payment amount");
+            $("#VAM").focus();
+            return false;
+        }
+    }
 		var selection = document.getElementById('DLD');
 		for (var i=0; i<selection.files.length; i++) {
 		    if(selection.files[i].size > 5000000){
