@@ -279,3 +279,5 @@ CREATE TABLE `retrieval` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 
 alter table vehicle add chassis_no varchar(50) DEFAULT NULL;
+
+alter table vehicle add handover_id int(11) DEFAULT 0;
