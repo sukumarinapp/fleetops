@@ -25,7 +25,7 @@
 				</div>
 				
           	<div class="card-body">
-          		<form action="{{ route('removedriver') }}" method="post" class="form-horizontal">
+          		<form action="{{ route('removedriver') }}" method="post" class="form-horizontal" enctype="multipart/form-data">
                 @csrf
 
                  <input type="hidden" name="vehicle_id" value="{{ $vehicle->id }}">

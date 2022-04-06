@@ -430,8 +430,41 @@ class VehicleController extends Controller
         $CC15 = $request->get('CC15');
         $CC16 = $request->get('CC16');
 
-        $sql = "insert into handover (log_id,VNO,driver_id,CF01,CF02,CF03,CF04,CF05,CF06,CF07,CF08,CF09,CF10,CF11,CF12,CF13,CF14,CF15,CF16,CF17,CF18,CC01,CC02,CC03,CC04,CC05,CC06,CC07,CC08,CC09,CC10,CC11,CC12,CC13,CC14,CC15,CC16) values ('$log_id','$VNO','$DID','$CF01','$CF02','$CF03','$CF04','$CF05','$CF06','$CF07','$CF08','$CF09','$CF10','$CF11','$CF12','$CF13','$CF14','$CF15','$CF16','$CF17','$CF18','$CC01','$CC02','$CC03','$CC04','$CC05','$CC06','$CC07','$CC08','$CC09','$CC10','$CC11','$CC12','$CC13','$CC14','$CC15','$CC16')";
+        $sql = "insert into  handover (log_id,VNO,driver_id,CF01,CF02,CF03,CF04,CF05,CF06,CF07,CF08,CF09,CF10,CF11,CF12,CF13,CF14,CF15,CF16,CF17,CF18,CC01,CC02,CC03,CC04,CC05,CC06,CC07,CC08,CC09,CC10,CC11,CC12,CC13,CC14,CC15,CC16) values ('$log_id','$VNO','$DID','$CF01','$CF02','$CF03','$CF04','$CF05','$CF06','$CF07','$CF08','$CF09','$CF10','$CF11','$CF12','$CF13','$CF14','$CF15','$CF16','$CF17','$CF18','$CC01','$CC02','$CC03','$CC04','$CC05','$CC06','$CC07','$CC08','$CC09','$CC10','$CC11','$CC12','$CC13','$CC14','$CC15','$CC16')";
         DB::insert($sql);
+        $handover_id = DB::getPdo()->lastInsertId();
+        $photo = "";
+        if($request->photo != null){
+            $photo =  $handover_id.'.'.$request->photo->extension(); 
+            $filepath = public_path('uploads'.DIRECTORY_SEPARATOR.'photo'.DIRECTORY_SEPARATOR);
+            move_uploaded_file($_FILES['photo']['tmp_name'], $filepath.$photo);
+        }
+        $CFP2 = "";
+        if($request->CFP2 != null){
+            $CFP2 =  $handover_id.'_front.'.$request->CFP2->extension(); 
+            $filepath = public_path('uploads'.DIRECTORY_SEPARATOR.'photo'.DIRECTORY_SEPARATOR);
+            move_uploaded_file($_FILES['CFP2']['tmp_name'], $filepath.$CFP2);
+        }
+        $CFP3 = "";
+        if($request->CFP3 != null){
+            $CFP3 =  $handover_id.'_right.'.$request->CFP3->extension(); 
+            $filepath = public_path('uploads'.DIRECTORY_SEPARATOR.'photo'.DIRECTORY_SEPARATOR);
+            move_uploaded_file($_FILES['CFP3']['tmp_name'], $filepath.$CFP3);
+        }
+        $CFP4 = "";
+        if($request->CFP4 != null){
+            $CFP4 =  $handover_id.'_rear.'.$request->CFP4->extension(); 
+            $filepath = public_path('uploads'.DIRECTORY_SEPARATOR.'photo'.DIRECTORY_SEPARATOR);
+            move_uploaded_file($_FILES['CFP4']['tmp_name'], $filepath.$CFP4);
+        }
+        $CFP5 = "";
+        if($request->CFP5 != null){
+            $CFP5 =  $handover_id.'_left.'.$request->CFP5->extension(); 
+            $filepath = public_path('uploads'.DIRECTORY_SEPARATOR.'photo'.DIRECTORY_SEPARATOR);
+            move_uploaded_file($_FILES['CFP5']['tmp_name'], $filepath.$CFP5);
+        }
+        $sql = "update handover set photo='$photo',CFP2='$CFP2',CFP3='$CFP3',CFP4='$CFP4',CFP5='$CFP5' where id=$handover_id";
+        DB::update($sql);
         self::send_sms($VID);
         return redirect('/vehicle')->with('message', 'Driver Assigned Successfully');
     }
@@ -517,7 +550,7 @@ class VehicleController extends Controller
         $LDT = date("Y-m-d");
         $sql = "insert into vehicle_log (LDT,CAN,VNO,DID,UAN,TIM,ATN) values ('$LDT','$CAN','$VNO','$DID','$UAN','$TIM','Unassign Vehicle')";
         DB::insert($sql);
-         $log_id = DB::getPdo()->lastInsertId();
+        $log_id = DB::getPdo()->lastInsertId();
         $CF01 = $request->get('CF01');
         $CF02 = $request->get('CF02');
         $CF03 = $request->get('CF03');
@@ -556,6 +589,34 @@ class VehicleController extends Controller
 
         $sql = "insert into retrieval (log_id,VNO,driver_id,CF01,CF02,CF03,CF04,CF05,CF06,CF07,CF08,CF09,CF10,CF11,CF12,CF13,CF14,CF15,CF16,CF17,CF18,CC01,CC02,CC03,CC04,CC05,CC06,CC07,CC08,CC09,CC10,CC11,CC12,CC13,CC14,CC15,CC16) values ('$log_id','$VNO','$DID','$CF01','$CF02','$CF03','$CF04','$CF05','$CF06','$CF07','$CF08','$CF09','$CF10','$CF11','$CF12','$CF13','$CF14','$CF15','$CF16','$CF17','$CF18','$CC01','$CC02','$CC03','$CC04','$CC05','$CC06','$CC07','$CC08','$CC09','$CC10','$CC11','$CC12','$CC13','$CC14','$CC15','$CC16')";
         DB::insert($sql);
+
+        $retrieval_id = DB::getPdo()->lastInsertId();
+        $CFP2 = "";
+        if($request->CFP2 != null){
+            $CFP2 =  $retrieval_id.'_frontr.'.$request->CFP2->extension(); 
+            $filepath = public_path('uploads'.DIRECTORY_SEPARATOR.'photo'.DIRECTORY_SEPARATOR);
+            move_uploaded_file($_FILES['CFP2']['tmp_name'], $filepath.$CFP2);
+        }
+        $CFP3 = "";
+        if($request->CFP3 != null){
+            $CFP3 =  $retrieval_id.'_rightr.'.$request->CFP3->extension(); 
+            $filepath = public_path('uploads'.DIRECTORY_SEPARATOR.'photo'.DIRECTORY_SEPARATOR);
+            move_uploaded_file($_FILES['CFP3']['tmp_name'], $filepath.$CFP3);
+        }
+        $CFP4 = "";
+        if($request->CFP4 != null){
+            $CFP4 =  $retrieval_id.'_rearr.'.$request->CFP4->extension(); 
+            $filepath = public_path('uploads'.DIRECTORY_SEPARATOR.'photo'.DIRECTORY_SEPARATOR);
+            move_uploaded_file($_FILES['CFP4']['tmp_name'], $filepath.$CFP4);
+        }
+        $CFP5 = "";
+        if($request->CFP5 != null){
+            $CFP5 =  $retrieval_id.'_leftr.'.$request->CFP5->extension(); 
+            $filepath = public_path('uploads'.DIRECTORY_SEPARATOR.'photo'.DIRECTORY_SEPARATOR);
+            move_uploaded_file($_FILES['CFP5']['tmp_name'], $filepath.$CFP5);
+        }
+        $sql = "update retrieval set CFP2='$CFP2',CFP3='$CFP3',CFP4='$CFP4',CFP5='$CFP5' where id=$retrieval_id";
+        DB::update($sql);
         return redirect('/vehicle')->with('message', 'Driver Removed Successfully');
     }
 

@@ -24,7 +24,7 @@
 					<h3 class="card-title">Assign Vehicle</h3>
 				</div>
           	<div class="card-body">
-          		<form method="post" action="{{ route('assigndriver') }}">
+          		<form method="post" action="{{ route('assigndriver') }}" enctype="multipart/form-data">
       			@csrf
       			<input type="hidden" name="vehicle_id" value="{{ $vehicle->id }}">
 
