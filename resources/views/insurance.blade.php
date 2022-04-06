@@ -26,7 +26,7 @@
 				</div>
 				<div class="table-responsive">
 					<div class="card-body">
-						<form action="{{ route('save_new_insurance') }}" method="post" enctype="multipart/form-data" class="form-horizontal">
+						<form onsubmit="return validate_all(event)" action="{{ route('save_new_insurance') }}" method="post" enctype="multipart/form-data" class="form-horizontal">
 							@csrf
 							<input type="hidden" name="VNO" value="{{ $VNO }}" />
 							<input type="hidden" name="upload_id" value="{{ $upload_id }}" />
@@ -127,5 +127,15 @@ function reject_insurance(upload_id){
       }
   });
 }
+
+function validate_all(e){
+		var selection = document.getElementById('VID');
+		for (var i=0; i<selection.files.length; i++) {
+		    if(selection.files[i].size > 5000000){
+		    	alert('Insurance file size can be a maximum of 5MB');
+		        return false;
+		    }
+		} 
+	}
 </script>
 @endpush

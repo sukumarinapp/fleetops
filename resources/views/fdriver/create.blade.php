@@ -554,14 +554,14 @@ function initialize(myCenter) {
 	marker.setMap(map);
 
 	google.maps.event.addListener(map, "click", function (event) {
-        var myLatLng = event.latLng;
+      var myLatLng = event.latLng;
 	    lat = myLatLng.lat();
 	    lng = myLatLng.lng();
     });
 }
 
 function get_location(){
-	$("#VPL").val(lat+","+lng);
+	if(lat != "") $("#VPL").val(lat+","+lng);
 }
 
 function showLocation(position) {

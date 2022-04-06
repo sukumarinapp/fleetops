@@ -26,7 +26,7 @@
 				</div>
 				<div class="table-responsive">
 					<div class="card-body">
-						<form action="{{ route('save_new_roadworthy') }}" method="post" enctype="multipart/form-data" class="form-horizontal">
+						<form onsubmit="return validate_all(event)" action="{{ route('save_new_roadworthy') }}" method="post" enctype="multipart/form-data" class="form-horizontal">
 							@csrf
 							<input type="hidden" name="VNO" value="{{ $VNO }}" />
 							<input type="hidden" name="upload_id" value="{{ $upload_id }}" />
@@ -45,7 +45,7 @@
 										</div>
 									</div>
 									<div class="form-group row">
-										<label for="VRD" class="col-sm-4 col-form-label"><span style="color:red">*</span>Roadworthy Cert</label>
+										<label for="VRD" class="col-sm-4 col-form-label"><span style="color:red">*</span>Roadworthy Certificate</label>
 										<div class="col-sm-8">
 											<input required="required" accept="application/pdf,image/png, image/jpeg" name="VRD" type="file" id="VRD">
 										</div>
@@ -127,5 +127,15 @@ function reject_roadworthy(upload_id){
       }
   });
 }
+
+function validate_all(e){
+		var selection = document.getElementById('VRD');
+		for (var i=0; i<selection.files.length; i++) {
+		    if(selection.files[i].size > 5000000){
+		    	alert('Roadworthy Certificate size can be a maximum of 5MB');
+		        return false;
+		    }
+		} 
+	}
 </script>
 @endpush
