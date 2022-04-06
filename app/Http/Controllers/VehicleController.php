@@ -385,9 +385,6 @@ class VehicleController extends Controller
         $vehicle->save();
         $CAN = $vehicle->CAN;
         $VNO = $vehicle->VNO;
-        $chassis_no = $vehicle->chassis_no;
-        $IEX = $vehicle->IEX;
-        $REX = $vehicle->REX;
         $UAN = Auth::user()->name;
         $TIM = date("Y-m-d H:i");
         $LDT = date("Y-m-d");
