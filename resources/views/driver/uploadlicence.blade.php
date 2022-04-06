@@ -17,7 +17,7 @@
  <div class="card-body">
   
   <input type="hidden" id="VNO" name="VNO" value="">
-  <form action="{{ route('savelicence') }}" method="post" enctype="multipart/form-data" class="form-horizontal">
+  <form onsubmit="return validate_all(event);" action="{{ route('savelicence') }}" method="post" enctype="multipart/form-data" class="form-horizontal">
     @csrf
     <div class="row">
      <div class="col col-md-6">
@@ -59,4 +59,26 @@
 </div>
 </div>
 
+@endsection
+
+@section('third_party_scripts')
+<script>
+function validate_all(e){
+    var selection = document.getElementById('DLD');
+    for (var i=0; i<selection.files.length; i++) {
+        if(selection.files[i].size > 5000000){
+          alert('Licence front file size can be a maximum of 5MB');
+            return false;
+        }
+    } 
+    selection = document.getElementById('DLD2');
+    for (var i=0; i<selection.files.length; i++) {
+        if(selection.files[i].size > 5000000){
+          alert('Licence back file size can be a maximum of 5MB');
+            return false;
+        }
+    } 
+  }
+
+  </script>
 @endsection

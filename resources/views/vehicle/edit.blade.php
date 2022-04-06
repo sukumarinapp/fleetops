@@ -96,7 +96,8 @@ input:checked + .slider:before {
 						<strong> {{ session('error') }} </strong>
 					</div>
 					@endif
-					<form action="{{ route('vehicle.update',$vehicle->id) }}" method="post" enctype="multipart/form-data" class="form-horizontal">
+					
+<form onsubmit="return validate_all(event);"  action="{{ route('vehicle.update',$vehicle->id) }}" method="post" enctype="multipart/form-data" class="form-horizontal">
 						@csrf
 						@method('PUT')
 						<div class="row">
@@ -527,5 +528,22 @@ input:checked + .slider:before {
 					theme: 'bootstrap4'
 				});
 			});
+
+	function validate_all(e){
+		var selection = document.getElementById('VID');
+		for (var i=0; i<selection.files.length; i++) {
+		    if(selection.files[i].size > 5000000){
+		    	alert('Insurance file size can be a maximum of 5MB');
+		        return false;
+		    }
+		} 
+		selection = document.getElementById('VRD');
+		for (var i=0; i<selection.files.length; i++) {
+		    if(selection.files[i].size > 5000000){
+		    	alert('Roadworthy Certificate file size can be a maximum of 5MB');
+		        return false;
+		    }
+		} 
+	}
 		</script>
 		@endpush
