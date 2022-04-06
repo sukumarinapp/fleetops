@@ -528,7 +528,6 @@
 @push('page_scripts')
 <script>
 	function validate_all(e){
-		//e.preventDefault();
 		var selection = document.getElementById('fileupload');
 		for (var i=0; i<selection.files.length; i++) {
 		    var ext = selection.files[i].name.substr(-3);
