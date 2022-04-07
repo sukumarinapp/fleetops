@@ -34,7 +34,7 @@
         <div class="col-md-12">
           <div class="form-group row">
                 <div class="col-sm-9">
-          <input type="button" id="resend_button" onclick="resend_otp()" class="btn btn-primary btn-sm text-center" value="Re-Send OTP">
+          <a href="#" id="resend_button" onclick="resend_otp()" >Re-Send OTP</a>
               <p>Did not receive previous OTP</p>
             </div>
           </div>
@@ -57,17 +57,14 @@
 <script>
   var resend_otp_url = "{{ url('resend_otp') }}";
   function resend_otp(){
-    $('#resend_button').prop('disabled', true);
     var VNO = $("#VNO").val();
     var url =  resend_otp_url + "/" + VNO;
     $.ajax({
       type: "get",
       url: url,
       success: function(response) {
-        $('#resend_button').prop('disabled', false);
       },
       error: function (jqXHR, exception) {
-        $('#resend_button').prop('disabled', false);
         console.log(exception);
       }
     });
