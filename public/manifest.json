@@ -2,10 +2,10 @@
     "name": "Fleetops",
     "short_name": "Fleetops",
     "start_url": "/driver",
-    "background_color": "#267b8c",
+    "background_color": "#FFFFFF",
     "description": "Fleetops",
     "display": "fullscreen",
-    "theme_color": "#267b8c",
+    "theme_color": "#000000",
     "icons": [
         {
       "src": "windows11/SmallTile.scale-100.png",
