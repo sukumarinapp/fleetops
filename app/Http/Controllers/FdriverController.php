@@ -253,6 +253,8 @@ class FdriverController extends Controller
             if($request->get('VBM') != ""){
                 $driver->VBM =  $request->get('VBM');
             }
+            $driver->AVL =  $AVL;
+            $driver->AVC =  $AVC;
             $driver->VPF =  $VPF;
             $driver->WDY =  $WDY;
             $driver->MDY =  $MDY;

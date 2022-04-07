@@ -153,7 +153,7 @@ border-radius: 34px;
 	
 		<label class="col-form-label">Reminder</label>&nbsp;
 		<label class="switch" style="margin-top:10px">
-			<input {{ ($driver->AVL == "1" ? "checked":"") }} name="AVL" id="AVL" type="checkbox">
+			<input {{ ($driver->AVL == "1" ? "checked":"") }} name="AVL" id="AVL" type="checkbox" >
 			<span class="slider round"></span>
 		</label>
 </div>
