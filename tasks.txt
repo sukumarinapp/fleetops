@@ -1,22 +1,50 @@
-https://github.com/shailesh-ladumor/laravel-pwa
+Payment Milestone 2
+Milestone D	New Alerts (Process Integration)
+Milestone E	Two Communication Protocol Setup
+Milestone F	Vehicle Blocking / Unblocking (Process Modification)
+Milestone G	Vehicle Handover Process (All Screens and Processes)
+Milestone H	Set Ride-Hailing Driver Earning Options
+			Driver Earning Rule (Bonuses Calculations)
+			Pending Payments (Process Modification)
+			Cash-at-hand Report
+			Cash Declaration Sequence Modification
+			CCEI Formula Selection – Normal/Driver Promo Mode (Process Modification)
+			Maintenance Shedular Process
 
+Payment Milestone 3
+Milestone I	New Alerts (Process Integration)
+Milestone J	E-Wallet - Development & UI Integration 
+			Central Wallet Activity - Report
+			Fueler Module Integration
+Milestone K	WhatsApp Messenger Integration
+			Selected/Blast Notification via SMS along with Audience Creation using Excel Upload
+			Re -structuring authorizations, permissions and privileges and the inclusion of new ones
+
+Payment Milestone 4
+Milestone L	UAT and Final Confirmation
+
+https://github.com/shailesh-ladumor/laravel-pwa
+Payment Milestone 1
 COMPLETED
 Driver Login - OTP based login
-Maintenance Sheduler Process
-Tasks Listing in Driver Screen
+My Account - Buyer Statement (HP)
+My Account - Receipts Statement(Rental)
+My Account - Sales Report (RH)
+My Account - Tasks (Static Screens)
 Agreement Summaries
-Update Driver License Details
+Vehicle Handover Form
+General Terms and Conditions
 Update Vehicle Insurance Certificate Details
 Update Vehicle Roadworthy Certificate Details
-SMS Remainders for Contract and License Expiry
+Update Driver License Details
 Update Driver Contract Details
-My Account - Receipts Statement(Rental)
-My Account - Buyer Statement (HP)
-My Account - Sales Report (RH)
-RH Fuel Settings popup
-Tracker settings popup
-Business settings popup
-Vehicle Handover Form
+Update Vehicle Service Details
+Update Vehicle Inspection Details
+Tasks Listing in Driver Screen
+SMS Remainders for Contract and License Expiry
+Maintenance Shedular Process
+PWA App Development
+
 
 
 
