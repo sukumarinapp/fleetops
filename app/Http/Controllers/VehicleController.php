@@ -426,7 +426,9 @@ class VehicleController extends Controller
         $CC14 = $request->get('CC14');
         $CC15 = $request->get('CC15');
         $CC16 = $request->get('CC16');
-
+        //$acceptance_code = rand(1001,9999);
+        $sql = "delete from handover where VNO='$VNO' and driver_id=$DID and accepted=0";
+        DB::delete($sql);
         $sql = "insert into  handover (log_id,VNO,driver_id,CF01,CF02,CF03,CF04,CF05,CF06,CF07,CF08,CF09,CF10,CF11,CF12,CF13,CF14,CF15,CF16,CF17,CF18,CC01,CC02,CC03,CC04,CC05,CC06,CC07,CC08,CC09,CC10,CC11,CC12,CC13,CC14,CC15,CC16) values ('$log_id','$VNO','$DID','$CF01','$CF02','$CF03','$CF04','$CF05','$CF06','$CF07','$CF08','$CF09','$CF10','$CF11','$CF12','$CF13','$CF14','$CF15','$CF16','$CF17','$CF18','$CC01','$CC02','$CC03','$CC04','$CC05','$CC06','$CC07','$CC08','$CC09','$CC10','$CC11','$CC12','$CC13','$CC14','$CC15','$CC16')";
         DB::insert($sql);
         $handover_id = DB::getPdo()->lastInsertId();
@@ -464,7 +466,17 @@ class VehicleController extends Controller
         DB::update($sql);
         $sql = "update vehicle set handover_id=$handover_id where id=$VID";
         DB::update($sql);
+        $sql = "select DNM,DSN,DCN from driver where id=$DID";
+        $result = DB::select(DB::raw($sql));
+        $DNM = "";
+        $DCN = "";
+        if(count($result) > 0){
+            $DNM = $result[0]->DNM ." ".$result[0]->DSN;
+            $DCN = $result[0]->DCN;
+        }
         self::send_sms($VID);
+        //$msg = "Hi $DNM, Your fleetops contract acceptance code is $acceptance_code";
+        //SMSFleetops::send($DCN,$msg);
         return redirect('/vehicle')->with('message', 'Driver Assigned Successfully');
     }
 

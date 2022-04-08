@@ -157,6 +157,17 @@
 	              	@endif
 		            </tr>
             @endforeach
+            @foreach($assign as $ass)
+							<tr style="font-weight:bold">
+								<td>{{ date("d-m-Y",strtotime($ass->LDT)) }}</td>
+						      	<td>{{ $ass->VNO }}</td>
+						      	<td>ASN{{ str_pad($ass->id,3,'0',STR_PAD_LEFT) }}</td>
+						      	<td>Assign Vehicle</td>
+						      	<td>{{ $ass->DNM }} {{ $ass->DSN }}</td> 
+						      	<td></td>
+						      	<td>Driver Acceptance Pending</td>
+							</tr>
+						@endforeach
           </tbody>
       </table>
 				</div>

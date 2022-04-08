@@ -40,6 +40,28 @@
    </div>
  </div>
  <hr>
+  @if($assign_approved == 0)
+<div class="row">
+  <div class="col-md-12">
+   <a href="{{ url('vehiclehandover') }}"> <i style="color: blue !important;cursor: pointer;float:right;margin-top: 80px;" class="fa fa-eye"></i></a>
+   <div class="row justify-content-center">
+    <h5 style="color: lightgray">Tasks</h5>
+     <div class="col-md-12">
+      <label class="col-form-label">Vehicle Handover</label>
+    </div>
+    <div class="col-md-12">
+     <label class="col-form-label">Assigned Date  : </label> {{ date("d/m/Y",strtotime($LDT)) }}
+   </div> 
+   <div class="col-md-12">
+    <p>Please read contract fully. Confirm acceptance by
+      inputting code that would be sent to you via SMS
+    on your registered phone number.</p>
+  </div>
+</div>
+</div>
+</div>
+<hr>
+@endif
 
  @if($licence_approved == 0)
  <div class="row">
@@ -48,12 +70,12 @@
    <a href="{{ url('uploadlicence') }}"> <i style="float:right;margin-top: 80px;" class="fa fa-upload"></i></a>
     @endif
    <div class="row justify-content-center">
-    <h5 style="color: lightgray">Tasks</h5>
+    
     <div class="col-md-12">
      <label class="col-form-label">Licence Renewal - </label> {{ $DNO }} 
    </div>
    <div class="col-md-12">
-     <label class="col-form-label">Expiry Date  : </label> {{ $LEXD }}
+     <label class="col-form-label">Expiry Date  : </label> {{ date("d/m/Y",strtotime($LEXD)) }}
      @if($LEX == "1") 
      <span class="text-danger">(expired)</span>
      @endif
@@ -78,7 +100,7 @@
      <label class="col-form-label">Insurance Renewal</label>
    </div>
    <div class="col-md-12">
-     <label class="col-form-label">Expiry Date  : </label> {{ $IEXD }} 
+     <label class="col-form-label">Expiry Date  : </label> {{ date("d/m/Y",strtotime($IEXD)) }} 
      @if($IEX == "1") 
      <span class="text-danger">(expired)</span>
      @endif
@@ -102,7 +124,7 @@
      <label class="col-form-label">Roadworthy Cert Renewal</label>
    </div>
    <div class="col-md-12">
-     <label class="col-form-label">Expiry Date  : </label> {{ $REXD }} 
+     <label class="col-form-label">Expiry Date  : </label> {{ date("d/m/Y",strtotime($REXD)) }} 
      @if($REX == "1") 
      <span class="text-danger">(expired)</span>
      @endif
@@ -127,7 +149,7 @@
       <label class="col-form-label">Contract Renewal</label>
     </div>
     <div class="col-md-12">
-     <label class="col-form-label">Expiry Date  : </label> {{ $CEXD }}
+     <label class="col-form-label">Expiry Date  : </label> {{ date("d/m/Y",strtotime($CEXD)) }}
      @if($CEX == "1") 
      <span class="text-danger">(expired)</span>
      @endif
@@ -151,7 +173,7 @@
        <label class="col-form-label">Vehicle Servicing</label>
      </div>
      <div class="col-md-12">
-       <label class="col-form-label">Scheduled Date  : </label> {{ $SSD }} 
+       <label class="col-form-label">Scheduled Date  : </label> {{ date("d/m/Y",strtotime($SSD)) }} 
      </div>
      <div class="col-md-12">
        <label class="col-form-label">Venue  : </label> {{ $SVE }} 
@@ -175,7 +197,7 @@
        <label class="col-form-label">Vehicle Inspection</label>
      </div>
      <div class="col-md-12">
-       <label class="col-form-label">Scheduled Date  : </label> {{ $ISD }} 
+       <label class="col-form-label">Scheduled Date  : </label> {{ date("d/m/Y",strtotime($ISD)) }} 
      </div>
      <div class="col-md-12">
        <label class="col-form-label">Venue  : </label> {{ $IVE }} 

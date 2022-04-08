@@ -127,6 +127,7 @@ class DriverController extends Controller
         $IEXd = "";
         $REXD = "";
         $CEXD = "";
+        $LDT = "";
         $file_name = "";
         $SSD ="";
         $SVE ="";
@@ -138,6 +139,7 @@ class DriverController extends Controller
         $contract_approved = 1;
         $service_approved = 1;
         $inspection_approved = 1;
+        $assign_approved = 1;
         $sql = "select c.VBM,c.DNM,c.DSN,c.DCN,c.DNO from vehicle b,driver c where  b.driver_id=c.id and b.VNO='$VNO'";
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
@@ -215,7 +217,7 @@ class DriverController extends Controller
             $sql = "select a.id,a.expired_date,a.venue from driver_upload a,driver b where VNO = '$VNO' and a.driver_id=b.id and doc_type='Inspection' and approved=0";
             $result = DB::select(DB::raw($sql));
             if(count($result) > 0){
-               $service_approved = 0;
+               $inspection_approved = 0;
                $inspection_id = $result[0]->id;
                $ISD = $result[0]->expired_date;
                $IVE = $result[0]->venue;
@@ -227,7 +229,15 @@ class DriverController extends Controller
             if(count($result) > 0){
                $inspection = 1;
             }
-            return view('driver.tasks',compact('VNO','VBM','DNM','DCN','DNO','LEX','REX','IEX','CEX','LEXD','REXD','IEXD','CEXD','file_name','inspection','SSD','SVE','ISD','IVE','insurance_approved','roadworthy_approved','licence_approved','contract_approved','service_approved','inspection_approved'));
+
+            $sql = "select c.LDT from handover a,vehicle b,vehicle_log c where a.driver_id=b.driver_id and a.VNO=b.VNO and a.log_id=c.id and a.accepted=0 and a.VNO='$VNO'";
+            //echo $sql;die;
+            $result = DB::select(DB::raw($sql));
+            if(count($result) > 0){
+               $assign_approved = 0;
+               $LDT = $result[0]->LDT;
+            }
+            return view('driver.tasks',compact('VNO','VBM','DNM','DCN','DNO','LEX','REX','IEX','CEX','LEXD','REXD','IEXD','CEXD','file_name','inspection','SSD','SVE','ISD','IVE','insurance_approved','roadworthy_approved','licence_approved','contract_approved','service_approved','inspection_approved','assign_approved','LDT'));
         }
     }
     
@@ -452,6 +462,61 @@ class DriverController extends Controller
         }
     }
      
+     public function vehiclehandover()
+     {
+        $VNO = Session::get('VNO');
+        $driver_id = Session::get('driver_id');
+        $sql = "SELECT a.id,b.DNM,b.DSN,b.VCC FROM handover a,driver b where a.driver_id=b.id and VNO = '$VNO' and driver_id=$driver_id and accepted=0";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+            $DNM = $result[0]->DNM." ".$result[0]->DSN;
+            $VCC = $result[0]->VCC;
+            $handover_id = $result[0]->id;
+        return view('driver.vehiclehandover',compact('VCC','DNM','handover_id')); 
+        }
+     }
+
+     public function confirm_handover(Request $request){
+        $VNO = Session::get('VNO');
+        $driver_id = Session::get('driver_id');
+        $acceptance_code = trim($request->get("acceptance_code"));
+        $sql = "select * from handover where VNO = '$VNO' and driver_id=$driver_id and accepted=0";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+            $handover_id = $result[0]->id;
+            if($acceptance_code == $result[0]->acceptance_code){
+                $sql = "update handover set accepted=1 where id=$handover_id";
+                DB::update($sql);
+                return redirect('/tasks')->with('success', 'You have successfully accepted the contract');
+            }else{
+                return redirect('/vehiclehandover')->with('error', 'Invalid Acceptence Code');
+            }
+        }
+     }
+
+     public function accept_handover()
+     {
+        $VNO = Session::get('VNO');
+        $driver_id = Session::get('driver_id');
+        $sql = "select a.id,b.DCN,b.DNM,b.DSN from handover a,driver b where VNO = '$VNO' and driver_id=$driver_id and a.driver_id=b.id and accepted=0";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+            $acceptance_code = rand(1001,9999);
+            $handover_id = $result[0]->id;
+            $DCN = $result[0]->DCN;
+            $DNM = $result[0]->DNM." ".$result[0]->DSN;
+            $id = $result[0]->id;
+            $sql = "update handover set acceptance_code='$acceptance_code' where id=$handover_id";
+            DB::update(DB::raw($sql));  
+            $msg = "Hi $DNM, Your fleetops contract acceptance code is $acceptance_code";
+            SMSFleetops::send($DCN,$msg);
+            $DAT = date("Y-m-d");
+            $TIM = date("H:i:s");
+            $CTX = "Assign Vehicle Acceptance Code";
+            $sql = "insert into sms_log (PHN,MSG,DAT,TIM,CTX,NAM) values ('$DCN','$msg','$DAT','$TIM','$CTX','$DNM')";
+            DB::insert($sql);
+        }
+     }
 
      public function acceptance_code()
      {
@@ -544,7 +609,7 @@ class DriverController extends Controller
        }
     }
 
-    public function saveservice(Request $request)
+    public function saveservicedriver(Request $request)
     {
         $VNO = Session::get('VNO');
         $driver_id = Session::get('driver_id');
