@@ -230,8 +230,9 @@ class DriverController extends Controller
                $inspection = 1;
             }
 
-            $sql = "select c.LDT from handover a,vehicle b,vehicle_log c where a.driver_id=b.driver_id and a.VNO=b.VNO and a.log_id=c.id and a.accepted=0";
-            $assign = DB::select(DB::raw($sql));
+            $sql = "select c.LDT from handover a,vehicle b,vehicle_log c where a.driver_id=b.driver_id and a.VNO=b.VNO and a.log_id=c.id and a.accepted=0 and a.VNO='$VNO'";
+            //echo $sql;die;
+            $result = DB::select(DB::raw($sql));
             if(count($result) > 0){
                $assign_approved = 0;
                $LDT = $result[0]->LDT;
@@ -463,7 +464,58 @@ class DriverController extends Controller
      
      public function vehiclehandover()
      {
-        return view('driver.vehiclehandover'); 
+        $VNO = Session::get('VNO');
+        $driver_id = Session::get('driver_id');
+        $sql = "SELECT a.id,b.DNM,b.DSN,b.VCC FROM handover a,driver b where a.driver_id=b.id and VNO = '$VNO' and driver_id=$driver_id and accepted=0";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+            $DNM = $result[0]->DNM." ".$result[0]->DSN;
+            $VCC = $result[0]->VCC;
+            $handover_id = $result[0]->id;
+        return view('driver.vehiclehandover',compact('VCC','DNM','handover_id')); 
+        }
+     }
+
+     public function confirm_handover(Request $request){
+        $VNO = Session::get('VNO');
+        $driver_id = Session::get('driver_id');
+        $acceptance_code = trim($request->get("acceptance_code"));
+        $sql = "select * from handover where VNO = '$VNO' and driver_id=$driver_id and accepted=0";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+            $handover_id = $result[0]->id;
+            if($acceptance_code == $result[0]->acceptance_code){
+                $sql = "update handover set accepted=1 where id=$handover_id";
+                DB::update($sql);
+                return redirect('/tasks')->with('success', 'You have successfully accepted the contract');
+            }else{
+                return redirect('/vehiclehandover')->with('error', 'Invalid Acceptence Code');
+            }
+        }
+     }
+
+     public function accept_handover()
+     {
+        $VNO = Session::get('VNO');
+        $driver_id = Session::get('driver_id');
+        $sql = "select a.id,b.DCN,b.DNM,b.DSN from handover a,driver b where VNO = '$VNO' and driver_id=$driver_id and a.driver_id=b.id and accepted=0";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+            $acceptance_code = rand(1001,9999);
+            $handover_id = $result[0]->id;
+            $DCN = $result[0]->DCN;
+            $DNM = $result[0]->DNM." ".$result[0]->DSN;
+            $id = $result[0]->id;
+            $sql = "update handover set acceptance_code='$acceptance_code' where id=$handover_id";
+            DB::update(DB::raw($sql));  
+            $msg = "Hi $DNM, Your fleetops contract acceptance code is $acceptance_code";
+            SMSFleetops::send($DCN,$msg);
+            $DAT = date("Y-m-d");
+            $TIM = date("H:i:s");
+            $CTX = "Assign Vehicle Acceptance Code";
+            $sql = "insert into sms_log (PHN,MSG,DAT,TIM,CTX,NAM) values ('$DCN','$msg','$DAT','$TIM','$CTX','$DNM')";
+            DB::insert($sql);
+        }
      }
 
      public function acceptance_code()

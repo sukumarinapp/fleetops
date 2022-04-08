@@ -40,10 +40,10 @@
    </div>
  </div>
  <hr>
-  
+  @if($assign_approved == 0)
 <div class="row">
   <div class="col-md-12">
-   <a href="{{ url('Vehiclehandover') }}"> <i style="color: blue !important;cursor: pointer;float:right;margin-top: 80px;" class="fa fa-eye"></i></a>
+   <a href="{{ url('vehiclehandover') }}"> <i style="color: blue !important;cursor: pointer;float:right;margin-top: 80px;" class="fa fa-eye"></i></a>
    <div class="row justify-content-center">
     <h5 style="color: lightgray">Tasks</h5>
      <div class="col-md-12">
@@ -61,6 +61,7 @@
 </div>
 </div>
 <hr>
+@endif
 
  @if($licence_approved == 0)
  <div class="row">
@@ -169,7 +170,7 @@
     <a href="{{ url('uploadservice') }}"> <i style="float:right;margin-top: 80px;" class="fa fa-upload"></i></a>
     <div class="row justify-content-center">
      <div class="col-md-12">
-       <label class="col-form-label">{{ $service_approved }}Vehicle Servicing</label>
+       <label class="col-form-label">Vehicle Servicing</label>
      </div>
      <div class="col-md-12">
        <label class="col-form-label">Scheduled Date  : </label> {{ date("d/m/Y",strtotime($SSD)) }} 
