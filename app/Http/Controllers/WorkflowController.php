@@ -57,7 +57,10 @@ class WorkflowController extends Controller
         }
         $sql = "select a.*,b.DNM,b.DSN from driver_upload a,driver b where a.driver_id=b.id and approved=0";
         $inspect = DB::select(DB::raw($sql));
-        return view('workflow',compact('vehicles','inspect'));
+
+        $sql = "select a.id,d.LDT,b.VNO,c.DNM,c.DSN from handover a,vehicle b,driver c,vehicle_log d where a.driver_id=b.driver_id and b.driver_id=c.id and a.VNO=b.VNO and a.log_id=d.id and a.accepted=0";
+        $assign = DB::select(DB::raw($sql));
+        return view('workflow',compact('vehicles','inspect','assign'));
     }
 
     public function workflowlog($from,$to)
