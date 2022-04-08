@@ -69,6 +69,7 @@ Route::post('/save_new_licence', 'WorkflowController@save_new_licence')->name('s
 Route::post('/save_contract', 'WorkflowController@save_contract')->name('save_contract');
 Route::get('/uploadroadworthy', 'DriverController@uploadroadworthy')->name('uploadroadworthy');
 Route::post('/saveroadworthy', 'DriverController@saveroadworthy')->name('saveroadworthy');
+Route::get('/vehiclehandover', 'DriverController@vehiclehandover')->name('vehiclehandover');
 Route::get('/contract', 'DriverController@contract')->name('contract');
 Route::get('/inspect', 'DriverController@inspect')->name('inspect');
 Route::post('/acceptcontract', 'DriverController@acceptcontract')->name('acceptcontract');

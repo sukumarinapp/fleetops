@@ -127,6 +127,7 @@ class DriverController extends Controller
         $IEXd = "";
         $REXD = "";
         $CEXD = "";
+        $LDT = "";
         $file_name = "";
         $SSD ="";
         $SVE ="";
@@ -138,6 +139,7 @@ class DriverController extends Controller
         $contract_approved = 1;
         $service_approved = 1;
         $inspection_approved = 1;
+        $assign_approved = 1;
         $sql = "select c.VBM,c.DNM,c.DSN,c.DCN,c.DNO from vehicle b,driver c where  b.driver_id=c.id and b.VNO='$VNO'";
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
@@ -227,7 +229,14 @@ class DriverController extends Controller
             if(count($result) > 0){
                $inspection = 1;
             }
-            return view('driver.tasks',compact('VNO','VBM','DNM','DCN','DNO','LEX','REX','IEX','CEX','LEXD','REXD','IEXD','CEXD','file_name','inspection','SSD','SVE','ISD','IVE','insurance_approved','roadworthy_approved','licence_approved','contract_approved','service_approved','inspection_approved'));
+
+            $sql = "select c.LDT from handover a,vehicle b,vehicle_log c where a.driver_id=b.driver_id and a.VNO=b.VNO and a.log_id=c.id and a.accepted=0";
+            $assign = DB::select(DB::raw($sql));
+            if(count($result) > 0){
+               $assign_approved = 0;
+               $LDT = $result[0]->LDT;
+            }
+            return view('driver.tasks',compact('VNO','VBM','DNM','DCN','DNO','LEX','REX','IEX','CEX','LEXD','REXD','IEXD','CEXD','file_name','inspection','SSD','SVE','ISD','IVE','insurance_approved','roadworthy_approved','licence_approved','contract_approved','service_approved','inspection_approved','assign_approved','LDT'));
         }
     }
     
@@ -452,6 +461,10 @@ class DriverController extends Controller
         }
     }
      
+     public function vehiclehandover()
+     {
+        return view('driver.vehiclehandover'); 
+     }
 
      public function acceptance_code()
      {

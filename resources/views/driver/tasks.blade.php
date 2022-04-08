@@ -40,6 +40,27 @@
    </div>
  </div>
  <hr>
+  
+<div class="row">
+  <div class="col-md-12">
+   <a href="{{ url('Vehiclehandover') }}"> <i style="color: blue !important;cursor: pointer;float:right;margin-top: 80px;" class="fa fa-eye"></i></a>
+   <div class="row justify-content-center">
+    <h5 style="color: lightgray">Tasks</h5>
+     <div class="col-md-12">
+      <label class="col-form-label">Vehicle Handover</label>
+    </div>
+    <div class="col-md-12">
+     <label class="col-form-label">Assigned Date  : </label> {{ date("d/m/Y",strtotime($LDT)) }}
+   </div> 
+   <div class="col-md-12">
+    <p>Please read contract fully. Confirm acceptance by
+      inputting code that would be sent to you via SMS
+    on your registered phone number.</p>
+  </div>
+</div>
+</div>
+</div>
+<hr>
 
  @if($licence_approved == 0)
  <div class="row">
@@ -48,7 +69,7 @@
    <a href="{{ url('uploadlicence') }}"> <i style="float:right;margin-top: 80px;" class="fa fa-upload"></i></a>
     @endif
    <div class="row justify-content-center">
-    <h5 style="color: lightgray">Tasks</h5>
+    
     <div class="col-md-12">
      <label class="col-form-label">Licence Renewal - </label> {{ $DNO }} 
    </div>
