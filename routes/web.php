@@ -76,7 +76,7 @@ Route::post('/acceptinspection', 'DriverController@acceptinspection')->name('acc
 Route::get('/acceptance_code', 'DriverController@acceptance_code')->name('acceptance_code');
 Route::get('/accept_code', 'DriverController@accept_code')->name('accept_code');
 Route::get('/uploadservice', 'DriverController@uploadservice')->name('uploadservice');
-Route::post('/saveservice', 'DriverController@saveservice')->name('saveservice');
+Route::post('/saveservicedriver', 'DriverController@saveservicedriver')->name('saveservicedriver');
 Route::get('/drivervno', 'DriverController@drivervno')->name('drivervno');
 Route::post('/drivervnovalid', 'DriverController@drivervnovalid')->name('drivervnovalid');
 Route::get('/driverrhsales', 'DriverController@driverrhsales')->name('driverrhsales');

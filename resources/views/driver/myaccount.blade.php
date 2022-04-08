@@ -63,7 +63,7 @@
    <div class="col-md-12">
      <a target='_blank' href='../../uploads/VCC/{{ $VCC }}'>Agreement Terms & Conditions</a>
      @if($acceptance_code != "") 
-     <span>(Acceptence Code : {{ $acceptance_code }} )</span>
+     <span>(Acceptance Code : {{ $acceptance_code }} )</span>
      @endif
    </div>
    <div class="col-md-12">

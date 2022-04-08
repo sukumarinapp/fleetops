@@ -215,7 +215,7 @@ class DriverController extends Controller
             $sql = "select a.id,a.expired_date,a.venue from driver_upload a,driver b where VNO = '$VNO' and a.driver_id=b.id and doc_type='Inspection' and approved=0";
             $result = DB::select(DB::raw($sql));
             if(count($result) > 0){
-               $service_approved = 0;
+               $inspection_approved = 0;
                $inspection_id = $result[0]->id;
                $ISD = $result[0]->expired_date;
                $IVE = $result[0]->venue;
@@ -544,7 +544,7 @@ class DriverController extends Controller
        }
     }
 
-    public function saveservice(Request $request)
+    public function saveservicedriver(Request $request)
     {
         $VNO = Session::get('VNO');
         $driver_id = Session::get('driver_id');

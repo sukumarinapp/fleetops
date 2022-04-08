@@ -15,7 +15,7 @@
  </div>
 
  <div class="card-body">
-  <form onsubmit="return validate_all(event);" action="{{ route('saveservice') }}" method="post" enctype="multipart/form-data" class="form-horizontal">
+  <form onsubmit="return validate_all(event);" action="{{ route('saveservicedriver') }}" method="post" enctype="multipart/form-data" class="form-horizontal">
     @csrf
     <div class="row">
      <div class="col-md-6">
@@ -58,7 +58,7 @@ function validate_all(e){
     var selection = document.getElementById('SER');
     for (var i=0; i<selection.files.length; i++) {
         if(selection.files[i].size > 5000000){
-          alert('Roadworthy Certificate size can be a maximum of 5MB');
+          alert('Uploaded document size can be a maximum of 5MB');
             return false;
         }
     } 

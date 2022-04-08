@@ -53,7 +53,7 @@
      <label class="col-form-label">Licence Renewal - </label> {{ $DNO }} 
    </div>
    <div class="col-md-12">
-     <label class="col-form-label">Expiry Date  : </label> {{ $LEXD }}
+     <label class="col-form-label">Expiry Date  : </label> {{ date("d/m/Y",strtotime($LEXD)) }}
      @if($LEX == "1") 
      <span class="text-danger">(expired)</span>
      @endif
@@ -78,7 +78,7 @@
      <label class="col-form-label">Insurance Renewal</label>
    </div>
    <div class="col-md-12">
-     <label class="col-form-label">Expiry Date  : </label> {{ $IEXD }} 
+     <label class="col-form-label">Expiry Date  : </label> {{ date("d/m/Y",strtotime($IEXD)) }} 
      @if($IEX == "1") 
      <span class="text-danger">(expired)</span>
      @endif
@@ -102,7 +102,7 @@
      <label class="col-form-label">Roadworthy Cert Renewal</label>
    </div>
    <div class="col-md-12">
-     <label class="col-form-label">Expiry Date  : </label> {{ $REXD }} 
+     <label class="col-form-label">Expiry Date  : </label> {{ date("d/m/Y",strtotime($REXD)) }} 
      @if($REX == "1") 
      <span class="text-danger">(expired)</span>
      @endif
@@ -127,7 +127,7 @@
       <label class="col-form-label">Contract Renewal</label>
     </div>
     <div class="col-md-12">
-     <label class="col-form-label">Expiry Date  : </label> {{ $CEXD }}
+     <label class="col-form-label">Expiry Date  : </label> {{ date("d/m/Y",strtotime($CEXD)) }}
      @if($CEX == "1") 
      <span class="text-danger">(expired)</span>
      @endif
@@ -148,10 +148,10 @@
     <a href="{{ url('uploadservice') }}"> <i style="float:right;margin-top: 80px;" class="fa fa-upload"></i></a>
     <div class="row justify-content-center">
      <div class="col-md-12">
-       <label class="col-form-label">Vehicle Servicing</label>
+       <label class="col-form-label">{{ $service_approved }}Vehicle Servicing</label>
      </div>
      <div class="col-md-12">
-       <label class="col-form-label">Scheduled Date  : </label> {{ $SSD }} 
+       <label class="col-form-label">Scheduled Date  : </label> {{ date("d/m/Y",strtotime($SSD)) }} 
      </div>
      <div class="col-md-12">
        <label class="col-form-label">Venue  : </label> {{ $SVE }} 
@@ -175,7 +175,7 @@
        <label class="col-form-label">Vehicle Inspection</label>
      </div>
      <div class="col-md-12">
-       <label class="col-form-label">Scheduled Date  : </label> {{ $ISD }} 
+       <label class="col-form-label">Scheduled Date  : </label> {{ date("d/m/Y",strtotime($ISD)) }} 
      </div>
      <div class="col-md-12">
        <label class="col-form-label">Venue  : </label> {{ $IVE }} 
