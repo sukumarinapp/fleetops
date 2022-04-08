@@ -123,13 +123,14 @@ input:checked + .slider:before {
 								<div class="form-group row">
 									<label for="VID" class="col-sm-4 col-form-label"><span style="color:red">*</span>Insurance<br>&nbsp;File Type (pdf/jpg/png)</label>
 									<div class="col-sm-8">
-										<input accept="application/pdf,image/png, image/jpeg" name="VID" type="file" id="VID">
+										<input onchange="readURL(this,'ins');" accept="application/pdf,image/png, image/jpeg" name="VID" type="file" id="VID">
 										@php
 										$href="";
 										if($vehicle->VID != ""){
 											echo "<a target='_blank' href='../../uploads/VID/".$vehicle->VID."'>View</a>";
 										}
 										@endphp
+										<img id="ins"  />
 									</div>
 								</div>
 
@@ -147,13 +148,14 @@ input:checked + .slider:before {
 								<div class="form-group row">
 									<label for="VRD" class="col-sm-4 col-form-label"><span style="color:red">*</span>Roadworthy Cert<br>&nbsp;File Type (pdf/jpg/png)</label>
 									<div class="col-sm-8">
-										<input accept="application/pdf,image/png, image/jpeg" name="VRD" type="file" id="VRD">
+										<input onchange="readURL(this,'rdw');" accept="application/pdf,image/png, image/jpeg" name="VRD" type="file" id="VRD">
 										@php
 										$href="";
 										if($vehicle->VRD != ""){
 											echo "<a target='_blank' href='../../uploads/VRD/".$vehicle->VRD."'>View</a>";
 										}
 										@endphp
+										<img id="rdw"  />
 									</div>
 								</div>
 
@@ -551,5 +553,18 @@ input:checked + .slider:before {
 		    }
 		} 
 	}
+
+	function readURL(input,photoprview) {
+      if (input.files && input.files[0]) {
+          var reader = new FileReader();
+          reader.onload = function (e) {
+              $('#'+photoprview)              
+                  .attr('src', e.target.result)
+                  .width(150)
+                  .height(150);
+          };
+          reader.readAsDataURL(input.files[0]);
+      }
+  }
 		</script>
 		@endpush

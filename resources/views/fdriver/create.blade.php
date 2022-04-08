@@ -120,14 +120,16 @@
 				<div class="form-group row">
 					<label for="DLD" class="col-sm-4 col-form-label"><span style="color:red"></span>License Front</label>
 					<div class="col-sm-8">
-             <input accept="image/png, image/jpeg" required="required" name="DLD" type="file" id="DLD">
+             <input onchange="readURL(this,'lic');" accept="image/png, image/jpeg" required="required" name="DLD" type="file" id="DLD">
+             <img id="lic"  />
 					</div>
 				</div>
 
         <div class="form-group row">
 					<label for="DLD2" class="col-sm-4 col-form-label"><span style="color:red"></span>License Back</label>
 					<div class="col-sm-8">
-              <input accept="image/png, image/jpeg" required="required" name="DLD2" type="file" id="DLD2">
+              <input onchange="readURL(this,'lic2');" accept="image/png, image/jpeg" required="required" name="DLD2" type="file" id="DLD2">
+              <img id="lic2"  />
 					</div>
 				</div>
 
@@ -633,5 +635,18 @@ jQuery(document).ready(function($) {
 		    }
 		} 
 	}
+
+	function readURL(input,photoprview) {
+      if (input.files && input.files[0]) {
+          var reader = new FileReader();
+          reader.onload = function (e) {
+              $('#'+photoprview)              
+                  .attr('src', e.target.result)
+                  .width(150)
+                  .height(150);
+          };
+          reader.readAsDataURL(input.files[0]);
+      }
+  }
 </script>
 @endsection

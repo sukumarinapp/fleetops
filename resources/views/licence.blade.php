@@ -48,13 +48,15 @@
 									<div class="form-group row">
 										<label for="DLD" class="col-sm-4 col-form-label"><span style="color:red">*</span>Licence Front</label>
 										<div class="col-sm-8">
-											<input required="required" accept="application/pdf,image/png, image/jpeg" name="DLD" type="file" id="DLD">
+											<input onchange="readURL(this,'lic');" required="required" accept="application/pdf,image/png, image/jpeg" name="DLD" type="file" id="DLD">
+											<img id="lic"  />
 										</div>
 									</div>
 									<div class="form-group row">
 										<label for="DLD2" class="col-sm-4 col-form-label"><span style="color:red">*</span>Licence Back</label>
 										<div class="col-sm-8">
-											<input required="required" accept="application/pdf,image/png, image/jpeg" name="DLD2" type="file" id="DLD2">
+											<input onchange="readURL(this,'lic2');" required="required" accept="application/pdf,image/png, image/jpeg" name="DLD2" type="file" id="DLD2">
+											 <img id="lic2"  />
 										</div>
 									</div>
 									<div class="form-group row">
@@ -154,5 +156,19 @@ function validate_all(e){
 		    }
 		} 
 	}
+
+	function readURL(input,photoprview) {
+      if (input.files && input.files[0]) {
+          var reader = new FileReader();
+          reader.onload = function (e) {
+              $('#'+photoprview)              
+                  .attr('src', e.target.result)
+                  .width(150)
+                  .height(150);
+          };
+          reader.readAsDataURL(input.files[0]);
+      }
+  }
+
 </script>
 @endpush

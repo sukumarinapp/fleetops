@@ -116,7 +116,8 @@ border-radius: 34px;
 						<div class="form-group row">
 							<label for="VID" class="col-sm-4 col-form-label"><span style="color:red">*</span>Insurance<br>&nbsp;File Type (pdf/jpg/png)</label>
 							<div class="col-sm-8">
-								<input required="required" accept="application/pdf,image/png, image/jpeg" name="VID" type="file" id="VID">
+								<input onchange="readURL(this,'ins');" required="required" accept="application/pdf,image/png, image/jpeg" name="VID" type="file" id="VID">
+								<img id="ins"  />
 							</div>
 						</div>
 
@@ -135,7 +136,8 @@ border-radius: 34px;
 						<div class="form-group row">
 							<label for="VRD" class="col-sm-4 col-form-label"><span style="color:red">*</span>Roadworthy Cert<br>&nbsp;File Type (pdf/jpg/png)</label>
 							<div class="col-sm-8">
-								<input required="required" accept="application/pdf,image/png, image/jpeg" name="VRD" type="file" id="VRD">
+								<input onchange="readURL(this,'rdw');" required="required" accept="application/pdf,image/png, image/jpeg" name="VRD" type="file" id="VRD">
+								<img id="rdw"  />
 							</div>
 						</div>
 
@@ -522,5 +524,18 @@ border-radius: 34px;
 		    }
 		} 
 	}
+
+	function readURL(input,photoprview) {
+      if (input.files && input.files[0]) {
+          var reader = new FileReader();
+          reader.onload = function (e) {
+              $('#'+photoprview)              
+                  .attr('src', e.target.result)
+                  .width(150)
+                  .height(150);
+          };
+          reader.readAsDataURL(input.files[0]);
+      }
+  }
 	</script>
 	@endpush
