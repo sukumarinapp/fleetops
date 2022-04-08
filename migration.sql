@@ -281,3 +281,7 @@ CREATE TABLE `retrieval` (
 alter table vehicle add chassis_no varchar(50) DEFAULT NULL;
 
 alter table vehicle add handover_id int(11) DEFAULT 0;
+
+--8/4/2002
+alter table handover add acceptance_code varchar(10) DEFAULT NULL;
+alter table handover add accepted int(1) DEFAULT 0;
