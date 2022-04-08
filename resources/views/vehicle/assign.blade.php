@@ -56,10 +56,12 @@
 							</div>
 						</div>
 					</div>
-					 <div class="col-md-2 text-right d-flex align-items-right  justify-content-center" style="margin-top: 30px;">
-             <input accept="image/png, image/jpeg" name="photo" type="file" id="photo">
+					 <div class="col-md-3 d-flex align-items-right  justify-content-center" style="margin-top: 30px;">
+					 	<img id="blah" src="#" alt="your image" />
+             <input onchange="readURL(this);" accept="image/png, image/jpeg" name="photo" type="file" id="photo">
+             
       </div>
-      <div class="col-md-5 text-right d-flex align-items-right justify-content-center">
+      <div class="col-md-4 text-right d-flex align-items-right justify-content-center">
               <div class="card-body">
               	<div class="form-group row">
 					<div class="col-md-10 text-left">
@@ -383,7 +385,9 @@
 												<div class="form-group row">
 							<label for="CFP2" class="col-sm-3 col-form-label"><span style="color:red"></span>FRONT</label>
 							<div class="col-sm-6">
-								<input  accept="image/png, image/jpeg" name="CFP2" type="file" id="CFP2">
+									<img id="front" src="#" alt="your image" />
+								<input onchange="readURL(this);" accept="image/png, image/jpeg" name="CFP2" type="file" id="CFP2">
+
 							</div>
 						</div>
 						<div class="form-group row">
@@ -429,5 +433,21 @@
     	theme: 'bootstrap4'
     });
 	});
+
+	 function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#blah')
+                    
+                        .attr('src', e.target.result)
+                        .width(150)
+                        .height(150);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
 </script>
 @endpush
