@@ -84,7 +84,7 @@
 						<div class="form-group row">
 							<label for="CF01" class="col-sm-3 col-form-label"><span style="color:red">*</span>Starting Mileage</label>
 							<div class="col-sm-6">
-								<input type="text" class="form-control number" name="CF01" id="CF01" maxlength="50" placeholder="">
+								<input type="text" required="required" class="form-control number" name="CF01" id="CF01" maxlength="10" placeholder="">
 							</div>
 						</div>
 						<div class="form-group row">

@@ -60,7 +60,7 @@
             </div>
           </div>
            <div class="col-md-2 text-right d-flex align-items-right justify-content-center">
-             <img class="img-fluid img-thumbnail" src="{{ URL::to('/') }}/images/test.jpg" style="width:70%;height:80%"> 
+             <img class="img-fluid img-thumbnail" src="" style="width:70%;height:80%"> 
       </div>
       <div class="col-md-3 text-right d-flex align-items-right justify-content-center">
               <div class="card-body">
@@ -71,7 +71,7 @@
             <div class="form-group row">
               <label for="CF01" class="col-sm-3 col-form-label"><span style="color:red">*</span>Ending Mileage</label>
               <div class="col-sm-6">
-                <input type="text" required="required" class="form-control number" name="CF01" id="CF01" maxlength="50" placeholder="">
+                <input type="text" required="required" class="form-control number" name="CF01" id="CF01" maxlength="10" placeholder="">
               </div>
             </div>
             <div class="form-group row">
@@ -372,25 +372,29 @@
                         <div class="form-group row">
               <label for="CFP2" class="col-sm-3 col-form-label"><span style="color:red"></span>FRONT</label>
               <div class="col-sm-6">
-                <input  accept="image/png, image/jpeg" name="CFP2" type="file" id="CFP2">
+                <img id="CFP2p"  />
+                <input onchange="readURL(this,'CFP2p');" accept="image/png, image/jpeg" name="CFP2" type="file" id="CFP2">
               </div>
             </div>
             <div class="form-group row">
               <label for="CFP3" class="col-sm-3 col-form-label"><span style="color:red"></span>RIGHT</label>
               <div class="col-sm-6">
-                <input  accept="image/png, image/jpeg" name="CFP3" type="file" id="CFP3">
+                <img id="CFP3p"  />
+                <input  onchange="readURL(this,'CFP3p');" accept="image/png, image/jpeg" name="CFP3" type="file" id="CFP3">
               </div>
             </div>
             <div class="form-group row">
               <label for="CFP4" class="col-sm-3 col-form-label"><span style="color:red"></span>REAR</label>
               <div class="col-sm-6">
-                <input  accept="image/png, image/jpeg" name="CFP4" type="file" id="CFP4">
+                <img id="CFP4p"  />
+                <input onchange="readURL(this,'CFP4p');" accept="image/png, image/jpeg" name="CFP4" type="file" id="CFP4">
               </div>
             </div>
             <div class="form-group row">
               <label for="CFP5" class="col-sm-3 col-form-label"><span style="color:red"></span>LEFT</label>
               <div class="col-sm-6">
-                <input  accept="image/png, image/jpeg" name="CFP5" type="file" id="CFP5">
+                <img id="CFP5p"  />
+                <input onchange="readURL(this,'CFP5p');" accept="image/png, image/jpeg" name="CFP5" type="file" id="CFP5">
               </div>
             </div>
           </div>
@@ -411,3 +415,20 @@
 	</div>
 </div>
 @endsection
+
+@push('page_scripts')
+<script>
+   function readURL(input,photoprview) {
+      if (input.files && input.files[0]) {
+          var reader = new FileReader();
+          reader.onload = function (e) {
+              $('#'+photoprview)              
+                  .attr('src', e.target.result)
+                  .width(150)
+                  .height(150);
+          };
+          reader.readAsDataURL(input.files[0]);
+      }
+  }
+</script>
+@endpush
