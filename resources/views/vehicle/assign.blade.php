@@ -57,8 +57,8 @@
 						</div>
 					</div>
 					 <div class="col-md-3 d-flex align-items-right  justify-content-center" style="margin-top: 30px;">
-					 	<img id="blah" src="#" alt="your image" />
-             <input onchange="readURL(this);" accept="image/png, image/jpeg" name="photo" type="file" id="photo">
+					 	<img id="photop"  />
+             <input onchange="readURL(this,'photop');" accept="image/png, image/jpeg" name="photo" type="file" id="photo">
              
       </div>
       <div class="col-md-4 text-right d-flex align-items-right justify-content-center">
@@ -385,8 +385,8 @@
 												<div class="form-group row">
 							<label for="CFP2" class="col-sm-3 col-form-label"><span style="color:red"></span>FRONT</label>
 							<div class="col-sm-6">
-									<img id="front" src="#" alt="your image" />
-								<input onchange="readURL(this);" accept="image/png, image/jpeg" name="CFP2" type="file" id="CFP2">
+									<img id="frontp"  />
+								<input onchange="readURL(this,'frontp');" accept="image/png, image/jpeg" name="CFP2" type="file" id="CFP2">
 
 							</div>
 						</div>
@@ -434,20 +434,17 @@
     });
 	});
 
-	 function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-
-                reader.onload = function (e) {
-                    $('#blah')
-                    
-                        .attr('src', e.target.result)
-                        .width(150)
-                        .height(150);
-                };
-
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
+	 function readURL(input,photoprview) {
+      if (input.files && input.files[0]) {
+          var reader = new FileReader();
+          reader.onload = function (e) {
+              $('#'+photoprview)              
+                  .attr('src', e.target.result)
+                  .width(150)
+                  .height(150);
+          };
+          reader.readAsDataURL(input.files[0]);
+      }
+  }
 </script>
 @endpush
