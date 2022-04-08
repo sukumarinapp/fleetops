@@ -158,7 +158,7 @@
 		            </tr>
             @endforeach
             @foreach($assign as $ass)
-							<tr>
+							<tr style="font-weight:bold">
 								<td>{{ date("d-m-Y",strtotime($ass->LDT)) }}</td>
 						      	<td>{{ $ass->VNO }}</td>
 						      	<td>ASN{{ str_pad($ass->id,3,'0',STR_PAD_LEFT) }}</td>
