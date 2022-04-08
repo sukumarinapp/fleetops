@@ -28,7 +28,8 @@
       <div class="form-group row">
         <label for="SER" class="col-sm-4 col-form-label"><span style="color:red"></span>Upload Document (Optional)</label>
         <div class="col-sm-8">
-          <input accept="application/pdf,image/png, image/jpeg" name="SER" type="file" id="SER">
+          <input onchange="readURL(this,'ser');"  accept="application/pdf,image/png, image/jpeg" name="SER" type="file" id="SER">
+          <img id="ser"  />
         </div>
       </div>
       <div class="form-group row">
@@ -63,5 +64,19 @@ function validate_all(e){
         }
     } 
   }
+
+  function readURL(input,photoprview) {
+      if (input.files && input.files[0]) {
+          var reader = new FileReader();
+          reader.onload = function (e) {
+              $('#'+photoprview)              
+                  .attr('src', e.target.result)
+                  .width(150)
+                  .height(150);
+          };
+          reader.readAsDataURL(input.files[0]);
+      }
+  }
+
 </script>
 @endsection

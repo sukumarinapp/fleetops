@@ -29,7 +29,8 @@
       <div class="form-group row">
         <label for="VID" class="col-sm-4 col-form-label"><span style="color:red">*</span>Insurance</label>
         <div class="col-sm-8">
-          <input required="required" accept="image/png, image/jpeg" name="VID" type="file" id="VID">
+          <input onchange="readURL(this,'ins');" required="required" accept="image/png, image/jpeg" name="VID" type="file" id="VID">
+          <img id="ins"  />
         </div>
       </div>
       <div class="form-group row">
@@ -67,6 +68,19 @@
             return false;
         }
     } 
+  }
+
+  function readURL(input,photoprview) {
+      if (input.files && input.files[0]) {
+          var reader = new FileReader();
+          reader.onload = function (e) {
+              $('#'+photoprview)              
+                  .attr('src', e.target.result)
+                  .width(150)
+                  .height(150);
+          };
+          reader.readAsDataURL(input.files[0]);
+      }
   }
 </script>
 @endsection
