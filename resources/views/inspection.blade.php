@@ -30,8 +30,8 @@
 				<div class="col-sm-6">
 					<div>
 					</div>
-					<div><strong>Vehicle Reg. No :</strong><span>{{ $VNO }}</span></div>
-					<div><strong>Vehicle Chassis No :</strong><span></span></div>
+					<div><strong>Vehicle Reg. No :</strong> <span>{{ $VNO }}</span></div>
+					<div><strong>Vehicle Chassis No :</strong> <span>{{ $chassis_no }}</span></div>
 				</div>
 
 			</div>
