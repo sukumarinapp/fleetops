@@ -505,6 +505,10 @@
 								<input id="fileupload" type="file" name="VI25[]" multiple="multiple" >
 							</div>
 						</div>
+						<div class="form-group row">
+							<div class="col-md-12 gallery"  >
+							</div>
+						</div>
 
 
 					</div>
@@ -541,5 +545,25 @@
 		    }
 		} 
 	}
+
+    $(function() {
+    // Multiple images preview in browser
+    var imagesPreview = function(input, placeToInsertImagePreview) {
+        if (input.files) {
+            var filesAmount = input.files.length;
+            for (i = 0; i < filesAmount; i++) {
+                var reader = new FileReader();
+                reader.onload = function(event) {
+                    $($.parseHTML('<img>')).attr('src', event.target.result).width(150).height(150).appendTo(placeToInsertImagePreview);
+                }
+                reader.readAsDataURL(input.files[i]);
+            }
+        }
+    };
+
+    $('#fileupload').on('change', function() {
+        imagesPreview(this, 'div.gallery');
+    });
+});
 </script>
 @endpush
