@@ -504,6 +504,7 @@
 							<div class="col-sm-6">
 								<input id="fileupload" type="file" name="VI25[]" multiple="multiple" >
 							</div>
+							<label class="col-sm-12 col-form-label" style="font-weight: normal !important;">Press CTRL Key to select multiple images in Desktop/Laptop.</label>
 						</div>
 						<div class="form-group row">
 							<div class="col-md-12 gallery"></div>
