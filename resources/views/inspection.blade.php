@@ -506,14 +506,10 @@
 							</div>
 						</div>
 						<div class="form-group row">
-							<div class="col-md-12 gallery"  >
-							</div>
+							<div class="col-md-12 gallery"></div>
 						</div>
-
-
 					</div>
 				</div>
-
 			</div>
 			<div class="form-group row">
 				<div class="col-md-12 text-center">
@@ -522,7 +518,6 @@
 					<a href="{{ route('workflow') }}" class="btn btn-info">Back</a>
 				</div>
 			</div>	
-
 		</div>
 	</div>
 </form>
@@ -547,10 +542,12 @@
 	}
 
     $(function() {
-    // Multiple images preview in browser
     var imagesPreview = function(input, placeToInsertImagePreview) {
         if (input.files) {
             var filesAmount = input.files.length;
+            if(filesAmount > 0) {
+            	$(".gallery").html("");
+            }
             for (i = 0; i < filesAmount; i++) {
                 var reader = new FileReader();
                 reader.onload = function(event) {
