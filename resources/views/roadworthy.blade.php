@@ -133,6 +133,7 @@ function validate_all(e){
 	alert("ok");
 		var selection = document.getElementById('VRD');
 		for (var i=0; i<selection.files.length; i++) {
+			alert(selection.files[i].size);
 		    if(selection.files[i].size > 5000000){
 		    	alert('Roadworthy Certificate size can be a maximum of 5MB');
 		        return false;
