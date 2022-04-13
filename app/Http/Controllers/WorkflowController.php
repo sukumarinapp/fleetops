@@ -34,6 +34,7 @@ class WorkflowController extends Controller
 
     public function index()
     {
+        $today = date("Y-m-d");
         $this->check_access("BPJ2");
         $sql = "select d.id as vid,a.*,b.DNM,b.DSN from tbl136 a,driver b,vehicle d where a.driver_id=b.id and a.VNO=d.VNO and a.DECL=0 and a.DDT = (select max(DDT) from tbl136 c where a.VNO=c.VNO and DECL=0 group by VNO) order by DDT";
         $vehicles = DB::select(DB::raw($sql));
@@ -60,7 +61,7 @@ class WorkflowController extends Controller
 
         $sql = "select a.id,d.LDT,b.VNO,c.DNM,c.DSN from handover a,vehicle b,driver c,vehicle_log d where a.driver_id=b.driver_id and b.driver_id=c.id and a.VNO=b.VNO and a.log_id=d.id and a.accepted=0";
         $assign = DB::select(DB::raw($sql));
-        return view('workflow',compact('vehicles','inspect','assign'));
+        return view('workflow',compact('vehicles','inspect','assign','today'));
     }
 
     public function workflowlog($from,$to)

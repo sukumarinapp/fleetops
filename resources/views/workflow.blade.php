@@ -104,7 +104,13 @@
 								  	@elseif($insp->doc_type == "Contract")
 								      	<td>CTR{{ str_pad($insp->id,3,'0',STR_PAD_LEFT) }}</td>
 								  	@endif
-		              <td>{{ $insp->doc_type }}</td>
+		              <td>{{ $insp->doc_type }}
+		              	@if($today >= $insp->expiry)
+                    ( Expired on {{ date("d-m-Y",strtotime($insp->expiry)) }} )
+		              	@else
+		              	( Expires on {{ date("d-m-Y",strtotime($insp->expiry)) }} )
+		              	@endif
+		               </td>
 		              <td>{{ $insp->DNM }} {{ $insp->DSN }}</td>    
 		              @if($insp->doc_type == "Inspection")
 		              	<td><a href="{{ url('inspection') }}/{{ $insp->id }}">Resolve</a></td>

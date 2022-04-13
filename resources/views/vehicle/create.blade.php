@@ -406,12 +406,15 @@ border-radius: 34px;
 							<div class="col-sm-3">
 							</div>
 							<label for="SSFP" class="col-sm-2 col-form-label">Recur Every</label>
-							<div class="col-sm-2">
+							<div class="col-sm-3">
 								<input type="text" maxlength="2" class="form-control number" name="SSFP" id="SSFP">
 							</div>
-
-							<label for="SSFD" class="col-sm-1 col-form-label">On Day</label>
-							<div class="col-sm-2">
+						</div>
+                        <div class="form-group row">
+							<div class="col-sm-3">
+							</div>
+							<label for="SSFD" class="col-sm-2 col-form-label">On Day</label>
+							<div class="col-sm-3">
 								<select name="SSFD" id="SSFD" class="custom-select">
 									<option value="0" selected="selected">Sunday</option>
 									<option value="1" >Monday</option>
@@ -470,12 +473,15 @@ border-radius: 34px;
 							<div class="col-sm-3">
 							</div>
 							<label for="ISFP" class="col-sm-2 col-form-label">Recur Every</label>
-							<div class="col-sm-2">
+							<div class="col-sm-3">
 								<input type="text" maxlength="2" class="form-control number" name="ISFP" id="ISFP">
 							</div>
-
-							<label for="ISFD" class="col-sm-1 col-form-label">On Day</label>
-							<div class="col-sm-2">
+						</div>
+                        <div class="form-group row">
+							<div class="col-sm-3">
+							</div>
+							<label for="ISFD" class="col-sm-2 col-form-label">On Day</label>
+							<div class="col-sm-3">
 								<select name="ISFD" id="ISFD" class="custom-select">
 									<option value="0" selected="selected">Sunday</option>
 									<option value="1" >Monday</option>
