@@ -48,6 +48,7 @@
          @else
           <i class="fa fa-times" style="color:red"></i>
           @endif
+           &nbsp;<span> {{ $ins->CI01 }} </span>
         </div>
       </div> 
 
@@ -59,7 +60,9 @@
          @else
           <i class="fa fa-times" style="color:red"></i>
           @endif
-        </div>
+
+          &nbsp;<span> {{ $ins->CI02 }} </span>
+         </div>
       </div>    
 
        <div class="form-group row">
@@ -70,6 +73,7 @@
          @else
           <i class="fa fa-times" style="color:red"></i>
           @endif
+          &nbsp;<span> {{ $ins->CI03 }} </span>
         </div>
       </div>
 
@@ -81,6 +85,8 @@
          @else
           <i class="fa fa-times" style="color:red"></i>
           @endif
+
+          &nbsp;<span> {{ $ins->CI04 }} </span>
         </div>
       </div>   
 
@@ -92,6 +98,8 @@
          @else
           <i class="fa fa-times" style="color:red"></i>
           @endif
+
+          &nbsp;<span> {{ $ins->CI05 }} </span>
         </div>
       </div>    
 
@@ -103,6 +111,7 @@
          @else
           <i class="fa fa-times" style="color:red"></i>
           @endif
+          &nbsp;<span> {{ $ins->CI06 }} </span>
         </div>
       </div>   
 
@@ -114,6 +123,7 @@
          @else
           <i class="fa fa-times" style="color:red"></i>
           @endif
+          &nbsp;<span> {{ $ins->CI07 }} </span>
         </div>
       </div>    
 
@@ -125,6 +135,7 @@
          @else
           <i class="fa fa-times" style="color:red"></i>
           @endif
+          &nbsp;<span> {{ $ins->CI08 }} </span>
         </div>
       </div>    
 
@@ -136,6 +147,7 @@
          @else
           <i class="fa fa-times" style="color:red"></i>
           @endif
+          &nbsp;<span> {{ $ins->CI09 }} </span>
         </div>
       </div>    
 
@@ -147,6 +159,7 @@
          @else
           <i class="fa fa-times" style="color:red"></i>
           @endif
+          &nbsp;<span> {{ $ins->CI10 }} </span>
         </div>
       </div>    
 
@@ -158,6 +171,7 @@
          @else
           <i class="fa fa-times" style="color:red"></i>
           @endif
+          &nbsp;<span> {{ $ins->CI11 }} </span>
         </div>
       </div>    
 
@@ -169,6 +183,7 @@
          @else
           <i class="fa fa-times" style="color:red"></i>
           @endif
+          &nbsp;<span> {{ $ins->CI12 }} </span>
         </div>
       </div>    
 
@@ -180,6 +195,7 @@
          @else
           <i class="fa fa-times" style="color:red"></i>
           @endif
+          &nbsp;<span> {{ $ins->CI13 }} </span>
         </div>
       </div>    
 
@@ -191,6 +207,7 @@
          @else
           <i class="fa fa-times" style="color:red"></i>
           @endif
+          &nbsp;<span> {{ $ins->CI14 }} </span>
         </div>
       </div>    
 
@@ -202,6 +219,7 @@
          @else
           <i class="fa fa-times" style="color:red"></i>
           @endif
+          &nbsp;<span> {{ $ins->CI15 }} </span>
         </div>
       </div>    
 
@@ -213,6 +231,7 @@
          @else
           <i class="fa fa-times" style="color:red"></i>
           @endif
+          &nbsp;<span> {{ $ins->CI16 }} </span>
         </div>
       </div>    
 
@@ -224,6 +243,7 @@
          @else
           <i class="fa fa-times" style="color:red"></i>
           @endif
+          &nbsp;<span> {{ $ins->CI17 }} </span>
         </div>
       </div>    
 
@@ -235,6 +255,7 @@
          @else
           <i class="fa fa-times" style="color:red"></i>
           @endif
+          &nbsp;<span> {{ $ins->CI18 }} </span>
         </div>
       </div>    
 
@@ -246,6 +267,7 @@
          @else
           <i class="fa fa-times" style="color:red"></i>
           @endif
+          &nbsp;<span> {{ $ins->CI19 }} </span>
         </div>
       </div>    
 
@@ -257,6 +279,7 @@
          @else
           <i class="fa fa-times" style="color:red"></i>
           @endif
+          &nbsp;<span> {{ $ins->CI20 }} </span>
         </div>
       </div>   
 
@@ -268,6 +291,7 @@
          @else
           <i class="fa fa-times" style="color:red"></i>
           @endif
+          &nbsp;<span> {{ $ins->CI21 }} </span>
         </div>
       </div>    
 
@@ -279,6 +303,7 @@
          @else
           <i class="fa fa-times" style="color:red"></i>
           @endif
+          &nbsp;<span> {{ $ins->CI22 }} </span>
         </div>
       </div>    
 
@@ -290,6 +315,7 @@
          @else
           <i class="fa fa-times" style="color:red"></i>
           @endif
+          &nbsp;<span> {{ $ins->CI23 }} </span>
         </div>
       </div>    
 
@@ -301,13 +327,14 @@
          @else
           <i class="fa fa-times" style="color:red"></i>
           @endif
+          &nbsp;<span> {{ $ins->CI24 }} </span>
         </div>
       </div>   
    @endforeach
       @foreach($images as $image)
          <div class="form-group row">
           <div class="col-md-4">
-           <img class="img-responsive img-rounded" src="../uploads/inspection/{{ $image->filename }}">
+           <img class="img-responsive img-rounded" src="../uploads/inspection/{{ $image->filename }}" width="500" height="400">
          </div>
          </div>
          

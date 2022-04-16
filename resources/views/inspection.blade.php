@@ -57,7 +57,7 @@
 								</div>
 							</div>
 							<div class="col-sm-3">
-								<input type="text" class="form-control form-control-sm" name="CI01" id="CI01" maxlength="20">
+								<input type="text" class="form-control form-control-sm" name="CI01" id="CI01" maxlength="50">
 							</div>
 						</div>
 
@@ -76,7 +76,7 @@
 								</div>
 							</div>
 							<div class="col-sm-3">
-								<input  type="text" class="form-control form-control-sm" name="CI02" id="CI02" maxlength="20">
+								<input  type="text" class="form-control form-control-sm" name="CI02" id="CI02" maxlength="50">
 							</div>
 						</div>
 
@@ -95,7 +95,7 @@
 								</div>
 							</div>
 							<div class="col-sm-3">
-								<input  type="text" class="form-control form-control-sm" name="CI03" id="CI03" maxlength="20">
+								<input  type="text" class="form-control form-control-sm" name="CI03" id="CI03" maxlength="50">
 							</div>
 						</div>
 
@@ -114,7 +114,7 @@
 								</div>
 							</div>
 							<div class="col-sm-3">
-								<input  type="text" class="form-control form-control-sm" name="CI04" id="CI04" maxlength="20">
+								<input  type="text" class="form-control form-control-sm" name="CI04" id="CI04" maxlength="50">
 							</div>
 						</div>
 
@@ -133,7 +133,7 @@
 								</div>
 							</div>
 							<div class="col-sm-3">
-								<input  type="text" class="form-control form-control-sm" name="CI05" id="CI05" maxlength="20">
+								<input  type="text" class="form-control form-control-sm" name="CI05" id="CI05" maxlength="50">
 							</div>
 						</div>
 
@@ -152,7 +152,7 @@
 								</div>
 							</div>
 							<div class="col-sm-3">
-								<input  type="text" class="form-control form-control-sm" name="CI06" id="CI06" maxlength="20">
+								<input  type="text" class="form-control form-control-sm" name="CI06" id="CI06" maxlength="50">
 							</div>
 						</div>
 
@@ -171,7 +171,7 @@
 								</div>
 							</div>
 							<div class="col-sm-3">
-								<input  type="text" class="form-control form-control-sm" name="CI07" id="CI07" maxlength="20">
+								<input  type="text" class="form-control form-control-sm" name="CI07" id="CI07" maxlength="50">
 							</div>
 						</div>
 
@@ -190,7 +190,7 @@
 								</div>
 							</div>
 							<div class="col-sm-3">
-								<input  type="text" class="form-control form-control-sm" name="CI08" id="CI08" maxlength="20">
+								<input  type="text" class="form-control form-control-sm" name="CI08" id="CI08" maxlength="50">
 							</div>
 						</div>
 
@@ -209,7 +209,7 @@
 								</div>
 							</div>
 							<div class="col-sm-3">
-								<input type="text" class="form-control form-control-sm" name="CI09" id="CI09" maxlength="20">
+								<input type="text" class="form-control form-control-sm" name="CI09" id="CI09" maxlength="50">
 							</div>
 						</div>
 
@@ -228,7 +228,7 @@
 								</div>
 							</div>
 							<div class="col-sm-3">
-								<input type="text" class="form-control form-control-sm" name="CI10" id="CI10" maxlength="20">
+								<input type="text" class="form-control form-control-sm" name="CI10" id="CI10" maxlength="50">
 							</div>
 						</div>
 
@@ -247,7 +247,7 @@
 								</div>
 							</div>
 							<div class="col-sm-3">
-								<input  type="text" class="form-control form-control-sm" name="CI11" id="CI11" maxlength="20">
+								<input  type="text" class="form-control form-control-sm" name="CI11" id="CI11" maxlength="50">
 							</div>
 						</div>
 
@@ -266,7 +266,7 @@
 								</div>
 							</div>
 							<div class="col-sm-3">
-								<input  type="text" class="form-control form-control-sm" name="CI12" id="CI12" maxlength="20">
+								<input  type="text" class="form-control form-control-sm" name="CI12" id="CI12" maxlength="50">
 							</div>
 						</div>
 					</div>
@@ -286,7 +286,7 @@
 								</div>
 							</div>
 							<div class="col-sm-3">
-								<input  type="text" class="form-control form-control-sm" name="CI13" id="CI13" maxlength="20">
+								<input  type="text" class="form-control form-control-sm" name="CI13" id="CI13" maxlength="50">
 							</div>
 						</div>
 
@@ -305,7 +305,7 @@
 								</div>
 							</div>
 							<div class="col-sm-3">
-								<input  type="text" class="form-control form-control-sm" name="CI14" id="CI14" maxlength="20">
+								<input  type="text" class="form-control form-control-sm" name="CI14" id="CI14" maxlength="50">
 							</div>
 						</div>
 
@@ -324,7 +324,7 @@
 								</div>
 							</div>
 							<div class="col-sm-3">
-								<input  type="text" class="form-control form-control-sm" name="CI15" id="CI15" maxlength="20">
+								<input  type="text" class="form-control form-control-sm" name="CI15" id="CI15" maxlength="50">
 							</div>
 						</div>
 
@@ -343,7 +343,7 @@
 								</div>
 							</div>
 							<div class="col-sm-3">
-								<input  type="text" class="form-control form-control-sm" name="CI16" id="CI16" maxlength="20">
+								<input  type="text" class="form-control form-control-sm" name="CI16" id="CI16" maxlength="50">
 							</div>
 						</div>
 
@@ -362,7 +362,7 @@
 								</div>
 							</div>
 							<div class="col-sm-3">
-								<input  type="text" class="form-control form-control-sm" name="CI17" id="CI17" maxlength="20">
+								<input  type="text" class="form-control form-control-sm" name="CI17" id="CI17" maxlength="50">
 							</div>
 						</div>
 
@@ -381,7 +381,7 @@
 								</div>
 							</div>
 							<div class="col-sm-3">
-								<input  type="text" class="form-control form-control-sm" name="CI18" id="CI18" maxlength="20">
+								<input  type="text" class="form-control form-control-sm" name="CI18" id="CI18" maxlength="50">
 							</div>
 						</div>
 
@@ -400,7 +400,7 @@
 								</div>
 							</div>
 							<div class="col-sm-3">
-								<input  type="text" class="form-control form-control-sm" name="CI19" id="CI19" maxlength="20">
+								<input  type="text" class="form-control form-control-sm" name="CI19" id="CI19" maxlength="50">
 							</div>
 						</div>
 
@@ -419,7 +419,7 @@
 								</div>
 							</div>
 							<div class="col-sm-3">
-								<input  type="text" class="form-control form-control-sm" name="CI20" id="CI20" maxlength="20">
+								<input  type="text" class="form-control form-control-sm" name="CI20" id="CI20" maxlength="50">
 							</div>
 						</div>
 
@@ -438,7 +438,7 @@
 								</div>
 							</div>
 							<div class="col-sm-3">
-								<input  type="text" class="form-control form-control-sm" name="CI21" id="CI21" maxlength="20">
+								<input  type="text" class="form-control form-control-sm" name="CI21" id="CI21" maxlength="50">
 							</div>
 						</div>
 
@@ -457,7 +457,7 @@
 								</div>
 							</div>
 							<div class="col-sm-3">
-								<input  type="text" class="form-control form-control-sm" name="CI22" id="CI22" maxlength="30">
+								<input  type="text" class="form-control form-control-sm" name="CI22" id="CI22" maxlength="50">
 							</div>
 						</div>
 
@@ -476,7 +476,7 @@
 								</div>
 							</div>
 							<div class="col-sm-3">
-								<input  type="text" class="form-control form-control-sm" name="CI23" id="CI23" maxlength="30">
+								<input  type="text" class="form-control form-control-sm" name="CI23" id="CI23" maxlength="50">
 							</div>
 						</div>
 
@@ -495,7 +495,7 @@
 								</div>
 							</div>
 							<div class="col-sm-3">
-								<input  type="text" class="form-control form-control-sm" name="CI24" id="CI24" maxlength="30">
+								<input  type="text" class="form-control form-control-sm" name="CI24" id="CI24" maxlength="50">
 							</div>
 						</div>
 
