@@ -34,7 +34,7 @@
         <div class="col-md-12">
           <div class="form-group row">
                 <div class="col-sm-9">
-                  <p id="remsg" class="text-success text-bold"></p>
+                  <p id="remsg" class="text-success font-weight-bold"></p>
           <a href="#" onclick="resend_otp()" >Re-Send OTP</a>
               <p>Did not receive previous OTP</p>
             </div>
@@ -57,6 +57,7 @@
 @push('page_scripts')
 <script>
   function resend_otp(){
+    $('#remsg').text('');
     var CSRF_TOKEN = $("input[name=_token]").val();
     $.ajax({
       type: "post",
@@ -64,7 +65,8 @@
       data: {_token: CSRF_TOKEN },
       dataType: 'JSON',
       success: function(response) {
-        alert("OTP re-sent successfully");
+        $('#remsg').text('OTP re-sent successfully');
+        //alert("OTP re-sent successfully");
       },
       error: function (jqXHR, exception) {
         console.log(exception);
