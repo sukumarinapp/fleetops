@@ -90,7 +90,9 @@
               </td>
               <td>
                     @if(Auth::user()->usertype == "Admin" || Auth::user()->BPF == true)
-                      @if($vehicle->driver_id == "")
+                      @if($vehicle->status == "pending")
+                        Acceptance Pending
+                      @elseif($vehicle->driver_id == "")
                         @if($vehicle->VTV == 1)
                           <a href="{{ route('assignvehicle',$vehicle->id) }}" class="btn btn-info btn-xs">Assign Vehicle</a>
                         @else

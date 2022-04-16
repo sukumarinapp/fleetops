@@ -382,6 +382,7 @@ class VehicleController extends Controller
         $VID = $vehicle->id;
         $password = rand(1001,9999);
         $vehicle->driver_id = $DID;
+        $vehicle->status = "pending";
         $vehicle->password = $password;
         $vehicle->save();
         $CAN = $vehicle->CAN;
@@ -497,7 +498,7 @@ class VehicleController extends Controller
     }
 
     private function send_sms($VID){
-        $sql = "select a.password,b.DCN,b.DNM,b.VBM,b.VAM,b.VPF,b.WDY,b.MDY,b.VPD,c.name,c.UCN from vehicle a,driver b,users c where a.driver_id=b.id and a.CAN=c.UAN and a.id=$VID";
+        $sql = "select a.password,b.DCN,b.DNM,b.DSN,b.VBM,b.VAM,b.VPF,b.WDY,b.MDY,b.VPD,c.name,c.UCN from vehicle a,driver b,users c where a.driver_id=b.id and a.CAN=c.UAN and a.id=$VID";
         $vehicle = DB::select(DB::raw($sql));
         $vehicle = $vehicle[0];
         $password = $vehicle->password;
@@ -510,6 +511,7 @@ class VehicleController extends Controller
         $VPD = $vehicle->VPD;
         $name = $vehicle->name;
         $UCN = $vehicle->UCN;
+        $DNM = $vehicle->DNM." ".$vehicle->DSN;
         $DCN = $vehicle->DCN;
         $SMS = "";
         $SMS = "Dear ".$DNM.",\n";

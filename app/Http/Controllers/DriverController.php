@@ -108,6 +108,11 @@ class DriverController extends Controller
             $DCN = $result[0]->DCN;
             $VCC = $result[0]->VCC;
         }
+        $sql = "select acceptance_code from handover where VNO='$VNO' and driver_id=$driver_id and accepted=1 order by id desc limit 1";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+            $acceptance_code = $result[0]->acceptance_code;
+        }
         $sql = "select acceptance_code from driver_upload where VNO='$VNO' and driver_id=$driver_id and approved=1 order by id desc limit 1";
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
@@ -485,6 +490,8 @@ class DriverController extends Controller
         if(count($result) > 0){
             $handover_id = $result[0]->id;
             if($acceptance_code == $result[0]->acceptance_code){
+                $sql = "update vehicle set status='assigned' where VNO='$VNO'";
+                DB::update($sql);
                 $sql = "update handover set accepted=1 where id=$handover_id";
                 DB::update($sql);
                 return redirect('/tasks')->with('success', 'You have successfully accepted the contract');

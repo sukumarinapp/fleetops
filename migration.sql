@@ -287,3 +287,7 @@ alter table handover add acceptance_code varchar(10) DEFAULT NULL;
 alter table handover add accepted int(1) DEFAULT 0;
 alter table driver_upload add expiry date DEFAULT NULL;
 
+--16/04.2022
+
+alter table vehicle add status varchar(20) DEFAULT NULL;
+
