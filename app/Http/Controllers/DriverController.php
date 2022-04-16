@@ -494,7 +494,7 @@ class DriverController extends Controller
         }
      }
 
-     public function accept_handover()
+     public function accept_handover(Request $request)
      {
         $VNO = Session::get('VNO');
         $driver_id = Session::get('driver_id');
@@ -515,6 +515,8 @@ class DriverController extends Controller
             $CTX = "Assign Vehicle Acceptance Code";
             $sql = "insert into sms_log (PHN,MSG,DAT,TIM,CTX,NAM) values ('$DCN','$msg','$DAT','$TIM','$CTX','$DNM')";
             DB::insert($sql);
+            $response['message'] = "success";
+            echo json_encode($response);
         }
      }
 
@@ -544,7 +546,7 @@ class DriverController extends Controller
         } 
     }
 
-    public function accept_code()
+    public function accept_code(Request $request)
      {
         $VNO = Session::get('VNO');
         $driver_id = Session::get('driver_id');
@@ -564,6 +566,8 @@ class DriverController extends Controller
             $CTX = "Acceptance Code";
             $sql = "insert into sms_log (PHN,MSG,DAT,TIM,CTX,NAM) values ('$DCN','$msg','$DAT','$TIM','$CTX','$DNM')";
             DB::insert($sql);
+            $response['message'] = "success";
+            echo json_encode($response);
         } 
     }
 

@@ -62,14 +62,16 @@
 
 @section('third_party_scripts')
 <script>
-var acceptance_code_url = "{{ url('acceptance_code') }}";
 function fn_acceptance_code(){
-  var url =  acceptance_code_url;
-  $.ajax({
-      type: "get",
-      url: url,
+    //$('#remsg').text('');
+    var CSRF_TOKEN = $("input[name=_token]").val();
+    $.ajax({
+      type: "post",
+      url: "/acceptance_code",
+      data: {_token: CSRF_TOKEN },
+      dataType: 'JSON',
       success: function(response) {
-        //window.open('../../uploads/driver/{{ $file_name }}', '_blank');
+        window.open('../../uploads/driver/{{ $file_name }}', '_blank');
       },
       error: function (jqXHR, exception) {
         console.log(exception);
