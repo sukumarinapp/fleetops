@@ -76,8 +76,9 @@
      <label class="col-form-label">Licence Renewal - </label> {{ $DNO }} 
    </div>
    <div class="col-md-12">
-     <label class="col-form-label">Expiry Date  : </label> {{ date("d/m/Y",strtotime($LEXD)) }}
      <span class="text-danger">{{ $lstatus }}</span>
+
+     <label class="col-form-label">Expiry Date  : </label> {{ date("d/m/Y",strtotime($LEXD)) }}
    </div> 
    <div class="col-md-12">
     <p>Please take a snapshot of renewed license</p>
@@ -99,8 +100,8 @@
      <label class="col-form-label">Insurance Renewal</label>
    </div>
    <div class="col-md-12">
-     <label class="col-form-label">Expiry Date  : </label> {{ date("d/m/Y",strtotime($IEXD)) }} 
      <span class="text-danger">{{ $istatus }}</span>
+     <label class="col-form-label">Expiry Date  : </label> {{ date("d/m/Y",strtotime($IEXD)) }} 
    </div> 
    <div class="col-md-12">
     <p>Please take a snapshot of renewed Insurance</p>
@@ -121,8 +122,8 @@
      <label class="col-form-label">Roadworthy Cert Renewal</label>
    </div>
    <div class="col-md-12">
-     <label class="col-form-label">Expiry Date  : </label> {{ date("d/m/Y",strtotime($REXD)) }} 
      <span class="text-danger">{{ $rstatus }}</span>
+     <label class="col-form-label">Expiry Date  : </label> {{ date("d/m/Y",strtotime($REXD)) }} 
    </div> 
    <div class="col-md-12">
     <p>Please take a snapshot of renewed Roadworthy Cert</p>
@@ -144,8 +145,8 @@
       <label class="col-form-label">Contract Renewal</label>
     </div>
     <div class="col-md-12">
-     <label class="col-form-label">Expiry Date  : </label> {{ date("d/m/Y",strtotime($CEXD)) }}
      <span class="text-danger">{{ $cstatus }}</span>
+     <label class="col-form-label">Expiry Date  : </label> {{ date("d/m/Y",strtotime($CEXD)) }}
    </div> 
    <div class="col-md-12">
     <p>Please read contract fully. Confirm acceptance by

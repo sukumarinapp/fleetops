@@ -164,9 +164,9 @@ class DriverController extends Controller
                $LEX = 1; 
                $LEXD = $result[0]->LEX;
                if($LEXD > $today)
-                $lstatus="(Expres on)";
+                $lstatus="(Expires on)";
                else
-                $lstatus="(Expred)"; 
+                $lstatus="(Expired on)"; 
             }else{
                 $sql = "select b.LEX from vehicle a,driver b where VNO = '$VNO'  and a.driver_id = b.id";
                 $result = DB::select(DB::raw($sql));
@@ -182,9 +182,9 @@ class DriverController extends Controller
                $REX = 1; 
                $REXD = $result[0]->REX;
                if($REXD > $today)
-                $rstatus="(Expres on)";
+                $rstatus="(Expires on)";
                else
-                $rstatus="(Expred)"; 
+                $rstatus="(Expired on)"; 
             }else{
                 $sql = "select a.REX from vehicle a,driver b where VNO = '$VNO'  and a.driver_id = b.id";
                 $result = DB::select(DB::raw($sql));
@@ -200,9 +200,9 @@ class DriverController extends Controller
                $IEX = 1; 
                $IEXD = $result[0]->IEX;
                if($IEXD > $today)
-                $istatus="(Expres on)";
+                $istatus="(Expires on)";
                else
-                $istatus="(Expred)"; 
+                $istatus="(Expires on)"; 
             }else{
                 $sql = "select a.IEX from vehicle a,driver b where VNO = '$VNO'  and a.driver_id = b.id";
                 $result = DB::select(DB::raw($sql));
@@ -218,9 +218,9 @@ class DriverController extends Controller
                $CEX = 1; 
                $CEXD = $result[0]->CEX;
                if($CEXD > $today)
-                $cstatus="(Expres on)";
+                $cstatus="(Expires on)";
                else
-                $cstatus="(Expred)"; 
+                $cstatus="(Expires on)"; 
                $file_name = $result[0]->file_name;
             }else{
                 $sql = "select b.CEX from vehicle a,driver b where VNO = '$VNO'  and a.driver_id = b.id";
