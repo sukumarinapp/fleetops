@@ -437,7 +437,7 @@ class DriverController extends Controller
      {
         $VNO = Session::get('VNO');
         $driver_id = Session::get('driver_id');
-        $acceptance_code = trim($request->get("acceptance_code"));
+        $acceptance_code = trim($request->get("acceptance_code2"));
         $sql = "select * from driver_upload where VNO = '$VNO' and driver_id=$driver_id and doc_type='Contract' and approved=0";
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
@@ -522,11 +522,12 @@ class DriverController extends Controller
      {
         $VNO = Session::get('VNO');
         $driver_id = Session::get('driver_id');
-        $sql = "select a.id,b.DCN,b.DNM,b.DSN from driver_upload a,driver b where VNO = '$VNO' and a.driver_id=b.id and doc_type='Contract' and approved=0";
+        $sql = "select a.file_name,a.id,b.DCN,b.DNM,b.DSN from driver_upload a,driver b where VNO = '$VNO' and a.driver_id=b.id and doc_type='Contract' and approved=0";
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
             $acceptance_code = rand(1001,9999);
             $DCN = $result[0]->DCN;
+            $file_name = $result[0]->file_name;
             $DNM = $result[0]->DNM." ".$result[0]->DSN;
             $id = $result[0]->id;
             $sql = "update driver_upload set acceptance_code='$acceptance_code' where id=$id";
@@ -538,6 +539,8 @@ class DriverController extends Controller
             $CTX = "Acceptance Code";
             $sql = "insert into sms_log (PHN,MSG,DAT,TIM,CTX,NAM) values ('$DCN','$msg','$DAT','$TIM','$CTX','$DNM')";
             DB::insert($sql);
+            $response['message'] = "success";
+            echo json_encode($response);
         } 
     }
 
@@ -631,8 +634,9 @@ class DriverController extends Controller
         return redirect('/tasks')->with('success', 'Service details updated successfully');
      } 
 
-    public function resend_otp($VNO)
+    public function resend_otp(Request $request)
     {
+        $VNO = Session::get('VNO');
         $sql = "SELECT a.*,b.DCN,b.DNM,b.DSN FROM vehicle a,driver b where a.driver_id=b.id and VNO = '$VNO' and VTV=1";
         $valid = DB::select(DB::raw($sql));
         if(count($valid) > 0){
@@ -651,6 +655,9 @@ class DriverController extends Controller
             $CTX = "OTP";
             $sql = "insert into sms_log (PHN,MSG,DAT,TIM,CTX,NAM) values ('$DCN','$msg','$DAT','$TIM','$CTX','$DNM')";
             DB::insert($sql);
+            $response = array();
+            $response['message'] = "success";
+            return response()->json($response);
         } 
     }
 

@@ -3,17 +3,13 @@
 <div class="container" >
  <div class="row justify-content-center">
   <div class="col-md-12 text-center">
-    <a href="#" class="navbar-brand">
-      <img src="{{ URL::to('/') }}/images/fleetopslogo.png" alt="AdminLTE Logo">
-    </a>
+      <img src="{{ URL::to('/') }}/images/fleetopslogo.png" alt="Logo">
     <h3 style="color: lightgray">My Account</h3>
   </div>
 </div>
 <div class="card card-primary">
   <div class="card-header">
-
     <h5 class="title" style="text-align:center;">Agreement, Terms & Conditions</h5>
-
   </div>
   <div class="card-body">
     @if(session()->has('error'))
@@ -22,21 +18,18 @@
       <strong> {{ Session::get('error') }} </strong>
     </div>
     @endif
-    <input type="hidden" id="VNO" name="VNO" value="">
-    <form action="{{ route('acceptcontract') }}" method="post" enctype="multipart/form-data" class="form-horizontal">
-      @csrf
-      <div class="row">
-        
+    <div class="row">
         <div class="col-md-12 text-center">
          <label>Please read contract to receive Acceptance Code</label> 
         </div>
       </div>
       <div class="row">
         <div class="col-md-12 text-center">
-          <a onclick="acceptance_code();" class="btn btn-info" style="color:white" >Read Contract</a>
+          <a onclick="fn_acceptance_code()" class="btn btn-info" style="color:white" >Read Contract</a>
         </div>
       </div><br>
-
+    <form action="{{ route('acceptcontract') }}" method="post"  class="form-horizontal">
+      @csrf
       <div class="form-group row">
         <label for="" class="col-sm-4 col-form-label"><span style="color:red"></span>Into</label>
         <div class="col-sm-8">
@@ -50,7 +43,7 @@
         <div class="form-group row">
         <label for="" class="col-sm-4 col-form-label"><span style="color:red">*</span>Input Acceptence Code</label>
         <div class="col-sm-2">
-          <input required="required" type="text" maxlength="4" class="form-control number" name="acceptance_code" id="acceptance_code" >
+          <input required="required" type="text" maxlength="4" class="form-control number" name="acceptance_code2" id="acceptance_code2" >
         </div>
       </div>
     </div>
@@ -65,18 +58,18 @@
 </div>
 </div>
 </div>
-
 @endsection
-@push('page_scripts')
+
+@section('third_party_scripts')
 <script>
 var acceptance_code_url = "{{ url('acceptance_code') }}";
-function acceptance_code(){
+function fn_acceptance_code(){
   var url =  acceptance_code_url;
   $.ajax({
       type: "get",
       url: url,
       success: function(response) {
-        window.open  ('../../uploads/driver/{{ $file_name }}', '_blank');
+        //window.open('../../uploads/driver/{{ $file_name }}', '_blank');
       },
       error: function (jqXHR, exception) {
         console.log(exception);
@@ -84,3 +77,4 @@ function acceptance_code(){
   });
 }
 </script>
+@endsection

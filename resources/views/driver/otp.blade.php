@@ -34,7 +34,8 @@
         <div class="col-md-12">
           <div class="form-group row">
                 <div class="col-sm-9">
-          <a href="#" id="resend_button" onclick="resend_otp()" >Re-Send OTP</a>
+                  <p id="remsg" class="text-success text-bold"></p>
+          <a href="#" onclick="resend_otp()" >Re-Send OTP</a>
               <p>Did not receive previous OTP</p>
             </div>
           </div>
@@ -55,14 +56,15 @@
 
 @push('page_scripts')
 <script>
-  var resend_otp_url = "{{ url('resend_otp') }}";
   function resend_otp(){
-    var VNO = $("#VNO").val();
-    var url =  resend_otp_url + "/" + VNO;
+    var CSRF_TOKEN = $("input[name=_token]").val();
     $.ajax({
-      type: "get",
-      url: url,
+      type: "post",
+      url: "/resend_otp",
+      data: {_token: CSRF_TOKEN },
+      dataType: 'JSON',
       success: function(response) {
+        alert("OTP re-sent successfully");
       },
       error: function (jqXHR, exception) {
         console.log(exception);

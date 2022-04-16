@@ -51,7 +51,7 @@ Route::get('/driver', 'DriverController@index')->name('driver');
 Route::get('/driverlogin', 'DriverController@driverlogin')->name('driverlogin');
 Route::post('/validate_login', 'DriverController@validate_login')->name('validate_login');
 Route::get('/otp', 'DriverController@otp')->name('otp');
-Route::get('/resend_otp/{VNO}', 'DriverController@resend_otp')->name('resend_otp');
+Route::post('/resend_otp', 'DriverController@resend_otp')->name('resend_otp');
 Route::post('/validate_otp', 'DriverController@validate_otp')->name('validate_otp');
 Route::get('/myaccount', 'DriverController@myaccount')->name('myaccount');
 Route::get('/tasks', 'DriverController@tasks')->name('tasks');
