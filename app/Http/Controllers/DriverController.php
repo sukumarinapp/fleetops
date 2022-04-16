@@ -152,13 +152,21 @@ class DriverController extends Controller
             $DNM = $result[0]->DNM . " " . $result[0]->DSN;
             $DCN = $result[0]->DCN;
             $DNO = $result[0]->DNO;
-
+            $today = date("Y-m-d");
+            $lstatus = "";
+            $cstatus = "";
+            $istatus = "";
+            $rstatus = "";
             $sql = "select b.LEX from driver_upload a,driver b where VNO = '$VNO' and a.driver_id=b.id and doc_type='Licence' and approved=0";
             $result = DB::select(DB::raw($sql));
             if(count($result) > 0){
                $licence_approved = 0;
                $LEX = 1; 
                $LEXD = $result[0]->LEX;
+               if($LEXD > $today)
+                $lstatus="(Expres on)";
+               else
+                $lstatus="(Expred)"; 
             }else{
                 $sql = "select b.LEX from vehicle a,driver b where VNO = '$VNO'  and a.driver_id = b.id";
                 $result = DB::select(DB::raw($sql));
@@ -173,6 +181,10 @@ class DriverController extends Controller
                $roadworthy_approved = 0;
                $REX = 1; 
                $REXD = $result[0]->REX;
+               if($REXD > $today)
+                $rstatus="(Expres on)";
+               else
+                $rstatus="(Expred)"; 
             }else{
                 $sql = "select a.REX from vehicle a,driver b where VNO = '$VNO'  and a.driver_id = b.id";
                 $result = DB::select(DB::raw($sql));
@@ -187,6 +199,10 @@ class DriverController extends Controller
                $insurance_approved = 0;
                $IEX = 1; 
                $IEXD = $result[0]->IEX;
+               if($IEXD > $today)
+                $istatus="(Expres on)";
+               else
+                $istatus="(Expred)"; 
             }else{
                 $sql = "select a.IEX from vehicle a,driver b where VNO = '$VNO'  and a.driver_id = b.id";
                 $result = DB::select(DB::raw($sql));
@@ -201,6 +217,10 @@ class DriverController extends Controller
                $contract_approved = 0; 
                $CEX = 1; 
                $CEXD = $result[0]->CEX;
+               if($CEXD > $today)
+                $cstatus="(Expres on)";
+               else
+                $cstatus="(Expred)"; 
                $file_name = $result[0]->file_name;
             }else{
                 $sql = "select b.CEX from vehicle a,driver b where VNO = '$VNO'  and a.driver_id = b.id";
@@ -242,7 +262,7 @@ class DriverController extends Controller
                $assign_approved = 0;
                $LDT = $result[0]->LDT;
             }
-            return view('driver.tasks',compact('VNO','VBM','DNM','DCN','DNO','LEX','REX','IEX','CEX','LEXD','REXD','IEXD','CEXD','file_name','inspection','SSD','SVE','ISD','IVE','insurance_approved','roadworthy_approved','licence_approved','contract_approved','service_approved','inspection_approved','assign_approved','LDT'));
+            return view('driver.tasks',compact('VNO','VBM','DNM','DCN','DNO','LEX','REX','IEX','CEX','LEXD','REXD','IEXD','CEXD','file_name','inspection','SSD','SVE','ISD','IVE','insurance_approved','roadworthy_approved','licence_approved','contract_approved','service_approved','inspection_approved','assign_approved','LDT','cstatus','istatus','lstatus','rstatus'));
         }
     }
     

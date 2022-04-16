@@ -77,9 +77,7 @@
    </div>
    <div class="col-md-12">
      <label class="col-form-label">Expiry Date  : </label> {{ date("d/m/Y",strtotime($LEXD)) }}
-     @if($LEX == "1") 
-     <span class="text-danger">(expired)</span>
-     @endif
+     <span class="text-danger">{{ $lstatus }}</span>
    </div> 
    <div class="col-md-12">
     <p>Please take a snapshot of renewed license</p>
@@ -102,9 +100,7 @@
    </div>
    <div class="col-md-12">
      <label class="col-form-label">Expiry Date  : </label> {{ date("d/m/Y",strtotime($IEXD)) }} 
-     @if($IEX == "1") 
-     <span class="text-danger">(expired)</span>
-     @endif
+     <span class="text-danger">{{ $istatus }}</span>
    </div> 
    <div class="col-md-12">
     <p>Please take a snapshot of renewed Insurance</p>
@@ -126,9 +122,7 @@
    </div>
    <div class="col-md-12">
      <label class="col-form-label">Expiry Date  : </label> {{ date("d/m/Y",strtotime($REXD)) }} 
-     @if($REX == "1") 
-     <span class="text-danger">(expired)</span>
-     @endif
+     <span class="text-danger">{{ $rstatus }}</span>
    </div> 
    <div class="col-md-12">
     <p>Please take a snapshot of renewed Roadworthy Cert</p>
@@ -151,9 +145,7 @@
     </div>
     <div class="col-md-12">
      <label class="col-form-label">Expiry Date  : </label> {{ date("d/m/Y",strtotime($CEXD)) }}
-     @if($CEX == "1") 
-     <span class="text-danger">(expired)</span>
-     @endif
+     <span class="text-danger">{{ $cstatus }}</span>
    </div> 
    <div class="col-md-12">
     <p>Please read contract fully. Confirm acceptance by
