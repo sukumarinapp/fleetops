@@ -141,7 +141,7 @@ function reject_doc(upload_id){
 }
 
 function validate_all(e){
-	alert("ok");
+	
 		var selection = document.getElementById('DLD');
 		for (var i=0; i<selection.files.length; i++) {
 		    if(selection.files[i].size > 5000000){

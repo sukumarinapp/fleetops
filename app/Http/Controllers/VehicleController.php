@@ -191,6 +191,7 @@ class VehicleController extends Controller
         }
         $rhplatforms = rhplatform::all();
         $vehicle = Vehicle::find($id);
+        $VNO = $vehicle->VNO;
         $TID = $vehicle->TID;
         $VID = $vehicle->id;
         $today = date("Y-m-d");
@@ -227,7 +228,7 @@ class VehicleController extends Controller
             $vehicle->IVE = $service[0]->IVE;
         }
         $workflow = 0;
-        $sql = "select * from driver_upload where doc_type in ('Insurance','RdWCert','Service','Inspection') and approved=0";
+        $sql = "select * from driver_upload where doc_type in ('Insurance','RdWCert','Service','Inspection') and VNO='$VNO' and approved=0";
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
             $workflow = 1;
