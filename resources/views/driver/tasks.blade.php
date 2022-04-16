@@ -28,6 +28,7 @@
   </div>
   @endif
   <input type="hidden" id="VNO" name="VNO" value="{{ $VNO }}">
+  @csrf
   <div class="row justify-content-center">
     <div class="col-md-12">
      <label class="col-form-label">Account Name:&nbsp; </label>{{ $DNM }}
@@ -222,12 +223,14 @@
 
 @push('page_scripts')
 <script>
-var accept_code_url = "{{ url('accept_code') }}";
 function accept_code(){
-  var url =  accept_code_url;
-  $.ajax({
-      type: "get",
-      url: url,
+    var CSRF_TOKEN = $("input[name=_token]").val();
+    console.log(CSRF_TOKEN);
+    $.ajax({
+      type: "post",
+      url: "/accept_code",
+      data: {_token: CSRF_TOKEN },
+      dataType: 'JSON',
       success: function(response) {
         window.location.href = "{{ url('inspect') }}";
       },

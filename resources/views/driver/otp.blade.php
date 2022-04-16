@@ -66,7 +66,6 @@
       dataType: 'JSON',
       success: function(response) {
         $('#remsg').text('OTP re-sent successfully');
-        //alert("OTP re-sent successfully");
       },
       error: function (jqXHR, exception) {
         console.log(exception);

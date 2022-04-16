@@ -69,12 +69,13 @@
 @endsection
 @push('page_scripts')
 <script>
-var acceptance_code_url = "{{ url('accept_handover') }}";
 function acceptance_code(){
-  var url =  acceptance_code_url;
-  $.ajax({
-      type: "get",
-      url: url,
+    var CSRF_TOKEN = $("input[name=_token]").val();
+    $.ajax({
+      type: "post",
+      url: "/accept_handover",
+      data: {_token: CSRF_TOKEN },
+      dataType: 'JSON',
       success: function(response) {
         window.open  ('../../uploads/VCC/{{ $VCC }}', '_blank');
       },
