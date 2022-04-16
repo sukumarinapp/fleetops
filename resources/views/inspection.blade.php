@@ -57,7 +57,7 @@
 								</div>
 							</div>
 							<div class="col-sm-3">
-								<input type="text" class="form-control form-control-sm" name="CI01" id="CI01" maxlength="20">
+								<input type="text" class="form-control form-control-sm" name="CI01" id="CI01" maxlength="50">
 							</div>
 						</div>
 
