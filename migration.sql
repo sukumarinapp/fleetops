@@ -290,4 +290,5 @@ alter table driver_upload add expiry date DEFAULT NULL;
 --16/04.2022
 
 alter table vehicle add status varchar(20) DEFAULT NULL;
+update vehicle set status='assigned' where driver_id is not null;
 
