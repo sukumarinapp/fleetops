@@ -556,6 +556,7 @@ class VehicleController extends Controller
         $vehicle = Vehicle::find($request->get('vehicle_id'));
         $DID = $vehicle->driver_id;
         $vehicle->driver_id  =  null;
+        $vehicle->status  =  "";
         $vehicle->save();
         $CAN = $vehicle->CAN;
         $VNO = $vehicle->VNO;
