@@ -48,6 +48,7 @@
          @else
           <i class="fa fa-times" style="color:red"></i>
           @endif
+           &nbsp;<span> {{ $ins->CI01 }} </span>
         </div>
       </div> 
 
@@ -59,7 +60,9 @@
          @else
           <i class="fa fa-times" style="color:red"></i>
           @endif
-        </div>
+
+          &nbsp;<span> {{ $ins->CI02 }} </span>
+         </div>
       </div>    
 
        <div class="form-group row">
@@ -307,7 +310,7 @@
       @foreach($images as $image)
          <div class="form-group row">
           <div class="col-md-4">
-           <img class="img-responsive img-rounded" src="../uploads/inspection/{{ $image->filename }}">
+           <img class="img-responsive img-rounded" src="../uploads/inspection/{{ $image->filename }}" width="500" height="400">
          </div>
          </div>
          
