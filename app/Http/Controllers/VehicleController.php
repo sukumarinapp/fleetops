@@ -476,10 +476,17 @@ class VehicleController extends Controller
             $DNM = $result[0]->DNM ." ".$result[0]->DSN;
             $DCN = $result[0]->DCN;
         }
+        self::save_pdf($handover_id);
         self::send_sms($VID);
-        //$msg = "Hi $DNM, Your fleetops contract acceptance code is $acceptance_code";
-        //SMSFleetops::send($DCN,$msg);
         return redirect('/vehicle')->with('message', 'Driver Assigned Successfully');
+    }
+
+    private function save_pdf($handover_id){
+        $sql = "select * from handover where id ='$handover_id'";
+        $handover = DB::select(DB::raw($sql));
+        //$pdf = PDF::loadView('handoverpdf', $handover);
+        //$pdf->save(storage_path().'_student.pdf');
+        //return $pdf->download('student.pdf');
     }
 
     public function resendsms($VID){
