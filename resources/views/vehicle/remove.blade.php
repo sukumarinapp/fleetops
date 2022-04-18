@@ -25,7 +25,7 @@
 				</div>
 				
           	<div class="card-body">
-          		<form action="{{ route('removedriver') }}" method="post" class="form-horizontal" enctype="multipart/form-data">
+          		<form onsubmit="return validate_all(event)" action="{{ route('removedriver') }}" method="post" class="form-horizontal" enctype="multipart/form-data">
                 @csrf
 
                  <input type="hidden" name="vehicle_id" value="{{ $vehicle->id }}">
@@ -429,6 +429,40 @@
           };
           reader.readAsDataURL(input.files[0]);
       }
+  }
+
+    function validate_all(e){
+  
+    var selection = document.getElementById('CFP2');
+    for (var i=0; i<selection.files.length; i++) {
+        if(selection.files[i].size > 5000000){
+          alert('Vehicle Front image file size can be a maximum of 5MB');
+            return false;
+        }
+    } 
+    selection = document.getElementById('CFP3');
+    for (var i=0; i<selection.files.length; i++) {
+        if(selection.files[i].size > 5000000){
+          alert('Vehicle Right image file size can be a maximum of 5MB');
+            return false;
+        }
+    } 
+
+    selection = document.getElementById('CFP4');
+    for (var i=0; i<selection.files.length; i++) {
+        if(selection.files[i].size > 5000000){
+          alert('Vehicle Rear image file size can be a maximum of 5MB');
+            return false;
+        }
+    } 
+
+    selection = document.getElementById('CFP5');
+    for (var i=0; i<selection.files.length; i++) {
+        if(selection.files[i].size > 5000000){
+          alert('Vehicle Left image file size can be a maximum of 5MB');
+            return false;
+        }
+    } 
   }
 </script>
 @endpush
