@@ -174,7 +174,7 @@
                 </div>
                 <div class="form-check-inline">
                   <label class="form-check-label">
-                    <input value="0" type="radio" class="form-check-input" name="CF07" >No
+                    <input value="0" type="radio" class="form-check-input" name="CF07">No
                   </label>
                 </div>
               </div>
@@ -370,28 +370,28 @@
             </div>
 
                         <div class="form-group row">
-              <label for="CFP2" class="col-sm-3 col-form-label"><span style="color:red"></span>FRONT</label>
+              <label for="CFP2" class="col-sm-3 col-form-label"><span style="color:red"></span>Front View</label>
               <div class="col-sm-6">
                 <img id="CFP2p"  />
                 <input required="required" onchange="readURL(this,'CFP2p');" accept="image/png, image/jpeg" name="CFP2" type="file" id="CFP2">
               </div>
             </div>
             <div class="form-group row">
-              <label for="CFP3" class="col-sm-3 col-form-label"><span style="color:red"></span>RIGHT</label>
+              <label for="CFP3" class="col-sm-3 col-form-label"><span style="color:red"></span>Right View</label>
               <div class="col-sm-6">
                 <img id="CFP3p"  />
                 <input required="required" onchange="readURL(this,'CFP3p');" accept="image/png, image/jpeg" name="CFP3" type="file" id="CFP3">
               </div>
             </div>
             <div class="form-group row">
-              <label for="CFP4" class="col-sm-3 col-form-label"><span style="color:red"></span>REAR</label>
+              <label for="CFP4" class="col-sm-3 col-form-label"><span style="color:red"></span>Rear View</label>
               <div class="col-sm-6">
                 <img id="CFP4p"  />
                 <input required="required" onchange="readURL(this,'CFP4p');" accept="image/png, image/jpeg" name="CFP4" type="file" id="CFP4">
               </div>
             </div>
             <div class="form-group row">
-              <label for="CFP5" class="col-sm-3 col-form-label"><span style="color:red"></span>LEFT</label>
+              <label for="CFP5" class="col-sm-3 col-form-label"><span style="color:red"></span>Left View</label>
               <div class="col-sm-6">
                 <img id="CFP5p"  />
                 <input required="required" onchange="readURL(this,'CFP5p');" accept="image/png, image/jpeg" name="CFP5" type="file" id="CFP5">
