@@ -1,3 +1,12 @@
+Handover PDF
+agreement terms only after acceptance
+post max size
+service current milage -> odometer in resolve also
+service resolve ---next scrvice date
+update this in maintenance schedule
+
+
+
 Payment Milestone 2
 Milestone D	New Alerts (Process Integration)
 Milestone E	Two Communication Protocol Setup

@@ -63,7 +63,7 @@
 </div>
 <hr>
 @endif
-
+ @if($assign_approved == 1)
  @if($licence_approved == 0)
  <div class="row">
   <div class="col-md-12">
@@ -198,6 +198,7 @@
 </div>
 </div>
 <hr>
+@endif
 @endif
 <nav class="navbar fixed-bottom navbar-expand-lg justify-content-center">      
   <a href="{{ url('myaccount') }}" class="btn btn-info">Back</a>&nbsp;

@@ -98,8 +98,14 @@ class DriverController extends Controller
      public function myaccount()
      {
         $acceptance_code = "";
+        $status = "";
         $VNO = Session::get('VNO');
         $driver_id = Session::get('driver_id');
+        $sql = "select status from vehicle where VNO='$VNO'";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+            $status = $result[0]->status;
+        }
         $sql = "select * from driver where  id=$driver_id";
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
@@ -108,15 +114,19 @@ class DriverController extends Controller
             $DCN = $result[0]->DCN;
             $VCC = $result[0]->VCC;
         }
-        $sql = "select acceptance_code from handover where VNO='$VNO' and driver_id=$driver_id and accepted=1 order by id desc limit 1";
+        $sql = "select acceptance_code,accepted from handover where VNO='$VNO' and driver_id=$driver_id order by id desc limit 1";
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
-            $acceptance_code = $result[0]->acceptance_code;
+            if($result[0]->accepted == 1){
+                $acceptance_code = $result[0]->acceptance_code;
+            }
         }
-        $sql = "select acceptance_code from driver_upload where VNO='$VNO' and driver_id=$driver_id and approved=1 order by id desc limit 1";
-        $result = DB::select(DB::raw($sql));
-        if(count($result) > 0){
-            $acceptance_code = $result[0]->acceptance_code;
+        if($status == "assigned"){
+            $sql = "select acceptance_code from driver_upload where VNO='$VNO' and driver_id=$driver_id and approved=1 order by id desc limit 1";
+            $result = DB::select(DB::raw($sql));
+            if(count($result) > 0){
+                $acceptance_code = $result[0]->acceptance_code;
+            }
         }
         return view('driver.myaccount',compact('VNO','VBM','DNM','DCN','acceptance_code','VCC'));
      }

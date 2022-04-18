@@ -61,9 +61,11 @@
       <a href="{{ url('agreement') }}">Agreement Summary</a>
    </div>
    <div class="col-md-12">
-     <a target='_blank' href='../../uploads/VCC/{{ $VCC }}'>Agreement Terms & Conditions</a>
      @if($acceptance_code != "") 
+     <a target='_blank' href='../../uploads/VCC/{{ $VCC }}'>Agreement Terms & Conditions</a>
      <span>(Acceptance Code : {{ $acceptance_code }} )</span>
+     @else
+     <a>Agreement Terms & Conditions</a>
      @endif
    </div>
    <div class="col-md-12">
