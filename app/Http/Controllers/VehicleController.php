@@ -640,7 +640,14 @@ class VehicleController extends Controller
         $sql = "SELECT a.*,b.name,c.DCN,c.DNO,c.DNM,c.DSN  FROM vehicle a,users b,driver c where a.CAN=b.UAN and a.driver_id=c.id and a.id=$id";
         $vehicle = DB::select(DB::raw($sql));
         $vehicle = $vehicle[0];
-        return view('vehicle.remove', compact('vehicle'));
+        $handover_id = $vehicle->handover_id;
+        $sql = "SELECT photo FROM handover where id=$handover_id";
+        $result = DB::select(DB::raw($sql));
+        $photo = "";
+        if(count($result) > 0){
+            $photo = $result[0]->photo;
+        }
+        return view('vehicle.remove', compact('vehicle','photo'));
     }
 
     public function checkVNO(Request $request){

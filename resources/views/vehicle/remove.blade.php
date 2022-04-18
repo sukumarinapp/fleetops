@@ -60,7 +60,7 @@
             </div>
           </div>
            <div class="col-md-2 text-right d-flex align-items-right justify-content-center">
-             <img class="img-fluid img-thumbnail" src="" style="width:70%;height:80%"> 
+             <img class="img-fluid img-thumbnail" src="../uploads/photo/{{ $photo }}" style="width:70%;height:80%"> 
       </div>
       <div class="col-md-3 text-right d-flex align-items-right justify-content-center">
               <div class="card-body">
