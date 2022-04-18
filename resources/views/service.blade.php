@@ -57,7 +57,7 @@
 										@if($current_mileage != "")
 											style="color:blue "
 										@endif 
-										for="current_mileage" class="col-sm-4 col-form-label"><span style="color:red">*</span>Current Mileage</label>
+										for="current_mileage" class="col-sm-4 col-form-label"><span style="color:red">*</span>Current Odometer Reading</label>
 										<div class="col-sm-4">
 											<input value="{{ $current_mileage }}" required="required" maxlength="8" type="text" class="form-control number" name="current_mileage" id="current_mileage" >
 										</div>
@@ -65,7 +65,7 @@
 									
 									
 									<div class="form-group row">
-										<label for="service_date" class="col-sm-4 col-form-label"><span style="color:red">*</span>Service Date</label>
+										<label for="service_date" class="col-sm-4 col-form-label"><span style="color:red">*</span>Next Service Date</label>
 										<div class="col-sm-4">
 											<input min="{{ date('Y-m-d') }}" value="{{ date('Y-m-d') }}" required="required" onkeydown="return false" type="date" class="form-control" name="service_date" id="service_date" >
 										</div>

@@ -63,7 +63,7 @@
 </div>
 <hr>
 @endif
-
+ @if($assign_approved == 1)
  @if($licence_approved == 0)
  <div class="row">
   <div class="col-md-12">
@@ -76,8 +76,7 @@
      <label class="col-form-label">Licence Renewal - </label> {{ $DNO }} 
    </div>
    <div class="col-md-12">
-     <label class="col-form-label">Expiry Date  : </label> {{ date("d/m/Y",strtotime($LEXD)) }}
-     <span class="text-danger">{{ $lstatus }}</span>
+     <span>{{ $lstatus }}: {{ date("d/m/Y",strtotime($LEXD)) }}</span>
    </div> 
    <div class="col-md-12">
     <p>Please take a snapshot of renewed license</p>
@@ -99,8 +98,7 @@
      <label class="col-form-label">Insurance Renewal</label>
    </div>
    <div class="col-md-12">
-     <label class="col-form-label">Expiry Date  : </label> {{ date("d/m/Y",strtotime($IEXD)) }} 
-     <span class="text-danger">{{ $istatus }}</span>
+     <span>{{ $istatus }}: {{ date("d/m/Y",strtotime($IEXD)) }}</span>
    </div> 
    <div class="col-md-12">
     <p>Please take a snapshot of renewed Insurance</p>
@@ -121,8 +119,7 @@
      <label class="col-form-label">Roadworthy Cert Renewal</label>
    </div>
    <div class="col-md-12">
-     <label class="col-form-label">Expiry Date  : </label> {{ date("d/m/Y",strtotime($REXD)) }} 
-     <span class="text-danger">{{ $rstatus }}</span>
+     <span>{{ $rstatus }}: {{ date("d/m/Y",strtotime($REXD)) }}</span>
    </div> 
    <div class="col-md-12">
     <p>Please take a snapshot of renewed Roadworthy Cert</p>
@@ -144,8 +141,7 @@
       <label class="col-form-label">Contract Renewal</label>
     </div>
     <div class="col-md-12">
-     <label class="col-form-label">Expiry Date  : </label> {{ date("d/m/Y",strtotime($CEXD)) }}
-     <span class="text-danger">{{ $cstatus }}</span>
+     <span >{{ $cstatus }}: {{ date("d/m/Y",strtotime($CEXD)) }}</span>
    </div> 
    <div class="col-md-12">
     <p>Please read contract fully. Confirm acceptance by
@@ -202,6 +198,7 @@
 </div>
 </div>
 <hr>
+@endif
 @endif
 <nav class="navbar fixed-bottom navbar-expand-lg justify-content-center">      
   <a href="{{ url('myaccount') }}" class="btn btn-info">Back</a>&nbsp;

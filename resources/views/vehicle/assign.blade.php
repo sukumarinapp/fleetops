@@ -24,7 +24,7 @@
 					<h3 class="card-title">Assign Vehicle</h3>
 				</div>
           	<div class="card-body">
-          		<form method="post" action="{{ route('assigndriver') }}" enctype="multipart/form-data">
+          		<form onsubmit="return validate_all(event)" method="post" action="{{ route('assigndriver') }}" enctype="multipart/form-data">
       			@csrf
       			<input type="hidden" name="vehicle_id" value="{{ $vehicle->id }}">
 
@@ -58,7 +58,7 @@
 					</div>
 					 <div class="col-md-3 d-flex align-items-right  justify-content-center" style="margin-top: 30px;">
 					 	<img id="photop"  />
-             <input onchange="readURL(this,'photop');" accept="image/png, image/jpeg" name="photo" type="file" id="photo">
+             <input required="required" onchange="readURL(this,'photop');" accept="image/png, image/jpeg" name="photo" type="file" id="photo">
              
       </div>
       <div class="col-md-4 text-right d-flex align-items-right justify-content-center">
@@ -383,32 +383,32 @@
 						</div>
 
 												<div class="form-group row">
-							<label for="CFP2" class="col-sm-3 col-form-label"><span style="color:red"></span>FRONT</label>
+							<label for="CFP2" class="col-sm-3 col-form-label"><span style="color:red">*</span>Front View</label>
 							<div class="col-sm-6">
 									<img id="CFP2p"  />
-								<input onchange="readURL(this,'CFP2p');" accept="image/png, image/jpeg" name="CFP2" type="file" id="CFP2">
+								<input required="required" onchange="readURL(this,'CFP2p');" accept="image/png, image/jpeg" name="CFP2" type="file" id="CFP2">
 
 							</div>
 						</div>
 						<div class="form-group row">
-							<label for="CFP3" class="col-sm-3 col-form-label"><span style="color:red"></span>RIGHT</label>
+							<label for="CFP3" class="col-sm-3 col-form-label"><span style="color:red">*</span>Right View</label>
 							<div class="col-sm-6">
 								<img id="CFP3p"  />
-								<input  onchange="readURL(this,'CFP3p');" accept="image/png, image/jpeg" name="CFP3" type="file" id="CFP3">
+								<input required="required"  onchange="readURL(this,'CFP3p');" accept="image/png, image/jpeg" name="CFP3" type="file" id="CFP3">
 							</div>
 						</div>
 						<div class="form-group row">
-							<label for="CFP4" class="col-sm-3 col-form-label"><span style="color:red"></span>REAR</label>
+							<label for="CFP4" class="col-sm-3 col-form-label"><span style="color:red">*</span>Rear View</label>
 							<div class="col-sm-6">
 								<img id="CFP4p"  />
-								<input onchange="readURL(this,'CFP4p');"  accept="image/png, image/jpeg" name="CFP4" type="file" id="CFP4">
+								<input required="required" onchange="readURL(this,'CFP4p');"  accept="image/png, image/jpeg" name="CFP4" type="file" id="CFP4">
 							</div>
 						</div>
 						<div class="form-group row">
-							<label for="CFP5" class="col-sm-3 col-form-label"><span style="color:red"></span>LEFT</label>
+							<label for="CFP5" class="col-sm-3 col-form-label"><span style="color:red">*</span>Left View</label>
 							<div class="col-sm-6">
 								<img id="CFP5p"  />
-								<input onchange="readURL(this,'CFP5p');"  accept="image/png, image/jpeg" name="CFP5" type="file" id="CFP5">
+								<input required="required" onchange="readURL(this,'CFP5p');"  accept="image/png, image/jpeg" name="CFP5" type="file" id="CFP5">
 							</div>
 						</div>
 					</div>
@@ -449,5 +449,48 @@
           reader.readAsDataURL(input.files[0]);
       }
   }
+
+
+  function validate_all(e){
+	
+		var selection = document.getElementById('photo');
+		for (var i=0; i<selection.files.length; i++) {
+		    if(selection.files[i].size > 5000000){
+		    	alert('Photo file size can be a maximum of 5MB');
+		        return false;
+		    }
+		} 
+		selection = document.getElementById('CFP2');
+		for (var i=0; i<selection.files.length; i++) {
+		    if(selection.files[i].size > 5000000){
+		    	alert('Vehicle Front image file size can be a maximum of 5MB');
+		        return false;
+		    }
+		} 
+
+		selection = document.getElementById('CFP3');
+		for (var i=0; i<selection.files.length; i++) {
+		    if(selection.files[i].size > 5000000){
+		    	alert('Vehicle Right image file size can be a maximum of 5MB');
+		        return false;
+		    }
+		} 
+
+		selection = document.getElementById('CFP4');
+		for (var i=0; i<selection.files.length; i++) {
+		    if(selection.files[i].size > 5000000){
+		    	alert('Vehicle Rear image file size can be a maximum of 5MB');
+		        return false;
+		    }
+		} 
+
+		selection = document.getElementById('CFP5');
+		for (var i=0; i<selection.files.length; i++) {
+		    if(selection.files[i].size > 5000000){
+		    	alert('Vehicle Left image file size can be a maximum of 5MB');
+		        return false;
+		    }
+		} 
+	}
 </script>
 @endpush

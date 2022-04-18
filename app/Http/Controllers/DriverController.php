@@ -98,8 +98,14 @@ class DriverController extends Controller
      public function myaccount()
      {
         $acceptance_code = "";
+        $status = "";
         $VNO = Session::get('VNO');
         $driver_id = Session::get('driver_id');
+        $sql = "select status from vehicle where VNO='$VNO'";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+            $status = $result[0]->status;
+        }
         $sql = "select * from driver where  id=$driver_id";
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
@@ -108,15 +114,19 @@ class DriverController extends Controller
             $DCN = $result[0]->DCN;
             $VCC = $result[0]->VCC;
         }
-        $sql = "select acceptance_code from handover where VNO='$VNO' and driver_id=$driver_id and accepted=1 order by id desc limit 1";
+        $sql = "select acceptance_code,accepted from handover where VNO='$VNO' and driver_id=$driver_id order by id desc limit 1";
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
-            $acceptance_code = $result[0]->acceptance_code;
+            if($result[0]->accepted == 1){
+                $acceptance_code = $result[0]->acceptance_code;
+            }
         }
-        $sql = "select acceptance_code from driver_upload where VNO='$VNO' and driver_id=$driver_id and approved=1 order by id desc limit 1";
-        $result = DB::select(DB::raw($sql));
-        if(count($result) > 0){
-            $acceptance_code = $result[0]->acceptance_code;
+        if($status == "assigned"){
+            $sql = "select acceptance_code from driver_upload where VNO='$VNO' and driver_id=$driver_id and approved=1 order by id desc limit 1";
+            $result = DB::select(DB::raw($sql));
+            if(count($result) > 0){
+                $acceptance_code = $result[0]->acceptance_code;
+            }
         }
         return view('driver.myaccount',compact('VNO','VBM','DNM','DCN','acceptance_code','VCC'));
      }
@@ -164,9 +174,9 @@ class DriverController extends Controller
                $LEX = 1; 
                $LEXD = $result[0]->LEX;
                if($LEXD > $today)
-                $lstatus="(Expres on)";
+                $lstatus="Expires on";
                else
-                $lstatus="(Expred)"; 
+                $lstatus="Expired on"; 
             }else{
                 $sql = "select b.LEX from vehicle a,driver b where VNO = '$VNO'  and a.driver_id = b.id";
                 $result = DB::select(DB::raw($sql));
@@ -182,9 +192,9 @@ class DriverController extends Controller
                $REX = 1; 
                $REXD = $result[0]->REX;
                if($REXD > $today)
-                $rstatus="(Expres on)";
+                $rstatus="Expires on";
                else
-                $rstatus="(Expred)"; 
+                $rstatus="Expired on"; 
             }else{
                 $sql = "select a.REX from vehicle a,driver b where VNO = '$VNO'  and a.driver_id = b.id";
                 $result = DB::select(DB::raw($sql));
@@ -200,9 +210,9 @@ class DriverController extends Controller
                $IEX = 1; 
                $IEXD = $result[0]->IEX;
                if($IEXD > $today)
-                $istatus="(Expres on)";
+                $istatus="Expires on";
                else
-                $istatus="(Expred)"; 
+                $istatus="Expired on"; 
             }else{
                 $sql = "select a.IEX from vehicle a,driver b where VNO = '$VNO'  and a.driver_id = b.id";
                 $result = DB::select(DB::raw($sql));
@@ -218,9 +228,9 @@ class DriverController extends Controller
                $CEX = 1; 
                $CEXD = $result[0]->CEX;
                if($CEXD > $today)
-                $cstatus="(Expres on)";
+                $cstatus="Expires on";
                else
-                $cstatus="(Expred)"; 
+                $cstatus="Expired on"; 
                $file_name = $result[0]->file_name;
             }else{
                 $sql = "select b.CEX from vehicle a,driver b where VNO = '$VNO'  and a.driver_id = b.id";
