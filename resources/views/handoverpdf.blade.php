@@ -1,12 +1,25 @@
+@section('content')
+<div class="row">
 <table>
     <tr>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Address</th>
+        <th>2323232</th>
+        <th>2323232</th>
+    </tr><tr>
+        <th>2323232</th>
+        <th>2323232</th>
+    </tr><tr>
+        <th>2323232</th>
+        <th>2323232</th>
+    </tr><tr>
+        <th>2323232</th>
+        <th>2323232</th>
     </tr>
+@foreach($result as $res)
     <tr>
-        <td>34534543</td>
-        <td>43t54354</td>
-        <td>{43543543</td>
+        <td>Starting Mileage</td>
+        <td>{{ $res->CF01 }} </td>
     </tr>
+@endforeach
 </table>
+</div>
+@endsection

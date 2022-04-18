@@ -484,8 +484,8 @@ class VehicleController extends Controller
 
     private function save_pdf($handover_id){
         $sql = "select * from handover where id ='$handover_id'";
-        $handover = DB::select(DB::raw($sql));
-        $pdf = PDF::loadView('handoverpdf', $handover);
+        $result = DB::select(DB::raw($sql));
+        $pdf = PDF::loadView('handoverpdf', compact('result'));
         $pdf->save("uploads".DIRECTORY_SEPARATOR."handover".DIRECTORY_SEPARATOR.$handover_id.".pdf");
     }
 
