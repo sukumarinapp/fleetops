@@ -11,6 +11,7 @@ use App\User;
 use Auth;
 use App\Formulae;
 use App\SMSFleetops;
+use PDF;
 
 class VehicleController extends Controller
 {
@@ -484,7 +485,8 @@ class VehicleController extends Controller
     private function save_pdf($handover_id){
         $sql = "select * from handover where id ='$handover_id'";
         $handover = DB::select(DB::raw($sql));
-        //$pdf = PDF::loadView('handoverpdf', $handover);
+        $handover = $handover[0];
+        $pdf = PDF::loadView('handoverpdf', $handover);
         //$pdf->save(storage_path().'_student.pdf');
         //return $pdf->download('student.pdf');
     }
