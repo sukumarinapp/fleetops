@@ -501,13 +501,17 @@ class DriverController extends Controller
      {
         $VNO = Session::get('VNO');
         $driver_id = Session::get('driver_id');
-        $sql = "SELECT a.id,b.DNM,b.DSN,b.VCC FROM handover a,driver b where a.driver_id=b.id and VNO = '$VNO' and driver_id=$driver_id and accepted=0";
+        $sql = "SELECT a.*,b.DNM,b.DSN,b.VCC,c.chassis_no,c.IEX,c.REX FROM handover a,driver b,vehicle c where a.driver_id=b.id and a.VNO = '$VNO' and a.driver_id=$driver_id and accepted=0 and c.handover_id=a.id";
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
             $DNM = $result[0]->DNM." ".$result[0]->DSN;
             $VCC = $result[0]->VCC;
+            $VNO = $result[0]->VNO;
+            $chassis_no = $result[0]->chassis_no;
+            $IEX = $result[0]->IEX;
+            $REX = $result[0]->REX;
             $handover_id = $result[0]->id;
-        return view('driver.vehiclehandover',compact('VCC','DNM','handover_id')); 
+        return view('driver.vehiclehandover',compact('result','VCC','DNM','handover_id','VNO','chassis_no','IEX','REX')); 
         }
      }
 
