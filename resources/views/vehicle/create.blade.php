@@ -394,10 +394,7 @@ border-radius: 34px;
 							<label for="SSF" class="col-sm-1 col-form-label">(or)</label>
 							<div class="col-sm-2">
 								<select name="SSF" id="SSF" class="custom-select">
-									<option value="Daily" selected="selected">Daily</option>
-									<option value="Weekly" >Weekly</option>
 									<option value="Monthly" >Monthly</option>
-									<option value="Yearly" >Yearly</option>
 								</select>
 							</div>
 						</div>
