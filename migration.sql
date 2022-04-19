@@ -287,8 +287,11 @@ alter table handover add acceptance_code varchar(10) DEFAULT NULL;
 alter table handover add accepted int(1) DEFAULT 0;
 alter table driver_upload add expiry date DEFAULT NULL;
 
---16/04.2022
+--16/04/2022
 
 alter table vehicle add status varchar(20) DEFAULT NULL;
 update vehicle set status='assigned' where driver_id is not null;
 
+--19/04/2022  
+alter table vehicle_service add service_done int(1) DEFAULT 0;
+alter table vehicle_inspect add inspect_done int(1) DEFAULT 0;
