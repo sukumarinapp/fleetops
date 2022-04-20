@@ -423,10 +423,7 @@ border-radius: 34px;
 							<label for="SSF" class="col-sm-1 col-form-label">(or)</label>
 							<div class="col-sm-2">
 								<select name="SSF" id="SSF" class="custom-select">
-									<option {{ ($vehicle->SSF == "Daily" ? "selected":"") }} value="Daily" >Daily</option>
-									<option {{ ($vehicle->SSF == "Weekly" ? "selected":"") }} value="Weekly" >Weekly</option>
 									<option {{ ($vehicle->SSF == "Monthly" ? "selected":"") }} value="Monthly" >Monthly</option>
-									<option {{ ($vehicle->SSF == "Yearly" ? "selected":"") }} value="Yearly" >Yearly</option>
 								</select>
 							</div>
 						</div>
