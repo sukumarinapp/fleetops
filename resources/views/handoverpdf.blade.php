@@ -92,7 +92,7 @@
     </tr>
     <tr>
         <td>Front View</td>
-        <td><img class="img-fluid img-thumbnail" src="../uploads/photo/{{ $res->CFP2 }}" style="width:30%;height:40%"></td>
+        <td><img class="img-fluid img-thumbnail" src="{{ public_path() . $res->CFP2 }}" style="width:30%;height:40%"></td>
     </tr>
     <tr>
         <td>Right View</td>
