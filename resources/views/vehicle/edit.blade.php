@@ -212,40 +212,40 @@ border-radius: 34px;
 											<span aria-hidden="true">&times;</span>
 										</button>
 									</div>
-									<div class="modal-body">
+			<div class="modal-body">
 
-										<div class="form-group row">
-											<label for="ECY" class="col-sm-4 col-form-label"><span style="color:red">*</span>RH – Engine Capacity (Litres)</label>
-											<div class="col-sm-8">
-												<input value="{{ $vehicle->ECY }}" required="required" type="text" class="form-control decimal" name="ECY" id="ECY" maxlength="10" placeholder="Engine Capacity">
-											</div>
-										</div>
+				<div class="form-group row">
+					<label for="ECY" class="col-sm-4 col-form-label"><span style="color:red">*</span>RH – Engine Capacity (Litres)</label>
+					<div class="col-sm-8">
+						<input value="{{ $vehicle->ECY }}" type="text" class="form-control decimal" name="ECY" id="ECY" maxlength="10" placeholder="Engine Capacity">
+					</div>
+				</div>
 
-										<div class="form-group row">
-											<label for="CON" class="col-sm-4 col-form-label"><span style="color:red">*</span>Fuel Consumption</label>
-											<div class="col-sm-8">
-												<input  value="{{ number_format((float)$vehicle->CON, 2, '.', '') }}" required="required" type="text" readonly class="form-control decimal" name="CON" id="CON" maxlength="10" placeholder="Fuel Consumption">
-											</div>
-										</div>
-										<div class="form-group row">
-											<label for="VFT" class="col-sm-4 col-form-label"><span style="color:red">*</span>RH – Tank Capacity (Litres)</label>
-											<div class="col-sm-8">
-												<input value="{{ $vehicle->VFT }}" required="required" type="text" class="form-control decimal" name="VFT" id="VFT" maxlength="10" placeholder="Tank Capacity">
-											</div>
-										</div>
-										<div class="form-group row">
-											<label for="VFC" class="col-sm-4 col-form-label"><span style="color:red">*</span>RH – Fueling Cap (Litres)</label>
-											<div class="col-sm-8">
-												<input value="{{ $vehicle->VFC }}" required="required" type="text" class="form-control decimal" name="VFC" id="VFC" maxlength="10" placeholder="Fueling Cap (%)">
-											</div>
-										</div>
+				<div class="form-group row">
+					<label for="CON" class="col-sm-4 col-form-label"><span style="color:red">*</span>Fuel Consumption</label>
+					<div class="col-sm-8">
+						<input  value="{{ number_format((float)$vehicle->CON, 2, '.', '') }}" required="required" type="text" readonly class="form-control decimal" name="CON" id="CON" maxlength="10" placeholder="Fuel Consumption">
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="VFT" class="col-sm-4 col-form-label"><span style="color:red">*</span>RH – Tank Capacity (Litres)</label>
+					<div class="col-sm-8">
+						<input value="{{ $vehicle->VFT }}" type="text" class="form-control decimal" name="VFT" id="VFT" maxlength="10" placeholder="Tank Capacity">
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="VFC" class="col-sm-4 col-form-label"><span style="color:red">*</span>RH – Fueling Cap (Litres)</label>
+					<div class="col-sm-8">
+						<input value="{{ $vehicle->VFC }}" type="text" class="form-control decimal" name="VFC" id="VFC" maxlength="10" placeholder="Fueling Cap (%)">
+					</div>
+				</div>
 
-										<div class="form-group row">
-											<div class="col-md-12 text-center">
-												<button type="button" class="btn btn-primary" data-dismiss="modal">Confirm</button>
-											</div>
-										</div>	
-									</div>
+				<div class="form-group row">
+					<div class="col-md-12 text-center">
+						<button type="button" class="btn btn-primary" data-dismiss="modal">Confirm</button>
+					</div>
+				</div>	
+			</div>
 								</div>
 							</div>
 						</div> 
@@ -254,91 +254,91 @@ border-radius: 34px;
 							<button type="button" class="btn btn-outline-primary float-right" data-toggle="modal" data-target="#tracker"><i class=" nav-icon fas fa-cog"></i>Tracker settings
 							</button>
 						</div>
-						<div class="modal fade" id="tracker">
-							<div class="modal-dialog modal-xl">
-								<div class="modal-content">
-									<div class="modal-header">
-										<h6 class="modal-title">Tracker settings</h6>
-										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-											<span aria-hidden="true">&times;</span>
-										</button>
+			<div class="modal fade" id="tracker">
+				<div class="modal-dialog modal-xl">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h6 class="modal-title">Tracker settings</h6>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+
+							<div class="form-group row">
+								<label for="TSN" class="col-sm-4 col-form-label"><span style="color:red">*</span>Tracker Device SN</label>
+								<div class="col-sm-8">
+									<input onkeyup="duplicateDeviceSN( {{ $vehicle->TSN }} )" value="{{ $vehicle->TSN }}" type="text" class="form-control" name="TSN" id="TSN" maxlength="50" placeholder="Tracker Device SN">
+									<span id="dupTSN" style="color:red"></span>
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="TID" class="col-sm-4 col-form-label"><span style="color:red">*</span>Tracker ID</label>
+								<div class="col-sm-8">
+									<input onkeyup="duplicateTrackerID( {{ $vehicle->TID }} )" value="{{ $vehicle->TID }}" type="text" class="form-control" name="TID" id="TID" maxlength="50" placeholder="Tracker ID">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="TSM" class="col-sm-4 col-form-label"><span style="color:red">*</span>Tracker SIM No.</label>
+								<div class="col-sm-8">
+									<input onkeyup="duplicateTrackerSIM( {{ $vehicle->TSM }} )" value="{{ $vehicle->TSM }}" type="text" class="form-control" name="TSM" id="TSM" maxlength="50" placeholder="Tracker SIM No.">
+									<span id="dupTSM" style="color:red"></span>
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="TIP" class="col-sm-4 col-form-label"><span style="color:red"></span>Terminal IP Address</label>
+								<div class="col-sm-8">
+									<input value="{{ $vehicle->TIP }}" type="text" class="form-control" name="TIP" id="TIP" maxlength="50" placeholder="Terminal IP Address">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-6">
+									<!-- text input -->
+									<div class="form-group row">
+										<label for="VZC1" class="col-sm-6 col-form-label"><span style="color:red">*</span>Buzzer (On)</label>
+										<div class="col-sm-6">
+											<input value="{{ $vehicle->VZC1 }}" type="text" class="form-control" name="VZC1" id="VZC1" maxlength="50" placeholder="Code">
+										</div>
 									</div>
-									<div class="modal-body">
-
-										<div class="form-group row">
-											<label for="TSN" class="col-sm-4 col-form-label"><span style="color:red">*</span>Tracker Device SN</label>
-											<div class="col-sm-8">
-												<input onkeyup="duplicateDeviceSN( {{ $vehicle->TSN }} )" value="{{ $vehicle->TSN }}" required="required" type="text" class="form-control" name="TSN" id="TSN" maxlength="50" placeholder="Tracker Device SN">
-												<span id="dupTSN" style="color:red"></span>
-											</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group row">
+										<label for="VZC0" class="col-sm-6 col-form-label"><span style="color:red">*</span>Buzzer (Off)</label>
+										<div class="col-sm-6">
+											<input value="{{ $vehicle->VZC0 }}" type="text" class="form-control" name="VZC0" id="VZC0" maxlength="50" placeholder="Code">
 										</div>
-										<div class="form-group row">
-											<label for="TID" class="col-sm-4 col-form-label"><span style="color:red">*</span>Tracker ID</label>
-											<div class="col-sm-8">
-												<input onkeyup="duplicateTrackerID( {{ $vehicle->TID }} )" value="{{ $vehicle->TID }}" required="required" type="text" class="form-control" name="TID" id="TID" maxlength="50" placeholder="Tracker ID">
-											</div>
-										</div>
-										<div class="form-group row">
-											<label for="TSM" class="col-sm-4 col-form-label"><span style="color:red">*</span>Tracker SIM No.</label>
-											<div class="col-sm-8">
-												<input onkeyup="duplicateTrackerSIM( {{ $vehicle->TSM }} )" value="{{ $vehicle->TSM }}" required="required" type="text" class="form-control" name="TSM" id="TSM" maxlength="50" placeholder="Tracker SIM No.">
-												<span id="dupTSM" style="color:red"></span>
-											</div>
-										</div>
-										<div class="form-group row">
-											<label for="TIP" class="col-sm-4 col-form-label"><span style="color:red">*</span>Terminal IP Address</label>
-											<div class="col-sm-8">
-												<input value="{{ $vehicle->TIP }}" required="required" type="text" class="form-control" name="TIP" id="TIP" maxlength="50" placeholder="Terminal IP Address">
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-sm-6">
-												<!-- text input -->
-												<div class="form-group row">
-													<label for="VZC1" class="col-sm-6 col-form-label"><span style="color:red">*</span>Buzzer (On)</label>
-													<div class="col-sm-6">
-														<input value="{{ $vehicle->VZC1 }}" required="required" type="text" class="form-control" name="VZC1" id="VZC1" maxlength="50" placeholder="Code">
-													</div>
-												</div>
-											</div>
-											<div class="col-sm-6">
-												<div class="form-group row">
-													<label for="VZC0" class="col-sm-6 col-form-label"><span style="color:red">*</span>Buzzer (Off)</label>
-													<div class="col-sm-6">
-														<input value="{{ $vehicle->VZC0 }}" required="required" type="text" class="form-control" name="VZC0" id="VZC0" maxlength="50" placeholder="Code">
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-sm-6">
-												<!-- text input -->
-												<div class="form-group row">
-													<label for="VBC1" class="col-sm-6 col-form-label"><span style="color:red">*</span>Blocking (On)</label>
-													<div class="col-sm-6">
-														<input value="{{ $vehicle->VBC1 }}" required="required" type="text" class="form-control" name="VBC1" id="VBC1" maxlength="50" placeholder="Code">
-													</div>
-												</div>
-											</div>
-											<div class="col-sm-6">
-												<div class="form-group row">
-													<label for="VBC0" class="col-sm-6 col-form-label"><span style="color:red">*</span>Blocking (Off):</label>
-													<div class="col-sm-6">
-														<input value="{{ $vehicle->VBC0 }}" required="required" type="text" class="form-control" name="VBC0" id="VBC0" maxlength="50" placeholder="Code">
-													</div>
-												</div>
-											</div>
-										</div>
-
-										<div class="form-group row">
-											<div class="col-md-12 text-center">
-												<button type="button" class="btn btn-primary" data-dismiss="modal">Confirm</button>
-											</div>
-										</div>	
 									</div>
 								</div>
 							</div>
-						</div> 
+							<div class="row">
+								<div class="col-sm-6">
+									<!-- text input -->
+									<div class="form-group row">
+										<label for="VBC1" class="col-sm-6 col-form-label"><span style="color:red">*</span>Blocking (On)</label>
+										<div class="col-sm-6">
+											<input value="{{ $vehicle->VBC1 }}" type="text" class="form-control" name="VBC1" id="VBC1" maxlength="50" placeholder="Code">
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group row">
+										<label for="VBC0" class="col-sm-6 col-form-label"><span style="color:red">*</span>Blocking (Off):</label>
+										<div class="col-sm-6">
+											<input value="{{ $vehicle->VBC0 }}" type="text" class="form-control" name="VBC0" id="VBC0" maxlength="50" placeholder="Code">
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<div class="col-md-12 text-center">
+									<button type="button" class="btn btn-primary" data-dismiss="modal">Confirm</button>
+								</div>
+							</div>	
+						</div>
+					</div>
+				</div>
+			</div> 
 						<div class="form-group row">
 							<button type="button" class="btn btn-outline-primary float-right" data-toggle="modal" data-target="#modal-default"><i class="nav-icon fas fa-cog"></i> Maintenance Scheduler
 							</button>
@@ -402,7 +402,7 @@ border-radius: 34px;
 								<input value="{{ $vehicle->SSD }}" onkeydown="return false" type="date" class="form-control" name="SSD" id="SSD" >
 							</div>
 
-							<label for="SSM" class="col-sm-3 col-form-label">(or) Next Scheduled Mileage</label>
+							<label for="SSM" class="col-sm-3 col-form-label">(OR) Next Scheduled Mileage</label>
 							<div class="col-sm-2">
 								<input value="{{ $vehicle->SSM }}" maxlength="6" type="text" class="form-control number" name="SSM" id="SSM" >
 							</div>
@@ -416,42 +416,16 @@ border-radius: 34px;
 									<span class="slider round"></span>
 								</label>
 							</div>
-							<label for="SMF" class="col-sm-2 col-form-label">Recurrence</label>
-							<div class="col-sm-2">
-								<input value="{{ $vehicle->SMF }}" type="text" maxlength="6" class="form-control number" name="SMF" id="SMF" placeholder="Every Km" >
+							<label for="SMF" class="col-sm-2 col-form-label">Recurrence Km</label>
+							<div class="col-sm-1">
+								<input value="{{ $vehicle->SMF }}" type="text" maxlength="6" class="form-control number" name="SMF" id="SMF" placeholder="EveryKm" >
 							</div>
-							<label for="SSF" class="col-sm-1 col-form-label">(or)</label>
-							<div class="col-sm-2">
-								<select name="SSF" id="SSF" class="custom-select">
-									<option {{ ($vehicle->SSF == "Monthly" ? "selected":"") }} value="Monthly" >Monthly</option>
-								</select>
-							</div>
-						</div>
-
-						<div class="form-group row">
-							<div class="col-sm-3">
-							</div>
-							<label for="SSFP" class="col-sm-2 col-form-label">Recur Every</label>
-							<div class="col-sm-2">
+							<label for="SSF" class="col-sm-3 col-form-label">(OR) Recur Every (Month)</label>
+						
+							<div class="col-sm-1">
 								<input value="{{ $vehicle->SSFP }}" type="text" maxlength="2" class="form-control number" name="SSFP" id="SSFP">
 							</div>
 						</div>
-						<div class="form-group row">
-							<div class="col-sm-3">
-							</div>
-							<label for="SSFP" class="col-sm-2 col-form-label">On Day</label>
-								<div class="col-sm-2">
-								<select name="SSFD" id="SSFD" class="custom-select">
-									<option {{ ($vehicle->SSFD == "0" ? "selected":"") }} value="0" >Sunday</option>
-									<option {{ ($vehicle->SSFD == "1" ? "selected":"") }} value="1" >Monday</option>
-									<option {{ ($vehicle->SSFD == "2" ? "selected":"") }} value="2" >Tuesday</option>
-									<option {{ ($vehicle->SSFD == "3" ? "selected":"") }} value="3" >Wednesday</option>
-									<option {{ ($vehicle->SSFD == "4" ? "selected":"") }} value="4" >Thursday</option>
-									<option {{ ($vehicle->SSFD == "5" ? "selected":"") }} value="5" >Friday</option>
-									<option {{ ($vehicle->SSFD == "6" ? "selected":"") }} value="6" >Saturday</option>
-								</select>
-							</div>
-							</div>								
 
 						<br><label>Vehicle Inspection Scheduling</label>
 						<div class="form-group row">
@@ -466,7 +440,7 @@ border-radius: 34px;
 								<input value="{{ $vehicle->ISD }}" onkeydown="return false" type="date" class="form-control" name="ISD" id="ISD" >
 							</div>
 
-							<label for="ISM" class="col-sm-3 col-form-label">(or) Next Scheduled Mileage</label>
+							<label for="ISM" class="col-sm-3 col-form-label">(OR) Next Scheduled Mileage</label>
 							<div class="col-sm-2">
 								<input value="{{ $vehicle->ISM }}" type="text" maxlength="6" class="form-control number" name="ISM" id="ISM" >
 							</div>
@@ -480,43 +454,14 @@ border-radius: 34px;
 									<span class="slider round"></span>
 								</label>
 							</div>
-							<label for="IMF" class="col-sm-2 col-form-label">Recurrence</label>
-							<div class="col-sm-2">
-								<input value="{{ $vehicle->IMF }}" type="text" maxlength="6" class="form-control number" name="IMF" id="IMF" placeholder="Every Km" >
+							<label for="IMF" class="col-sm-2 col-form-label">Recurrence Km</label>
+							<div class="col-sm-1">
+								<input value="{{ $vehicle->IMF }}" type="text" maxlength="6" class="form-control number" name="IMF" id="IMF" placeholder="EveryKm" >
 							</div>
-							<label for="ISF" class="col-sm-1 col-form-label">(or)</label>
-							<div class="col-sm-2">
-								<select name="ISF" id="ISF" class="custom-select">
-									<option {{ ($vehicle->ISF == "Daily" ? "selected":"") }} value="Daily" >Daily</option>
-									<option {{ ($vehicle->ISF == "Weekly" ? "selected":"") }} value="Weekly" >Weekly</option>
-									<option {{ ($vehicle->ISF == "Monthly" ? "selected":"") }} value="Monthly" >Monthly</option>
-									<option {{ ($vehicle->ISF == "Yearly" ? "selected":"") }} value="Yearly" >Yearly</option>
-								</select>
-							</div>
-						</div>
-
-						<div class="form-group row">
-							<div class="col-sm-3">
-							</div>
-							<label for="ISFP" class="col-sm-2 col-form-label">Recur Every</label>
-							<div class="col-sm-2">
+							<label for="ISF" class="col-sm-3 col-form-label">(OR) Recur Every (Month)</label>
+					
+							<div class="col-sm-1">
 								<input value="{{ $vehicle->ISFP }}" type="text" maxlength="2" class="form-control number" name="ISFP" id="ISFP">
-							</div>
-						</div>
-                        <div class="form-group row">
-							<div class="col-sm-3">
-							</div>
-							<label for="ISFD" class="col-sm-2 col-form-label">On Day</label>
-							<div class="col-sm-2">
-								<select name="ISFD" id="ISFD" class="custom-select">
-									<option {{ ($vehicle->ISFD == "0" ? "selected":"") }} value="0" >Sunday</option>
-									<option {{ ($vehicle->ISFD == "1" ? "selected":"") }} value="1" >Monday</option>
-									<option {{ ($vehicle->ISFD == "2" ? "selected":"") }} value="2" >Tuesday</option>
-									<option {{ ($vehicle->ISFD == "3" ? "selected":"") }} value="3" >Wednesday</option>
-									<option {{ ($vehicle->ISFD == "4" ? "selected":"") }} value="4" >Thursday</option>
-									<option {{ ($vehicle->ISFD == "5" ? "selected":"") }} value="5" >Friday</option>
-									<option {{ ($vehicle->ISFD == "6" ? "selected":"") }} value="6" >Saturday</option>
-								</select>
 							</div>
 						</div>
 						<div class="form-group row">
@@ -541,20 +486,70 @@ border-radius: 34px;
 	});
 
 function validate_all(e){
-var selection = document.getElementById('VID');
-for (var i=0; i<selection.files.length; i++) {
-    if(selection.files[i].size > 5000000){
-    	alert('Insurance file size can be a maximum of 5MB');
+	var ECY = $("#ECY").val().trim();
+    if(ECY == ""){
+    	alert('Please enter Engine Capacity');
         return false;
     }
-} 
-selection = document.getElementById('VRD');
-for (var i=0; i<selection.files.length; i++) {
-    if(selection.files[i].size > 5000000){
-    	alert('Roadworthy Certificate file size can be a maximum of 5MB');
+    var VFT = $("#VFT").val().trim();
+    if(VFT == ""){
+    	alert('Please enter Tank Capacity');
         return false;
     }
-} 
+    var VFC = $("#VFC").val().trim();
+    if(VFC == ""){
+    	alert('Please enter Fueling Cap');
+        return false;
+    }
+    var TSN = $("#TSN").val().trim();
+    if(TSN == ""){
+    	alert('Please enter Tracker Device SN');
+        return false;
+    }
+    var TID = $("#TID").val().trim();
+    if(TID == ""){
+    	alert('Please enter Tracker ID');
+        return false;
+    }
+    var TSM = $("#TSM").val().trim();
+    if(TSM == ""){
+    	alert('Please enter Tracker SIM No');
+        return false;
+    }
+    var VZC1 = $("#VZC1").val().trim();
+    if(VZC1 == ""){
+    	alert('Please enter Buzzer (On)');
+        return false;
+    }
+    var VZC0 = $("#VZC0").val().trim();
+    if(VZC0 == ""){
+    	alert('Please enter Buzzer (Off)');
+        return false;
+    }
+    var VBC1 = $("#VBC1").val().trim();
+    if(VBC1 == ""){
+    	alert('Please enter Blocking (On)');
+        return false;
+    }
+    var VBC0 = $("#VBC0").val().trim();
+    if(VBC0 == ""){
+    	alert('Please enter Blocking (Off)');
+        return false;
+    }
+	var selection = document.getElementById('VID');
+	for (var i=0; i<selection.files.length; i++) {
+	    if(selection.files[i].size > 5000000){
+	    	alert('Insurance file size can be a maximum of 5MB');
+	        return false;
+	    }
+	} 
+	selection = document.getElementById('VRD');
+	for (var i=0; i<selection.files.length; i++) {
+	    if(selection.files[i].size > 5000000){
+	    	alert('Roadworthy Certificate file size can be a maximum of 5MB');
+	        return false;
+	    }
+	} 
 }
 
 function readURL(input,photoprview) {
