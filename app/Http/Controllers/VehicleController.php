@@ -465,9 +465,9 @@ class VehicleController extends Controller
             $DNM = $result[0]->DNM ." ".$result[0]->DSN;
             $DCN = $result[0]->DCN;
         }
-        //self::save_pdf($handover_id);
-        //self::send_sms($VID);
-        return redirect('/handoverpdf', compact('result'));
+        self::save_pdf($handover_id);
+        self::send_sms($VID);
+        return redirect('/vehicle')->with('message', 'Driver Assigned Successfully');
     }
 
     private function save_pdf($handover_id){
