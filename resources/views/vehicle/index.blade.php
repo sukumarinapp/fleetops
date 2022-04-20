@@ -49,6 +49,7 @@
             <th>Model</th>
             <th>Color</th>
             <th>Status</th>
+            <th>Handover</th>
             <th style="width: 150px">Assign/Remove</th>
             <th style="width: 150px">Action</th>
           </tr>
@@ -88,6 +89,11 @@
                   Inactive
                 @endif
               </td>
+              <td>@if($vehicle->handover_id == 0)
+              @else
+              <a target="_blank" href="../../uploads/handover/{{ $vehicle->handover_id }}.pdf"><img src="{{ URL::to('/') }}/handover.jpg"></a>
+              @endif
+            </td>
               <td>
                     @if(Auth::user()->usertype == "Admin" || Auth::user()->BPF == true)
                       @if($vehicle->status == "pending")
