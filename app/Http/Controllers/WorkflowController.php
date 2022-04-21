@@ -907,16 +907,17 @@ class WorkflowController extends Controller
     }
 
     public function service($id){
-        $sql = "select a.*,b.DNM,b.DSN from driver_upload a,driver b where a.driver_id = b.id and a.id=$id and approved=0";
+        $sql = "select d.RSS,a.*,b.DNM,b.DSN from driver_upload a,driver b,vehicle c,vehicle_service d where c.id=d.VID and a.VNO=c.VNO and a.driver_id = b.id and a.id=$id and approved=0";
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
             $DNM = $result[0]->DNM . " " . $result[0]->DSN;
             $VNO = $result[0]->VNO;
+            $RSS = $result[0]->RSS;
             $driver_id = $result[0]->driver_id;
             $upload_id = $result[0]->id;
             $file_name = $result[0]->file_name;
             $current_mileage = $result[0]->current_mileage;
-            return view('service',compact('result','DNM','VNO','upload_id','driver_id','file_name','current_mileage'));
+            return view('service',compact('result','DNM','VNO','upload_id','driver_id','file_name','current_mileage','RSS'));
        }
     }
 }
