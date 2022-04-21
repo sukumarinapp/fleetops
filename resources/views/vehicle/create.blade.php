@@ -507,6 +507,46 @@ border-radius: 34px;
 		        return false;
 		    }
 
+		    var MSH = $("#MSH").is(':checked') ? 1 : 0; 
+		    if(MSH == 1){
+				var SSM = $("#SSM").val().trim();
+				if(SSM == ""){
+		    		alert('Please enter next scheduled service mileage');
+		        	return false;
+		    	}
+		    	var ISM = $("#ISM").val().trim();
+				if(ISM == ""){
+		    		alert('Please enter next scheduled inspection mileage');
+		        	return false;
+		    	}
+		    	var RSS = $("#RSS").is(':checked') ? 1 : 0;
+		    	if(RSS == 1){
+		    		var SMF = $("#SMF").val().trim();
+					if(SMF == ""){
+			    		alert('Please enter service recurrence Km');
+			        	return false;
+			    	}
+			    	var SSFP = $("#SSFP").val().trim();
+					if(SSFP == ""){
+			    		alert('Please enter service recurrence months');
+			        	return false;
+			    	}
+		    	}
+		    	var RIS = $("#RIS").is(':checked') ? 1 : 0;
+		    	if(RIS == 1){
+		    		var IMF = $("#IMF").val().trim();
+					if(IMF == ""){
+			    		alert('Please enter inspection recurrence Km');
+			        	return false;
+			    	}
+			    	var ISFP = $("#ISFP").val().trim();
+					if(ISFP == ""){
+			    		alert('Please enter inspection recurrence months');
+			        	return false;
+			    	}
+		    	}
+		    }
+
 			var selection = document.getElementById('VID');
 			for (var i=0; i<selection.files.length; i++) {
 			    if(selection.files[i].size > 5000000){

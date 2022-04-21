@@ -306,7 +306,7 @@ class VehicleController extends Controller
                 if($SSD == "NULL")
                     $sql = "update vehicle_service set SSD=$SSD,SSM='$SSM',SMF='$SMF',SSFP='$SSFP',SVE='$SVE',RSS='$RSS' where VID = '$id'";
                 else
-                    $sql = "update vehicle_service set SSD='$SSD',SSM='$SSMinsert into vehicle_serviceinsert into vehicle_service',SMF='$SMF',SSFP='$SSFP',SVE='$SVE',RSS='$RSS' where VID = '$id'";
+                    $sql = "update vehicle_service set SSD='$SSD',SSM='$SSM',SMF='$SMF',SSFP='$SSFP',SVE='$SVE',RSS='$RSS' where VID = '$id'";
                 DB::update($sql);
             }else{
                 if($SSD == "NULL")
