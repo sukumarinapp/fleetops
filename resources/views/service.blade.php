@@ -34,14 +34,14 @@
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group row">
-										<label for="" class="col-sm-4 col-form-label"><span style="color:red"></span>Driver Name</label>
-										<div class="col-sm-8">
+										<label for="" class="col-sm-5 col-form-label"><span style="color:red"></span>Driver Name</label>
+										<div class="col-sm-7">
 											{{ $DNM }}
 										</div>
 									</div>
 									<div class="form-group row">
-										<label for="" class="col-sm-4 col-form-label"><span style="color:red"></span>Vehicle Reg No</label>
-										<div class="col-sm-8">
+										<label for="" class="col-sm-5 col-form-label"><span style="color:red"></span>Vehicle Reg No</label>
+										<div class="col-sm-7">
 											{{ $VNO }}
 										</div>
 									</div>
@@ -57,19 +57,32 @@
 										@if($current_mileage != "")
 											style="color:blue "
 										@endif 
-										for="current_mileage" class="col-sm-4 col-form-label"><span style="color:red">*</span>Current Odometer Reading</label>
+										for="current_mileage" class="col-sm-5 col-form-label"><span style="color:red">*</span>Current Odometer Reading</label>
 										<div class="col-sm-4">
 											<input value="{{ $current_mileage }}" required="required" maxlength="8" type="text" class="form-control number" name="current_mileage" id="current_mileage" >
 										</div>
 									</div>
 									
-									
+									@if($RSS == 0)
 									<div class="form-group row">
-										<label for="service_date" class="col-sm-4 col-form-label"><span style="color:red">*</span>Next Service Date</label>
+										<label for="service_date" class="col-sm-5 col-form-label"><span style="color:red">*</span>Next Scheduled Date</label>
 										<div class="col-sm-4">
 											<input min="{{ date('Y-m-d') }}" value="{{ date('Y-m-d') }}" required="required" onkeydown="return false" type="date" class="form-control" name="service_date" id="service_date" >
 										</div>
 									</div>
+									@else
+									@endif
+
+                  @if($RSS == 0)
+									<div class="form-group row">
+										<label for="SSM" class="col-sm-5 col-form-label"><span style="color:red">*</span>Next Scheduled Mileage</label>
+										<div class="col-sm-4">
+											<input required="required" type="text" class="form-control" name="SSM" id="SSM" >
+										</div>
+									</div>
+									@else
+									@endif
+
 								</div>
 								<!-- /.col -->
 							</div>
