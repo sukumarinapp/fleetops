@@ -70,17 +70,12 @@
 											<input min="{{ date('Y-m-d') }}" value="{{ date('Y-m-d') }}" required="required" onkeydown="return false" type="date" class="form-control" name="service_date" id="service_date" >
 										</div>
 									</div>
-									@else
-									@endif
-
-                  @if($RSS == 0)
 									<div class="form-group row">
 										<label for="SSM" class="col-sm-5 col-form-label"><span style="color:red">*</span>Next Scheduled Mileage</label>
 										<div class="col-sm-4">
 											<input required="required" type="text" class="form-control" name="SSM" id="SSM" >
 										</div>
 									</div>
-									@else
 									@endif
 
 								</div>
