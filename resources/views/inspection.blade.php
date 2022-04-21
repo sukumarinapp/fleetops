@@ -509,6 +509,24 @@
 						<div class="form-group row">
 							<div class="col-md-12 gallery"></div>
 						</div>
+
+		            @if($RIS == 0)
+					<div class="form-group row">
+						<label for="ISD" class="col-sm-6 col-form-label"><span style="color:red">*</span>Next Scheduled Date</label>
+						<div class="col-sm-6">
+							<input min="{{ date('Y-m-d') }}" value="{{ date('Y-m-d') }}" required="required" onkeydown="return false" type="date" class="form-control" name="ISD" id="ISD" >
+						</div>
+					</div>
+					@endif
+
+                   @if($RIS == 0)
+					<div class="form-group row">
+						<label for="ISM" class="col-sm-6 col-form-label"><span style="color:red">*</span>Next Scheduled Mileage</label>
+						<div class="col-sm-6">
+							<input required="required" type="text" class="form-control" name="ISM" id="ISM" >
+						</div>
+					</div>
+					@endif
 					</div>
 				</div>
 			</div>
