@@ -532,13 +532,14 @@ class WorkflowController extends Controller
     }
 
     public function vehicleinspection($id){
-        $sql = "select a.*,b.DNM,b.DSN,c.chassis_no from driver_upload a,driver b,vehicle c where a.driver_id=b.id and c.driver_id=b.id and a.id=$id and approved=0";
+        $sql = "select d.RIS,a.*,b.DNM,b.DSN,c.chassis_no from driver_upload a,driver b,vehicle c,vehicle_inspect d where c.id=d.VID and a.driver_id=b.id and c.driver_id=b.id and a.id=$id and approved=0";
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
             $VNO = $result[0]->VNO;
+            $RIS = $result[0]->RIS;
             $chassis_no = $result[0]->chassis_no;
             $upload_id = $result[0]->id;
-        return view('inspection',compact('result','VNO','upload_id','chassis_no'));
+        return view('inspection',compact('result','VNO','upload_id','chassis_no','RIS'));
        }
     }
 
