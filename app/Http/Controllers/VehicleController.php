@@ -556,6 +556,7 @@ class VehicleController extends Controller
         $DID = $vehicle->driver_id;
         $vehicle->driver_id  =  null;
         $vehicle->status  =  "";
+        $vehicle->handover_id = 0;
         $vehicle->save();
         $CAN = $vehicle->CAN;
         $VNO = $vehicle->VNO;
