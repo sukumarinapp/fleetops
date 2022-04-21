@@ -38,6 +38,8 @@
 			<form id="inspectForm" onsubmit="return validate_all(event)" action="{{ route('saveinspection') }}" method="post" enctype="multipart/form-data" class="form-horizontal">
 				@csrf
 				<input type="hidden" name="VNO" value="{{ $VNO }}" />
+				<input type="hidden" name="VID" value="{{ $VID }}" />
+				<input type="hidden" name="RIS" value="{{ $RIS }}" />
 				<input type="hidden" name="upload_id" value="{{ $upload_id }}" />
 				<div class="row">
 					<div class="col-md-6">

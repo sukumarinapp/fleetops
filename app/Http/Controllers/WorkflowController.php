@@ -532,24 +532,53 @@ class WorkflowController extends Controller
     }
 
     public function vehicleinspection($id){
-        $sql = "select d.RIS,a.*,b.DNM,b.DSN,c.chassis_no from driver_upload a,driver b,vehicle c,vehicle_inspect d where c.id=d.VID and a.driver_id=b.id and c.driver_id=b.id and a.id=$id and approved=0";
+        $sql = "select d.VID,d.RIS,a.*,b.DNM,b.DSN,c.chassis_no from driver_upload a,driver b,vehicle c,vehicle_inspect d where c.id=d.VID and a.driver_id=b.id and c.driver_id=b.id and a.id=$id and approved=0";
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
             $VNO = $result[0]->VNO;
+            $VID = $result[0]->VID;
             $RIS = $result[0]->RIS;
             $chassis_no = $result[0]->chassis_no;
             $upload_id = $result[0]->id;
-        return view('inspection',compact('result','VNO','upload_id','chassis_no','RIS'));
+        return view('inspection',compact('result','VNO','upload_id','chassis_no','RIS','VID'));
        }
     }
 
     public function saveservice(Request $request){
         $VNO = $request->get('VNO');
+        $VID = $request->get('VID');
+        $RSS = $request->get('RSS');
+        $SSD = "";
+        $SSM = "";
+
+        if($RSS == 0){
+            $SSD = $request->get('SSD');
+            $SSM = $request->get('SSM');
+        }
+
         $upload_id = $request->get('upload_id');
-        $service_date = $request->get('service_date');
         $current_mileage = $request->get('current_mileage');
-        $sql = "insert into manager_service (upload_id,service_date,current_mileage) values (upload_id,'$service_date','$current_mileage')";
+
+        if($RSS == 1){
+            $sql = "select * from vehicle_service where VID=$VID";
+            $result = DB::select(DB::raw($sql));
+            if(count($result) > 0){
+                $SSD = $result[0]->SSD;
+                $SSM = $result[0]->SSM;
+                $SMF = $result[0]->SMF;
+                $SSFP = $result[0]->SSFP;
+                $SSM = $SSM + $SMF;
+                $SSD = date('Y-m-d', strtotime("+" .$SSFP. " months", strtotime($SSD)));
+            }
+        }
+
+        $sql = "update vehicle_service set SSD='$SSD',SSM='$SSM' where VID=$VID";
+        DB::update($sql);
+
+        $sql = "insert into manager_service (upload_id,service_date,current_mileage) values (upload_id,'$SSD','$current_mileage')";
         DB::insert($sql);
+        
+       
 
         $sql = "update driver_upload set approved=1 where id=$upload_id"; 
         DB::update($sql);
@@ -558,6 +587,30 @@ class WorkflowController extends Controller
 
     public function saveinspection(Request $request){
         $VNO = $request->get('VNO');
+        $VID = $request->get('VID');
+        $RIS = $request->get('RIS');
+
+        $ISD = "";
+        $ISM = "";
+
+        if($RIS == 0){
+            $ISD = $request->get('ISD');
+            $ISM = $request->get('ISM');
+        }
+
+        if($RIS == 1){
+            $sql = "select * from vehicle_inspect where VID=$VID";
+            $result = DB::select(DB::raw($sql));
+            if(count($result) > 0){
+                $ISD = $result[0]->ISD;
+                $ISM = $result[0]->ISM;
+                $IMF = $result[0]->IMF;
+                $ISFP = $result[0]->ISFP;
+                $ISM = $ISM + $IMF;
+                $ISD = date('Y-m-d', strtotime("+" .$ISFP. " months", strtotime($ISD)));
+            }
+        }
+
         $upload_id = $request->get('upload_id');
         $VI01 = $request->get('VI01');
         $VI02 = $request->get('VI02');
@@ -614,6 +667,9 @@ class WorkflowController extends Controller
 
         $sql = "delete from manager_inspect where upload_id=$upload_id";
         DB::delete(DB::raw($sql));
+
+        $sql = "update vehicle_inspect set ISD='$ISD',ISM='$ISM' where VID=$VID";
+        DB::update($sql);
         
         $sql = "insert into manager_inspect (upload_id,VI01,VI02,VI03,VI04,VI05,VI06,VI07,VI08,VI09,VI10,VI11,VI12,VI13,VI14,VI15,VI16,VI17,VI18,VI19,VI20,VI21,VI22,VI23,VI24,CI01,CI02,CI03,CI04,CI05,CI06,CI07,CI08,CI09,CI10,CI11,CI12,CI13,CI14,CI15,CI16,CI17,CI18,CI19,CI20,CI21,CI22,CI23,CI24) values ($upload_id,'$VI01','$VI02','$VI03','$VI04','$VI05','$VI06','$VI07','$VI08','$VI09','$VI10','$VI11','$VI12','$VI13','$VI14','$VI15','$VI16','$VI17','$VI18','$VI19','$VI20','$VI21','$VI22','$VI23','$VI24','$CI01','$CI02','$CI03','$CI04','$CI05','$CI06','$CI07','$CI08','$CI09','$CI10','$CI11','$CI12','$CI13','$CI14','$CI15','$CI16','$CI17','$CI18','$CI19','$CI20','$CI21','$CI22','$CI23','$CI24')";
         DB::insert($sql);
@@ -908,17 +964,18 @@ class WorkflowController extends Controller
     }
 
     public function service($id){
-        $sql = "select d.RSS,a.*,b.DNM,b.DSN from driver_upload a,driver b,vehicle c,vehicle_service d where c.id=d.VID and a.VNO=c.VNO and a.driver_id = b.id and a.id=$id and approved=0";
+        $sql = "select d.VID,d.RSS,a.*,b.DNM,b.DSN from driver_upload a,driver b,vehicle c,vehicle_service d where c.id=d.VID and a.VNO=c.VNO and a.driver_id = b.id and a.id=$id and approved=0";
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
             $DNM = $result[0]->DNM . " " . $result[0]->DSN;
             $VNO = $result[0]->VNO;
+            $VID = $result[0]->VID;
             $RSS = $result[0]->RSS;
             $driver_id = $result[0]->driver_id;
             $upload_id = $result[0]->id;
             $file_name = $result[0]->file_name;
             $current_mileage = $result[0]->current_mileage;
-            return view('service',compact('result','DNM','VNO','upload_id','driver_id','file_name','current_mileage','RSS'));
+            return view('service',compact('result','DNM','VNO','upload_id','driver_id','file_name','current_mileage','RSS','VID'));
        }
     }
 }

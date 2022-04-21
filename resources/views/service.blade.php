@@ -31,6 +31,8 @@
 							<input type="hidden" name="driver_id" value="{{ $driver_id }}" />
 							<input type="hidden" name="upload_id" value="{{ $upload_id }}" />
 							<input type="hidden" name="VNO" value="{{ $VNO }}" />
+							<input type="hidden" name="VID" value="{{ $VID }}" />
+							<input type="hidden" name="RSS" value="{{ $RSS }}" />
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group row">
@@ -67,7 +69,7 @@
 									<div class="form-group row">
 										<label for="service_date" class="col-sm-5 col-form-label"><span style="color:red">*</span>Next Scheduled Date</label>
 										<div class="col-sm-4">
-											<input min="{{ date('Y-m-d') }}" value="{{ date('Y-m-d') }}" required="required" onkeydown="return false" type="date" class="form-control" name="service_date" id="service_date" >
+											<input min="{{ date('Y-m-d') }}" value="{{ date('Y-m-d') }}" required="required" onkeydown="return false" type="date" class="form-control" name="SSD" id="service_date" >
 										</div>
 									</div>
 									<div class="form-group row">
