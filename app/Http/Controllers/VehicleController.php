@@ -471,7 +471,7 @@ class VehicleController extends Controller
     }
 
     private function save_pdf($handover_id){
-        $sql = "select * from handover where id ='$handover_id'";
+        $sql = "select a.*,b.chassis_no,b.IEX,b.REX from handover a,vehicle b where a.VNO=b.VNO and a.id ='$handover_id'";
         $result = DB::select(DB::raw($sql));
         $pdf = PDF::loadView('handoverpdf', compact('result'));
         $pdf->save("uploads".DIRECTORY_SEPARATOR."handover".DIRECTORY_SEPARATOR.$handover_id.".pdf");
