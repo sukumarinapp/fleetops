@@ -99,6 +99,7 @@ class DriverController extends Controller
      {
         $acceptance_code = "";
         $status = "";
+        $handover_id = "";
         $VNO = Session::get('VNO');
         $driver_id = Session::get('driver_id');
         $sql = "select status from vehicle where VNO='$VNO'";
@@ -128,7 +129,13 @@ class DriverController extends Controller
                 $acceptance_code = $result[0]->acceptance_code;
             }
         }
-        return view('driver.myaccount',compact('VNO','VBM','DNM','DCN','acceptance_code','VCC'));
+
+        $sql = "select handover_id from vehicle where VNO='$VNO'";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+            $handover_id = $result[0]->handover_id;
+        }
+        return view('driver.myaccount',compact('VNO','VBM','DNM','DCN','acceptance_code','VCC','handover_id'));
      }
 
     public function tasks()
