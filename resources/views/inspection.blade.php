@@ -517,9 +517,6 @@
 							<input min="{{ date('Y-m-d') }}" value="{{ date('Y-m-d') }}" required="required" onkeydown="return false" type="date" class="form-control" name="ISD" id="ISD" >
 						</div>
 					</div>
-					@endif
-
-                   @if($RIS == 0)
 					<div class="form-group row">
 						<label for="ISM" class="col-sm-6 col-form-label"><span style="color:red">*</span>Next Scheduled Mileage</label>
 						<div class="col-sm-6">
