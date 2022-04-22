@@ -69,11 +69,11 @@
      @endif
    </div>
    <div class="col-md-12">
-    @if($handover_id == 0)
-     <a>Vehicle Hand-over Form</a>
-    @else
+    @if($handover_id != 0 && $acceptance_code != "")
      <a target="_blank" href="../../uploads/handover/{{ $handover_id }}.pdf">Vehicle Hand-over Form</a>
-     @endif
+    @else
+     <a>Vehicle Hand-over Form</a>
+    @endif
   </div>
 </div>
 <nav class="navbar fixed-bottom navbar-expand-lg justify-content-center">      
