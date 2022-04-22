@@ -488,10 +488,19 @@ class VehicleController extends Controller
 
     public function assign($id){
         $this->check_access("BPF");
+        $today = date("Y-m-d");
         $sql = "SELECT a.*,b.name FROM vehicle a,users b where a.CAN=b.UAN and a.id=$id";
         $vehicle = DB::select(DB::raw($sql));
         $vehicle = $vehicle[0];
-        $sql = "SELECT id,DNO,DNM,DSN,DNO,DCN FROM driver where id not in (select driver_id from vehicle where driver_id<>'')";
+        $IEX = $vehicle->IEX;
+        $REX = $vehicle->REX;
+        if($IEX <= $today){
+            return redirect('/vehicle')->with('error', 'Vehicle insurance is expired');
+        }
+        if($REX <= $today){
+            return redirect('/vehicle')->with('error', 'Roadworthy certificate is expired');
+        }
+        $sql = "SELECT id,DNO,DNM,DSN,DNO,DCN FROM driver where LEX >'$today' and CEX >'$today' and id not in (select driver_id from vehicle where driver_id<>'')";
         $drivers = DB::select(DB::raw($sql));
         return view('vehicle.assign', compact('vehicle','drivers'));
     }
