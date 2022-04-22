@@ -47,7 +47,7 @@
             <th>Business Model</th>
             <th>Status</th>
             <th style="width :100px">Business SMS</th>
-            <td>View</td>
+            <th>View</th>
             <th>Action</th>
           </tr>
           </thead>
@@ -89,11 +89,15 @@
                </td>
                <td>
                 @if($driver->photo != "")
-                <a href="#" data-toggle="modal" data-target="#photomodal_{{ $driver->id }}" >Photo</a>
+                <a href="#" data-toggle="modal" data-target="#photomodal_{{ $driver->id }}" ><img src="{{ URL::to('/') }}/photo.png"></a>
                 @else
-                <a>Photo</a>
+                <a><img src="{{ URL::to('/') }}/photo.png"></a>
                 @endif
-                <a href="#" data-toggle="modal" data-target="#licencemodal_{{ $driver->id }}" >Licence</a>
+                <a href="#" data-toggle="modal" data-target="#licencemodal_{{ $driver->id }}" ><img src="{{ URL::to('/') }}/licence.jpg"></a>
+              @if($driver->handover_id == 0)
+              @else
+              <a target="_blank" href="../../uploads/handover/{{ $driver->handover_id }}.pdf"><img src="{{ URL::to('/') }}/handover.jpg"></a>
+              @endif
                </td>
               <td>
                 
