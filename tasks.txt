@@ -4,6 +4,7 @@ Payment Milestone 2
 Milestone D	New Alerts (Process Integration)
 Milestone E	Two Communication Protocol Setup
 Milestone F	Vehicle Blocking / Unblocking (Process Modification)
+
 Milestone G	Vehicle Handover Process (All Screens and Processes)
 Milestone H	Set Ride-Hailing Driver Earning Options
 			Driver Earning Rule (Bonuses Calculations)

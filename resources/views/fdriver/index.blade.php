@@ -47,6 +47,7 @@
             <th>Business Model</th>
             <th>Status</th>
             <th style="width :100px">Business SMS</th>
+            <td>View</td>
             <th>Action</th>
           </tr>
           </thead>
@@ -86,7 +87,16 @@
                   <a href="{{ route('resendsms',$driver->vid) }}" class="btn btn-primary btn-xs">Resend</a>
                 @endif
                </td>
+               <td>
+                @if($driver->photo != "")
+                <a href="#" data-toggle="modal" data-target="#photomodal_{{ $driver->id }}" >Photo</a>
+                @else
+                <a>Photo</a>
+                @endif
+                <a href="#" data-toggle="modal" data-target="#licencemodal_{{ $driver->id }}" >Licence</a>
+               </td>
               <td>
+                
                 @if($driver->VNO == "")
                 <form action="{{ route('fdriver.destroy', $driver->id)}}" method="post">
                 @endif
@@ -107,6 +117,37 @@
           </tbody>
       </table>
 			</div>
+      @foreach($drivers as $driver)
+      @if($driver->photo != "")
+      <div aria-hidden="true" id="photomodal_{{ $driver->id }}" class="modal fade">
+        <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Photo</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+          <img src="uploads/photo/{{ $driver->photo }}" />
+        </div>
+      </div>
+      </div>
+      @endif
+      <div aria-hidden="true" id="licencemodal_{{ $driver->id }}" class="modal fade">
+        <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Licence</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+          <img src="uploads/DLD/{{ $driver->DLD }}" />
+          <img src="uploads/DLD/{{ $driver->DLD2 }}" />
+        </div>
+      </div>
+      </div>
+      @endforeach
 		</div>
 		</div>
 	</div>

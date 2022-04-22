@@ -30,6 +30,15 @@ class FdriverController extends Controller
         $this->check_access("BPF");
         $sql = "SELECT a.*,b.id as vid,b.VNO FROM driver a LEFT JOIN vehicle b ON a.id = b.driver_id";
         $drivers = DB::select(DB::raw($sql));
+        foreach($drivers as $driver){
+            $VNO = $driver->VNO;
+            $sql2 = "select photo from handover where VNO='$VNO'";
+            $result = DB::select(DB::raw($sql2));
+            $driver->photo = "";
+            if(count($result) > 0){
+                $driver->photo = $result[0]->photo;
+            }
+        }
         return view('fdriver.index', compact('drivers'));
     }
    
