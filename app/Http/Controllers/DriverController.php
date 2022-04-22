@@ -537,7 +537,7 @@ class DriverController extends Controller
                 $sql = "update handover set accepted=1 where id=$handover_id";
                 //DB::update($sql);
                 echo "<pre>";
-print_r($request->server);
+echo($request->server->HTTP_USER_AGENT);
 echo "</pre>";
 die;
                 $sql = "select a.*,b.chassis_no,b.IEX,b.REX,c.DNM,c.DSN from handover a,vehicle b,driver c where a.VNO=b.VNO and b.driver_id=c.id and a.id ='$handover_id'";
