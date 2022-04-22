@@ -103,7 +103,9 @@
                 <a href="#" data-toggle="modal" data-target="#licencemodal_{{ $driver->id }}" ><img src="{{ URL::to('/') }}/licence.jpg"></a>
               @if($driver->handover_id == 0)
               @else
-              <a target="_blank" href="../../uploads/handover/{{ $driver->handover_id }}.pdf"><img src="{{ URL::to('/') }}/handover.jpg"></a>
+                @if($driver->accepted == 1)
+                  <a target="_blank" href="../../uploads/handover/{{ $driver->handover_id }}.pdf"><img src="{{ URL::to('/') }}/handover.jpg"></a>
+                @endif
               @endif
                </td>
               <td>

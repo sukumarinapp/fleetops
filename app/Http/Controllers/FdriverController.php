@@ -32,11 +32,13 @@ class FdriverController extends Controller
         $drivers = DB::select(DB::raw($sql));
         foreach($drivers as $driver){
             $VNO = $driver->VNO;
-            $sql2 = "select photo from handover where VNO='$VNO'";
+            $sql2 = "select photo,accepted from handover where VNO='$VNO'";
             $result = DB::select(DB::raw($sql2));
             $driver->photo = "";
+            $driver->accepted = 0;
             if(count($result) > 0){
                 $driver->photo = $result[0]->photo;
+                $driver->accepted = $result[0]->accepted;
             }
         }
         return view('fdriver.index', compact('drivers'));
