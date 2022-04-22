@@ -237,16 +237,12 @@
         <td>{{ $res->acceptance_code }} </td>
         <td></td>
     </tr> 
-    <tr>
+    <!-- <tr>
         <td>Device Used</td>
         <td> </td>
         <td></td>
-    </tr> 
+    </tr>  -->
 </tbody>
-
-
-
-
 </table>
 <div class="row1">
 <div class="column">
