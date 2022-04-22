@@ -12,6 +12,7 @@ use App\tbl136;
 use App\Billbox;
 use App\SMSFleetops;
 use Session;
+use PDF;
 
 class DriverController extends Controller
 {
@@ -535,12 +536,24 @@ class DriverController extends Controller
                 DB::update($sql);
                 $sql = "update handover set accepted=1 where id=$handover_id";
                 DB::update($sql);
+                self::save_pdf($handover_id);
                 return redirect('/tasks')->with('success', 'You have successfully accepted the contract');
             }else{
                 return redirect('/vehiclehandover')->with('error', 'Invalid Acceptence Code');
             }
         }
      }
+
+      private function save_pdf($handover_id){
+        $sql = "select a.*,b.chassis_no,b.IEX,b.REX,c.DNM,c.DSN from handover a,vehicle b,driver c where a.VNO=b.VNO and b.driver_id=a.id and a.id ='$handover_id'";
+        $result = DB::select(DB::raw($sql));
+        $pdf = PDF::loadView('handoverpdf', compact('result'));
+        $pdf->save("uploads".DIRECTORY_SEPARATOR."handover".DIRECTORY_SEPARATOR.$handover_id.".pdf");
+    }
+
+    public function handoverpdf(){
+        return view('handoverpdf');
+    }
 
      public function accept_handover(Request $request)
      {

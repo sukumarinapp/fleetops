@@ -1,18 +1,10 @@
 <link rel="stylesheet" href="{{ public_path('css/app.css') }}">
 <style type="text/css">
-.col {
-  font-family: "Times New Roman", Times, serif;
-  font-size: 14px;
-}
-.head {
-  font-family: "Times New Roman", Times, serif;
-  font-size: 14px;
-}
 .column {
   float: left;
-  width: 150px;
+  width: 100px;
   padding: 10px;
-  height: 150px; /* Should be removed. Only for demonstration */
+  height: 80px; /* Should be removed. Only for demonstration */
 }
 
 /* Clear floats after the columns */
@@ -21,14 +13,17 @@
   display: table;
   clear: both;
 }
+.table-bordered{
+  font-size: 10px;
+}
 
 </style>
 <div class="card-body">
-    <h3 class="text-center">Vehicle Collection Form</h3>
+    <h5 class="text-center">Vehicle Collection Form</h5>
     <div class="row1">
         @foreach($result as $res)
 <div class="column">
-<img  src="{{ public_path("uploads/photo/".$res->photo) }}" style="width: 150px; height: 150px;">
+<img  src="{{ public_path("uploads/photo/".$res->photo) }}" style="width: 120px; height: 80px;">
   </div>
   </div>
 <div class="row">
@@ -45,7 +40,8 @@
         <td>Registration(number plate)</td>
         <td>{{ $res->VNO }} </td>
         <td></td>
-    </tr> 
+    </tr>
+     
     <tr>
         <td>Chassis No</td>
         <td>{{ $res->chassis_no }} </td>
@@ -61,6 +57,7 @@
         <td>Expiry Date:{{ date("d-m-Y",strtotime($res->REX)) }} </td>
         <td></td>
     </tr> 
+    
     <tr>
         <td>Starting Mileage</td>
         <td>{{ $res->CF01 }} </td>
@@ -229,26 +226,42 @@
         <td>{{ $res->CF18 }} </td>
         <td></td>
     </tr>
+    <tr>
+        <td>Signed By</td>
+        <td>{{ $res->DNM }}{{ $res->DSN }} </td>
+        <td></td>
+    </tr> 
    
+   <tr>
+        <td>Acceptance Code</td>
+        <td>{{ $res->acceptance_code }} </td>
+        <td></td>
+    </tr> 
+    <tr>
+        <td>Device Used</td>
+        <td> </td>
+        <td></td>
+    </tr> 
 </tbody>
 
 
 
-@endforeach
+
 </table>
 <div class="row1">
 <div class="column">
-<img  src="{{ public_path("uploads/photo/".$res->CFP2) }}" style="width: 150px; height: 150px;">
+<img  src="{{ public_path("uploads/photo/".$res->CFP2) }}" style="width: 100px; height: 80px;">
   </div>
   <div class="column" >
-   <img src="{{ public_path("uploads/photo/".$res->CFP3) }}" style="width: 150px; height: 150px;">
+   <img src="{{ public_path("uploads/photo/".$res->CFP3) }}" style="width: 100px; height: 80px;">
   </div>
    <div class="column">
-     <img src="{{ public_path("uploads/photo/".$res->CFP4) }}" style="width: 150px; height: 150px;">
+     <img src="{{ public_path("uploads/photo/".$res->CFP4) }}" style="width: 100px; height: 80px;">
   </div>
    <div class="column">
-    <img src="{{ public_path("uploads/photo/".$res->CFP5) }}" style="width: 150px; height: 150px;">
+    <img src="{{ public_path("uploads/photo/".$res->CFP5) }}" style="width: 100px; height: 80px;">
   </div>
+  @endforeach
   </div>
 </div>
 </div>

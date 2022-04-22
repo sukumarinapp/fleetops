@@ -282,25 +282,25 @@
        <div class="form-group row">
         <label for="" class="col-sm-4 col-form-label"><span style="color:red"></span>Front View</label>
        
-          <img class="img-fluid img-thumbnail" src="../uploads/photo/{{ $res->CFP2 }}" style="width:30%;height:40%">
+          <img class="img-fluid img-thumbnail" src="../uploads/photo/{{ $res->CFP2 }}" style="width: 100px; height: 100px;">
       </div> 
 
        <div class="form-group row">
         <label for="" class="col-sm-4 col-form-label"><span style="color:red"></span>Right View</label>
         
-          <img class="img-fluid img-thumbnail" src="../uploads/photo/{{ $res->CFP3 }}" style="width:30%;height:40%">
+          <img class="img-fluid img-thumbnail" src="../uploads/photo/{{ $res->CFP3 }}" style="width: 100px; height: 100px;">
         
       </div> 
 
        <div class="form-group row">
         <label for="" class="col-sm-4 col-form-label"><span style="color:red"></span>Rear View</label>
        
-          <img class="img-fluid img-thumbnail" src="../uploads/photo/{{ $res->CFP4 }}" style="width:30%;height:40%">
+          <img class="img-fluid img-thumbnail" src="../uploads/photo/{{ $res->CFP4 }}" style="width: 100px; height: 100px;">
       </div> 
 
        <div class="form-group row">
         <label for="" class="col-sm-4 col-form-label"><span style="color:red"></span>Left View</label>
-          <img class="img-fluid img-thumbnail" src="../uploads/photo/{{ $res->CFP5 }}" style="width:30%;height:40%">
+          <img class="img-fluid img-thumbnail" src="../uploads/photo/{{ $res->CFP5 }}" style="width: 100px; height: 100px;">
       </div> 
 
    @endforeach
@@ -314,7 +314,6 @@
           <input required="required" type="text" maxlength="4" class="form-control number" name="acceptance_code" id="acceptance_code" >
         </div>
       </div>
-    </div>
 
     <nav class="navbar fixed-bottom navbar-expand-lg justify-content-center">    
       <a href="{{ url('tasks') }}" class="btn btn-info">Back</a>&nbsp;

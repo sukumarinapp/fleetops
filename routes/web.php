@@ -33,7 +33,7 @@ Route::resource('/client', 'ClientController');
 Route::resource('/vehicle', 'VehicleController');
 Route::get('/assignvehicle/{id}', 'VehicleController@assign')->name('assignvehicle');
 Route::post('/assigndriver','VehicleController@assigndriver')->name('assigndriver');
-Route::get('/handoverpdf', 'VehicleController@handoverpdf')->name('handoverpdf');
+
 Route::get('/removevehicle/{id}', 'VehicleController@remove')->name('removevehicle');
 Route::post('/removedriver','VehicleController@removedriver')->name('removedriver');
 Route::resource('/fdriver', 'FdriverController');
@@ -78,6 +78,7 @@ Route::post('/acceptinspection', 'DriverController@acceptinspection')->name('acc
 Route::post('/acceptance_code', 'DriverController@acceptance_code')->name('acceptance_code');
 Route::post('/accept_handover', 'DriverController@accept_handover')->name('accept_handover');
 Route::post('/confirm_handover', 'DriverController@confirm_handover')->name('confirm_handover');
+Route::get('/handoverpdf', 'DriverController@handoverpdf')->name('handoverpdf');
 Route::post('/accept_code', 'DriverController@accept_code')->name('accept_code');
 Route::get('/uploadservice', 'DriverController@uploadservice')->name('uploadservice');
 Route::post('/saveservicedriver', 'DriverController@saveservicedriver')->name('saveservicedriver');
