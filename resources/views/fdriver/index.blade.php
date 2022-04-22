@@ -1,6 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+  .img-center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+</style>
 <div class="container-fluid">
 	<div class="row">
 
@@ -132,7 +139,9 @@
               <span aria-hidden="true">&times;</span>
             </button>
             </div>
-          <img src="uploads/photo/{{ $driver->photo }}" />
+            <div class="card-body">
+          <img class="img-center" src="uploads/photo/{{ $driver->photo }}" width="250" height="200" />
+        </div>
         </div>
       </div>
       </div>
@@ -146,8 +155,12 @@
               <span aria-hidden="true">&times;</span>
             </button>
             </div>
-          <img src="uploads/DLD/{{ $driver->DLD }}" />
-          <img src="uploads/DLD/{{ $driver->DLD2 }}" />
+            <div class="card-body">
+          <img class="img-center" src="uploads/DLD/{{ $driver->DLD }}" width="300" height="200" />
+          <p class="text-center">Licence Front</p>
+          <img class="img-center" src="uploads/DLD/{{ $driver->DLD2 }}" width="300" height="200" />
+          <p class="text-center">Licence Back</p>
+        </div>
         </div>
       </div>
       </div>
