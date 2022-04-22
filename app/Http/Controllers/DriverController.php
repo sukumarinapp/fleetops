@@ -1,5 +1,5 @@
 <?php
-
+//fuck u ass hole
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -533,18 +533,11 @@ class DriverController extends Controller
             $handover_id = $result[0]->id;
             if($acceptance_code == $result[0]->acceptance_code){
                 $sql = "update vehicle set status='assigned' where VNO='$VNO'";
-                //DB::update($sql);
+                DB::update($sql);
                 $sql = "update handover set accepted=1 where id=$handover_id";
-                //DB::update($sql);
-                echo "<pre>";
-echo($request->server->HTTP_USER_AGENT);
-echo "</pre>";
-die;
-                $sql = "select a.*,b.chassis_no,b.IEX,b.REX,c.DNM,c.DSN from handover a,vehicle b,driver c where a.VNO=b.VNO and b.driver_id=c.id and a.id ='$handover_id'";
-        $result = DB::select(DB::raw($sql));
-        return view('handoverpdf', compact('result'));
-               // self::save_pdf($handover_id);
-                //return redirect('/tasks')->with('success', 'You have successfully accepted the contract');
+                DB::update($sql);
+                self::save_pdf($handover_id);
+                return redirect('/tasks')->with('success', 'You have successfully accepted the contract');
             }else{
                 return redirect('/vehiclehandover')->with('error', 'Invalid Acceptence Code');
             }
@@ -553,12 +546,9 @@ die;
 
       private function save_pdf($handover_id){
         $sql = "select a.*,b.chassis_no,b.IEX,b.REX,c.DNM,c.DSN from handover a,vehicle b,driver c where a.VNO=b.VNO and b.driver_id=c.id and a.id ='$handover_id'";
-        echo $sql;
-        die;
         $result = DB::select(DB::raw($sql));
-        return view('handoverpdf', compact('result'));
-        #$pdf = PDF::loadView('handoverpdf', compact('result'));
-        #$pdf->save("uploads".DIRECTORY_SEPARATOR."handover".DIRECTORY_SEPARATOR.$handover_id.".pdf");
+        $pdf = PDF::loadView('handoverpdf', compact('result'));
+        $pdf->save("uploads".DIRECTORY_SEPARATOR."handover".DIRECTORY_SEPARATOR.$handover_id.".pdf");
     }
 
     public function handoverpdf(){
