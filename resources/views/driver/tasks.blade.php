@@ -179,7 +179,7 @@
 <div class="row">
   <div class="col-md-12">
     @if($inspection == 1)
-    <a  onclick="accept_code();" > <i style="color: blue;cursor: pointer;float:right;margin-top: 80px;" class="fa fa-eye"></i></a>
+    <a href="#" onclick="accept_code();" > <i style="color: blue;cursor: pointer;float:right;margin-top: 80px;" class="fa fa-eye"></i></a>
     @endif
     <div class="row justify-content-center">
      <div class="col-md-12">

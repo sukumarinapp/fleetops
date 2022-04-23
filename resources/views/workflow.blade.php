@@ -45,6 +45,7 @@
             <th>Case Initiator</th>
             <th>Action</th>
             <th>Remarks</th>
+            <th>Status</th>
           </tr>
           </thead>
           <tbody>
@@ -116,8 +117,8 @@
 		              	<td><a href="{{ url('inspection') }}/{{ $insp->id }}">Resolve</a></td>
 		              	@if($insp->inspection == "0")
 		              	<td>Inspect Vehicle</td>
-		              	@else
-		              	<td>Driver Acceptance Pending</td>
+		              	@elseif($insp->status != "Process Cancelled")
+		              	<td><a class="btn btn-danger btn-xs" href="{{ url('cancel_process') }}/{{ $insp->id }}">Cancel Process</a></td>
 		              	@endif
 		              @elseif($insp->doc_type == "RdWCert")
 		              	<td><a href="{{ url('roadworthy') }}/{{ $insp->id }}">Resolve</a></td> 
@@ -157,10 +158,11 @@
 		              	<td><a href="{{ url('renew') }}/{{ $insp->id }}">Resolve</a></td> 
 		              	@if($insp->file_name == "")
 		              	<td>Upload Contract</td>
-		              	@else
-		              	<td>Driver Acceptance Pending</td>
+		              	@elseif($insp->status != "Process Cancelled")
+		              	<td><a class="btn btn-danger btn-xs" href="{{ url('cancel_process') }}/{{ $insp->id }}">Cancel Process</a></td>
 		              	@endif
 	              	@endif
+	              	<td>{{ $insp->status }}</td>
 		            </tr>
             @endforeach
             @foreach($assign as $ass)

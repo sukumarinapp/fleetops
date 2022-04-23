@@ -295,3 +295,9 @@ update vehicle set status='assigned' where driver_id is not null;
 --19/04/2022  
 alter table vehicle_service add service_done int(1) DEFAULT 0;
 alter table vehicle_inspect add inspect_done int(1) DEFAULT 0;
+
+--23/04/2022
+alter table driver_upload add status varchar(50) DEFAULT NULL;
+alter table manager_inspect add ISD date DEFAULT NULL;
+alter table manager_inspect add ISM int(11) DEFAULT 0;
+

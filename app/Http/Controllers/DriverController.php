@@ -1,5 +1,4 @@
 <?php
-//fuck u ass hole
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -618,6 +617,8 @@ class DriverController extends Controller
             $DCN = $result[0]->DCN;
             $DNM = $result[0]->DNM." ".$result[0]->DSN;
             $id = $result[0]->id;
+
+            //fixit
             $sql = "update driver_upload set acceptance_code='$acceptance_code' where id=$id";
             DB::update(DB::raw($sql));  
             $msg = "Hi $DNM, Your fleetops Inspection acceptance code is $acceptance_code";
@@ -652,11 +653,18 @@ class DriverController extends Controller
         $VNO = Session::get('VNO');
         $driver_id = Session::get('driver_id');
         $acceptance_code = trim($request->get("acceptance_code"));
-        $sql = "select id,acceptance_code from driver_upload where VNO = '$VNO' and doc_type='Inspection' and approved=0";
+        $sql = "select b.id as VID,a.id,acceptance_code from driver_upload a,vehicle b where a.VNO=b.VNO and a.VNO = '$VNO' and doc_type='Inspection' and approved=0";
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
             $id = $result[0]->id;
+            $VID = $result[0]->VID;
             if($acceptance_code == $result[0]->acceptance_code){
+                $sql2 = "select ISD,ISM from vehicle_inspect where VID=$VID";
+                $result2 = DB::select(DB::raw($sql2));
+                $ISD = $result2[0]->ISD;
+                $ISM = $result2[0]->ISM;
+                $sql = "update vehicle_inspect set ISD = '$ISD',ISM = $ISM where VID = $VID";
+                DB::update(DB::raw($sql));
                 $sql = "update driver_upload set contract_accepted = 1,approved=1 where id = $id";
                 DB::update(DB::raw($sql)); 
                 return redirect('/tasks')->with('success', 'You have successfully accepted the Inspection');

@@ -504,7 +504,7 @@
 						<div class="form-group row">
 							<label for="" class="col-sm-6 col-form-label"><span style="color:red">*</span>Physical Dents & Damages (Pictures)</label>
 							<div class="col-sm-6">
-								<input id="fileupload" type="file" name="VI25[]" multiple="multiple" >
+								<input id="fileupload" type="file" name="VI25[]" multiple="multiple" accept="image/png, image/jpeg" >
 							</div>
 							<label class="col-sm-12 col-form-label" style="font-weight: normal !important;">Press CTRL Key to select multiple images in Desktop/Laptop.</label>
 						</div>
@@ -545,8 +545,10 @@
 @push('page_scripts')
 <script>
 	function validate_all(e){
+		var no_of_files = 0;
 		var selection = document.getElementById('fileupload');
 		for (var i=0; i<selection.files.length; i++) {
+			no_of_files++;
 		    var ext = selection.files[i].name.substr(-3);
 		    if(selection.files[i].size > 5000000){
 		    	alert('Physical Dents & Damages image size can be a maximum of 5MB');
@@ -557,6 +559,10 @@
 		        return false;
 		    }
 		} 
+		if(no_of_files > 5){
+			alert('Only a maximum of 5 pictures can be uploaded');
+	        return false;	
+		}
 	}
 
     $(function() {

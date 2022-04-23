@@ -1,4 +1,7 @@
-check expiry date before loading handover form
+cancel handover process
+driver rejects contract
+driver rejects inspection
+driver rejects handover
 
 Payment Milestone 2
 Milestone D	New Alerts (Process Integration)

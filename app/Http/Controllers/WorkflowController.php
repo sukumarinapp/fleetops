@@ -662,16 +662,16 @@ class WorkflowController extends Controller
         $CI23 = $request->get('CI23');
         $CI24 = $request->get('CI24');
         
-        $sql = "update driver_upload set inspection=1 where id=$upload_id";
+        $sql = "update driver_upload set inspection=1,status='' where id=$upload_id";
         DB::update(DB::raw($sql));
 
         $sql = "delete from manager_inspect where upload_id=$upload_id";
         DB::delete(DB::raw($sql));
-
-        $sql = "update vehicle_inspect set ISD='$ISD',ISM='$ISM' where VID=$VID";
-        DB::update($sql);
+        //fixit
+        //$sql = "update vehicle_inspect set ISD='$ISD',ISM='$ISM' where VID=$VID";
+        //DB::update($sql);
         
-        $sql = "insert into manager_inspect (upload_id,VI01,VI02,VI03,VI04,VI05,VI06,VI07,VI08,VI09,VI10,VI11,VI12,VI13,VI14,VI15,VI16,VI17,VI18,VI19,VI20,VI21,VI22,VI23,VI24,CI01,CI02,CI03,CI04,CI05,CI06,CI07,CI08,CI09,CI10,CI11,CI12,CI13,CI14,CI15,CI16,CI17,CI18,CI19,CI20,CI21,CI22,CI23,CI24) values ($upload_id,'$VI01','$VI02','$VI03','$VI04','$VI05','$VI06','$VI07','$VI08','$VI09','$VI10','$VI11','$VI12','$VI13','$VI14','$VI15','$VI16','$VI17','$VI18','$VI19','$VI20','$VI21','$VI22','$VI23','$VI24','$CI01','$CI02','$CI03','$CI04','$CI05','$CI06','$CI07','$CI08','$CI09','$CI10','$CI11','$CI12','$CI13','$CI14','$CI15','$CI16','$CI17','$CI18','$CI19','$CI20','$CI21','$CI22','$CI23','$CI24')";
+        $sql = "insert into manager_inspect (ISD,ISM,upload_id,VI01,VI02,VI03,VI04,VI05,VI06,VI07,VI08,VI09,VI10,VI11,VI12,VI13,VI14,VI15,VI16,VI17,VI18,VI19,VI20,VI21,VI22,VI23,VI24,CI01,CI02,CI03,CI04,CI05,CI06,CI07,CI08,CI09,CI10,CI11,CI12,CI13,CI14,CI15,CI16,CI17,CI18,CI19,CI20,CI21,CI22,CI23,CI24) values ('$ISD','$ISM',$upload_id,'$VI01','$VI02','$VI03','$VI04','$VI05','$VI06','$VI07','$VI08','$VI09','$VI10','$VI11','$VI12','$VI13','$VI14','$VI15','$VI16','$VI17','$VI18','$VI19','$VI20','$VI21','$VI22','$VI23','$VI24','$CI01','$CI02','$CI03','$CI04','$CI05','$CI06','$CI07','$CI08','$CI09','$CI10','$CI11','$CI12','$CI13','$CI14','$CI15','$CI16','$CI17','$CI18','$CI19','$CI20','$CI21','$CI22','$CI23','$CI24')";
         DB::insert($sql);
 
         $sql = "delete from manager_inspect_photo where upload_id=$upload_id";
@@ -945,6 +945,28 @@ class WorkflowController extends Controller
        }
     }
 
+    
+    public function cancel_process($id){
+        $doc_type = "";
+        $sql = "select * from driver_upload where id=$id";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+            $doc_type = $result[0]->doc_type;
+        }
+        $NULL = "NULL";
+        if($doc_type == "Contract"){
+            $sql = "update driver_upload set  status='Process Cancelled',doc_expiry = $NULL ,file_name='' where id=$id";
+            DB::update($sql);
+            return redirect('/workflow')->with('message', 'Process Cancelled Successfully');
+        }elseif($doc_type == "Inspection"){
+            $sql = "update driver_upload set  status='Process Cancelled',inspection = 0  where id=$id";
+            DB::update($sql);
+            $sql = "delete from manager_inspect where upload_id=$id";
+            DB::delete(DB::raw($sql));
+            return redirect('/workflow')->with('message', 'Process Cancelled Successfully');
+        }
+    }
+
     public function save_contract(Request $request){
         $driver_id = $request->get('driver_id');
         $CEX = $request->get('CEX');
@@ -956,7 +978,7 @@ class WorkflowController extends Controller
             $VCC =  $upload_id.'.'.$request->VCC->extension(); 
             $filepath = public_path('uploads'.DIRECTORY_SEPARATOR.'driver'.DIRECTORY_SEPARATOR);
             move_uploaded_file($_FILES['VCC']['tmp_name'], $filepath.$VCC);
-            $sql = "update driver_upload set  doc_expiry='$CEX',file_name='$VCC' where id=$upload_id";
+            $sql = "update driver_upload set  doc_expiry='$CEX',file_name='$VCC',status='' where id=$upload_id";
             DB::update($sql);
             
             return redirect('/workflow')->with('message', 'Contract Updated Successfully');
