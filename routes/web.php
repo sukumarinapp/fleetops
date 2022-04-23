@@ -37,6 +37,8 @@ Route::post('/assigndriver','VehicleController@assigndriver')->name('assigndrive
 Route::get('/cancel_process/{id}', 'WorkflowController@cancel_process')->name('cancel_process');
 Route::get('/cancel_handover/{id}', 'WorkflowController@cancel_handover')->name('cancel_handover');
 Route::get('/reject_handover/{id}', 'DriverController@reject_handover')->name('reject_handover');
+Route::get('/reject_contract', 'DriverController@reject_contract')->name('reject_contract');
+Route::get('/reject_inspection', 'DriverController@reject_inspection')->name('reject_inspection');
 Route::get('/removevehicle/{id}', 'VehicleController@remove')->name('removevehicle');
 Route::post('/removedriver','VehicleController@removedriver')->name('removedriver');
 Route::resource('/fdriver', 'FdriverController');

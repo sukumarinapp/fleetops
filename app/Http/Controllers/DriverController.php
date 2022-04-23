@@ -228,7 +228,7 @@ class DriverController extends Controller
                 }
             }
 
-            $sql = "select * from driver_upload a,driver b where VNO = '$VNO' and a.driver_id=b.id and doc_type='Contract' and approved=0";
+            $sql = "select * from driver_upload a,driver b where VNO = '$VNO' and a.driver_id=b.id and doc_type='Contract' and a.status='' and approved=0";
             $result = DB::select(DB::raw($sql));
             if(count($result) > 0){
                $contract_approved = 0; 
@@ -256,7 +256,7 @@ class DriverController extends Controller
             }
 
             $inspection_id=0;
-            $sql = "select a.id,a.expired_date,a.venue from driver_upload a,driver b where VNO = '$VNO' and a.driver_id=b.id and doc_type='Inspection' and approved=0";
+            $sql = "select a.id,a.expired_date,a.venue from driver_upload a,driver b where VNO = '$VNO' and a.driver_id=b.id and doc_type='Inspection'  and a.status='' and approved=0";
             $result = DB::select(DB::raw($sql));
             if(count($result) > 0){
                $inspection_approved = 0;
@@ -472,6 +472,34 @@ class DriverController extends Controller
             $DCN = $valid[0]->DCN;
             $file_name = $valid[0]->file_name;
             return view('driver.contract',compact('file_name','DNM'));
+        }
+     }
+
+     public function reject_contract(){
+        $VNO = Session::get('VNO');
+        $driver_id = Session::get('driver_id');
+        $upload_id = 0;
+        $sql = "select * from driver_upload where VNO = '$VNO' and driver_id=$driver_id and doc_type='Contract' and approved=0";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+            $upload_id = $result[0]->id;
+            $sql = "update driver_upload set status = 'Rejected' where id = $upload_id";
+            DB::update(DB::raw($sql)); 
+            return redirect('/myaccount')->with('success', 'Rejected Successfully');
+        }
+     }
+
+     public function reject_inspection(){
+        $VNO = Session::get('VNO');
+        $driver_id = Session::get('driver_id');
+        $upload_id = 0;
+        $sql = "select * from driver_upload where VNO = '$VNO' and driver_id=$driver_id and doc_type='Inspection' and approved=0";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+            $upload_id = $result[0]->id;
+            $sql = "update driver_upload set status = 'Rejected' where id = $upload_id";
+            DB::update(DB::raw($sql)); 
+            return redirect('/myaccount')->with('success', 'Rejected Successfully');
         }
      }
 

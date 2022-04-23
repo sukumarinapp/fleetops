@@ -52,6 +52,7 @@
       <a href="{{ url('tasks') }}" class="btn btn-info">Back</a>&nbsp;
       <input required="required" class="btn btn-info"
       type="submit" id="save" name="submit" value="Accept"/>&nbsp;  
+      <a href="{{ url('reject_contract') }}" class="btn btn-danger">Reject</a>&nbsp;
       <a href="{{ route('driver') }}" class="btn btn-info">Logout</a>
     </nav>
   </form>
