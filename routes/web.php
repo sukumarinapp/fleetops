@@ -39,6 +39,7 @@ Route::get('/cancel_handover/{id}', 'WorkflowController@cancel_handover')->name(
 Route::get('/removevehicle/{id}', 'VehicleController@remove')->name('removevehicle');
 Route::post('/removedriver','VehicleController@removedriver')->name('removedriver');
 Route::resource('/fdriver', 'FdriverController');
+Route::get('/agreementdriver', 'FdriverController@agreementdriver')->name('agreementdriver');
 Route::post('/checkDNO','FdriverController@checkDNO')->name('checkDNO');
 Route::post('/checkDCN','FdriverController@checkDCN')->name('checkDCN');
 Route::post('/checkVNO','VehicleController@checkVNO')->name('checkVNO');

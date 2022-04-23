@@ -107,6 +107,8 @@
                   <a target="_blank" href="../../uploads/handover/{{ $driver->handover_id }}.pdf"><img src="{{ URL::to('/') }}/handover.jpg"></a>
                 @endif
               @endif
+
+              <a href="{{ route('agreementdriver') }}"><img src="{{ URL::to('/') }}/agreement.jpg"></a>
                </td>
               <td>
                 

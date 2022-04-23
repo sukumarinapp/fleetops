@@ -317,6 +317,11 @@ class FdriverController extends Controller
         }
 
     }
+
+    public function agreementdriver()
+    {
+        return view('fdriver.agreementdriver');
+    }
    
     public function destroy($id)
     {
