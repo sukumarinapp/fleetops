@@ -504,6 +504,20 @@ class DriverController extends Controller
         }
     }
      
+     public function reject_handover($id){
+        $VNO = "";
+        $sql = "select * from handover where id=$id";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+            $VNO = $result[0]->VNO;
+        }
+        $sql = "update vehicle set  status='',driver_id=NULL,handover_id = 0  where VNO = '$VNO'";
+        DB::update($sql);
+        $sql = "delete from handover where id=$id";
+        DB::delete(DB::raw($sql));
+        return redirect('/myaccount')->with('success', 'Rejected Successfully');
+     }
+
      public function vehiclehandover()
      {
         $VNO = Session::get('VNO');
