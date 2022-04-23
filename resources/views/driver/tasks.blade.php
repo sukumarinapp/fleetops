@@ -6,7 +6,7 @@
     <a href="#" class="navbar-brand">
       <img src="{{ URL::to('/') }}/images/fleetopslogo.png" alt="AdminLTE Logo">
     </a>
-    <h3 style="color: lightgray">My Account</h3>
+    <h3 style="color: lightgray">My Tasks</h3>
   </div>
 </div>
 <div class="card card-success">
@@ -179,7 +179,7 @@
 <div class="row">
   <div class="col-md-12">
     @if($inspection == 1)
-    <a href="#" onclick="accept_code();" > <i style="color: blue;cursor: pointer;float:right;margin-top: 80px;" class="fa fa-eye"></i></a>
+    <a onclick="accept_code();" > <i style="color: blue;cursor: pointer;float:right;margin-top: 80px;" class="fa fa-eye"></i></a>
     @endif
     <div class="row justify-content-center">
      <div class="col-md-12">
