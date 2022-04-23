@@ -952,11 +952,11 @@ class WorkflowController extends Controller
         if(count($result) > 0){
             $VNO = $result[0]->VNO;
         }
-        $sql = "update vehicle set  driver_id=NULL,handover_id = 0  where VNO = '$VNO'";
+        $sql = "update vehicle set  status='',driver_id=NULL,handover_id = 0  where VNO = '$VNO'";
         DB::update($sql);
         $sql = "delete from handover where id=$id";
         DB::delete(DB::raw($sql));
-        return redirect('/workflow')->with('message', 'Process Cancelled Successfully');
+        return redirect('/vehicle')->with('message', 'Process Cancelled Successfully');
     }
 
     public function cancel_process($id){

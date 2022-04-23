@@ -97,7 +97,7 @@
               <td>
                     @if(Auth::user()->usertype == "Admin" || Auth::user()->BPF == true)
                       @if($vehicle->status == "pending")
-                        <span class="font-weight-bold">Acceptance Pending</span>
+                        <a class="btn btn-danger btn-xs" href="{{ url('cancel_handover') }}/{{ $vehicle->handover_id }}">Cancel Process</a>
                       @elseif($vehicle->driver_id == "")
                         @if($vehicle->VTV == 1)
                           <a href="{{ route('assignvehicle',$vehicle->id) }}" class="btn btn-info btn-xs">Assign Vehicle</a>
