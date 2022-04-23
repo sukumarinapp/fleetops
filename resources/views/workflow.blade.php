@@ -173,7 +173,10 @@
 						      	<td>Assign Vehicle</td>
 						      	<td>{{ $ass->DNM }} {{ $ass->DSN }}</td> 
 						      	<td></td>
-						      	<td>Driver Acceptance Pending</td>
+						      	@if($ass->status != "Process Cancelled")
+		              	<td><a class="btn btn-danger btn-xs" href="{{ url('cancel_handover') }}/{{ $ass->id }}">Cancel Process</a></td>
+		              	@endif
+		              	<td>{{ $ass->status }}</td>
 							</tr>
 						@endforeach
           </tbody>

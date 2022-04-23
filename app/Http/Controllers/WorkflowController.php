@@ -59,7 +59,7 @@ class WorkflowController extends Controller
         $sql = "select a.*,b.DNM,b.DSN from driver_upload a,driver b where a.driver_id=b.id and approved=0";
         $inspect = DB::select(DB::raw($sql));
 
-        $sql = "select a.id,d.LDT,b.VNO,c.DNM,c.DSN from handover a,vehicle b,driver c,vehicle_log d where a.driver_id=b.driver_id and b.driver_id=c.id and a.VNO=b.VNO and a.log_id=d.id and a.accepted=0";
+        $sql = "select a.status,a.id,d.LDT,b.VNO,c.DNM,c.DSN from handover a,vehicle b,driver c,vehicle_log d where a.driver_id=b.driver_id and b.driver_id=c.id and a.VNO=b.VNO and a.log_id=d.id and a.accepted=0";
         $assign = DB::select(DB::raw($sql));
         return view('workflow',compact('vehicles','inspect','assign','today'));
     }
@@ -945,7 +945,20 @@ class WorkflowController extends Controller
        }
     }
 
-    
+    public function cancel_handover($id){
+        $VNO = "";
+        $sql = "select * from handover where id=$id";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+            $VNO = $result[0]->VNO;
+        }
+        $sql = "update vehicle set  driver_id=NULL,handover_id = 0  where VNO = '$VNO'";
+        DB::update($sql);
+        $sql = "delete from handover where id=$id";
+        DB::delete(DB::raw($sql));
+        return redirect('/workflow')->with('message', 'Process Cancelled Successfully');
+    }
+
     public function cancel_process($id){
         $doc_type = "";
         $sql = "select * from driver_upload where id=$id";

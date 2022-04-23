@@ -35,6 +35,7 @@ Route::get('/assignvehicle/{id}', 'VehicleController@assign')->name('assignvehic
 Route::post('/assigndriver','VehicleController@assigndriver')->name('assigndriver');
 
 Route::get('/cancel_process/{id}', 'WorkflowController@cancel_process')->name('cancel_process');
+Route::get('/cancel_handover/{id}', 'WorkflowController@cancel_handover')->name('cancel_handover');
 Route::get('/removevehicle/{id}', 'VehicleController@remove')->name('removevehicle');
 Route::post('/removedriver','VehicleController@removedriver')->name('removedriver');
 Route::resource('/fdriver', 'FdriverController');

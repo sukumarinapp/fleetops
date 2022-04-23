@@ -300,4 +300,4 @@ alter table vehicle_inspect add inspect_done int(1) DEFAULT 0;
 alter table driver_upload add status varchar(50) DEFAULT NULL;
 alter table manager_inspect add ISD date DEFAULT NULL;
 alter table manager_inspect add ISM int(11) DEFAULT 0;
-
+alter table handover add status varchar(50) DEFAULT NULL;
