@@ -1,21 +1,21 @@
-cancel handover process
-driver rejects contract
-driver rejects inspection
-driver rejects handover
+condition report
+edit icon
+licence not updating
+msg ;ogin url 
+sms client
+penalty
 
 Payment Milestone 2
 Milestone D	New Alerts (Process Integration)
 Milestone E	Two Communication Protocol Setup
 Milestone F	Vehicle Blocking / Unblocking (Process Modification)
 
-Milestone G	Vehicle Handover Process (All Screens and Processes)
 Milestone H	Set Ride-Hailing Driver Earning Options
 			Driver Earning Rule (Bonuses Calculations)
 			Pending Payments (Process Modification)
 			Cash-at-hand Report
 			Cash Declaration Sequence Modification
 			CCEI Formula Selection – Normal/Driver Promo Mode (Process Modification)
-			Maintenance Shedular Process
 
 Payment Milestone 3
 Milestone I	New Alerts (Process Integration)
