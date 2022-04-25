@@ -29,12 +29,7 @@
 <div class="row">
 <table class="table table-striped table-bordered">
     <thead>
-    <tr>
-      <th class="col">Description</th>
-      <th class="col">Details</th>
-      <th class="col">Handover Check</th>
-      <th class="col">Retrieval Check</th>
-    </tr>
+    
   </thead>
   <tbody>
        <tr>
@@ -76,20 +71,34 @@
         <td></td>
     </tr>
     <tr>
+      <th class="col">Description</th>
+      <th class="col">Handover</th>
+      <th class="col">Retrieval</th>
+    </tr>
+    <tr>
         <td>Spare Tire</td>
-        <td>{{ $res->CC01 }} </td>
-        <td>@if($res->CF02 == 1)
-         <img  src="{{ public_path("check.jpg") }}">
-         @else
-          <img src="{{ public_path("redmark.jpg") }}">
-          @endif</td>
-          <td>@if($res->RCF02 == 1)
-         <img  src="{{ public_path("check.jpg") }}">
-         @else
-          <img src="{{ public_path("redmark.jpg") }}">
-          @endif</td>
-        
+        <td>
+            @if($res->CF02 == 1)
+                <img  src="{{ public_path('check.jpg') }}">
+            @else
+                <img src="{{ public_path('redmark.jpg') }}">
+            @endif
+        </td>
+        <td>
+            @if($res->RCF02 == 1)
+                <img  src="{{ public_path('check.jpg') }}">
+            @else
+                <img src="{{ public_path('redmark.jpg') }}">
+            @endif
+        </td>
     </tr> 
+    @if($res->CC01 != "" &&  $res->RCC01 != "" )
+    <tr>
+        <td></td>
+        <td>{{ $res->CC01 }} </td>
+        <td>{{ $res->RCC01 }} </td>
+    </tr>
+    @endif
     <tr>
         <td>Warning Triangle</td>
         <td>{{ $res->CC02 }} </td>
