@@ -32,8 +32,7 @@
     <tr>
       <th class="col">Description</th>
       <th class="col">Details</th>
-      <th class="col">Handover Check</th>
-      <th class="col">Retrieval Check</th>
+      <th class="col">Check</th>
     </tr>
   </thead>
   <tbody>
@@ -41,49 +40,33 @@
         <td>Registration(number plate)</td>
         <td>{{ $res->VNO }} </td>
         <td></td>
-        <td></td>
     </tr>
      
     <tr>
         <td>Chassis No</td>
         <td>{{ $res->chassis_no }} </td>
         <td></td>
-        <td></td>
     </tr> 
     <tr>
         <td>Insurance</td>
         <td>Expiry Date:{{ date("d-m-Y",strtotime($res->IEX)) }} </td>
-        <td></td>
         <td></td>
     </tr> 
     <tr>
         <td>Roadworthy Certificate</td>
         <td>Expiry Date:{{ date("d-m-Y",strtotime($res->REX)) }} </td>
         <td></td>
-        <td></td>
     </tr> 
     
     <tr>
-        <td>Starting Mileage(handover)</td>
+        <td>Starting Mileage</td>
         <td>{{ $res->CF01 }} </td>
-        <td></td>
-        <td></td>
-    </tr> 
-    <tr>
-        <td>Ending Mileage(retrieval)</td>
-        <td>{{ $res->RCF01 }} </td>
-        <td></td>
         <td></td>
     </tr>
     <tr>
         <td>Spare Tire</td>
         <td>{{ $res->CC01 }} </td>
         <td>@if($res->CF02 == 1)
-         <img  src="{{ public_path("check.jpg") }}">
-         @else
-          <img src="{{ public_path("redmark.jpg") }}">
-          @endif</td>
-          <td>@if($res->RCF02 == 1)
          <img  src="{{ public_path("check.jpg") }}">
          @else
           <img src="{{ public_path("redmark.jpg") }}">
@@ -98,22 +81,12 @@
          @else
           <img src="{{ public_path("redmark.jpg") }}">
           @endif</td>
-          <td>@if($res->RCF03 == 1)
-         <img  src="{{ public_path("check.jpg") }}">
-         @else
-          <img src="{{ public_path("redmark.jpg") }}">
-          @endif</td>
         
     </tr> 
     <tr>
         <td>Vehicle Tools</td>
         <td>{{ $res->CC03 }} </td>
         <td>@if($res->CF04 == 1)
-         <img  src="{{ public_path("check.jpg") }}">
-         @else
-          <img src="{{ public_path("redmark.jpg") }}">
-          @endif</td>
-          <td>@if($res->RCF04 == 1)
          <img  src="{{ public_path("check.jpg") }}">
          @else
           <img src="{{ public_path("redmark.jpg") }}">
@@ -127,22 +100,12 @@
          @else
           <img src="{{ public_path("redmark.jpg") }}">
           @endif</td>
-          <td>@if($res->RCF05 == 1)
-         <img  src="{{ public_path("check.jpg") }}">
-         @else
-          <img src="{{ public_path("redmark.jpg") }}">
-          @endif</td>
        
     </tr>
     <tr>
         <td>Front Lights (Deem) L/R</td>
         <td>{{ $res->CC05 }} </td>
         <td>@if($res->CF06 == 1)
-         <img  src="{{ public_path("check.jpg") }}">
-         @else
-          <img src="{{ public_path("redmark.jpg") }}">
-          @endif</td> 
-          <td>@if($res->RCF06 == 1)
          <img  src="{{ public_path("check.jpg") }}">
          @else
           <img src="{{ public_path("redmark.jpg") }}">
@@ -156,21 +119,11 @@
          @else
           <img src="{{ public_path("redmark.jpg") }}">
           @endif</td>
-          <td>@if($res->RCF07 == 1)
-         <img  src="{{ public_path("check.jpg") }}">
-         @else
-          <img src="{{ public_path("redmark.jpg") }}">
-          @endif</td>
     </tr>
     <tr>
         <td>Indicator Lights (FL/FR/RL/RR)</td>
         <td>{{ $res->CC07 }} </td>
         <td>@if($res->CF08 == 1)
-         <img  src="{{ public_path("check.jpg") }}">
-         @else
-          <img src="{{ public_path("redmark.jpg") }}">
-          @endif</td>
-          <td>@if($res->RCF08 == 1)
          <img  src="{{ public_path("check.jpg") }}">
          @else
           <img src="{{ public_path("redmark.jpg") }}">
@@ -185,22 +138,12 @@
          @else
           <img src="{{ public_path("redmark.jpg") }}">
           @endif</td>
-          <td>@if($res->RCF09 == 1)
-         <img  src="{{ public_path("check.jpg") }}">
-         @else
-          <img src="{{ public_path("redmark.jpg") }}">
-          @endif</td>
         
     </tr>
     <tr>
         <td>Brake Lights L/R</td>
         <td>{{ $res->CC09 }} </td>
         <td>@if($res->CF10 == 1)
-         <img  src="{{ public_path("check.jpg") }}">
-         @else
-          <img src="{{ public_path("redmark.jpg") }}">
-          @endif</td> 
-          <td>@if($res->RCF10 == 1)
          <img  src="{{ public_path("check.jpg") }}">
          @else
           <img src="{{ public_path("redmark.jpg") }}">
@@ -214,11 +157,6 @@
          <img  src="{{ public_path("check.jpg") }}">
          @else
           <img src="{{ public_path("redmark.jpg") }}">
-          @endif</td> 
-          <td>@if($res->RCF11 == 1)
-         <img  src="{{ public_path("check.jpg") }}">
-         @else
-          <img src="{{ public_path("redmark.jpg") }}">
           @endif</td>
         
     </tr>
@@ -229,11 +167,6 @@
          <img  src="{{ public_path("check.jpg") }}">
          @else
           <img src="{{ public_path("redmark.jpg") }}">
-          @endif</td> 
-          <td>@if($res->RCF12 == 1)
-         <img  src="{{ public_path("check.jpg") }}">
-         @else
-          <img src="{{ public_path("redmark.jpg") }}">
           @endif</td>
         
     </tr>
@@ -241,11 +174,6 @@
         <td>Horn</td>
         <td>{{ $res->CC12 }} </td>
         <td>@if($res->CF13 == 1)
-         <img  src="{{ public_path("check.jpg") }}">
-         @else
-          <img src="{{ public_path("redmark.jpg") }}">
-          @endif </td> 
-          <td>@if($res->RCF13 == 1)
          <img  src="{{ public_path("check.jpg") }}">
          @else
           <img src="{{ public_path("redmark.jpg") }}">
@@ -260,22 +188,12 @@
          @else
           <img src="{{ public_path("redmark.jpg") }}">
           @endif</td>
-          <td>@if($res->RCF14 == 1)
-         <img  src="{{ public_path("check.jpg") }}">
-         @else
-          <img src="{{ public_path("redmark.jpg") }}">
-          @endif</td>
         
     </tr>
     <tr>
         <td>Radio</td>
         <td>{{ $res->CC14 }} </td>
         <td>@if($res->CF15 == 1)
-         <img  src="{{ public_path("check.jpg") }}">
-         @else
-          <img src="{{ public_path("redmark.jpg") }}">
-          @endif</td>
-          <td>@if($res->RCF15 == 1)
          <img  src="{{ public_path("check.jpg") }}">
          @else
           <img src="{{ public_path("redmark.jpg") }}">
@@ -290,11 +208,6 @@
          @else
           <img src="{{ public_path("redmark.jpg") }}">
           @endif</td>
-          <td>@if($res->RCF16 == 1)
-         <img  src="{{ public_path("check.jpg") }}">
-         @else
-          <img src="{{ public_path("redmark.jpg") }}">
-          @endif</td>
         
     </tr>
     <tr>
@@ -305,22 +218,12 @@
          @else
           <img src="{{ public_path("redmark.jpg") }}">
           @endif</td>
-          <td>@if($res->RCF17 == 1)
-         <img  src="{{ public_path("check.jpg") }}">
-         @else
-          <img src="{{ public_path("redmark.jpg") }}">
-          @endif</td>
         
     </tr>
 
     <tr>
-        <td>Comments(handover)</td>
+        <td>Comments</td>
         <td>{{ $res->CF18 }} </td>
-        <td></td>
-    </tr> 
-    <tr>
-        <td>Comments(retrieval)</td>
-        <td>{{ $res->RCF18 }} </td>
         <td></td>
     </tr>
     <tr>
@@ -353,22 +256,6 @@
   </div>
    <div class="column">
     <img src="{{ public_path("uploads/photo/".$res->CFP5) }}" style="width: 100px; height: 80px;">
-  </div>
-  @endforeach
-  </div>
-
-  <div class="row1">
-<div class="column">
-<img  src="{{ public_path("uploads/photo/".$res->RCFP2) }}" style="width: 100px; height: 80px;">
-  </div>
-  <div class="column" >
-   <img src="{{ public_path("uploads/photo/".$res->RCFP3) }}" style="width: 100px; height: 80px;">
-  </div>
-   <div class="column">
-     <img src="{{ public_path("uploads/photo/".$res->RCFP4) }}" style="width: 100px; height: 80px;">
-  </div>
-   <div class="column">
-    <img src="{{ public_path("uploads/photo/".$res->RCFP5) }}" style="width: 100px; height: 80px;">
   </div>
   @endforeach
   </div>
