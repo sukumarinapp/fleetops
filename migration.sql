@@ -301,3 +301,6 @@ alter table driver_upload add status varchar(50) DEFAULT NULL;
 alter table manager_inspect add ISD date DEFAULT NULL;
 alter table manager_inspect add ISM int(11) DEFAULT 0;
 alter table handover add status varchar(50) DEFAULT NULL;
+
+--25/04/2022
+alter table retrieval add handover_id int(11) DEFAULT 0;
