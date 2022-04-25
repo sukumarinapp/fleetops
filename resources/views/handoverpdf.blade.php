@@ -67,7 +67,7 @@
         <td>Spare Tire</td>
         <td>{{ $res->CC01 }} </td>
         <td>@if($res->CF02 == 1)
-         <img  src="{{ public_path("check.jpg") }}">
+         <img  src="{{ public_path('check.jpg') }}">
          @else
           <img src="{{ public_path("redmark.jpg") }}">
           @endif</td>
@@ -77,7 +77,7 @@
         <td>Warning Triangle</td>
         <td>{{ $res->CC02 }} </td>
         <td>@if($res->CF03 == 1)
-         <img  src="{{ public_path("check.jpg") }}">
+         <img  src="{{ public_path('check.jpg') }}">
          @else
           <img src="{{ public_path("redmark.jpg") }}">
           @endif</td>
@@ -87,7 +87,7 @@
         <td>Vehicle Tools</td>
         <td>{{ $res->CC03 }} </td>
         <td>@if($res->CF04 == 1)
-         <img  src="{{ public_path("check.jpg") }}">
+         <img  src="{{ public_path('check.jpg') }}">
          @else
           <img src="{{ public_path("redmark.jpg") }}">
           @endif</td>
@@ -96,7 +96,7 @@
         <td>Fire Extinguisher</td>
          <td>{{ $res->CC04 }} </td>
         <td>@if($res->CF05 == 1)
-         <img  src="{{ public_path("check.jpg") }}">
+         <img  src="{{ public_path('check.jpg') }}">
          @else
           <img src="{{ public_path("redmark.jpg") }}">
           @endif</td>
@@ -106,7 +106,7 @@
         <td>Front Lights (Deem) L/R</td>
         <td>{{ $res->CC05 }} </td>
         <td>@if($res->CF06 == 1)
-         <img  src="{{ public_path("check.jpg") }}">
+         <img  src="{{ public_path('check.jpg') }}">
          @else
           <img src="{{ public_path("redmark.jpg") }}">
           @endif</td>
@@ -115,7 +115,7 @@
         <td>Front Lights (High) L/R</td>
         <td>{{ $res->CC06 }} </td>
         <td>@if($res->CF07 == 1)
-         <img  src="{{ public_path("check.jpg") }}">
+         <img  src="{{ public_path('check.jpg') }}">
          @else
           <img src="{{ public_path("redmark.jpg") }}">
           @endif</td>
@@ -124,7 +124,7 @@
         <td>Indicator Lights (FL/FR/RL/RR)</td>
         <td>{{ $res->CC07 }} </td>
         <td>@if($res->CF08 == 1)
-         <img  src="{{ public_path("check.jpg") }}">
+         <img  src="{{ public_path('check.jpg') }}">
          @else
           <img src="{{ public_path("redmark.jpg") }}">
           @endif</td>
@@ -134,7 +134,7 @@
         <td>Parking Lights L/R</td>
         <td>{{ $res->CC08 }} </td>
         <td>@if($res->CF09 == 1)
-         <img  src="{{ public_path("check.jpg") }}">
+         <img  src="{{ public_path('check.jpg') }}">
          @else
           <img src="{{ public_path("redmark.jpg") }}">
           @endif</td>
@@ -144,7 +144,7 @@
         <td>Brake Lights L/R</td>
         <td>{{ $res->CC09 }} </td>
         <td>@if($res->CF10 == 1)
-         <img  src="{{ public_path("check.jpg") }}">
+         <img  src="{{ public_path('check.jpg') }}">
          @else
           <img src="{{ public_path("redmark.jpg") }}">
           @endif</td>
@@ -154,7 +154,7 @@
         <td>Reverse Lights L/R</td>
         <td>{{ $res->CC10 }} </td>
         <td>@if($res->CF11 == 1)
-         <img  src="{{ public_path("check.jpg") }}">
+         <img  src="{{ public_path('check.jpg') }}">
          @else
           <img src="{{ public_path("redmark.jpg") }}">
           @endif</td>
@@ -164,7 +164,7 @@
         <td>Wiper Function</td>
         <td>{{ $res->CC11 }} </td>
         <td>@if($res->CF12 == 1)
-         <img  src="{{ public_path("check.jpg") }}">
+         <img  src="{{ public_path('check.jpg') }}">
          @else
           <img src="{{ public_path("redmark.jpg") }}">
           @endif</td>
@@ -174,7 +174,7 @@
         <td>Horn</td>
         <td>{{ $res->CC12 }} </td>
         <td>@if($res->CF13 == 1)
-         <img  src="{{ public_path("check.jpg") }}">
+         <img  src="{{ public_path('check.jpg') }}">
          @else
           <img src="{{ public_path("redmark.jpg") }}">
           @endif </td>
@@ -184,7 +184,7 @@
         <td>Air-Conditioner</td>
         <td>{{ $res->CC13 }} </td>
         <td>@if($res->CF14 == 1)
-         <img  src="{{ public_path("check.jpg") }}">
+         <img  src="{{ public_path('check.jpg') }}">
          @else
           <img src="{{ public_path("redmark.jpg") }}">
           @endif</td>
@@ -194,7 +194,7 @@
         <td>Radio</td>
         <td>{{ $res->CC14 }} </td>
         <td>@if($res->CF15 == 1)
-         <img  src="{{ public_path("check.jpg") }}">
+         <img  src="{{ public_path('check.jpg') }}">
          @else
           <img src="{{ public_path("redmark.jpg") }}">
           @endif</td>
@@ -204,7 +204,7 @@
         <td>Wheel Caps (FL/FR/RL/RR)</td>
         <td>{{ $res->CC15 }} </td>
         <td>@if($res->CF16 == 1)
-         <img  src="{{ public_path("check.jpg") }}">
+         <img  src="{{ public_path('check.jpg') }}">
          @else
           <img src="{{ public_path("redmark.jpg") }}">
           @endif</td>
@@ -214,7 +214,7 @@
         <td>Road Test</td>
         <td>{{ $res->CC16 }} </td>
         <td>@if($res->CF17 == 1)
-         <img  src="{{ public_path("check.jpg") }}">
+         <img  src="{{ public_path('check.jpg') }}">
          @else
           <img src="{{ public_path("redmark.jpg") }}">
           @endif</td>
