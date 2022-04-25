@@ -552,6 +552,7 @@ class VehicleController extends Controller
     public function removedriver(Request $request){
         $this->check_access("BPF");
         $vehicle = Vehicle::find($request->get('vehicle_id'));
+        $handover_id = $vehicle->handover_id;
         $DID = $vehicle->driver_id;
         $vehicle->driver_id  =  null;
         $vehicle->status  =  "";
@@ -601,7 +602,7 @@ class VehicleController extends Controller
         $CC15 = $request->get('CC15');
         $CC16 = $request->get('CC16');
 
-        $sql = "insert into retrieval (log_id,VNO,driver_id,CF01,CF02,CF03,CF04,CF05,CF06,CF07,CF08,CF09,CF10,CF11,CF12,CF13,CF14,CF15,CF16,CF17,CF18,CC01,CC02,CC03,CC04,CC05,CC06,CC07,CC08,CC09,CC10,CC11,CC12,CC13,CC14,CC15,CC16) values ('$log_id','$VNO','$DID','$CF01','$CF02','$CF03','$CF04','$CF05','$CF06','$CF07','$CF08','$CF09','$CF10','$CF11','$CF12','$CF13','$CF14','$CF15','$CF16','$CF17','$CF18','$CC01','$CC02','$CC03','$CC04','$CC05','$CC06','$CC07','$CC08','$CC09','$CC10','$CC11','$CC12','$CC13','$CC14','$CC15','$CC16')";
+        $sql = "insert into retrieval (handover_id,log_id,VNO,driver_id,CF01,CF02,CF03,CF04,CF05,CF06,CF07,CF08,CF09,CF10,CF11,CF12,CF13,CF14,CF15,CF16,CF17,CF18,CC01,CC02,CC03,CC04,CC05,CC06,CC07,CC08,CC09,CC10,CC11,CC12,CC13,CC14,CC15,CC16) values ($handover_id,'$log_id','$VNO','$DID','$CF01','$CF02','$CF03','$CF04','$CF05','$CF06','$CF07','$CF08','$CF09','$CF10','$CF11','$CF12','$CF13','$CF14','$CF15','$CF16','$CF17','$CF18','$CC01','$CC02','$CC03','$CC04','$CC05','$CC06','$CC07','$CC08','$CC09','$CC10','$CC11','$CC12','$CC13','$CC14','$CC15','$CC16')";
         DB::insert($sql);
 
         $retrieval_id = DB::getPdo()->lastInsertId();
