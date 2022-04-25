@@ -636,7 +636,7 @@ class VehicleController extends Controller
     }
 
       private function save_pdf($handover_id){
-        $sql = "select a.*,b.chassis_no,b.IEX,b.REX,c.DNM,c.DSN from handover a,vehicle b,driver c where a.VNO=b.VNO and b.driver_id=c.id and a.id ='$handover_id'";
+        $sql = "select a.*,b.chassis_no,b.IEX,b.REX,c.DNM,c.DSN,d.CF01 as RCF01,d.CF02 as RCF02,d.CF03 as RCF03,d.CF04 as RCF04,d.CF05 as RCF05,d.CF06 as RCF06,d.CF07 as RCF07,d.CF08 as RCF08,d.CF09 as RCF09,d.CF10 as RCF10,d.CF11 as RCF11,d.CF12 as RCF12,d.CF13 as RCF13,d.CF14 as RCF14,d.CF15 as RCF15,d.CF16 as RCF16,d.CF17 as RCF17,d.CF18 as RCF18,d.CFP2 as RCFP2,d.CFP3 as RCFP3,d.CFP4 as RCFP4,d.CFP5 as RCFP5,d.CC01 as RCC01,d.CC02 as RCC02,d.CC03 as RCC03,d.CC04 as RCC04,d.CC05 as RCC05,d.CC06 as RCC06,d.CC07 as RCC07,d.CC08 as RCC08,d.CC09 as RCC09,d.CC10 as RCC10,d.CC11 as RCC11,d.CC12 as RCC12,d.CC13 as RCC13,d.CC14 as RCC14,d.CC15 as RCC15,d.CC16 as RCC16 from handover a,vehicle b,driver c,retrieval d where a.VNO=b.VNO and b.driver_id=c.id and a.id=d.handover_id and a.id ='$handover_id'";
         echo $sql;die;
         $result = DB::select(DB::raw($sql));
         $pdf = PDF::loadView('retrievalpdf', compact('result'));
