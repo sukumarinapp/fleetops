@@ -85,6 +85,7 @@ Route::post('/acceptance_code', 'DriverController@acceptance_code')->name('accep
 Route::post('/accept_handover', 'DriverController@accept_handover')->name('accept_handover');
 Route::post('/confirm_handover', 'DriverController@confirm_handover')->name('confirm_handover');
 Route::get('/handoverpdf', 'DriverController@handoverpdf')->name('handoverpdf');
+Route::get('/retrievalpdf', 'VehicleController@retrievalpdf')->name('retrievalpdf');
 Route::post('/accept_code', 'DriverController@accept_code')->name('accept_code');
 Route::get('/uploadservice', 'DriverController@uploadservice')->name('uploadservice');
 Route::post('/saveservicedriver', 'DriverController@saveservicedriver')->name('saveservicedriver');

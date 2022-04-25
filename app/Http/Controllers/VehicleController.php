@@ -643,6 +643,10 @@ class VehicleController extends Controller
         $pdf->save("uploads".DIRECTORY_SEPARATOR."handover".DIRECTORY_SEPARATOR.$handover_id.".pdf");
     }
 
+    public function retrievalpdf(){
+        return view('retrievalpdf');
+    }
+
 
     public function remove($id){
         $this->check_access("BPF");
