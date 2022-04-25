@@ -258,5 +258,6 @@
     <img src="{{ public_path("uploads/photo/".$res->CFP5) }}" style="width: 100px; height: 80px;">
   </div>
   </div>
+    @endforeach
 </div>
 </div>
