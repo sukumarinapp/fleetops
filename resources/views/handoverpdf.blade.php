@@ -354,7 +354,6 @@
    <div class="column">
     <img src="{{ public_path("uploads/photo/".$res->CFP5) }}" style="width: 100px; height: 80px;">
   </div>
-  @endforeach
   </div>
 
   <div class="row1">
