@@ -79,7 +79,7 @@
         <td>@if($res->CF03 == 1)
          <img  src="{{ public_path('check.jpg') }}">
          @else
-          <img src="{{ public_path("redmark.jpg") }}">
+          <img src="{{ public_path('redmark.jpg') }}">
           @endif</td>
         
     </tr> 
@@ -98,7 +98,7 @@
         <td>@if($res->CF05 == 1)
          <img  src="{{ public_path('check.jpg') }}">
          @else
-          <img src="{{ public_path("redmark.jpg") }}">
+          <img src="{{ public_path('redmark.jpg') }}">
           @endif</td>
        
     </tr>
@@ -108,7 +108,7 @@
         <td>@if($res->CF06 == 1)
          <img  src="{{ public_path('check.jpg') }}">
          @else
-          <img src="{{ public_path("redmark.jpg") }}">
+          <img src="{{ public_path('redmark.jpg') }}">
           @endif</td>
     </tr>
     <tr>
@@ -117,7 +117,7 @@
         <td>@if($res->CF07 == 1)
          <img  src="{{ public_path('check.jpg') }}">
          @else
-          <img src="{{ public_path("redmark.jpg") }}">
+          <img src="{{ public_path('redmark.jpg') }}">
           @endif</td>
     </tr>
     <tr>
@@ -126,7 +126,7 @@
         <td>@if($res->CF08 == 1)
          <img  src="{{ public_path('check.jpg') }}">
          @else
-          <img src="{{ public_path("redmark.jpg") }}">
+          <img src="{{ public_path('redmark.jpg') }}">
           @endif</td>
         
     </tr>
@@ -136,7 +136,7 @@
         <td>@if($res->CF09 == 1)
          <img  src="{{ public_path('check.jpg') }}">
          @else
-          <img src="{{ public_path("redmark.jpg") }}">
+          <img src="{{ public_path('redmark.jpg') }}">
           @endif</td>
         
     </tr>
@@ -146,7 +146,7 @@
         <td>@if($res->CF10 == 1)
          <img  src="{{ public_path('check.jpg') }}">
          @else
-          <img src="{{ public_path("redmark.jpg") }}">
+          <img src="{{ public_path('redmark.jpg') }}">
           @endif</td>
         
     </tr>
@@ -156,7 +156,7 @@
         <td>@if($res->CF11 == 1)
          <img  src="{{ public_path('check.jpg') }}">
          @else
-          <img src="{{ public_path("redmark.jpg") }}">
+          <img src="{{ public_path('redmark.jpg') }}">
           @endif</td>
         
     </tr>
@@ -166,7 +166,7 @@
         <td>@if($res->CF12 == 1)
          <img  src="{{ public_path('check.jpg') }}">
          @else
-          <img src="{{ public_path("redmark.jpg") }}">
+          <img src="{{ public_path('redmark.jpg') }}">
           @endif</td>
         
     </tr>
@@ -176,7 +176,7 @@
         <td>@if($res->CF13 == 1)
          <img  src="{{ public_path('check.jpg') }}">
          @else
-          <img src="{{ public_path("redmark.jpg") }}">
+          <img src="{{ public_path('redmark.jpg') }}">
           @endif </td>
         
     </tr>
@@ -186,7 +186,7 @@
         <td>@if($res->CF14 == 1)
          <img  src="{{ public_path('check.jpg') }}">
          @else
-          <img src="{{ public_path("redmark.jpg") }}">
+          <img src="{{ public_path('redmark.jpg') }}">
           @endif</td>
         
     </tr>
@@ -196,7 +196,7 @@
         <td>@if($res->CF15 == 1)
          <img  src="{{ public_path('check.jpg') }}">
          @else
-          <img src="{{ public_path("redmark.jpg") }}">
+          <img src="{{ public_path('redmark.jpg') }}">
           @endif</td>
         
     </tr>
@@ -206,7 +206,7 @@
         <td>@if($res->CF16 == 1)
          <img  src="{{ public_path('check.jpg') }}">
          @else
-          <img src="{{ public_path("redmark.jpg") }}">
+          <img src="{{ public_path('redmark.jpg') }}">
           @endif</td>
         
     </tr>
@@ -216,7 +216,7 @@
         <td>@if($res->CF17 == 1)
          <img  src="{{ public_path('check.jpg') }}">
          @else
-          <img src="{{ public_path("redmark.jpg") }}">
+          <img src="{{ public_path('redmark.jpg') }}">
           @endif</td>
         
     </tr>

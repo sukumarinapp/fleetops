@@ -179,7 +179,6 @@
 
     <tr>
         <td>Front Lights (Deem) L/R</td>
-        <td>{{ $res->CC05 }} </td>
         <td>
             @if($res->CF06 == 1)
                 <img  src="{{ public_path('check.jpg') }}">
@@ -232,7 +231,6 @@
 
     <tr>
         <td>Indicator Lights (FL/FR/RL/RR)</td>
-        <td>{{ $res->CC07 }} </td>
         <td>
             @if($res->CF08 == 1)
                <img  src="{{ public_path('check.jpg') }}">
@@ -285,7 +283,6 @@
 
     <tr>
         <td>Brake Lights L/R</td>
-        <td>{{ $res->CC09 }} </td>
         <td>
             @if($res->CF10 == 1)
                <img  src="{{ public_path('check.jpg') }}">
@@ -420,7 +417,6 @@
     @endif 
     <tr>
         <td>Wheel Caps (FL/FR/RL/RR)</td>
-        <td>{{ $res->CC15 }} </td>
         <td>@if($res->CF16 == 1)
          <img  src="{{ public_path('check.jpg') }}">
          @else
