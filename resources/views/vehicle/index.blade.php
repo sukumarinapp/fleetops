@@ -49,6 +49,7 @@
             <th>Model</th>
             <th>Color</th>
             <th>Status</th>
+            <th>View</th>
             <th style="width: 150px">Assign/Remove</th>
             <th style="width: 150px">Action</th>
           </tr>
@@ -86,6 +87,11 @@
                   Active
                 @else
                   Inactive
+                @endif
+              </td>
+              <td> 
+                @if($vehicle->status != "pending" && $vehicle->handover_id != 0)
+                  <a class="btn btn-primary btn-xs" target="_blank" href="../../uploads/handover/{{ $vehicle->handover_id }}.pdf"><i class="fa fa-car"></i></a>
                 @endif
               </td>
             </td>
