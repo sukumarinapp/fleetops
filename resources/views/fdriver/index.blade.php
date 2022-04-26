@@ -96,32 +96,32 @@
                </td>
                <td>
                 @if($driver->photo != "")
-                <a href="#" data-toggle="modal" data-target="#photomodal_{{ $driver->id }}" ><img src="{{ URL::to('/') }}/photo.png"></a>
+                <a href="#" data-toggle="modal" data-target="#photomodal_{{ $driver->id }}" class="btn btn-primary btn-xs"><i class="fa fa-user"></i></a>
                 @else
-                <a><img src="{{ URL::to('/') }}/photo.png"></a>
+                <a class="btn btn-primary btn-xs"><i class="fa fa-user"></i></a>
                 @endif
-                <a href="#" data-toggle="modal" data-target="#licencemodal_{{ $driver->id }}" ><img src="{{ URL::to('/') }}/licence.jpg"></a>
+                <a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#licencemodal_{{ $driver->id }}" ><i class="fa fa-id-card"></i></a>
               @if($driver->handover_id == 0)
               @else
                 @if($driver->accepted == 1)
-                  <a target="_blank" href="../../uploads/handover/{{ $driver->handover_id }}.pdf"><img src="{{ URL::to('/') }}/handover.jpg"></a>
+                  <a class="btn btn-primary btn-xs" target="_blank" href="../../uploads/handover/{{ $driver->handover_id }}.pdf"><i class="fa fa-car"></i></a>
                 @endif
               @endif
 
-              <a href="{{ route('agreementdriver') }}"><img src="{{ URL::to('/') }}/agreement.jpg"></a>
+              <a class="btn btn-primary btn-xs" href="{{ route('agreementdriver') }}"><i class="fa fa-file"></i></a>
                </td>
               <td>
                 
                 @if($driver->VNO == "")
                 <form action="{{ route('fdriver.destroy', $driver->id)}}" method="post">
                 @endif
-                    <a href="{{ route('fdriver.edit',$driver->id) }}" class="btn btn-primary btn-xs">Edit</a>
+                    <a href="{{ route('fdriver.edit',$driver->id) }}" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i></a>
                     @csrf
                     @method('DELETE')
                   @if($driver->VNO == "")
-                  <button onclick="return confirm('Do you want to perform delete operation?')" class="btn btn-danger btn-xs" type="submit">Delete</button>
+                  <button onclick="return confirm('Do you want to perform delete operation?')" class="btn btn-danger btn-xs" type="submit"><i class="fa fa-trash"></i></button>
                   @else
-                  <button class="btn btn-danger btn-xs disabled" >Delete</button>
+                  <button class="btn btn-danger btn-xs disabled" ><i class="fa fa-trash"></i></button>
                   @endif
                 @if($driver->VNO == "")
                 </form>
