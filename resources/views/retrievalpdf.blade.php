@@ -19,7 +19,7 @@
 
 </style>
 <div class="card-body">
-    <h5 class="text-center">Vehicle Return Form</h5>
+    <h5 class="text-center">Vehicle Condition Report</h5>
     <div class="row1">
         @foreach($result as $res)
 <div class="column">
