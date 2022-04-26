@@ -71,9 +71,9 @@
         <td></td>
     </tr>
     <tr>
-      <th class="col">Description</th>
-      <th class="col">Handover</th>
-      <th class="col">Retrieval</th>
+      <th>Description</th>
+      <th>Handover</th>
+      <th>Retrieval</th>
     </tr>
     <tr>
         <td>Spare Tire</td>
