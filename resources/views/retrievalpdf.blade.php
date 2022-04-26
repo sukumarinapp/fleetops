@@ -23,7 +23,7 @@
     <div class="row1">
         @foreach($result as $res)
 <div class="column">
-<img  src="{{ public_path("uploads/photo/".$res->photo) }}" style="width: 120px; height: 80px;">
+<img  src="{{ public_path('uploads/photo/'.$res->photo) }}" style="width: 120px; height: 80px;">
   </div>
   </div>
 <div class="row">
@@ -488,31 +488,31 @@
 </table>
 <div class="row1">
 <div class="column">
-<img  src="{{ public_path("uploads/photo/".$res->CFP2) }}" style="width: 100px; height: 80px;">
+<img  src="{{ public_path('uploads/photo/'.$res->CFP2) }}" style="width: 100px; height: 80px;">
   </div>
   <div class="column" >
-   <img src="{{ public_path("uploads/photo/".$res->CFP3) }}" style="width: 100px; height: 80px;">
+   <img src="{{ public_path('uploads/photo/'.$res->CFP3) }}" style="width: 100px; height: 80px;">
   </div>
    <div class="column">
-     <img src="{{ public_path("uploads/photo/".$res->CFP4) }}" style="width: 100px; height: 80px;">
+     <img src="{{ public_path('uploads/photo/'.$res->CFP4) }}" style="width: 100px; height: 80px;">
   </div>
    <div class="column">
-    <img src="{{ public_path("uploads/photo/".$res->CFP5) }}" style="width: 100px; height: 80px;">
+    <img src="{{ public_path('uploads/photo/'.$res->CFP5) }}" style="width: 100px; height: 80px;">
   </div>
   </div>
 
   <div class="row1">
 <div class="column">
-<img  src="{{ public_path("uploads/photo/".$res->RCFP2) }}" style="width: 100px; height: 80px;">
+<img  src="{{ public_path('uploads/photo/'.$res->RCFP2) }}" style="width: 100px; height: 80px;">
   </div>
   <div class="column" >
-   <img src="{{ public_path("uploads/photo/".$res->RCFP3) }}" style="width: 100px; height: 80px;">
+   <img src="{{ public_path('uploads/photo/'.$res->RCFP3) }}" style="width: 100px; height: 80px;">
   </div>
    <div class="column">
-     <img src="{{ public_path("uploads/photo/".$res->RCFP4) }}" style="width: 100px; height: 80px;">
+     <img src="{{ public_path('uploads/photo/'.$res->RCFP4) }}" style="width: 100px; height: 80px;">
   </div>
    <div class="column">
-    <img src="{{ public_path("uploads/photo/".$res->RCFP5) }}" style="width: 100px; height: 80px;">
+    <img src="{{ public_path('uploads/photo/'.$res->RCFP5) }}" style="width: 100px; height: 80px;">
   </div>
   @endforeach
   </div>
