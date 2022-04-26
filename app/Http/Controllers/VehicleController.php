@@ -634,9 +634,9 @@ class VehicleController extends Controller
         #return view('retrievalpdf', compact('result'));
 
         self::save_pdf($handover_id);
-        $vehicle->driver_id  =  null;
+        $vehicle->driver_id  =  0;
         $vehicle->status  =  "";
-        $vehicle->handover_id = 0;
+        //$vehicle->handover_id = 0;
         $vehicle->save();
         return redirect('/vehicle')->with('message', 'Driver Removed Successfully');
     }
