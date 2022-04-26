@@ -49,7 +49,6 @@
             <th>Model</th>
             <th>Color</th>
             <th>Status</th>
-            <th>Handover</th>
             <th style="width: 150px">Assign/Remove</th>
             <th style="width: 150px">Action</th>
           </tr>
@@ -89,10 +88,6 @@
                   Inactive
                 @endif
               </td>
-              <td>@if($vehicle->handover_id == 0)
-              @else
-              <a target="_blank" href="../../uploads/handover/{{ $vehicle->handover_id }}.pdf"><img src="{{ URL::to('/') }}/handover.jpg"></a>
-              @endif
             </td>
               <td>
                     @if(Auth::user()->usertype == "Admin" || Auth::user()->BPF == true)
@@ -118,16 +113,16 @@
                 <form action="{{ route('vehicle.destroy', $vehicle->id)}}" method="post">
                 @endif
                     @if($vehicle->DECL == 0)
-                        <button class="btn btn-primary btn-xs disabled" >Edit</button>
+                        <button class="btn btn-primary btn-xs disabled" ><i class="fa fa-edit"></i></button>
                     @else
-                    <a href="{{ route('vehicle.edit',$vehicle->id) }}" class="btn btn-primary btn-xs">Edit</a>
+                    <a href="{{ route('vehicle.edit',$vehicle->id) }}" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i></a>
                     @endif
                     @csrf
                     @method('DELETE')
                     @if($vehicle->VTV == 0 && $vehicle->DNM == "")
-                    <button onclick="return confirm('Do you want to perform delete operation?')" class="btn btn-danger btn-xs" type="submit">Delete</button>
+                    <button onclick="return confirm('Do you want to perform delete operation?')" class="btn btn-danger btn-xs" type="submit"><i class="fa fa-trash"></i></button>
                     @else
-                    <button class="btn btn-danger btn-xs disabled" >Delete</button>
+                    <button class="btn btn-danger btn-xs disabled" ><i class="fa fa-trash"></i></button>
                     @endif
                 @if($vehicle->VTV == 0 && $vehicle->DNM == "")                
                 </form>
