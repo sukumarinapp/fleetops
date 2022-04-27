@@ -540,7 +540,7 @@ class VehicleController extends Controller
         }
         $SMS = $SMS . "Your password is ".$password.". ";
         $SMS = $SMS ."Please make prompt payments to avoid any inconveniences. For further details you may contact ".$name." on ".$UCN."\n";
-        $SMS = $SMS ." To log into you your account go to  https://fleetopsgh.com/driver\n";
+        $SMS = $SMS ." To log into your account go to  https://fleetopsgh.com/driver\n";
         $SMS = $SMS ."Thank you.\n";
         $DAT = date("Y-m-d");
         $TIM = date("H:i:s");

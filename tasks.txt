@@ -1,9 +1,4 @@
-vehicle condition report by 12pm
-som icons are added in manage vehicle/driver
-sending document expiry SMS to car owner is pending
-licence not updating
-msg ;ogin url 
-
+penalty
 
 Payment Milestone 2
 Milestone D	New Alerts (Process Integration)
