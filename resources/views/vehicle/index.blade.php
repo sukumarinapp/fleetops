@@ -41,13 +41,8 @@
           <thead>
           <tr>
             <th>CAN</th>
-            <th>Vehicle Reg# 
-
-            </th>
-            <th>ID</th>
-            <th>Make</th>
-            <th>Model</th>
-            <th>Color</th>
+            <th>Vehicle Reg#</th>
+            <th>Description</th>
             <th>Status</th>
             <th>View</th>
             <th style="width: 150px">Assign/Remove</th>
@@ -78,10 +73,7 @@
                   {{ $vehicle->DSN }}</a> - {{ $vehicle->VBM }}</small>
                 @endif
               </td>
-              <td>{{ $vehicle->TID }}</td>
-              <td>{{ $vehicle->VMK }}</td>
-              <td>{{ $vehicle->VMD }}</td>
-              <td>{{ $vehicle->VCL }}</td>
+              <td>{{ $vehicle->VMK }}&nbsp;{{ $vehicle->VMD }}&nbsp;{{ $vehicle->VCL }}</td>
               <td>
                 @if($vehicle->VTV == 1)
                   Active
@@ -91,7 +83,7 @@
               </td>
               <td> 
                 @if($vehicle->status != "pending" && $vehicle->handover_id != 0)
-                  <a class="btn btn-primary btn-xs" target="_blank" href="../../uploads/handover/{{ $vehicle->handover_id }}.pdf"><i class="fa fa-car"></i></a>
+                  <a class="btn btn-secondary btn-xs" target="_blank" href="../../uploads/handover/{{ $vehicle->handover_id }}.pdf"><i class="fa fa-car"></i></a>
                 @endif
               </td>
             </td>
