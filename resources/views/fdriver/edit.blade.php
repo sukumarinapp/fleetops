@@ -550,7 +550,7 @@ if($driver->VBM != "Hire Purchase") echo " style='display:none' ";
 class="form-group row" id="def">
 <label for="NOD" class="col-sm-5 col-form-label"><span style="color:red"></span>Number of Defaults Allowed</label>
 <div class="col-2">
-<input value="{{ $driver->NOD }}" type="text" class="form-control" name="NOD" id="NOD" >
+<input maxlength="2" value="{{ $driver->NOD }}" type="text" class="form-control number" name="NOD" id="NOD" >
 </div>
 <div class="col-5">
 <div class="icheck-primary d-inline">
@@ -573,7 +573,7 @@ if($driver->VBM != "Hire Purchase") echo " style='display:none' ";
 class="form-group row" id="pen">
 <label for="PAM" class="col-sm-5 col-form-label">Penalty Amount:</label>
 <div class="col-2">
-<input value="{{ $driver->PAM }}" type="text" class="form-control" name="PAM" id="PAM" >
+<input maxlength="6" value="{{ $driver->PAM }}" type="text" class="form-control decimal" name="PAM" id="PAM" >
 </div>
 
 <label for="CEX" class="col-sm-1 col-form-label">per</label>
