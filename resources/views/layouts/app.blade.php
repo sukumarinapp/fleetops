@@ -581,6 +581,7 @@ function toggle_map(arg){
         });
         $("#VBM").change(function(evt){
             var VBM = $("#VBM").val();
+            var VPF = $("#VPF").val();
             if(VBM=="Ride Hailing"){
                 $("#rhdiv").show("slow");
                 $("#Business").show("slow");
@@ -594,16 +595,23 @@ function toggle_map(arg){
                 $("#purchasediv").hide("slow");
                 $("#dowmamtdiv").hide("slow");
                 $("#depositdiv").hide("slow");
-            }else if(VBM=="Rental"){
+            }else if(VBM == "Rental"){
                 $("#rhdiv").hide("slow");
                 $("#Business").hide("slow");
                 $("#freqdiv").show("slow");
                 $("#paydatediv").show("slow");
                 $("#payamtdiv").show("slow");
-                $("#penalty").show("slow");
-                $("#def").show("slow");
-                $("#pen").show("slow");
-                $("#due").show("slow");
+                if(VPF != "Daily"){
+                    $("#penalty").show("slow");
+                    $("#def").show("slow");
+                    $("#pen").show("slow");
+                    $("#due").show("slow");
+                }else{
+                    $("#penalty").hide("slow");
+                    $("#def").hide("slow");
+                    $("#pen").hide("slow");
+                    $("#due").hide("slow");
+                }
                 $("#purchasediv").hide("slow");
                 $("#dowmamtdiv").hide("slow");
                 $("#depositdiv").show("slow");
@@ -613,10 +621,17 @@ function toggle_map(arg){
                 $("#freqdiv").show("slow");
                 $("#paydatediv").show("slow");
                 $("#payamtdiv").show("slow");
-                $("#penalty").show("slow");
-                $("#def").show("slow");
-                $("#pen").show("slow");
-                $("#due").show("slow");
+                if(VPF != "Daily"){
+                    $("#penalty").show("slow");
+                    $("#def").show("slow");
+                    $("#pen").show("slow");
+                    $("#due").show("slow");
+                }else{
+                    $("#penalty").hide("slow");
+                    $("#def").hide("slow");
+                    $("#pen").hide("slow");
+                    $("#due").hide("slow");
+                }
                 $("#purchasediv").show("slow");
                 $("#dowmamtdiv").show("slow");
                 $("#depositdiv").show("slow");

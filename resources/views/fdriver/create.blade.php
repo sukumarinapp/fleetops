@@ -477,8 +477,6 @@
 										<div class="col-sm-2">
 						 <select name="PAT" id="PAT" class="custom-select">
                <option value="Daily" >Daily</option>
-               <option value="Weekly" >Weekly</option>
-               <option value="Monthly" selected="selected">Monthly</option>
               </select>
 					</div>
 									</div>
@@ -582,6 +580,10 @@ function getcurrentLocation() {
 }
 
 jQuery(document).ready(function($) {
+	$("#penalty").hide("slow");
+  $("#def").hide("slow");
+  $("#pen").hide("slow");
+  $("#due").hide("slow");
   VPL = $("#VPL").val();
   if(VPL == ""){
   	getcurrentLocation();
