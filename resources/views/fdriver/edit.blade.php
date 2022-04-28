@@ -534,7 +534,7 @@ class="form-group row" id="depositdiv">
 
 <div
 @php
-if($driver->VBM != "Hire Purchase") echo " style='display:none' ";
+if($driver->VBM == "Ride Hailing" || $driver->VPF == "Daily") echo " style='display:none' ";
 @endphp 
 class="form-group row" style="padding-top:50px;" id="penalty">
 <label  class="form-check-label col-sm-5" for="EPD"><b>Enable Penalty Rule on Payment Defaults</b></label>
@@ -545,7 +545,7 @@ class="form-group row" style="padding-top:50px;" id="penalty">
 
 <div
 @php
-if($driver->VBM != "Hire Purchase") echo " style='display:none' ";
+if($driver->VBM == "Ride Hailing" || $driver->VPF == "Daily") echo " style='display:none' ";
 @endphp 
 class="form-group row" id="def">
 <label for="NOD" class="col-sm-5 col-form-label"><span style="color:red"></span>Total Number of Defaults Allowed</label>
@@ -556,7 +556,7 @@ class="form-group row" id="def">
 
 <div
 @php
-if($driver->VBM != "Hire Purchase") echo " style='display:none' ";
+if($driver->VBM == "Ride Hailing" || $driver->VPF == "Daily") echo " style='display:none' ";
 @endphp 
 class="form-group row" id="pen">
 <label for="PAM" class="col-sm-5 col-form-label">Penalty Amount:</label>
@@ -576,7 +576,7 @@ class="form-group row" id="pen">
 
 <div
 @php
-if($driver->VBM != "Hire Purchase") echo " style='display:none' ";
+if($driver->VBM == "Ride Hailing" || $driver->VPF == "Daily") echo " style='display:none' ";
 @endphp 
 class="form-group row" id="due">
 <p class="col-form-label">The total aggregated sum of penalty amount charged at stated frequency shall be added to next payment due.</p>

@@ -598,10 +598,10 @@ function toggle_map(arg){
                 $("#freqdiv").show("slow");
                 $("#paydatediv").show("slow");
                 $("#payamtdiv").show("slow");
-                $("#penalty").hide("slow");
-                $("#def").hide("slow");
-                $("#pen").hide("slow");
-                $("#due").hide("slow");
+                $("#penalty").show("slow");
+                $("#def").show("slow");
+                $("#pen").show("slow");
+                $("#due").show("slow");
                 $("#purchasediv").hide("slow");
                 $("#dowmamtdiv").hide("slow");
                 $("#depositdiv").show("slow");
