@@ -454,28 +454,16 @@
 				</div>
 
 				<div class="form-group row" style="padding-top:50px;display: none;" id="penalty">
-                    <label  class="form-check-label col-sm-7" for="EPD"><b>Enable Penalty Rule on Payment Defaults</b></label>
+                    <label  class="form-check-label col-sm-5" for="EPD"><b>Enable Penalty Rule on Payment Defaults</b></label>
                      <div class="icheck-success d-inline col-sm-1">
                         <input name="EPD" type="checkbox" id="EPD">
                     </div> 
 				</div>
 
 				<div class="form-group row" id="def" style="display: none;">
-										<label for="NOD" class="col-sm-5 col-form-label"><span style="color:red"></span>Number of Defaults Allowed</label>
+										<label for="NOD" class="col-sm-5 col-form-label"><span style="color:red"></span>Total Number of Defaults Allowed</label>
 										<div class="col-2">
 											<input maxlength="2" type="text" class="form-control number" name="NOD" id="NOD" >
-										</div>
-										<div class="col-5">
-											<div class="icheck-primary d-inline">
-                        <input value="0" checked type="radio" id="Consecutive" name="NODB" />
-                        <label for="NODB">
-                        </label><b>Consecutive</b>
-                      </div><br>
-                       <div class="icheck-primary d-inline">
-                        <input value="1" type="radio" id="Total" name="NODB" />
-                        <label for="NODB">
-                        </label><b>Total</b>
-                      </div>
 										</div>
 									</div>
 
@@ -486,7 +474,7 @@
 										</div>
 										
 											<label for="CEX" class="col-sm-1 col-form-label">per</label>
-										<div class="col-sm-4">
+										<div class="col-sm-2">
 						 <select name="PAT" id="PAT" class="custom-select">
                <option value="Daily" >Daily</option>
                <option value="Weekly" >Weekly</option>

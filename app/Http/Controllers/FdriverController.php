@@ -72,7 +72,6 @@ class FdriverController extends Controller
             $NOD = 0;
             $PAM = 0;
             $PAT = 0;
-            $NODB = 0;
             $PPR = 0;
             $PDP = 0;
             $SDP = 0;
@@ -84,7 +83,6 @@ class FdriverController extends Controller
                $VAM = $request->get('VAM'); 
                $EPD = $request->get('EPD'); 
                $NOD = $request->get('NOD'); 
-               $NODB = $request->get('NODB'); 
                $PAM = $request->get('PAM'); 
                $PAT = $request->get('PAT'); 
                $PPR = $request->get('PPR'); 
@@ -115,7 +113,6 @@ class FdriverController extends Controller
                 'DVE' => $DVE,
                 'EPD' => $EPD,
                 'NOD' => $NOD,
-                'NODB' => $NODB,
                 'PAM' => $PAM,
                 'PAT' => $PAT,
                 'LEX' => $request->get('LEX'),
@@ -240,7 +237,6 @@ class FdriverController extends Controller
                $VAM = $request->get('VAM'); 
                $EPD = $request->get('EPD'); 
                $NOD = $request->get('NOD'); 
-               $NODB = $request->get('NODB'); 
                $PAM = $request->get('PAM'); 
                $PAT = $request->get('PAT'); 
                $PPR = $request->get('PPR'); 
@@ -251,7 +247,6 @@ class FdriverController extends Controller
             $AVC = ($request->get("AVC") != null) ? 1 : 0;
             $DVE = ($request->get("DVE") != null) ? 1 : 0;
             $EPD = ($request->get("EPD") != null) ? 1 : 0;
-            $NODB = ($request->get("NODB") != null) ? 1 : 0;
             $driver->DNO =  $request->get('DNO');
             $driver->DNM =  $request->get('DNM');
             $driver->DSN =  $request->get('DSN');
@@ -274,7 +269,6 @@ class FdriverController extends Controller
             $driver->VAM =  $VAM;
             $driver->EPD =  $EPD;
             $driver->NOD =  $NOD;
-            $driver->NODB =  $NODB;
             $driver->PAM =  $PAM;
             $driver->PAT =  $PAT;
             $driver->PPR =  $PPR;

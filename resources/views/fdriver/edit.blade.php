@@ -537,7 +537,7 @@ class="form-group row" id="depositdiv">
 if($driver->VBM != "Hire Purchase") echo " style='display:none' ";
 @endphp 
 class="form-group row" style="padding-top:50px;" id="penalty">
-<label  class="form-check-label col-sm-7" for="EPD"><b>Enable Penalty Rule on Payment Defaults</b></label>
+<label  class="form-check-label col-sm-5" for="EPD"><b>Enable Penalty Rule on Payment Defaults</b></label>
 <div class="icheck-success d-inline col-sm-1">
 <input {{ ($driver->EPD == "1" ? "checked":"") }} name="EPD" type="checkbox" id="EPD">
 </div> 
@@ -548,21 +548,9 @@ class="form-group row" style="padding-top:50px;" id="penalty">
 if($driver->VBM != "Hire Purchase") echo " style='display:none' ";
 @endphp 
 class="form-group row" id="def">
-<label for="NOD" class="col-sm-5 col-form-label"><span style="color:red"></span>Number of Defaults Allowed</label>
+<label for="NOD" class="col-sm-5 col-form-label"><span style="color:red"></span>Total Number of Defaults Allowed</label>
 <div class="col-2">
 <input maxlength="2" value="{{ $driver->NOD }}" type="text" class="form-control number" name="NOD" id="NOD" >
-</div>
-<div class="col-5">
-<div class="icheck-primary d-inline">
-<input {{ ($driver->NODB == "0" ? "checked":"") }} type="radio" id="Consecutive" name="NODB" />
-<label for="Consecutive">
-</label><b>Consecutive</b>
-</div><br>
-<div class="icheck-primary d-inline">
-<input {{ ($driver->NODB == "1" ? "checked":"") }} type="radio" id="Total" name="NODB" />
-<label for="Total">
-</label><b>Total</b>
-</div>
 </div>
 </div>
 
@@ -577,7 +565,7 @@ class="form-group row" id="pen">
 </div>
 
 <label for="CEX" class="col-sm-1 col-form-label">per</label>
-<div class="col-sm-4">
+<div class="col-sm-2">
 <select name="PAT" id="PAT" class="custom-select">
 <option {{ ($driver->PAT == "Daily" ? "selected":"") }} value="Daily" > Daily</option>
 <option {{ ($driver->PAT == "Weekly" ? "selected":"") }} value="Weekly" > Weekly</option>
