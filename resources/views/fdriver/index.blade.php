@@ -101,8 +101,11 @@
                 <a class="btn btn-secondary btn-xs"><i class="fa fa-user"></i></a>
                 @endif
                 <a href="#" class="btn btn-secondary btn-xs" data-toggle="modal" data-target="#licencemodal_{{ $driver->id }}" ><i class="fa fa-id-card"></i></a>
-
-              <a class="btn btn-secondary btn-xs" href="{{ route('agreementdriver') }}"><i class="fa fa-file"></i></a>
+                @if($driver->VNO != "")
+                <a class="btn btn-secondary btn-xs" href="{{ route('agreementdriver',$driver->id) }}"><i class="fa fa-file"></i></a>
+                @else
+                <a class="btn btn-secondary btn-xs"><i class="fa fa-file"></i></a>
+                @endif
                </td>
               <td>
                 
