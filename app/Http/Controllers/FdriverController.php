@@ -81,10 +81,12 @@ class FdriverController extends Controller
                $MDY = $request->get('MDY');
                $VPD = $request->get('VPD'); 
                $VAM = $request->get('VAM'); 
-               $EPD = $request->get('EPD'); 
-               $NOD = $request->get('NOD'); 
-               $PAM = $request->get('PAM'); 
-               $PAT = $request->get('PAT'); 
+               if($VPF != "Daily"){
+                   $EPD = $request->get('EPD'); 
+                   $NOD = $request->get('NOD'); 
+                   $PAM = $request->get('PAM'); 
+                   $PAT = $request->get('PAT'); 
+               }
                $PPR = $request->get('PPR'); 
                $PDP = $request->get('PDP'); 
                $SDP = $request->get('SDP'); 
@@ -235,10 +237,12 @@ class FdriverController extends Controller
                $MDY = $request->get('MDY');
                $VPD = $request->get('VPD'); 
                $VAM = $request->get('VAM'); 
-               $EPD = $request->get('EPD'); 
-               $NOD = $request->get('NOD'); 
-               $PAM = $request->get('PAM'); 
-               $PAT = $request->get('PAT'); 
+               if($VPF != "Daily"){
+                   $EPD = $request->get('EPD'); 
+                   $NOD = $request->get('NOD'); 
+                   $PAM = $request->get('PAM'); 
+                   $PAT = $request->get('PAT'); 
+               }
                $PPR = $request->get('PPR'); 
                $PDP = $request->get('PDP'); 
                $SDP = $request->get('SDP'); 
