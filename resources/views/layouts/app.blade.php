@@ -568,6 +568,7 @@ function toggle_map(arg){
                 $("#def").show("slow");
                 $("#pen").show("slow");
                 $("#due").show("slow");
+                $("#PAT option[value='Weekly']").remove();
             }else if(VPF=="Monthly"){
                 $("#weekdaydiv").hide("slow");
                 $("#monthdaydiv").show("slow");
@@ -575,6 +576,7 @@ function toggle_map(arg){
                 $("#def").show("slow");
                 $("#pen").show("slow");
                 $("#due").show("slow");
+                $('#PAT').append($("<option></option>").attr("value", "Weekly").text("Weekly")); 
             }
         });
         $("#VBM").change(function(evt){

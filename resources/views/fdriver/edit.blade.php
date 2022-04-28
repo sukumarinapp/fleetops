@@ -568,8 +568,9 @@ class="form-group row" id="pen">
 <div class="col-sm-2">
 <select name="PAT" id="PAT" class="custom-select">
 <option {{ ($driver->PAT == "Daily" ? "selected":"") }} value="Daily" > Daily</option>
-<option {{ ($driver->PAT == "Weekly" ? "selected":"") }} value="Weekly" > Weekly</option>
-<option {{ ($driver->PAT == "Monthly" ? "selected":"") }} value="Monthly" > Monthly</option>
+@if($driver->VPF == "Monthly")
+<option {{ ($driver->VPF == "Weekly" ? "selected":"") }} value="Weekly" > Weekly</option>
+@endif
 </select>
 </div>
 </div>
