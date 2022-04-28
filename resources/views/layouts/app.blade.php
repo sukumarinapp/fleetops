@@ -557,12 +557,24 @@ function toggle_map(arg){
             if(VPF=="Daily"){
                 $("#weekdaydiv").hide("slow");
                 $("#monthdaydiv").hide("slow");
+                $("#penalty").hide("slow");
+                $("#def").hide("slow");
+                $("#pen").hide("slow");
+                $("#due").hide("slow");
             }else if(VPF=="Weekly"){
                 $("#weekdaydiv").show("slow");
                 $("#monthdaydiv").hide("slow");
+                $("#penalty").show("slow");
+                $("#def").show("slow");
+                $("#pen").show("slow");
+                $("#due").show("slow");
             }else if(VPF=="Monthly"){
                 $("#weekdaydiv").hide("slow");
                 $("#monthdaydiv").show("slow");
+                $("#penalty").show("slow");
+                $("#def").show("slow");
+                $("#pen").show("slow");
+                $("#due").show("slow");
             }
         });
         $("#VBM").change(function(evt){
