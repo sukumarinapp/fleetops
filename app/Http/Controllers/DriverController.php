@@ -778,6 +778,7 @@ class DriverController extends Controller
 
     public function drivervnovalid(Request $request)
     {
+        $penalty = 0;
         $VNO = trim($request->get("VNO"));
         $sql = "select * from tbl136 where DECL=0 and VNO='$VNO' and DNW=1";
         $result = DB::select(DB::raw($sql));
@@ -828,6 +829,8 @@ class DriverController extends Controller
                     }else{
                         return view('driver.nopending');
                     }
+                    $penalty = Formulae::get_penalty($VNO);
+                    $vehicle->penalty = $penalty;
                     $sql = "select SSA from sales_rental where DCR = $DCR";
                     $result = DB::select(DB::raw($sql));
                     $vehicle->VAM = 0;
@@ -840,6 +843,8 @@ class DriverController extends Controller
                             $vehicle->QTY = $vehicle->QTY + 1;
                         }
                     }
+                    $vehicle->INS = $vehicle->TOT;
+                    $vehicle->SSA = $vehicle->TOT + $vehicle->penalty;
                 } 
                 return view('driver.driverrental',compact('vehicle'));
             }
@@ -919,13 +924,18 @@ class DriverController extends Controller
         $plat_id_hidden = 0;
         $earning_hidden = 0;
         $cash_hidden = 0;
+        $ins_hidden = 0;
+        $penalty_hidden = 0;
         $trips_hidden = 0;
         if($VBM=="Ride Hailing"){
             $plat_id_hidden = trim($request->get("plat_id_hidden"));
             $earning_hidden = trim($request->get("earning_hidden"));
             $cash_hidden = trim($request->get("cash_hidden"));
+            $ins_hidden = $cash_hidden;
             $trips_hidden = trim($request->get("trips_hidden"));
         }else{
+            $ins_hidden = trim($request->get("INS"));
+            $penalty_hidden = trim($request->get("penalty"));
             $cash_hidden = trim($request->get("SSA"));
         }
         $options = Billbox::listPayOptions();
@@ -935,6 +945,8 @@ class DriverController extends Controller
         $sales['DCN'] = trim($request->get("DCN"));
         $sales['plat_id_hidden'] = $plat_id_hidden;
         $sales['earning_hidden'] = $earning_hidden;
+        $sales['ins_hidden'] = $ins_hidden;
+        $sales['penalty_hidden'] = $penalty_hidden;
         $sales['cash_hidden'] = round($cash_hidden,2);
         $sales['trips_hidden'] = $trips_hidden;
         $sales['SSR'] = $SSR;
@@ -957,6 +969,8 @@ class DriverController extends Controller
         $RHN = $request->plat_id_hidden;
         $SPF = $request->earning_hidden;
         $CPF = $request->cash_hidden;
+        $penalty_hidden = $request->penalty_hidden;
+        $ins_hidden = $request->ins_hidden;
         $TPF = $request->trips_hidden;
         $SSR = $request->SSR;
         $DCR = 0;
@@ -973,6 +987,11 @@ class DriverController extends Controller
                 $TIM = date("Y-m-d H:i:s");
                 $sql = "insert into tbl137 (SDT,DCR,CAN,VNO,RCN,VBM,RHN,SPF,TPF,RMT,ROI,RST,SSR,RTN,TIM) values ('$SDT','$DCR','$CAN','$VNO','$RCN','$VBM','$RHN','$SPF','$TPF','$CPF','$ROI','0','$SSR','$requestId','$TIM')";
                 DB::insert($sql);
+
+                if($penalty_hidden != 0){
+                    $sql = "update tbl136 set penalized = 1 where id = $DCR";
+                    DB::update($sql);
+                }
 
                 if($CRS == 1){
                     $sql2 = "select * from notification where sms_id='SMSE11'";

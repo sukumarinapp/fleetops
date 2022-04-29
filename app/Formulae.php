@@ -5,6 +5,11 @@ use DateTime;
 
 class Formulae{
 
+  public static function get_penalty($VNO){
+    $penalty = 10;
+    return $penalty;
+  }
+
   public static function get_installments($PPR,$VAM){
     $installments = $PPR/$VAM;
     return ceil($installments);

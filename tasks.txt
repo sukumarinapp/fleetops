@@ -2,56 +2,16 @@ VNO	ACC Status	Start Date	Start Time	End Date	End Time	Duration	CML	CHR	Engine I
 GT6014-17	OFF	26/04/2022	0:00	26/04/2022	6:15	6:15	0	0:00	0:00
 GT6014-17	ON	26/04/2022	6:15	26/04/2022	9:38	3:23	41.97	2.74	26.47
 
+Penalty Calculation
+New Alerts (Process Integration)
+Two Communication Setup
+Vehicle Blocking/Unblocking
+Driver Earning/Bonuses
+Pending Payments (Process Modification)
+Cash-at-hand Report
+Cash Declaration Sequence Modification
+CCEI Formula Selection – Normal/Driver Promo Mode
+Fueler Calculation
+Vehicle running report
 
-Payment Milestone 2
-Milestone D	New Alerts (Process Integration)
-Milestone E	Two Communication Protocol Setup
-Milestone F	Vehicle Blocking / Unblocking (Process Modification)
-
-Milestone H	Set Ride-Hailing Driver Earning Options
-			Driver Earning Rule (Bonuses Calculations)
-			Pending Payments (Process Modification)
-			Cash-at-hand Report
-			Cash Declaration Sequence Modification
-			CCEI Formula Selection – Normal/Driver Promo Mode (Process Modification)
-
-Payment Milestone 3
-Milestone I	New Alerts (Process Integration)
-Milestone J	E-Wallet - Development & UI Integration 
-			Central Wallet Activity - Report
-			Fueler Module Integration
-Milestone K	WhatsApp Messenger Integration
-			Selected/Blast Notification via SMS along with Audience Creation using Excel Upload
-			Re -structuring authorizations, permissions and privileges and the inclusion of new ones
-
-Payment Milestone 4
-Milestone L	UAT and Final Confirmation
-
-https://github.com/shailesh-ladumor/laravel-pwa
-Payment Milestone 1
-COMPLETED
-Driver Login - OTP based login
-My Account - Buyer Statement (HP)
-My Account - Receipts Statement(Rental)
-My Account - Sales Report (RH)
-My Account - Tasks (Static Screens)
-Agreement Summaries
-Vehicle Handover Form
-General Terms and Conditions
-Update Vehicle Insurance Certificate Details
-Update Vehicle Roadworthy Certificate Details
-Update Driver License Details
-Update Driver Contract Details
-Update Vehicle Service Details
-Update Vehicle Inspection Details
-Tasks Listing in Driver Screen
-SMS Remainders for Contract and License Expiry
-Maintenance Shedular Process
-PWA App Development
-
-Vehicle Handover Form is in Milestone A and Vehicle Handover Process (All Screens and Processes) is in Milestone G. So as per the timeline we have completed Milestone A,B,C. Please communicate with James.	
-
-
-
-
-
+pls add no of days for each item...we can arrive at the possible completion date

@@ -18,7 +18,9 @@
         <input type="hidden" id="VBM" name="VBM" value="{{ $sales['VBM'] }}">
         <input type="hidden" id="plat_id_hidden" name="plat_id_hidden" value="{{ $sales['plat_id_hidden'] }}">
         <input type="hidden" id="earning_hidden" name="earning_hidden" value="{{ $sales['earning_hidden'] }}">
+        <input type="hidden" id="penalty_hidden" name="penalty_hidden" value="{{ $sales['penalty_hidden'] }}">
         <input type="hidden" id="cash_hidden" name="cash_hidden" value="{{ $sales['cash_hidden'] }}">
+        <input type="hidden" id="ins_hidden" name="ins_hidden" value="{{ $sales['ins_hidden'] }}">
         <input type="hidden" id="trips_hidden" name="trips_hidden" value="{{ $sales['trips_hidden'] }}">
         <input type="hidden" id="SSR" name="SSR" value="{{ $sales['SSR'] }}">
       </div>
