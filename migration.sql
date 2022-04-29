@@ -304,3 +304,6 @@ alter table handover add status varchar(50) DEFAULT NULL;
 
 --25/04/2022
 alter table retrieval add handover_id int(11) DEFAULT 0;
+
+--29/04/2022
+alter table tbl136 add penalized int(1) DEFAULT 0;

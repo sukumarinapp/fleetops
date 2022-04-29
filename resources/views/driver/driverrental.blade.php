@@ -18,7 +18,9 @@
   <div class="card-body">
       <input type="hidden" id="VNO" name="VNO" value="{{ $vehicle->VNO }}">
        <input type="hidden" id="DCN" name="DCN" value="{{ $vehicle->DCN }}">
-       <input type="hidden" id="SSA" name="SSA" value="{{ $vehicle->TOT }}">
+       <input type="hidden" id="penalty" name="penalty" value="{{ $vehicle->penalty }}">
+       <input type="hidden" id="INS" name="INS" value="{{ $vehicle->INS }}">
+       <input type="hidden" id="SSA" name="SSA" value="{{ $vehicle->SSA }}">
        <input type="hidden" id="SSR" name="SSR" value="Driver">
        <input type="hidden" id="VBM" name="VBM" value="{{ $vehicle->VBM }}">
      <div class="row justify-content-center">
@@ -33,13 +35,13 @@
 <div class="row">
   <div class="col-md-12">
       @if($vehicle->VBM == "Hire Purchase")
-               <b> Hire Purchase Customer </b>
-                @else
-                <b>Vehicle Rental Customer</b>
-                @endif
+        <b> Hire Purchase Customer </b>
+      @else
+        <b>Vehicle Rental Customer</b>
+      @endif
   </div>
- <div class="col-md-12">
-     <p class="col-form-label"><b>Amount</b>       : GHC {{ $vehicle->VAM }}</p>
+ <div class="col-md-6">
+     <p class="col-form-label"><b>Amount:</b>       : GHC {{ $vehicle->VAM }}</p>
   </div>
   <div class="col-md-12">
      <p class="col-form-label"><b>Payment Freq</b> : {{ $vehicle->VPF }}</p>
@@ -47,9 +49,16 @@
   <div class="col-md-12">
      <p class="col-form-label"><b>No of Payments</b>     : {{ $vehicle->QTY }}</p>
   </div>
+  @if($vehicle->VBM == "Hire Purchase" &&  $vehicle->penalty != 0)
+    <div class="col-md-2"><p class="col-form-label"><b>Sub Total</b>:</div><div class="col-md-10">GHC {{ $vehicle->INS }}</p></div>
+    <div class="col-md-2"><p class="col-form-label"><b>Penalty</b>:</div><div class="col-md-10">GHC {{ $vehicle->penalty }}</p></div>
+    <div class="col-md-2"><p class="col-form-label"><b>Total</b>:</div><div class="col-md-10">GHC {{ $vehicle->SSA }}</p></div>
+  @else
   <div class="col-md-12">
-     <p class="col-form-label"><b>Total</b>        : GHC {{ $vehicle->TOT }}</p>
+     <p class="col-form-label"><b>Total</b>        : GHC {{ $vehicle->SSA }}</p>
   </div>
+  @endif
+  
 </div>
 <nav class="navbar fixed-bottom navbar-expand-lg justify-content-center">      
   <input type="submit"  class="btn btn-info" value="Continue">&nbsp;
