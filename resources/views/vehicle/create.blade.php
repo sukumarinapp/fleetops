@@ -373,7 +373,7 @@ border-radius: 34px;
 								<input value="{{ date('Y-m-d') }}" onkeydown="return false" type="date" class="form-control" name="SSD" id="SSD" >
 							</div>
 
-							<label for="SSM" class="col-sm-3 col-form-label">(OR) Next Scheduled Mileage</label>
+							<label for="SSM" class="col-sm-1 col-form-label text-center">(OR)</label><label for="SSM" class="col-sm-3 col-form-label">Next Scheduled Mileage</label>
 							<div class="col-sm-2">
 								<input maxlength="6" type="text" class="form-control number" name="SSM" id="SSM" >
 							</div>
@@ -391,7 +391,8 @@ border-radius: 34px;
 							<div class="col-sm-1">
 								<input type="text" maxlength="6" class="form-control number" name="SMF" id="SMF" placeholder="EveryKm" >
 							</div>
-							<label for="SSF" class="col-sm-3 col-form-label">(OR) Recur Every (Month)</label>
+							<label for="SSF" class="col-sm-1 col-form-label text-center">(OR)</label>
+							<label for="SSF" class="col-sm-3 col-form-label">Recur Every (Month)</label>
 							<div class="col-sm-1">
 								<input type="text" maxlength="2" class="form-control number" name="SSFP" id="SSFP">
 							</div>
@@ -409,8 +410,8 @@ border-radius: 34px;
 							<div class="col-sm-2">
 								<input value="{{ date('Y-m-d') }}" onkeydown="return false" type="date" class="form-control" name="ISD" id="ISD" >
 							</div>
-
-							<label for="ISM" class="col-sm-3 col-form-label">(OR) Next Scheduled Mileage</label>
+                            <label for="ISM" class="col-sm-1 col-form-label text-center">(OR)</label>
+							<label for="ISM" class="col-sm-3 col-form-label">Next Scheduled Mileage</label>
 							<div class="col-sm-2">
 								<input type="text" maxlength="6" class="form-control number" name="ISM" id="ISM" >
 							</div>
@@ -428,7 +429,8 @@ border-radius: 34px;
 							<div class="col-sm-1">
 								<input type="text" maxlength="6" class="form-control number" name="IMF" id="IMF" placeholder="EveryKm" >
 							</div>
-							<label for="ISF" class="col-sm-3 col-form-label">(OR) Recur Every (Month)</label>
+							<label for="ISF" class="col-sm-1 col-form-label text-center">(OR)</label>
+							<label for="ISF" class="col-sm-3 col-form-label">Recur Every (Month)</label>
 
 							<div class="col-sm-1">
 								<input type="text" maxlength="2" class="form-control number" name="ISFP" id="ISFP">

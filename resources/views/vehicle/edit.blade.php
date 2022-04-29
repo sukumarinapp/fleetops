@@ -401,8 +401,8 @@ border-radius: 34px;
 							<div class="col-sm-2">
 								<input value="{{ $vehicle->SSD }}" onkeydown="return false" type="date" class="form-control" name="SSD" id="SSD" >
 							</div>
-
-							<label for="SSM" class="col-sm-3 col-form-label">(OR) Next Scheduled Mileage</label>
+                             <label for="SSM" class="col-sm-1 col-form-label text-center">(OR)</label>
+							<label for="SSM" class="col-sm-3 col-form-label">Next Scheduled Mileage</label>
 							<div class="col-sm-2">
 								<input value="{{ $vehicle->SSM }}" maxlength="6" type="text" class="form-control number" name="SSM" id="SSM" >
 							</div>
@@ -420,7 +420,8 @@ border-radius: 34px;
 							<div class="col-sm-1">
 								<input value="{{ $vehicle->SMF }}" type="text" maxlength="6" class="form-control number" name="SMF" id="SMF" placeholder="EveryKm" >
 							</div>
-							<label for="SSF" class="col-sm-3 col-form-label">(OR) Recur Every (Month)</label>
+							<label for="SSF" class="col-sm-1 col-form-label text-center">(OR)</label>
+							<label for="SSF" class="col-sm-3 col-form-label">Recur Every (Month)</label>
 						
 							<div class="col-sm-1">
 								<input value="{{ $vehicle->SSFP }}" type="text" maxlength="2" class="form-control number" name="SSFP" id="SSFP">
@@ -439,8 +440,8 @@ border-radius: 34px;
 							<div class="col-sm-2">
 								<input value="{{ $vehicle->ISD }}" onkeydown="return false" type="date" class="form-control" name="ISD" id="ISD" >
 							</div>
-
-							<label for="ISM" class="col-sm-3 col-form-label">(OR) Next Scheduled Mileage</label>
+                            <label for="ISM" class="col-sm-1 col-form-label text-center">(OR)</label>
+							<label for="ISM" class="col-sm-3 col-form-label">Next Scheduled Mileage</label>
 							<div class="col-sm-2">
 								<input value="{{ $vehicle->ISM }}" type="text" maxlength="6" class="form-control number" name="ISM" id="ISM" >
 							</div>
@@ -458,7 +459,8 @@ border-radius: 34px;
 							<div class="col-sm-1">
 								<input value="{{ $vehicle->IMF }}" type="text" maxlength="6" class="form-control number" name="IMF" id="IMF" placeholder="EveryKm" >
 							</div>
-							<label for="ISF" class="col-sm-3 col-form-label">(OR) Recur Every (Month)</label>
+							<label for="ISF" class="col-sm-1 col-form-label text-center">(OR)</label>
+							<label for="ISF" class="col-sm-3 col-form-label">Recur Every (Month)</label>
 					
 							<div class="col-sm-1">
 								<input value="{{ $vehicle->ISFP }}" type="text" maxlength="2" class="form-control number" name="ISFP" id="ISFP">
