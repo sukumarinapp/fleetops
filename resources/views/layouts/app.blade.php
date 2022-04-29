@@ -554,6 +554,7 @@ function toggle_map(arg){
 
         $("#VPF").change(function(evt){
             var VPF = $("#VPF").val();
+            var VBM = $("#VBM").val();
             if(VPF=="Daily"){
                 $("#weekdaydiv").hide("slow");
                 $("#monthdaydiv").hide("slow");
@@ -564,18 +565,33 @@ function toggle_map(arg){
             }else if(VPF=="Weekly"){
                 $("#weekdaydiv").show("slow");
                 $("#monthdaydiv").hide("slow");
+            if(VBM != "Rental"){
                 $("#penalty").show("slow");
                 $("#def").show("slow");
                 $("#pen").show("slow");
                 $("#due").show("slow");
                 $("#PAT option[value='Weekly']").remove();
+                }else{
+                    $("#penalty").hide("slow");
+                    $("#def").hide("slow");
+                    $("#pen").hide("slow");
+                    $("#due").hide("slow");
+                }
             }else if(VPF=="Monthly"){
                 $("#weekdaydiv").hide("slow");
                 $("#monthdaydiv").show("slow");
+                if(VBM != "Rental"){
                 $("#penalty").show("slow");
                 $("#def").show("slow");
                 $("#pen").show("slow");
                 $("#due").show("slow");
+                $("#PAT option[value='Weekly']").remove();
+                }else{
+                    $("#penalty").hide("slow");
+                    $("#def").hide("slow");
+                    $("#pen").hide("slow");
+                    $("#due").hide("slow");
+                }
                 $('#PAT').append($("<option></option>").attr("value", "Weekly").text("Weekly")); 
             }
         });
@@ -602,10 +618,10 @@ function toggle_map(arg){
                 $("#paydatediv").show("slow");
                 $("#payamtdiv").show("slow");
                 if(VPF != "Daily"){
-                    $("#penalty").show("slow");
-                    $("#def").show("slow");
-                    $("#pen").show("slow");
-                    $("#due").show("slow");
+                    $("#penalty").hide("slow");
+                    $("#def").hide("slow");
+                    $("#pen").hide("slow");
+                    $("#due").hide("slow");
                 }else{
                     $("#penalty").hide("slow");
                     $("#def").hide("slow");
