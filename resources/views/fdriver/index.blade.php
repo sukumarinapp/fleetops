@@ -54,7 +54,7 @@
             <th>Business Model</th>
             <th style="width :100px">Business SMS</th>
             <th style="padding-right: 70px;">View</th>
-            <th>Action</th>
+            <th></th>
           </tr>
           </thead>
           <tbody>
