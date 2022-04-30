@@ -19,7 +19,7 @@ class Formulae{
     $result = DB::select(DB::raw($sql));
     if(count($result)>0){
       $VBM = $result[0]->VBM;
-        if($VBM == "Hire Purchase")
+      if($VBM == "Hire Purchase"){
         $EPD = $result[0]->EPD;
         $NOD = $result[0]->NOD;
         $PAM = $result[0]->PAM;
