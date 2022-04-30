@@ -307,3 +307,4 @@ alter table retrieval add handover_id int(11) DEFAULT 0;
 
 --29/04/2022
 alter table tbl136 add penalized int(1) DEFAULT 0;
+alter table tbl137 add penalty decimal(10,2) DEFAULT 0;

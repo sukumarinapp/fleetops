@@ -43,15 +43,18 @@
             <th>CAN</th>
             <th>Vehicle Reg#</th>
             <th>Description</th>
-            <th>Status</th>
             <th>View</th>
-            <th style="width: 150px">Assign/Remove</th>
-            <th style="width: 150px">Action</th>
+            <th style="width: 150px">Action Status</th>
+            <th style="width: 150px"></th>
           </tr>
           </thead> 
           <tbody>
             @foreach($vehicles as $vehicle)
-            <tr>
+            <tr 
+              @if($vehicle->VTV == 0)
+                style="color: #FFC300;"
+              @endif
+              >
               <td>{{ $vehicle->CAN }}<br><small class="text-success">{{ $vehicle->name }}</small></td>
               <td>
                 @php
@@ -74,13 +77,7 @@
                 @endif
               </td>
               <td>{{ $vehicle->VMK }}&nbsp;{{ $vehicle->VMD }}&nbsp;{{ $vehicle->VCL }}</td>
-              <td>
-                @if($vehicle->VTV == 1)
-                  Active
-                @else
-                  Inactive
-                @endif
-              </td>
+              
               <td> 
                 @if($vehicle->status != "pending" && $vehicle->handover_id != 0)
                   <a class="btn btn-secondary btn-xs" target="_blank" href="../../uploads/handover/{{ $vehicle->handover_id }}.pdf"><i class="fa fa-car"></i></a>

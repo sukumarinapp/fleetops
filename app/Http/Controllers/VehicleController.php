@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;  
+use Illuminate\Support\Facadesremove\Storage;  
 use DB;
 use App\rhplatform;
 use App\Vehicle;
@@ -637,8 +637,9 @@ class VehicleController extends Controller
         self::save_pdf($handover_id);
         $vehicle->driver_id  =  0;
         $vehicle->status  =  "";
-        //$vehicle->handover_id = 0;
         $vehicle->save();
+        $sql = "delete from driver_upload where VNO = '$VNO' and driver_id = $DID and approved = 0";
+        DB::delete(DB::raw($sql));
         return redirect('/vehicle')->with('message', 'Driver Removed Successfully');
     }
 

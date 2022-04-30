@@ -52,7 +52,6 @@
             <th>License #</th>
             <th>Contact #</th>
             <th>Business Model</th>
-            <th>Status</th>
             <th style="width :100px">Business SMS</th>
             <th style="padding-right: 70px;">View</th>
             <th>Action</th>
@@ -80,13 +79,7 @@
               <td>{{ $driver->DNO }}</td>
               <td>{{ $driver->DCN }}</td>
               <td>{{ $driver->VBM }}</td>
-              <td>
-                @if($driver->VNO !="")
-                  Linked
-                @else
-                  Not Linked
-                @endif
-              </td>
+              
                <td>
                 @if($driver->vid== "")
                   &nbsp;
