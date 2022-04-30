@@ -6,7 +6,47 @@ use DateTime;
 class Formulae{
 
   public static function get_penalty($VNO){
-    $penalty = 10;
+    $defaulted = 0;
+    $today = date("Y-m-d");
+    $penalty = 0;
+    $EPD = 0;
+    $NOD = 0;
+    $PAM = 0;
+    $PAT = "Daily";
+    $driver_id = 0;
+    $DDT = $today;
+    $sql = "select b.driver_id,EPD,NOD,PAM,PAT from driver a,vehicle b where a.id=b.driver_id and replace(VNO, '-', '') = '$VNO'";
+    $result = DB::select(DB::raw($sql));
+    if(count($result)>0){
+      $EPD = $result[0]->EPD;
+      $NOD = $result[0]->NOD;
+      $PAM = $result[0]->PAM;
+      $PAT = $result[0]->PAT;
+      $driver_id = $result[0]->driver_id;
+      if($EPD == 1){
+        $sql2 = "select count(*) as defaulted from tbl136 where replace(VNO, '-', '') = '$VNO' and driver_id=$driver_id";
+        $result2 = DB::select(DB::raw($sql2));
+        if(count($result2)>0){
+          $defaulted = $result2[0]->defaulted;
+        }
+        $sql3 = "select DDT from tbl136 where replace(VNO, '-', '') = '$VNO' and driver_id=$driver_id and DECL = 0";
+        $result3 = DB::select(DB::raw($sql3));
+        if(count($result3)>0){
+          $DDT = $result3[0]->DDT;
+        }
+        $factor = 1;
+        $DDT2 = new DateTime($DDT);
+        $diff = $DDT2->diff(new DateTime($today));
+        $factor = $diff->d;
+        if($PAT == "Weekly"){
+          $factor = floor($factor / 7);
+        }   
+        $penalty = $PAM; 
+        if($defaulted >= $EPD and $today > $DDT){
+          $penalty = $penalty * $factor;
+        }
+      }
+    }
     return $penalty;
   }
 
