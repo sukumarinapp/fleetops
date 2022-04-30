@@ -126,7 +126,7 @@ border-radius: 34px;
 		@php
 		$href="";
 		if($driver->DLD != ""){
-			echo "<a target='_blank' href='../../uploads/DLD/".$driver->DLD."'>View</a>";
+			echo "<a target='_blank' href='../../uploads/DLD/".$driver->DLD."?".rand()."'>View</a>";
 		}
 		@endphp
 		<img id="lic"  />
@@ -140,7 +140,7 @@ border-radius: 34px;
 		@php
 		$href="";
 		if($driver->DLD2 != ""){
-			echo "<a target='_blank' href='../../uploads/DLD/".$driver->DLD2."'>View</a>";
+			echo "<a target='_blank' href='../../uploads/DLD/".$driver->DLD2."?".rand()."'>View</a>";
 		}
 		@endphp
 		<img id="lic2"  />
@@ -166,7 +166,7 @@ border-radius: 34px;
 		@php
 		$href="";
 		if($driver->VCC != ""){
-			echo "<a target='_blank' href='../../uploads/VCC/".$driver->VCC."'>View</a>";
+			echo "<a target='_blank' href='../../uploads/VCC/".$driver->VCC."?".rand()."'>View</a>";
 		}
 		@endphp
 	</div>
