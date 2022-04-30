@@ -127,7 +127,7 @@ border-radius: 34px;
 								@php
 								$href="";
 								if($vehicle->VID != ""){
-									echo "<a target='_blank' href='../../uploads/VID/".$vehicle->VID."'>View</a>";
+									echo "<a target='_blank' href='../../uploads/VID/".$vehicle->VID."?".rand()."'>View</a>";
 								}
 								@endphp
 								<img id="ins"  />
@@ -152,7 +152,7 @@ border-radius: 34px;
 								@php
 								$href="";
 								if($vehicle->VRD != ""){
-									echo "<a target='_blank' href='../../uploads/VRD/".$vehicle->VRD."'>View</a>";
+									echo "<a target='_blank' href='../../uploads/VRD/".$vehicle->VRD."?".rand()."'>View</a>";
 								}
 								@endphp
 								<img id="rdw"  />
