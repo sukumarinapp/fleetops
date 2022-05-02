@@ -54,9 +54,8 @@
             <th>CAN</th>
             <th>Vehicle Reg#</th>
             <th>Description</th>
-            <th>View</th>
-            <th style="width: 150px">Action Status</th>
-            <th style="width: 150px"></th>
+            <th style="width: 150px">Activity</th>
+            <th style="width: 150px">Action</th>
           </tr>
           </thead> 
           <tbody>
@@ -89,11 +88,7 @@
               </td>
               <td>{{ $vehicle->VMK }}&nbsp;{{ $vehicle->VMD }}&nbsp;{{ $vehicle->VCL }}</td>
               
-              <td> 
-                @if($vehicle->status != "pending" && $vehicle->handover_id != 0)
-                  <a class="btn btn-secondary btn-xs" target="_blank" href="../../uploads/handover/{{ $vehicle->handover_id }}.pdf"><i class="fa fa-car"></i></a>
-                @endif
-              </td>
+              
             </td>
               <td>
                     @if(Auth::user()->usertype == "Admin" || Auth::user()->BPF == true)
@@ -114,7 +109,12 @@
                       @endif
                     @endif
                </td>
-               <td>   
+               <td> 
+                @if($vehicle->status != "pending" && $vehicle->handover_id != 0)
+                  <a class="btn btn-secondary btn-xs" target="_blank" href="../../uploads/handover/{{ $vehicle->handover_id }}.pdf"><i class="fa fa-car"></i></a>
+                @else
+                  <button class="btn btn-secondary btn-xs disabled" ><i class="fa fa-car"></i></button>
+                @endif
                 @if($vehicle->VTV == 0 && $vehicle->DNM == "")
                 <form action="{{ route('vehicle.destroy', $vehicle->id)}}" method="post">
                 @endif

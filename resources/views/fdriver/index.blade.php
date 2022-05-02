@@ -52,9 +52,7 @@
             <th>License #</th>
             <th>Contact #</th>
             <th>Business Model</th>
-            <th style="width :100px">Business SMS</th>
-            <th style="padding-right: 70px;">View</th>
-            <th></th>
+            <th>Action</th>
           </tr>
           </thead>
           <tbody>
@@ -80,28 +78,25 @@
               <td>{{ $driver->DCN }}</td>
               <td>{{ $driver->VBM }}</td>
               
-               <td>
+              <td>
                 @if($driver->vid== "")
-                  &nbsp;
+                  <button class="btn btn-primary btn-xs disabled" ><i class="fa fa-sms"></i></button>
                 @else                  
-                  <a href="{{ route('resendsms',$driver->vid) }}" class="btn btn-primary btn-xs">Resend</a>
+                  <a href="{{ route('resendsms',$driver->vid) }}" class="btn btn-primary btn-xs"><i class="fa fa-sms"></i></a>
                 @endif
-               </td>
-               <td>
+
                 @if($driver->photo != "")
                 <a href="#" data-toggle="modal" data-target="#photomodal_{{ $driver->id }}" class="btn btn-secondary btn-xs"><i class="fa fa-user"></i></a>
                 @else
-                <a class="btn btn-secondary btn-xs"><i class="fa fa-user"></i></a>
+                <button class="btn btn-secondary btn-xs disabled" ><i class="fa fa-user"></i></button>
                 @endif
                 <a href="#" class="btn btn-secondary btn-xs" data-toggle="modal" data-target="#licencemodal_{{ $driver->id }}" ><i class="fa fa-id-card"></i></a>
                 @if($driver->VNO != "")
                 <a class="btn btn-secondary btn-xs" href="{{ route('agreementdriver',$driver->id) }}"><i class="fa fa-file"></i></a>
                 @else
-                <a class="btn btn-secondary btn-xs"><i class="fa fa-file"></i></a>
+                <button class="btn btn-secondary btn-xs disabled" ><i class="fa fa-file"></i></button>
                 @endif
-               </td>
-              <td>
-                
+
                 @if($driver->VNO == "")
                 <form action="{{ route('fdriver.destroy', $driver->id)}}" method="post">
                 @endif

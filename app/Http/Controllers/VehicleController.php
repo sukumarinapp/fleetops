@@ -676,7 +676,7 @@ class VehicleController extends Controller
         #return view('retrievalpdf', compact('result'));
 
         self::save_pdf($handover_id);
-        $vehicle->driver_id  =  0;
+        $vehicle->driver_id = NULL;
         $vehicle->status  =  "";
         $vehicle->save();
         $sql = "delete from driver_upload where VNO = '$VNO' and driver_id = $DID and approved = 0";
