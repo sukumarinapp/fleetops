@@ -37,6 +37,17 @@
           </div>
         @endif
         <div class="card-body" style="overflow-x: auto;" >
+           <div class="row" style="margin-bottom: 5px;">
+      <div class="col-md-4">
+        <canvas id="pieChart" style="min-height: 150px; height: 150px; max-height: 150px; max-width: 100%;"></canvas>
+      </div>
+      <div class="col-md-4">
+        <canvas id="pieChart2" style="min-height: 150px; height: 150px; max-height: 150px; max-width: 100%;"></canvas>
+      </div> 
+      <div class="col-md-4">
+        <canvas id="pieChart3" style="min-height: 150px; height: 150px; max-height: 150px; max-width: 100%;"></canvas>
+      </div>
+    </div>
 			<table id="example1" class="display table table-bordered" cellspacing="0" width="100%">
           <thead>
           <tr>
@@ -134,3 +145,70 @@
 	</div>
 </div>
 @endsection
+@push('page_scripts')
+<script type="text/javascript" language="javascript" src="{{ asset('js/Chart.min.js') }}"></script>
+<script>
+  var pieData  = {
+    labels: [
+    'ONLINE',
+    'OFFLINE',
+    ],
+    datasets: [
+    {
+      data: [{{ $online }},{{ $offline }}],
+      backgroundColor : ['#4CAF50', '#1976D2'],
+    }
+    ]
+  }  
+  var pieData2  = {
+    labels: [
+    'ASSIGNED',
+    'NOT ASSIGNED',
+    ],
+    datasets: [
+    {
+      data: [{{ $assigned }},{{ $notassigned }}],
+      backgroundColor : ['#4CAF50', '#1976D2'],
+    }
+    ]
+  }  
+
+   var pieData3  = {
+    labels: [
+    'ACTIVE',
+    'NOT ACTIVE',
+    ],
+    datasets: [
+    {
+      data: [{{ $active }},{{ $inactive }}],
+      backgroundColor : ['#4CAF50', '#1976D2'],
+    }
+    ]
+  }  
+  var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
+  var pieChartCanvas2 = $('#pieChart2').get(0).getContext('2d')
+  var pieChartCanvas3 = $('#pieChart3').get(0).getContext('2d')
+  var pieOptions     = {
+    maintainAspectRatio : false,
+    responsive : true,
+  }
+    new Chart(pieChartCanvas, {
+      type: 'pie',
+      data: pieData,
+      options: pieOptions
+    })
+
+    new Chart(pieChartCanvas2, {
+      type: 'pie',
+      data: pieData2,
+      options: pieOptions
+    })
+
+    new Chart(pieChartCanvas3, {
+      type: 'pie',
+      data: pieData3,
+      options: pieOptions
+    })
+
+  </script>
+  @endpush

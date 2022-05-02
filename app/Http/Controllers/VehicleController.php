@@ -59,9 +59,50 @@ class VehicleController extends Controller
             }else{
                 $vehicle->DECL  = 1;
             }
+
+
+        $sql = " select count(*) as total from vehicle";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+          $total = $result[0]->total;
         }
+
+
+        $sql = "select count(VNO) as inactive from vehicle where VTV = 0 or driver_id is null";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+          $inactive = $result[0]->inactive;
+        }
+
+        $sql = " select count(VNO) as active from vehicle where VTV=1 and driver_id <> ''";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+          $active = $result[0]->active;
+        }
+         
+        $sql = " select count(*) as offline from tracker_status where status=0";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+          $offline = $result[0]->offline;
+        }
+
+        $online = $total - $offline; 
+
+        $sql = " select count(*) as assigned from vehicle where driver_id is not null";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+          $assigned = $result[0]->assigned;
+        }
+
+         $sql = " select count(*) as notassigned from vehicle where driver_id is null";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+          $notassigned = $result[0]->notassigned;
+        }
+
+         } 
         //dd($vehicles);
-        return view('vehicle.index', compact('vehicles'));
+        return view('vehicle.index', compact('vehicles','inactive','active','online','offline','assigned','notassigned'));
     }
    
     public function create()
