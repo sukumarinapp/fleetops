@@ -62,7 +62,7 @@
 
 		              @endif
 		              <td>{{ $vehicle->DNM }} {{ $vehicle->DSN }}</td>              
-		              <td><a href="{{ url('override') }}/{{ $vehicle->vid }}">Resolve</a></td>
+		              <td><a class="btn btn-primary btn-xs" href="{{ url('override') }}/{{ $vehicle->vid }}">Resolve</a></td>
 		              <td></td>
 		            </tr>
 	            @endif
@@ -73,7 +73,7 @@
 		              <td>WFL{{ str_pad($vehicle->id,3,'0',STR_PAD_LEFT) }}</td>
 		              <td>Sales Audit Request</td>
 		              <td>{{ $vehicle->DNM }} {{ $vehicle->DSN }}</td>    
-		              <td><a href="{{ url('auditing') }}/{{ $vehicle->vid }}/{{ $vehicle->id }}">Resolve</a></td> 
+		              <td><a class="btn btn-primary btn-xs" href="{{ url('auditing') }}/{{ $vehicle->vid }}/{{ $vehicle->id }}">Resolve</a></td> 
 		              <td></td>
 		            </tr>
 	            @endif
@@ -114,14 +114,14 @@
 		               </td>
 		              <td>{{ $insp->DNM }} {{ $insp->DSN }}</td>    
 		              @if($insp->doc_type == "Inspection")
-		              	<td><a href="{{ url('inspection') }}/{{ $insp->id }}">Resolve</a></td>
+		              	<td><a class="btn btn-primary btn-xs" href="{{ url('inspection') }}/{{ $insp->id }}">Resolve</a></td>
 		              	@if($insp->inspection == "0")
 		              	<td>Inspect Vehicle</td>
 		              	@elseif($insp->status != "Process Cancelled")
 		              	<td><a class="btn btn-danger btn-xs" href="{{ url('cancel_process') }}/{{ $insp->id }}">Cancel Process</a></td>
 		              	@endif
 		              @elseif($insp->doc_type == "RdWCert")
-		              	<td><a href="{{ url('roadworthy') }}/{{ $insp->id }}">Resolve</a></td> 
+		              	<td><a class="btn btn-primary btn-xs" href="{{ url('roadworthy') }}/{{ $insp->id }}">Resolve</a></td> 
 		              	@if($insp->file_name == "")
 		              	<td>Pending driver action</td>
 		              	@elseif($insp->rejected == 1)
@@ -130,14 +130,14 @@
 		              	<td>Approval Pending</td>
 		              	@endif
 	              	@elseif($insp->doc_type == "Service")
-	              		<td><a href="{{ url('service') }}/{{ $insp->id }}">Resolve</a></td>
+	              		<td><a class="btn btn-primary btn-xs" href="{{ url('service') }}/{{ $insp->id }}">Resolve</a></td>
 	              		@if($insp->current_mileage == "")
 		              	<td>Pending driver action</td>
 		              	@else
 		              	<td>Approval Pending</td>
 		              	@endif
 	              	@elseif($insp->doc_type == "Insurance")
-		              	<td><a href="{{ url('insurance') }}/{{ $insp->id }}">Resolve</a></td>
+		              	<td><a class="btn btn-primary btn-xs" href="{{ url('insurance') }}/{{ $insp->id }}">Resolve</a></td>
 		              	@if($insp->file_name == "")
 		              	<td>Pending driver action</td>
 		              	@elseif($insp->rejected == 1)
@@ -146,7 +146,7 @@
 		              	<td>Approval Pending</td>
 		              	@endif
 	              	@elseif($insp->doc_type == "Licence")
-		              	<td><a href="{{ url('licence') }}/{{ $insp->id }}">Resolve</a></td>
+		              	<td><a class="btn btn-primary btn-xs" href="{{ url('licence') }}/{{ $insp->id }}">Resolve</a></td>
 		              	@if($insp->file_name == "")
 		              	<td>Pending driver action</td>
 		              	@elseif($insp->rejected == 1)
@@ -155,7 +155,7 @@
 		              	<td>Approval Pending</td>
 		              	@endif 
 	              	@elseif($insp->doc_type == "Contract")
-		              	<td><a href="{{ url('renew') }}/{{ $insp->id }}">Resolve</a></td> 
+		              	<td><a class="btn btn-primary btn-xs" href="{{ url('renew') }}/{{ $insp->id }}">Resolve</a></td> 
 		              	@if($insp->file_name == "")
 		              	<td>Upload Contract</td>
 		              	@elseif($insp->status != "Process Cancelled")
