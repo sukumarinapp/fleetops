@@ -91,13 +91,13 @@ class VehicleController extends Controller
 
           $assigned = 0;
           $notassigned = 0;
-          $sql = " select count(*) as assigned from vehicle where driver_id is not null or driver_id <> 0";
+          $sql = " select count(*) as assigned from vehicle where driver_id is not null";
           $result = DB::select(DB::raw($sql));
           if(count($result) > 0){
               $assigned = $result[0]->assigned;
           }
 
-          $sql = " select count(*) as notassigned from vehicle where driver_id is null or driver_id = 0";
+          $sql = " select count(*) as notassigned from vehicle where driver_id is null";
           $result = DB::select(DB::raw($sql));
           if(count($result) > 0){
               $notassigned = $result[0]->notassigned;
