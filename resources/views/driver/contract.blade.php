@@ -41,7 +41,7 @@
         <p class="col-sm-12 col-form-label">I have read and understood the terms and conditions of this contract (or it has been read and interpreted to you in a language that you understand) and by inputting this acceptance code below I willingly accept it.</p>
      </div>
         <div class="form-group row">
-        <label for="" class="col-sm-4 col-form-label"><span style="color:red">*</span>Input Acceptence Code</label>
+        <label for="" class="col-sm-4 col-form-label"><span style="color:red">*</span>Input Acceptance Code</label>
         <div class="col-sm-2">
           <input required="required" type="text" maxlength="4" class="form-control number" name="acceptance_code2" id="acceptance_code2" >
         </div>
