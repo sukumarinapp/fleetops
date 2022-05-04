@@ -308,3 +308,21 @@ alter table retrieval add handover_id int(11) DEFAULT 0;
 --29/04/2022
 alter table tbl136 add penalized int(1) DEFAULT 0;
 alter table tbl137 add penalty decimal(10,2) DEFAULT 0;
+
+--03/05/2022
+
+CREATE TABLE `movement` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `CAN` varchar(20) DEFAULT NULL,
+  `VNO` varchar(20) DEFAULT NULL,
+  `ACC` varchar(10) DEFAULT NULL,
+  `SDT` date DEFAULT NULL,
+  `EDT` date DEFAULT NULL,
+  `STM` varchar(10) DEFAULT NULL,
+  `ETM` varchar(10) DEFAULT NULL,
+  `DUR` decimal(5,2) DEFAULT NULL,
+  `CML` decimal(10,2) DEFAULT NULL,
+  `CHR` decimal(10,2) DEFAULT NULL,
+  `IDL` varchar(5) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;

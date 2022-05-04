@@ -2,7 +2,6 @@ VNO	ACC Status	Start Date	Start Time	End Date	End Time	Duration	CML	CHR	Engine I
 GT6014-17	OFF	26/04/2022	0:00	26/04/2022	6:15	6:15	0	0:00	0:00
 GT6014-17	ON	26/04/2022	6:15	26/04/2022	9:38	3:23	41.97	2.74	26.47
 
-Penalty Calculation
 New Alerts (Process Integration)
 Two Communication Setup (page 6,13 Bit0 )
 Vehicle Blocking/Unblocking
@@ -12,6 +11,3 @@ Cash-at-hand Report
 Cash Declaration Sequence Modification
 CCEI Formula Selection – Normal/Driver Promo Mode
 Fueler Calculation
-Vehicle running report
-
-pls add no of days for each item...we can arrive at the possible completion date
