@@ -150,8 +150,8 @@
 <script>
   var pieData  = {
     labels: [
-    'ONLINE',
-    'OFFLINE',
+    'Online',
+    'Offline',
     ],
     datasets: [
     {
@@ -162,8 +162,8 @@
   }  
   var pieData2  = {
     labels: [
-    'ASSIGNED',
-    'NOT ASSIGNED',
+    'Assigned',
+    'Not Assigned',
     ],
     datasets: [
     {
@@ -175,8 +175,8 @@
 
   var pieData3  = {
     labels: [
-    'ACTIVE',
-    'NOT ACTIVE',
+    'Active',
+    'Not Active',
     ],
     datasets: [
     {
