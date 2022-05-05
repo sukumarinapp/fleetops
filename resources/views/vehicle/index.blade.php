@@ -37,16 +37,47 @@
         </div>
         @endif
         <div class="card-body" style="overflow-x: auto;" >
-         <div class="row" style="margin-bottom: 5px;">
-          <div class="col-md-4">
-            <canvas id="pieChart" style="min-height: 150px; height: 150px; max-height: 150px; max-width: 100%;"></canvas>
+         <div class="row">
+       <div class="col-md-4">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h4>Offline: {{ $offline }}</h4>
+                <h6>Online: {{ $online }}</h6>
+              </div>
+              <div class="icon">
+                <!-- <i class="far fa-money-bill-alt"></i> -->
+              </div>
+            </div>
           </div>
           <div class="col-md-4">
-            <canvas id="pieChart2" style="min-height: 150px; height: 150px; max-height: 150px; max-width: 100%;"></canvas>
-          </div> 
-          <div class="col-md-4">
-            <canvas id="pieChart3" style="min-height: 150px; height: 150px; max-height: 150px; max-width: 100%;"></canvas>
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h4>Unassigned: {{ $notassigned }}</h4>
+                <h6>Assigned: {{ $assigned }}</h6>
+              </div>
+              <div class="icon">
+                <!-- <i class="fas fa-chart-line"></i> -->
+              </div>
+              
+             
+            </div>
           </div>
+          <div class="col-md-4">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h4>Inactive: {{ $inactive }}</h4>
+                <h6>Active: {{ $active }}</h6>
+              </div>
+               <div class="icon">
+                <!-- <i class="fas fa-chart-line"></i> -->
+              </div>
+              
+            </div>
+          </div>
+    </div>
         </div>
         <table id="example1" class="display table table-bordered" cellspacing="0" width="100%">
           <thead>

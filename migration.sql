@@ -320,9 +320,9 @@ CREATE TABLE `movement` (
   `EDT` date DEFAULT NULL,
   `STM` varchar(10) DEFAULT NULL,
   `ETM` varchar(10) DEFAULT NULL,
-  `DUR` decimal(5,2) DEFAULT NULL,
-  `CML` decimal(10,2) DEFAULT NULL,
-  `CHR` decimal(10,2) DEFAULT NULL,
+  `DUR` varchar(10) DEFAULT NULL,
+  `CML` varchar(10) DEFAULT NULL,
+  `CHR` varchar(10) DEFAULT NULL,
   `IDL` varchar(5) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
