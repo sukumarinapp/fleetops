@@ -155,7 +155,7 @@
           </ul>
       </li>
 
-  <li class="dropdown dropdown-hover {{ (request()->segment(1) == 'workflowlog' || request()->segment(1) == 'vehiclelog' || request()->segment(1) == 'notificationslog' || request()->segment(1) == 'alertlog' || request()->segment(1) == 'telematicslog' ) ? 'active' : '' }}">
+  <li class="dropdown dropdown-hover {{ (request()->segment(1) == 'workflowlog' || request()->segment(1) == 'vehiclelog' || request()->segment(1) == 'notificationslog' || request()->segment(1) == 'alertlog' || request()->segment(1) == 'telematicslog' || request()->segment(1) == 'movementlog') ? 'active' : '' }}">
             <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Reports</a>
             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
               <li><a href="{{ url('workflowlog') }}/{{ date('Y-m-d', strtotime('-6 days')) }}/{{ date('Y-m-d') }}" class="dropdown-item {{ (request()->segment(1) =='workflowlog') ? 'active' : '' }}" class="dropdown-item">Workflow Log </a></li>
@@ -167,6 +167,8 @@
               <li><a href="{{ url('alertlog') }}/{{ date('Y-m-d') }}/{{ date('Y-m-d') }}" class="dropdown-item {{ (request()->segment(1) == 'alertlog') ? 'active' : '' }}" class="dropdown-item">Alert Log</a></li>
 
                <li><a href="{{ url('telematicslog') }}/{{ date('Y-m-d', strtotime('-1 days')) }}/{{ date('Y-m-d', strtotime('-1 days')) }}" class="dropdown-item {{ (request()->segment(1) == 'telematicslog') ? 'active' : '' }}" class="dropdown-item">Daily Telematics Log</a></li>
+
+               <li><a href="{{ url('movementlog') }}/{{ date('Y-m-d', strtotime('-1 days')) }}/{{ date('Y-m-d', strtotime('-1 days')) }}" class="dropdown-item {{ (request()->segment(1) == 'movementlog') ? 'active' : '' }}" class="dropdown-item">Running Movement</a></li>
 
           </ul>
       </li>

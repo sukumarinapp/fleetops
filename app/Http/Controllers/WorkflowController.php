@@ -216,8 +216,6 @@ class WorkflowController extends Controller
 
      public function telematicslog($from,$to)
     {
-        //$from = date("Y-m-d", strtotime($from.' +1 day'));
-        //$to = date("Y-m-d", strtotime($to.' +1 day'));
         $this->check_access("BPJ2");
         $title = 'Daily Telematics Log';
         $sql = "select c.DDT,c.CML,c.CHR,c.min_speed,c.max_speed,c.work_start,c.work_end,c.odometer,c.engine_idling,c.speeding,c.fuel_consumed,a.*,b.VBM,b.VPF,b.WDY,b.MDY,b.VPD,b.VAM from vehicle a,driver b,bgp1am c where a.VNO = c.VNO and c.DDT >= '$from' and c.DDT <= '$to' and a.driver_id=b.id";
@@ -235,6 +233,15 @@ class WorkflowController extends Controller
         //$from = date("Y-m-d", strtotime($from.' -1 days'));
         //$to = date("Y-m-d", strtotime($to.' -1 days'));
         return view('telematicslog',compact('vehicles','title','from','to'));
+    }
+
+    public function movementlog($from,$to)
+    {
+        $this->check_access("BPJ2");
+        $title = 'Running Movement Report';
+        $sql = "select * from movement where SDT >= '$from' and SDT <= '$to' order by SDT,STM";
+        $vehicles = DB::select(DB::raw($sql));
+        return view('movementlog',compact('vehicles','title','from','to'));
     }
 
 
