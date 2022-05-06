@@ -326,3 +326,7 @@ CREATE TABLE `movement` (
   `IDL` varchar(5) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
+
+--06/05/2022
+alter table movement add latitude varchar(50) DEFAULT NULL;
+alter table movement add longitude varchar(50) DEFAULT NULL;
