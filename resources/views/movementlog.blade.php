@@ -9,7 +9,7 @@
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
               <li class="breadcrumb-item"><a>Reports</a></li>
-              <li class="breadcrumb-item">Running Movement Report</li>
+              <li class="breadcrumb-item">Running Movement</li>
             </ol>
           </div>
         </div>
@@ -20,7 +20,7 @@
     <div class="card-header align-items-center">
       <div class="row">
         <div class="col-md-2">
-          <label>Running Movement Report</label>
+          <label>Running Movement</label>
         </div>
            <div class="col-md-10">
          <form class="form-inline" >
