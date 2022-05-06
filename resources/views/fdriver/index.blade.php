@@ -94,7 +94,7 @@
                 @if($driver->VNO != "")
                 <a class="btn btn-secondary btn-xs" href="{{ route('agreementdriver',$driver->id) }}"><i class="fa fa-file"></i></a>
                 @else
-                <button class="btn btn-secondary btn-xs disabled" ><i class="fa fa-file"></i></button>
+                <a class="btn btn-secondary btn-xs disabled" ><i class="fa fa-file"></i></a>
                 @endif
 
                 @if($driver->VNO == "")
