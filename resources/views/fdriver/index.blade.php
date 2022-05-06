@@ -79,6 +79,9 @@
               <td>{{ $driver->VBM }}</td>
               
               <td style="white-space: nowrap">
+                <form action="{{ route('fdriver.destroy', $driver->id)}}" method="post">
+                    @csrf
+                  
                 @if($driver->photo != "")
                 <a href="#" data-toggle="modal" data-target="#photomodal_{{ $driver->id }}" class="btn btn-secondary btn-xs"><i class="fa fa-user"></i></a>
                 @else
@@ -91,20 +94,14 @@
                 <a class="btn btn-secondary btn-xs disabled" ><i class="fa fa-file"></i></a>
                 @endif
 
-                @if($driver->VNO == "")
-                <form action="{{ route('fdriver.destroy', $driver->id)}}" method="post">
-                @endif
                     <a href="{{ route('fdriver.edit',$driver->id) }}" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i></a>
-                    @csrf
                     @method('DELETE')
                   @if($driver->VNO == "")
                   <button onclick="return confirm('Do you want to perform delete operation?')" class="btn btn-danger btn-xs" type="submit"><i class="fa fa-trash"></i></button>
                   @else
                   <button class="btn btn-danger btn-xs disabled" ><i class="fa fa-trash"></i></button>
                   @endif
-                @if($driver->VNO == "")
                 </form>
-                @endif
               </td>
             </tr>
             @endforeach
