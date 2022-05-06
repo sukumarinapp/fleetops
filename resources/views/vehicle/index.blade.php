@@ -46,8 +46,9 @@
                 <h6>Online: {{ $online }}</h6>
               </div>
               <div class="icon">
-                <!-- <i class="far fa-money-bill-alt"></i> -->
+                <i class="fa fa-satellite"></i>
               </div>
+
             </div>
           </div>
           <div class="col-md-4">
@@ -58,10 +59,8 @@
                 <h6>Assigned: {{ $assigned }}</h6>
               </div>
               <div class="icon">
-                <!-- <i class="fas fa-chart-line"></i> -->
+                <i class="fa fa-car"></i>
               </div>
-              
-             
             </div>
           </div>
           <div class="col-md-4">
@@ -72,7 +71,7 @@
                 <h6>Active: {{ $active }}</h6>
               </div>
                <div class="icon">
-                <!-- <i class="fas fa-chart-line"></i> -->
+                <i class="fas fa-check"></i>
               </div>
               
             </div>
