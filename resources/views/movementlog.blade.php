@@ -73,12 +73,22 @@
            <td>{{ $vehicle->CHR }}</td>
            <td>{{ ($vehicle->IDL) * 100 }}</td>
            <td>
-            <button onclick="show_map({{ $vehicle->latitude }},{{ $vehicle->longitude }})" type="button" class="btn btn-primary btn-sm btn-block"  ><i class="nav-icon fa fa-map-marker"></i></button>
-            <div class="modal fade" id="myMapModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            @if($vehicle->ACC == 0)
+              <button onclick="show_map({{ $vehicle->latitude }},{{ $vehicle->longitude }})" type="button" class="btn btn-primary btn-sm btn-block"  ><i class="nav-icon fa fa-map-marker"></i></button>
+            @else
+              &nbsp;
+            @endif
+            
+           </td>
+         </tr>
+         @endforeach
+          </tbody> 
+     </table>
+     <div class="modal fade" id="myMapModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Location</h5>
+        <!-- <h5 class="modal-title" id="exampleModalLabel">Location</h5> -->
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -92,11 +102,6 @@
     </div>
   </div>
 </div>
-           </td>
-         </tr>
-         @endforeach
-          </tbody> 
-     </table>
    </div>
  </div>
 </div>
