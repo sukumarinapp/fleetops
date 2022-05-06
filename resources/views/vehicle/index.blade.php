@@ -121,7 +121,7 @@
             
             
           </td>
-          <td>
+          <td style="white-space: nowrap">
             @if(Auth::user()->usertype == "Admin" || Auth::user()->BPF == true)
             @if($vehicle->status == "pending")
             <a class="btn btn-danger btn-xs" href="{{ url('cancel_handover') }}/{{ $vehicle->handover_id }}">Cancel Process</a>
