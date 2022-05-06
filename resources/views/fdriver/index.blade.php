@@ -79,12 +79,6 @@
               <td>{{ $driver->VBM }}</td>
               
               <td style="white-space: nowrap">
-                @if($driver->vid== "")
-                  <button class="btn btn-primary btn-xs disabled" ><i class="fa fa-sms"></i></button>
-                @else                  
-                  <a href="{{ route('resendsms',$driver->vid) }}" class="btn btn-primary btn-xs"><i class="fa fa-sms"></i></a>
-                @endif
-
                 @if($driver->photo != "")
                 <a href="#" data-toggle="modal" data-target="#photomodal_{{ $driver->id }}" class="btn btn-secondary btn-xs"><i class="fa fa-user"></i></a>
                 @else
