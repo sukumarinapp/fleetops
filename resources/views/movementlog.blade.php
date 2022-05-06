@@ -50,6 +50,7 @@
             <th>CML</th>
             <th>CHR</th>
             <th>Engine Idling (%)</th>
+            <th></th>
           </tr>
         </thead>
           <tbody>
@@ -71,6 +72,27 @@
            <td>{{ $vehicle->CML }}</td>
            <td>{{ $vehicle->CHR }}</td>
            <td>{{ ($vehicle->IDL) * 100 }}</td>
+           <td>
+            <button onclick="show_map({{ $vehicle->latitude }},{{ $vehicle->longitude }})" type="button" class="btn btn-primary btn-sm btn-block"  ><i class="nav-icon fa fa-map-marker"></i></button>
+            <div class="modal fade" id="myMapModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Location</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div id="map-canvas" style="height: 400px;"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+           </td>
          </tr>
          @endforeach
           </tbody> 
@@ -82,6 +104,28 @@
 @endsection
 @push('page_scripts')
 <script>
+
+  function show_map(latitude,longitude){
+    initialize(new google.maps.LatLng(latitude, longitude));
+    $('#myMapModal').modal('show');
+  }
+
+  var lat = "";
+  var lng = "";
+  var map;
+  function initialize(myCenter) {
+    var marker = new google.maps.Marker({
+      position: myCenter
+    });
+    var mapProp = {
+      center: myCenter,
+      zoom: 14,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    map = new google.maps.Map(document.getElementById("map-canvas"), mapProp);
+    marker.setMap(map);
+  }
+
 	var movementlog = "{{ url('movementlog') }}";
 	function load_report(){
 		var from = $("#from").val();
