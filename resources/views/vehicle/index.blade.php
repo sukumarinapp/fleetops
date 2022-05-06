@@ -140,7 +140,7 @@
             @endif
             @endif
           </td>
-          <td> 
+          <td style="white-space: nowrap"> 
             @if($vehicle->status != "pending" && $vehicle->handover_id != 0)
             <a class="btn btn-secondary btn-xs" target="_blank" href="../../uploads/handover/{{ $vehicle->handover_id }}.pdf"><i class="fa fa-car"></i></a>
             @else

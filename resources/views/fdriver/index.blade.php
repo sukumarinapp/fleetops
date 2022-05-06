@@ -52,7 +52,7 @@
             <th>License #</th>
             <th>Contact #</th>
             <th>Business Model</th>
-            <th>Action</th>
+            <th >Action</th>
           </tr>
           </thead>
           <tbody>
@@ -78,7 +78,7 @@
               <td>{{ $driver->DCN }}</td>
               <td>{{ $driver->VBM }}</td>
               
-              <td>
+              <td style="white-space: nowrap">
                 @if($driver->vid== "")
                   <button class="btn btn-primary btn-xs disabled" ><i class="fa fa-sms"></i></button>
                 @else                  
