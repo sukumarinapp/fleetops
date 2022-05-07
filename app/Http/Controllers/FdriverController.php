@@ -29,7 +29,7 @@ class FdriverController extends Controller
    public function index()
    {
         $this->check_access("BPF");
-        $sql = "SELECT a.*,b.id as vid,b.VNO,b.handover_id FROM driver a LEFT JOIN vehicle b ON a.id = b.driver_id";
+        $sql = "SELECT a.*,b.id as vid,b.VNO,b.handover_id,b.status FROM driver a LEFT JOIN vehicle b ON a.id = b.driver_id";
         $drivers = DB::select(DB::raw($sql));
         foreach($drivers as $driver){
             $VNO = $driver->VNO;

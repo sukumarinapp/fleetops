@@ -50,7 +50,8 @@
             <th>CML</th>
             <th>CHR</th>
             <th>Engine Idling (%)</th>
-            <th></th>
+            <th>View</th>
+            <th>Coordinates</th>
           </tr>
         </thead>
           <tbody>
@@ -79,6 +80,13 @@
               &nbsp;
             @endif
             
+           </td>
+           <td>
+              @if($vehicle->ACC == 0)
+              {{ $vehicle->latitude }},{{ $vehicle->longitude }}
+               @else
+              &nbsp;
+            @endif
            </td>
          </tr>
          @endforeach

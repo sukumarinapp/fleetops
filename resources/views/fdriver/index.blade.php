@@ -81,7 +81,11 @@
               <td style="white-space: nowrap">
                 <form action="{{ route('fdriver.destroy', $driver->id)}}" method="post">
                     @csrf
-                  
+            @if($driver->status != "pending" && $driver->handover_id != 0)
+            <a class="btn btn-secondary btn-xs" target="_blank" href="../../uploads/handover/{{ $driver->handover_id }}.pdf"><i class="fa fa-car"></i></a>
+            @else
+            <button class="btn btn-secondary btn-xs disabled" ><i class="fa fa-car"></i></button>
+            @endif
                 @if($driver->photo != "")
                 <a href="#" data-toggle="modal" data-target="#photomodal_{{ $driver->id }}" class="btn btn-secondary btn-xs"><i class="fa fa-user"></i></a>
                 @else

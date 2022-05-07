@@ -140,11 +140,6 @@
             @endif
           </td>
           <td style="white-space: nowrap"> 
-            @if($vehicle->status != "pending" && $vehicle->handover_id != 0)
-            <a class="btn btn-secondary btn-xs" target="_blank" href="../../uploads/handover/{{ $vehicle->handover_id }}.pdf"><i class="fa fa-car"></i></a>
-            @else
-            <button class="btn btn-secondary btn-xs disabled" ><i class="fa fa-car"></i></button>
-            @endif
             @if($vehicle->VTV == 0 && $vehicle->DNM == "")
             <form action="{{ route('vehicle.destroy', $vehicle->id)}}" method="post">
               @endif
