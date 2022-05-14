@@ -109,7 +109,7 @@
             </td>
             <td>
               @php
-                if($vehicle->VTV == 1 && $vehicle->DNM ==""){
+                if($vehicle->VTV == 1 && $vehicle->driver_id == NULL){
                    echo "<span><img src='parked.jpg'></span>";
                  }else{
                   echo "<span><img src='assign.jpg'></span>";

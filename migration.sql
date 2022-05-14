@@ -330,3 +330,15 @@ CREATE TABLE `movement` (
 --06/05/2022
 alter table movement add latitude varchar(50) DEFAULT NULL;
 alter table movement add longitude varchar(50) DEFAULT NULL;
+
+drop table blocking;
+CREATE TABLE `tracker_command` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `terminal_id` varchar(20) DEFAULT NULL,
+  `cmd_date` date DEFAULT NULL,
+  `cmd_time` datetime DEFAULT NULL,
+  `status` tinyint(1) DEFAULT 0,
+  `action` varchar(20) DEFAULT NULL COMMENT 'block unblock buzon buzoff',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
+insert into tracker_command (terminal_id,cmd_date,cmd_time,action) values ('233256953322','2022-05-14','2022-05-14 07:12:19','block');
