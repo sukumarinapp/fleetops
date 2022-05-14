@@ -678,7 +678,7 @@ public function removedriver(Request $request){
         #$result = DB::select(DB::raw($sql));
         #return view('retrievalpdf', compact('result'));
 
-    self::save_pdf($handover_id);
+    //self::save_pdf($handover_id);
     $vehicle->driver_id = NULL;
     $vehicle->status  =  "";
     $vehicle->save();

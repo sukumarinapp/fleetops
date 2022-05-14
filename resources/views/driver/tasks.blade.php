@@ -75,9 +75,15 @@
     <div class="col-md-12">
      <label class="col-form-label">Licence Renewal - </label> {{ $DNO }} 
    </div>
+   @if($lexpiry_flag == 1)
+   <div class="col-md-12">
+     <span class="text-danger">{{ $lstatus }}: {{ date("d/m/Y",strtotime($LEXD)) }}</span>
+   </div>
+   @else
    <div class="col-md-12">
      <span>{{ $lstatus }}: {{ date("d/m/Y",strtotime($LEXD)) }}</span>
-   </div> 
+   </div>
+   @endif 
    <div class="col-md-12">
     <p>Please take a snapshot of renewed license</p>
   </div>
@@ -97,9 +103,15 @@
     <div class="col-md-12">
      <label class="col-form-label">Insurance Renewal</label>
    </div>
+    @if($iexpiry_flag == 1)
+   <div class="col-md-12">
+     <span class="text-danger">{{ $istatus }}: {{ date("d/m/Y",strtotime($IEXD)) }}</span>
+   </div> 
+    @else
    <div class="col-md-12">
      <span>{{ $istatus }}: {{ date("d/m/Y",strtotime($IEXD)) }}</span>
-   </div> 
+   </div>
+   @endif 
    <div class="col-md-12">
     <p>Please take a snapshot of renewed Insurance</p>
   </div>
@@ -118,9 +130,15 @@
     <div class="col-md-12">
      <label class="col-form-label">Roadworthy Cert Renewal</label>
    </div>
+   @if($rexpiry_flag == 1)
+   <div class="col-md-12">
+     <span class="text-danger">{{ $rstatus }}: {{ date("d/m/Y",strtotime($REXD)) }}</span>
+   </div> 
+   @else
    <div class="col-md-12">
      <span>{{ $rstatus }}: {{ date("d/m/Y",strtotime($REXD)) }}</span>
-   </div> 
+   </div>
+   @endif 
    <div class="col-md-12">
     <p>Please take a snapshot of renewed Roadworthy Cert</p>
   </div>
@@ -140,9 +158,15 @@
      <div class="col-md-12">
       <label class="col-form-label">Contract Renewal</label>
     </div>
+    @if($cexpiry_flag == 1)
     <div class="col-md-12">
-     <span >{{ $cstatus }}: {{ date("d/m/Y",strtotime($CEXD)) }}</span>
+     <span class="text-danger">{{ $cstatus }}: {{ date("d/m/Y",strtotime($CEXD)) }}</span>
    </div> 
+   @else
+   <div class="col-md-12">
+     <span>{{ $cstatus }}: {{ date("d/m/Y",strtotime($CEXD)) }}</span>
+   </div>
+   @endif 
    <div class="col-md-12">
     <p>Please read contract fully. Confirm acceptance by
       inputting code that would be sent to you via SMS

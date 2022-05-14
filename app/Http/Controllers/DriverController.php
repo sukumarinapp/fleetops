@@ -51,7 +51,7 @@ class DriverController extends Controller
             $DNM = $valid[0]->DNM." ".$valid[0]->DSN;
             $login_time = date("Y-m-d H:i:s");
             $otp = rand(1001,9999);
-            $otp = "1234";
+            //$otp = "1234";
             $msg = "Your fleetops account login otp is ".$otp;
             $sql = "insert into driver_login (VNO,driver_id,login_time,otp) values ('$VNO','$driver_id','$login_time','$otp')";
             DB::insert($sql);
@@ -174,16 +174,23 @@ class DriverController extends Controller
             $cstatus = "";
             $istatus = "";
             $rstatus = "";
+            $lexpiry_flag = "";
+            $rexpiry_flag = "";
+            $iexpiry_flag = "";
+            $cexpiry_flag = "";
             $sql = "select b.LEX from driver_upload a,driver b where VNO = '$VNO' and a.driver_id=b.id and doc_type='Licence' and approved=0";
             $result = DB::select(DB::raw($sql));
             if(count($result) > 0){
                $licence_approved = 0;
                $LEX = 1; 
                $LEXD = $result[0]->LEX;
-               if($LEXD > $today)
+               $lexpiry_flag = 0;
+               if($LEXD > $today){
                 $lstatus="Expires on";
-               else
-                $lstatus="Expired on"; 
+               }else{
+                $lexpiry_flag = 1;
+                $lstatus="Expired on";
+               } 
             }else{
                 $sql = "select b.LEX from vehicle a,driver b where VNO = '$VNO'  and a.driver_id = b.id";
                 $result = DB::select(DB::raw($sql));
@@ -198,9 +205,11 @@ class DriverController extends Controller
                $roadworthy_approved = 0;
                $REX = 1; 
                $REXD = $result[0]->REX;
+               $rexpiry_flag = 0;
                if($REXD > $today)
                 $rstatus="Expires on";
                else
+                $rexpiry_flag = 1;
                 $rstatus="Expired on"; 
             }else{
                 $sql = "select a.REX from vehicle a,driver b where VNO = '$VNO'  and a.driver_id = b.id";
@@ -216,9 +225,11 @@ class DriverController extends Controller
                $insurance_approved = 0;
                $IEX = 1; 
                $IEXD = $result[0]->IEX;
+               $iexpiry_flag = 0;
                if($IEXD > $today)
                 $istatus="Expires on";
                else
+                $iexpiry_flag = 1;
                 $istatus="Expired on"; 
             }else{
                 $sql = "select a.IEX from vehicle a,driver b where VNO = '$VNO'  and a.driver_id = b.id";
@@ -234,9 +245,11 @@ class DriverController extends Controller
                $contract_approved = 0; 
                $CEX = 1; 
                $CEXD = $result[0]->CEX;
+               $cexpiry_flag = 0;
                if($CEXD > $today)
                 $cstatus="Expires on";
                else
+                $cexpiry_flag = 1;
                 $cstatus="Expired on"; 
                $file_name = $result[0]->file_name;
             }else{
@@ -279,7 +292,7 @@ class DriverController extends Controller
                $assign_approved = 0;
                $LDT = $result[0]->LDT;
             }
-            return view('driver.tasks',compact('VNO','VBM','DNM','DCN','DNO','LEX','REX','IEX','CEX','LEXD','REXD','IEXD','CEXD','file_name','inspection','SSD','SVE','ISD','IVE','insurance_approved','roadworthy_approved','licence_approved','contract_approved','service_approved','inspection_approved','assign_approved','LDT','cstatus','istatus','lstatus','rstatus'));
+        return view('driver.tasks',compact('VNO','VBM','DNM','DCN','DNO','LEX','REX','IEX','CEX','LEXD','REXD','IEXD','CEXD','file_name','inspection','SSD','SVE','ISD','IVE','insurance_approved','roadworthy_approved','licence_approved','contract_approved','service_approved','inspection_approved','assign_approved','LDT','cstatus','istatus','lstatus','rstatus','lexpiry_flag','rexpiry_flag','iexpiry_flag','cexpiry_flag'));
         }
     }
     
