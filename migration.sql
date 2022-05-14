@@ -341,4 +341,5 @@ CREATE TABLE `tracker_command` (
   `action` varchar(20) DEFAULT NULL COMMENT 'block unblock buzon buzoff',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
-insert into tracker_command (terminal_id,cmd_date,cmd_time,action) values ('233256953322','2022-05-14','2022-05-14 07:12:19','block');
+--insert into tracker_command (terminal_id,cmd_date,cmd_time,action) values ('233256953322','2022-05-14','2022-05-14 07:12:19','block');
+--insert into tracker_command (terminal_id,cmd_date,cmd_time,action) values ('233500623977','2022-05-14','2022-05-14 07:12:19','unblock');
