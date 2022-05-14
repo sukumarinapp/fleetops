@@ -82,6 +82,8 @@
           <thead>
             <tr>
               <th>CAN</th>
+              <th>TS</th>
+              <th>AS</th>
               <th>Vehicle Reg#</th>
               <th>Description</th>
               <th style="width: 150px">Activity</th>
@@ -97,19 +99,24 @@
             >
             <td>{{ $vehicle->CAN }}<br><small class="text-success">{{ $vehicle->name }}</small></td>
             <td>
-              @php
-              if($vehicle->VTV == 0){
-               echo "<span><img src='inactive.jpg'></span>";
-             }else if($vehicle->VTV == 1 && $vehicle->DNM ==""){
-              echo "<span><img src='parked.jpg'></span>";
-            }else{
+               @php
               if($vehicle->offline == 0){
                 echo "<span><img src='online.jpg'></span>";
               }else{
                 echo "<span><img src='offline.jpg'></span>";
               }
-            }
             @endphp
+            </td>
+            <td>
+              @php
+                if($vehicle->VTV == 1 && $vehicle->DNM ==""){
+                   echo "<span><img src='parked.jpg'></span>";
+                 }else{
+                  echo "<span><img src='assign.jpg'></span>";
+            }
+                 @endphp
+            </td>
+            <td>
             {{ $vehicle->VNO }} 
             @if($vehicle->DNM !="")
             <br><small class="text-success"><a href="{{ route('fdriver.edit',$vehicle->did) }}">{{ $vehicle->DNM }} 
