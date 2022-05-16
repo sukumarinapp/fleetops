@@ -8,8 +8,9 @@
           <div class="col-sm-12">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-              <li class="breadcrumb-item"><a>Reports</a></li>
-              <li class="breadcrumb-item">Running Movement</li>
+              <li class="breadcrumb-item">Operations</li>
+              <li class="breadcrumb-item"><a href="{{ url('telematicslog') }}/{{ date('Y-m-d', strtotime('-1 days')) }}/{{ date('Y-m-d', strtotime('-1 days')) }}">Telematics</a></li>
+              <li class="breadcrumb-item">Vehicle Activity</li>
             </ol>
           </div>
         </div>
@@ -20,9 +21,9 @@
     <div class="card-header align-items-center">
       <div class="row">
         <div class="col-md-2">
-          <label>Running Movement</label>
+          <label>Vehicle Activity</label>
         </div>
-           <div class="col-md-10">
+          <!--  <div class="col-md-10">
          <form class="form-inline" >
           <label for="from">&nbsp;From Date&nbsp;</label>
           <input value="{{ $from }}" class="form-control" type="date" id="from" name="from"  />
@@ -31,7 +32,7 @@
           <label>&nbsp;</label>
           <input onclick="load_report()" type="button"  value="Apply" class="form-control text-center btn btn-success btn-sm" />
         </form>
-      </div>
+      </div> -->
     </div>
   </div>
 
@@ -139,7 +140,7 @@
     marker.setMap(map);
   }
 
-	var movementlog = "{{ url('movementlog') }}";
+	/*var movementlog = "{{ url('movementlog') }}";
 	function load_report(){
 		var from = $("#from").val();
     var to = $("#to").val();
@@ -152,7 +153,7 @@
       window.location.href = url;
     }		
   }
-
+*/
   $(document).ready(function(){
     $('.select2').select2({
      theme: 'bootstrap4'

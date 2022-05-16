@@ -235,11 +235,11 @@ class WorkflowController extends Controller
         return view('telematicslog',compact('vehicles','title','from','to'));
     }
 
-    public function movementlog($from,$to)
+    public function movementlog($from,$to,$VNO)
     {
         $this->check_access("BPJ2");
         $title = 'Running Movement Report';
-        $sql = "select * from movement where SDT >= '$from' and SDT <= '$to' order by SDT,STM";
+        $sql = "select * from movement where SDT >= '$from' and SDT <= '$to' and VNO='$VNO' order by SDT,STM";
         $vehicles = DB::select(DB::raw($sql));
         return view('movementlog',compact('vehicles','title','from','to'));
     }

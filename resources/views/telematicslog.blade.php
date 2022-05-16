@@ -59,7 +59,7 @@
           @foreach($vehicles as $vehicle)
           <tr>
            <td>{{ date("d-m-Y",strtotime($vehicle->DDT)) }}</td>
-           <td>{{ $vehicle->VNO }}</td>
+           <td><a style="color:blue;cursor: pointer;"  onclick="vehicle_activity('{{ $vehicle->VNO }}')">{{ $vehicle->VNO }}</a></td>
            <td>{{ round($vehicle->odometer) }}</td>
            <td>{{ $vehicle->CML }}</td>
            <td>{{ $vehicle->CHR }}</td>
@@ -94,6 +94,19 @@
       var url =  telematicslog + "/" + from + "/" +to;  
       window.location.href = url;
     }		
+  } 
+  var movementlog = "{{ url('movementlog') }}";
+  function vehicle_activity(VNO){
+    var from = $("#from").val();
+    var to = $("#to").val();
+    if(from == ""){
+      alert("Please select from Date");
+    }else if(to == ""){
+      alert("Please select To Date");
+    }else{
+      var url =  movementlog + "/" + from + "/" +to + "/" +VNO;  
+      window.location.href = url;
+    }   
   }
 
   $(document).ready(function(){

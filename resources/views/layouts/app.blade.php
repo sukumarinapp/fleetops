@@ -126,6 +126,9 @@
                   @if(Auth::user()->usertype == "Admin" || Auth::user()->BPF == true)
 
                   <li><a href="{{ route('fdriver.index') }}" class="dropdown-item {{ (request()->segment(1) == 'fdriver') ? 'active' : '' }}" class="dropdown-item">Driver Manager</a></li>
+
+                 
+
               </li>
               @endif
 
@@ -134,10 +137,10 @@
              <a href="{{ route('workflow') }}" class="dropdown-item {{ (request()->segment(1) == 'workflow' || request()->segment(1) == 'override') ? 'active' : '' }}" class="dropdown-item">Workflows</a>
          </li>
          @endif
+
+          <li><a href="{{ url('telematicslog') }}/{{ date('Y-m-d', strtotime('-1 days')) }}/{{ date('Y-m-d', strtotime('-1 days')) }}" class="dropdown-item {{ (request()->segment(1) == 'telematicslog') ? 'active' : '' }}" class="dropdown-item">Telematics</a></li>
           </ul>
           @endif
-
-
 
 
          <li class="dropdown dropdown-hover {{ ( request()->segment(1) == 'rhreport' || request()->segment(1) == 'sales' || request()->segment(1) == 'collection'  ) ? 'active' : '' }}">
@@ -166,9 +169,6 @@
 
               <li><a href="{{ url('alertlog') }}/{{ date('Y-m-d') }}/{{ date('Y-m-d') }}" class="dropdown-item {{ (request()->segment(1) == 'alertlog') ? 'active' : '' }}" class="dropdown-item">Alert Log</a></li>
 
-               <li><a href="{{ url('telematicslog') }}/{{ date('Y-m-d', strtotime('-1 days')) }}/{{ date('Y-m-d', strtotime('-1 days')) }}" class="dropdown-item {{ (request()->segment(1) == 'telematicslog') ? 'active' : '' }}" class="dropdown-item">Daily Telematics Log</a></li>
-
-               <li><a href="{{ url('movementlog') }}/{{ date('Y-m-d', strtotime('-1 days')) }}/{{ date('Y-m-d', strtotime('-1 days')) }}" class="dropdown-item {{ (request()->segment(1) == 'movementlog') ? 'active' : '' }}" class="dropdown-item">Running Movement</a></li>
 
           </ul>
       </li>
