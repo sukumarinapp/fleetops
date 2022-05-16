@@ -8,8 +8,8 @@
           <div class="col-sm-12">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-              <li class="breadcrumb-item"><a>Reports</a></li>
-              <li class="breadcrumb-item">Daily Telematics Log</li>
+              <li class="breadcrumb-item"><a>Operations</a></li>
+              <li class="breadcrumb-item">Telematics</li>
             </ol>
           </div>
         </div>
