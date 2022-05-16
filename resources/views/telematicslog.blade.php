@@ -20,7 +20,7 @@
     <div class="card-header align-items-center">
       <div class="row">
         <div class="col-md-2">
-          <label>Daily Telematics Log</label>
+          <label>Telematics</label>
         </div>
            <div class="col-md-10">
          <form class="form-inline" >
