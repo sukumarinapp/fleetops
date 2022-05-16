@@ -76,7 +76,7 @@
            <td>{{ ($vehicle->IDL) * 100 }}</td>
            <td>
             @if($vehicle->ACC == 0)
-              <button onclick="show_map({{ $vehicle->latitude }},{{ $vehicle->longitude }})" type="button" class="btn btn-primary btn-sm btn-block"  ><i class="nav-icon fa fa-map-marker"></i></button>
+              <button onclick="show_map({{ $vehicle->latitude }},{{ $vehicle->longitude }})" type="button" class="btn btn-primary btn-xs btn-block"  ><i class="nav-icon fa fa-map-marker"></i></button>
             @else
               &nbsp;
             @endif
