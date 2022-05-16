@@ -241,7 +241,7 @@ class WorkflowController extends Controller
         $title = 'Running Movement Report';
         $sql = "select * from movement where SDT >= '$from' and SDT <= '$to' and VNO='$VNO' order by SDT,STM";
         $vehicles = DB::select(DB::raw($sql));
-        return view('movementlog',compact('vehicles','title','from','to'));
+        return view('movementlog',compact('vehicles','title','from','to','VNO'));
     }
 
 

@@ -20,8 +20,8 @@
   <div class="card card-info">
     <div class="card-header align-items-center">
       <div class="row">
-        <div class="col-md-2">
-          <label>Vehicle Activity</label>
+        <div class="col-md-12">
+          <label>Vehicle Activity: {{ $VNO }}</label>
         </div>
           <!--  <div class="col-md-10">
          <form class="form-inline" >
