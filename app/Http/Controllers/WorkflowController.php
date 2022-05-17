@@ -497,7 +497,6 @@ class WorkflowController extends Controller
                 DB::update($sql);
             }
 
-
             $check_sql = "select * from tracker_command where cmd_date = '$DDT' and action='buzon' and terminal_id='$TID'";
             $check_result = mysqli_query($conn, $check_sql);
             while ($check_row = mysqli_fetch_assoc($check_result)) {
