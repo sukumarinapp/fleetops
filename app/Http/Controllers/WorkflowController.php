@@ -260,6 +260,7 @@ class WorkflowController extends Controller
         $this->check_access("BPJ2");
         $email = trim($request->UAN);
         $password = $request->password;
+        $TID = "";
         $CAN = $request->CAN;
         $WCI = $request->WCI;
         $VNO = $request->VNO;
@@ -269,13 +270,14 @@ class WorkflowController extends Controller
         $users = DB::select(DB::raw($sql));
         if(count($users) > 0){
             if (Hash::check($password, $users[0]->password)) {
-                $sql = "SELECT * FROM tbl136 where VNO='$VNO' and DECL = 0";
+                $sql = "SELECT a.*,b.TID FROM tbl136 a,vehicle b where a.VNO=b.VNO and a.VNO='$VNO' and DECL = 0";
                 $tbl136 = DB::select(DB::raw($sql));
                 $DCR = 0;
                 $DES = "";
                 $ODT = date("Y-m-d");
                 $WST = date("Y-m-d");
                 if(count($tbl136) > 0){
+                    $TID = $tbl136[0]->TID;
                     $DCR = $tbl136[0]->id;
                     $DES = $tbl136[0]->DES;
                     $WST = $tbl136[0]->DDT;
@@ -286,19 +288,56 @@ class WorkflowController extends Controller
 
                 $curr_date = date("Y-m-d");
                 $hour = date("H");
-                if(($hour >= 10 and $hour < 11 and $WST == $curr_date) || $WST < $curr_date){
+                /*if(($hour >= 10 and $hour < 11 and $WST == $curr_date) || $WST < $curr_date){
                     $sql = "update tbl136 set alarm_off = 1,alarm_off_attempts=0 where id = '$DCR'";
                     DB::update($sql);
                 }else{
                     $sql = "update tbl136 set alarm_off = 1,alarm_off_attempts=3 where id = '$DCR'";
                     DB::update($sql);
-                }
+                }*/
                 if(($hour >= 12  || $WST < $curr_date) && $DES == 'A4'){
                     $sql = "update tbl136 set DECL = 1,attempts=0 where id = '$DCR'";
                     DB::update($sql);
                 }else if($DES == 'A4'){
                     $sql = "update tbl136 set DECL = 1,attempts=3 where id = '$DCR'";
                     DB::update($sql);
+                }
+
+                $check_sql = "select * from tracker_command where cmd_date = '$WST' and action='buzon' and terminal_id='$TID'";
+                echo $check_sql;die;
+                $check_result = mysqli_query($conn, $check_sql);
+                while ($check_row = mysqli_fetch_assoc($check_result)) {
+                    $check_status = $check_row['status'];
+                    $command_id = $check_row['id'];
+                    $terminal_id = $check_row['terminal_id'];
+                    if($check_status == 0){
+                        $cmd_sql = "update tracker_command set status =2 where id = $command_id";
+                        mysqli_query($conn, $cmd_sql);
+                    }elseif($status == 1){
+                        $cmd_date = date("Y-m-d");
+                        $cmd_time = date("Y-m-d H:i:s");
+                        $action = "buzoff";
+                        $cmd_sql = "insert into tracker_command (terminal_id,cmd_date,cmd_time,action,DCR) values ('$terminal_id','$cmd_date','$cmd_time','$action',DCR)";
+                        mysqli_query($conn, $cmd_sql) or die(mysqli_error($conn));
+                    }
+                }
+
+                $check_sql = "select * from tracker_command where DCR = $DCR and action='block'";
+                $check_result = mysqli_query($conn, $check_sql);
+                while ($check_row = mysqli_fetch_assoc($check_result)) {
+                    $check_status = $check_row['status'];
+                    $command_id = $check_row['id'];
+                    $terminal_id = $check_row['terminal_id'];
+                    if($check_status == 0){
+                        $cmd_sql = "update tracker_command set status =2 where id = $command_id";
+                        mysqli_query($conn, $cmd_sql);
+                    }elseif($status == 1){
+                        $cmd_date = date("Y-m-d");
+                        $cmd_time = date("Y-m-d H:i:s");
+                        $action = "unblock";
+                        $cmd_sql = "insert into tracker_command (terminal_id,cmd_date,cmd_time,action,DCR) values ('$terminal_id','$cmd_date','$cmd_time','$action',DCR)";
+                        mysqli_query($conn, $cmd_sql) or die(mysqli_error($conn));
+                    }
                 }
 
                 if($DES == "A4"){
