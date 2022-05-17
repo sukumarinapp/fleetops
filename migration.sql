@@ -331,7 +331,6 @@ CREATE TABLE `movement` (
 alter table movement add latitude varchar(50) DEFAULT NULL;
 alter table movement add longitude varchar(50) DEFAULT NULL;
 
-drop table blocking;
 CREATE TABLE `tracker_command` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `terminal_id` varchar(20) DEFAULT NULL,
@@ -343,3 +342,19 @@ CREATE TABLE `tracker_command` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 --insert into tracker_command (terminal_id,cmd_date,cmd_time,action) values ('233256953322','2022-05-14','2022-05-14 07:12:19','block');
 --insert into tracker_command (terminal_id,cmd_date,cmd_time,action) values ('233500623977','2022-05-14','2022-05-14 07:12:19','unblock');
+
+--m h  dom mon dow   command
+--0 0 * * * /usr/bin/php /root/tracker/cronjobs/bgp804.php
+--0 1 * * * /usr/bin/php /root/tracker/cronjobs/bgp1am.php
+--0 2 * * * /usr/bin/php /root/tracker/cronjobs/movement.php
+--0 7 * * * /usr/bin/php /root/tracker/cronjobs/bgp7am.php
+--0 8 * * * /usr/bin/php /root/tracker/cronjobs/bgp8am.php
+--0 10 * * * /usr/bin/php /root/tracker/cronjobs/bgp10am.php
+--0 11 * * * /usr/bin/php /root/tracker/cronjobs/bgp11am.php
+--0 12 * * * /usr/bin/php /root/tracker/cronjobs/bgp12am.php
+--* * * * * /usr/bin/php /root/tracker/cronjobs/alarmengineonoff.php
+--* * * * * /usr/bin/php /root/tracker/cronjobs/billbox.php
+--* * * * * /usr/bin/php /root/tracker/cronjobs/trackeroff.php
+--* * * * * /usr/bin/php /root/tracker/cronjobs/trackeron.php
+--* 2 * * * /usr/bin/php /root/tracker/cronjobs/docexpiry.php
+--#* 2 * * * /usr/bin/php /root/tracker/cronjobs/expirysms.php
