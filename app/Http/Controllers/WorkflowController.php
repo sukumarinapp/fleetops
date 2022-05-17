@@ -302,9 +302,8 @@ class WorkflowController extends Controller
                     $sql = "update tbl136 set DECL = 1,attempts=3 where id = '$DCR'";
                     DB::update($sql);
                 }
-
-                $check_sql = "select * from tracker_command where cmd_date = '$WST' and action='buzon' and terminal_id='$TID'";
-                //echo $check_sql;die;
+                //sukumar check buzoof when unblock
+                $check_sql = "select * from tracker_command where DCR = '$DCR' and action='buzon'";
                 $check_result = DB::select(DB::raw($check_sql));
                  if(count($check_result) > 0){
                     $check_status = $check_result[0]->status;
@@ -497,7 +496,7 @@ class WorkflowController extends Controller
                 DB::update($sql);
             }
 
-            $check_sql = "select * from tracker_command where cmd_date = '$DDT' and action='buzon' and terminal_id='$TID'";
+            $check_sql = "select * from tracker_command where DCR = '$DCR' and action='buzon'";
             $check_result = mysqli_query($conn, $check_sql);
             while ($check_row = mysqli_fetch_assoc($check_result)) {
                 $check_status = $check_row['status'];
