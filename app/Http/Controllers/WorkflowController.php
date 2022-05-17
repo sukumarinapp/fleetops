@@ -442,9 +442,13 @@ class WorkflowController extends Controller
         $DCR = 0;
         $DCN = "";
         $DNM = "";
-        $sql = "SELECT a.DDT,a.id,c.DNM,c.DSN,c.DCN from tbl136 a,vehicle b,driver c where a.VNO=b.VNO and b.driver_id=c.id and a.VNO ='$VNO' and DECL=0";
+        $DDT = "";
+        $TID = "";
+        $sql = "SELECT a.DDT,a.id,c.DNM,c.DSN,c.DCN,b.TID from tbl136 a,vehicle b,driver c where a.VNO=b.VNO and b.driver_id=c.id and a.VNO ='$VNO' and DECL=0";
         $result = DB::select(DB::raw($sql));
         if(count($result)>0){
+            $DDT = $result[0]->DDT;
+            $TID = $result[0]->TID;
             $DCR = $result[0]->id;
             $DCN = $result[0]->DCN;
             $DNM = $result[0]->DNM." ".$result[0]->DSN;
@@ -493,7 +497,43 @@ class WorkflowController extends Controller
                 DB::update($sql);
             }
 
+            $check_sql = "select * from tracker_command where cmd_date = '$DDT' and action='buzon' and terminal_id='$TID'";
+            $check_result = mysqli_query($conn, $check_sql);
+            while ($check_row = mysqli_fetch_assoc($check_result)) {
+                $check_status = $check_row['status'];
+                $command_id = $check_row['id'];
+                $terminal_id = $check_row['terminal_id'];
+                if($check_status == 0){
+                    $cmd_sql = "update tracker_command set status =2 where id = $command_id";
+                    mysqli_query($conn, $cmd_sql);
+                }elseif($status == 1){
+                    $cmd_date = date("Y-m-d");
+                    $cmd_time = date("Y-m-d H:i:s");
+                    $action = "buzoff";
+                    $cmd_sql = "insert into tracker_command (terminal_id,cmd_date,cmd_time,action,DCR) values ('$terminal_id','$cmd_date','$cmd_time','$action',DCR)";
+                    mysqli_query($conn, $cmd_sql) or die(mysqli_error($conn));
+                }
+            }
+
+            $check_sql = "select * from tracker_command where DCR = $DCR and action='block'";
+            $check_result = mysqli_query($conn, $check_sql);
+            while ($check_row = mysqli_fetch_assoc($check_result)) {
+                $check_status = $check_row['status'];
+                $command_id = $check_row['id'];
+                $terminal_id = $check_row['terminal_id'];
+                if($check_status == 0){
+                    $cmd_sql = "update tracker_command set status =2 where id = $command_id";
+                    mysqli_query($conn, $cmd_sql);
+                }elseif($status == 1){
+                    $cmd_date = date("Y-m-d");
+                    $cmd_time = date("Y-m-d H:i:s");
+                    $action = "unblock";
+                    $cmd_sql = "insert into tracker_command (terminal_id,cmd_date,cmd_time,action,DCR) values ('$terminal_id','$cmd_date','$cmd_time','$action',DCR)";
+                    mysqli_query($conn, $cmd_sql) or die(mysqli_error($conn));
+                }
+            }
         }
+        
         $DAT = date("Y-m-d");
         $TIM = date("H:i:s");
         $CTX = "Sales Audit";
