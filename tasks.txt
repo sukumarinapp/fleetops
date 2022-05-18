@@ -1,13 +1,4 @@
-VNO	ACC Status	Start Date	Start Time	End Date	End Time	Duration	CML	CHR	Engine Idling (%)
-GT6014-17	OFF	26/04/2022	0:00	26/04/2022	6:15	6:15	0	0:00	0:00
-GT6014-17	ON	26/04/2022	6:15	26/04/2022	9:38	3:23	41.97	2.74	26.47
-
 New Alerts (Process Integration)
-Two Communication Setup (page 6,13 Bit0 )
-Vehicle Blocking/Unblocking
 Driver Earning/Bonuses
-Pending Payments (Process Modification)
-Cash-at-hand Report
-Cash Declaration Sequence Modification
 CCEI Formula Selection – Normal/Driver Promo Mode
 Fueler Calculation
