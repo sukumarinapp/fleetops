@@ -343,3 +343,5 @@ CREATE TABLE `tracker_command` (
 
 --17/05/2022
 alter table tracker_command add DCR int(11) DEFAULT 0;
+-- payment , expiry
+alter table tracker_command add context varchar(20) DEFAULT 'payment';
