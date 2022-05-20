@@ -127,10 +127,11 @@ class VehicleController extends Controller
             return strcmp($a->DECL, $b->DECL);
           });
       }
-      /*echo "<pre>";
+      echo $sort_by."<br>";
+      echo "<pre>";
       print_r($vehicles);
       echo "</pre>";
-      die;*/
+      die;
       return view('vehicle.index', compact('vehicles','inactive','active','online','offline','assigned','notassigned','sort_by'));
     }
 
