@@ -119,7 +119,7 @@ class VehicleController extends Controller
       }
       if($sort == "offline"){
           usort($vehicles, function($a, $b) {
-            return strcmp($a->VTV, $b->VTV);
+            return strcmp($b->offline, $a->offline);
           });
       }
       if($sort == "pending"){
@@ -131,7 +131,7 @@ class VehicleController extends Controller
       print_r($vehicles);
       echo "</pre>";
       die;*/
-      return view('vehicle.index', compact('vehicles','inactive','active','online','offline','assigned','notassigned'));
+      return view('vehicle.index', compact('vehicles','inactive','active','online','offline','assigned','notassigned','sort'));
     }
 
     public function index()

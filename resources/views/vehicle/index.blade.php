@@ -28,11 +28,11 @@
          <div class="form-group row">
           <label for="sort" class="col-sm-2 col-form-label"><span style="color:red"></span>Sort By</label>
           <div class="col-sm-4">
-             <select name="sort" id="sort" class="custom-select">
-                <option value="pending" selected="selected">Pending Payment</option>
-                <option value="offline" >Offline</option>
-                <option value="unassigned" >Unassigned</option>
-                <option value="inactive" >Inactive</option>
+             <select onchange="sort_vehicle()" name="sort_by" id="sort_by" class="custom-select">
+                <option {{ ($sort == "pending" ? "selected":"") }} value="pending" selected="selected">Pending Payment</option>
+                <option {{ ($sort == "offline" ? "selected":"") }} value="offline" >Offline</option>
+                <option {{ ($sort == "unassigned" ? "selected":"") }} value="unassigned" >Unassigned</option>
+                <option {{ ($sort == "inactive" ? "selected":"") }} value="inactive" >Inactive</option>
               </select>
           </div>
         </div>
@@ -201,75 +201,12 @@
 </div>
 @endsection
 @push('page_scripts')
-<script type="text/javascript" language="javascript" src="{{ asset('js/Chart.min.js') }}"></script>
 <script>
-  var pieData  = {
-    labels: [
-    'Online',
-    'Offline',
-    ],
-    datasets: [
-    {
-      data: [{{ $online }},{{ $offline }}],
-      backgroundColor : ['#4CAF50', '#1976D2'],
-    }
-    ]
-  }  
-  var pieData2  = {
-    labels: [
-    'Assigned',
-    'Not Assigned',
-    ],
-    datasets: [
-    {
-      data: [{{ $assigned }},{{ $notassigned }}],
-      backgroundColor : ['#4CAF50', '#1976D2'],
-    }
-    ]
-  }  
-
-  var pieData3  = {
-    labels: [
-    'Active',
-    'Not Active',
-    ],
-    datasets: [
-    {
-      data: [{{ $active }},{{ $inactive }}],
-      backgroundColor : ['#4CAF50', '#1976D2'],
-    }
-    ]
-  }  
-  var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
-  var pieChartCanvas2 = $('#pieChart2').get(0).getContext('2d')
-  var pieChartCanvas3 = $('#pieChart3').get(0).getContext('2d')
-  var pieOptions     = {
-    maintainAspectRatio : false,
-    responsive : true,
-  }
-  new Chart(pieChartCanvas, {
-    type: 'pie',
-    data: pieData,
-    options: pieOptions
-  })
-
-  new Chart(pieChartCanvas2, {
-    type: 'pie',
-    data: pieData2,
-    options: pieOptions
-  })
-
-  new Chart(pieChartCanvas3, {
-    type: 'pie',
-    data: pieData3,
-    options: pieOptions
-  })
-
   var allvehicle = "{{ url('allvehicle') }}";
-  function vehicle_activity(sort){
-    var sort = $("#sort").val();
-      var url =  allvehicle + "/"  +sort;  
-      window.location.href = url;
-    }   
+  function sort_vehicle(){
+    var sort_by = $("#sort_by").val();
+    var url =  allvehicle + "/" + sort_by;  
+    window.location.href = url;
+  } 
 </script>
 @endpush
