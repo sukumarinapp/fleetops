@@ -24,7 +24,7 @@
         <div class="col-md-2">
           <label>Fleet Manager</label>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-8">
          <div class="form-group row">
           <label for="sort" class="col-sm-2 col-form-label"><span style="color:red"></span>Sort By</label>
           <div class="col-sm-4">
@@ -37,8 +37,8 @@
           </div>
         </div>
       </div>
-       <div class="col-md-4">
-         <a href="{{ route('vehicle.create') }}" class="btn btn-secondary float-right"><i class="nav-icon fas fa-plus"></i>&nbsp; Add Vehicle</a>
+       <div class="col-md-2">
+         <a href="{{ route('vehicle.create') }}" class="btn btn-secondary"><i class="nav-icon fas fa-plus"></i>&nbsp; Add Vehicle</a>
        </div>
     </div>
        </div>
