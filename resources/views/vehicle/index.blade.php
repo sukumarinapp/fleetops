@@ -20,8 +20,27 @@
       </div>
       <div class="card card-info">
        <div class="card-header">
-         <h3 class="card-title">Fleet Manager</h3>
+              <div class="row">
+        <div class="col-md-2">
+          <label>Fleet Manager</label>
+        </div>
+        <div class="col-md-6">
+         <div class="form-group row">
+          <label for="sort" class="col-sm-2 col-form-label"><span style="color:red"></span>Sort By</label>
+          <div class="col-sm-4">
+             <select name="sort" id="sort" class="custom-select">
+                <option value="pending" selected="selected">Pending Payment</option>
+                <option value="offline" >Offline</option>
+                <option value="unassigned" >Unassigned</option>
+                <option value="inactive" >Inactive</option>
+              </select>
+          </div>
+        </div>
+      </div>
+       <div class="col-md-4">
          <a href="{{ route('vehicle.create') }}" class="btn btn-secondary float-right"><i class="nav-icon fas fa-plus"></i>&nbsp; Add Vehicle</a>
+       </div>
+    </div>
        </div>
        <div style="overflow-x: auto;" class="card-body">
         @if(session()->has('error'))
@@ -246,5 +265,11 @@
     options: pieOptions
   })
 
+  var allvehicle = "{{ url('allvehicle') }}";
+  function vehicle_activity(sort){
+    var sort = $("#sort").val();
+      var url =  allvehicle + "/"  +sort;  
+      window.location.href = url;
+    }   
 </script>
 @endpush
