@@ -20,27 +20,8 @@
       </div>
       <div class="card card-info">
        <div class="card-header">
-              <div class="row">
-        <div class="col-md-2">
-          <label>Fleet Manager</label>
-        </div>
-        <div class="col-md-8">
-         <div class="form-group row">
-          <label for="sort" class="col-sm-2 col-form-label"><span style="color:red"></span>Sort By</label>
-          <div class="col-sm-4">
-             <select onchange="sort_vehicle()" name="sort_by" id="sort_by" class="custom-select">
-                <option @if($sort_by == 1) selected @endif value="1" >Payment Pending</option>
-                <option @if($sort_by == 2) selected @endif value="2" >Offline</option>
-                <option @if($sort_by == 3) selected @endif value="3" >Unassigned</option>
-                <option @if($sort_by == 4) selected @endif value="4" >Inactive</option>
-              </select>
-          </div>
-        </div>
-      </div>
-       <div class="col-md-2">
-         <a href="{{ route('vehicle.create') }}" class="btn btn-secondary"><i class="nav-icon fas fa-plus"></i>&nbsp; Add Vehicle</a>
-       </div>
-    </div>
+          <h3 class="card-title">Fleet Manager</h3>
+         <a href="{{ route('vehicle.create') }}" class="btn btn-secondary float-right"><i class="nav-icon fas fa-plus"></i>&nbsp; Add Vehicle</a>
        </div>
        <div style="overflow-x: auto;" class="card-body">
         @if(session()->has('error'))
@@ -56,6 +37,7 @@
         </div>
         @endif
         <div class="card-body" style="overflow-x: auto;" >
+
          <div class="row">
        <div class="col-md-4">
             <!-- small box -->
@@ -95,7 +77,17 @@
               
             </div>
           </div>
-    </div>
+        </div>
+                          <div class="form-group row">
+          <label for="sort" class="col-sm-2 col-form-label"><span style="color:red"></span>Sort By</label>
+          <div class="col-sm-3">
+             <select onchange="sort_vehicle()" name="sort_by" id="sort_by" class="custom-select">
+                <option @if($sort_by == 1) selected @endif value="1" >Payment Pending</option>
+                <option @if($sort_by == 2) selected @endif value="2" >Offline</option>
+                <option @if($sort_by == 3) selected @endif value="3" >Unassigned</option>
+                <option @if($sort_by == 4) selected @endif value="4" >Inactive</option>
+              </select>
+          </div>
         </div>
         <table data-ordering="false" id="example1" class="display table table-bordered" cellspacing="0" width="100%">
           <thead>
@@ -193,6 +185,7 @@
         @endforeach
       </tbody>
     </table>
+    </div>
   </div>
 </div>
 </div>
