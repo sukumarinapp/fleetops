@@ -35,12 +35,12 @@ class VehicleController extends Controller
         }
     }
 
-    public function allvehicle($sort)
+    public function allvehicle($sort_by)
     {
-        /*$sort = "pending";
-        $sort = "unassigned";
-        $sort = "inactive";
-        $sort = "offline";*/
+        /*$sort_by = "pending";
+        $sort_by = "unassigned";
+        $sort_by = "inactive";
+        $sort_by = "offline";*/
         $this->check_access("BPC");
         $today = date("Y-m-d");
         $sql = "SELECT a.*,b.id as did,b.DNM,b.DSN,b.VBM,c.name FROM vehicle a LEFT JOIN driver b ON a.driver_id = b.id INNER JOIN users c ON a.CAN = c.UAN";
@@ -107,22 +107,22 @@ class VehicleController extends Controller
           }
 
       } 
-      if($sort == "unassigned"){
+      if($sort_by == "unassigned"){
           usort($vehicles, function($a, $b) {
             return strcmp($a->status, $b->status);
           });
       }
-      if($sort == "inactive"){
+      if($sort_by == "inactive"){
           usort($vehicles, function($a, $b) {
             return strcmp($a->VTV, $b->VTV);
           });
       }
-      if($sort == "offline"){
+      if($sort_by == "offline"){
           usort($vehicles, function($a, $b) {
             return strcmp($b->offline, $a->offline);
           });
       }
-      if($sort == "pending"){
+      if($sort_by == "pending"){
           usort($vehicles, function($a, $b) {
             return strcmp($a->DECL, $b->DECL);
           });
@@ -131,7 +131,7 @@ class VehicleController extends Controller
       print_r($vehicles);
       echo "</pre>";
       die;*/
-      return view('vehicle.index', compact('vehicles','inactive','active','online','offline','assigned','notassigned','sort'));
+      return view('vehicle.index', compact('vehicles','inactive','active','online','offline','assigned','notassigned','sort_by'));
     }
 
     public function index()
