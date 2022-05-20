@@ -107,22 +107,22 @@ class VehicleController extends Controller
           }
 
       } 
-      if($sort_by == "unassigned"){
+      if($sort_by == "3"){
           usort($vehicles, function($a, $b) {
             return strcmp($a->status, $b->status);
           });
       }
-      if($sort_by == "inactive"){
+      if($sort_by == "4"){
           usort($vehicles, function($a, $b) {
             return strcmp($a->VTV, $b->VTV);
           });
       }
-      if($sort_by == "offline"){
+      if($sort_by == "2"){
           usort($vehicles, function($a, $b) {
             return strcmp($b->offline, $a->offline);
           });
       }
-      if($sort_by == "pending"){
+      if($sort_by == "1"){
           usort($vehicles, function($a, $b) {
             return strcmp($a->DECL, $b->DECL);
           });

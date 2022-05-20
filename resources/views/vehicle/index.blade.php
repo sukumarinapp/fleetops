@@ -29,10 +29,10 @@
           <label for="sort" class="col-sm-2 col-form-label"><span style="color:red"></span>Sort By</label>
           <div class="col-sm-4">
              <select onchange="sort_vehicle()" name="sort_by" id="sort_by" class="custom-select">
-                <option @if($sort_by == 'pending') selected @endif value="pending" >Pending</option>
-                <option @if($sort_by == 'offline') selected @endif value="offline" >Offline</option>
-                <option @if($sort_by == 'unassigned') selected @endif value="unassigned" >Unassigned</option>
-                <option @if($sort_by == 'inactive') selected @endif value="inactive" >Inactive</option>
+                <option @if($sort_by == 1) selected @endif value="1" >Payment Pending</option>
+                <option @if($sort_by == 2) selected @endif value="2" >Offline</option>
+                <option @if($sort_by == 3) selected @endif value="3" >Unassigned</option>
+                <option @if($sort_by == 4) selected @endif value="4" >Inactive</option>
               </select>
           </div>
         </div>
@@ -200,6 +200,7 @@
 </div>
 </div>
 @endsection
+
 @push('page_scripts')
 <script>
   var allvehicle = "{{ url('allvehicle') }}";
@@ -209,4 +210,5 @@
     window.location.href = url;
   } 
 </script>
+
 @endpush
