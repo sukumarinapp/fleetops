@@ -123,16 +123,10 @@ class VehicleController extends Controller
           });
       }
       if($sort_by == "1"){
-        echo "pending";
           usort($vehicles, function($a, $b) {
             return strcmp($a->DECL, $b->DECL);
           });
       }
-      /*echo $sort_by."<br>";
-      echo "<pre>";
-      print_r($vehicles);
-      echo "</pre>";
-      die;*/
       return view('vehicle.index', compact('vehicles','inactive','active','online','offline','assigned','notassigned','sort_by'));
     }
 
