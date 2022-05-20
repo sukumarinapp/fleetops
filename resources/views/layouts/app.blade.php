@@ -121,7 +121,7 @@
 
 
                   @if(Auth::user()->usertype == "Admin" || Auth::user()->BPC == true || Auth::user()->BPF == true)
-                  <li><a href="{{ route('vehicle.index') }}" class="dropdown-item {{ (request()->segment(1) == 'vehicle' || request()->segment(1) == 'assignvehicle' || request()->segment(1) == 'removevehicle') ? 'active' : '' }}" class="dropdown-item">Fleet Manager</a></li>
+                  <li><a href="{{ url('allvehicle') }}/pending" class="dropdown-item {{ (request()->segment(1) == 'allvehicle' || request()->segment(1) == 'vehicle' || request()->segment(1) == 'assignvehicle' || request()->segment(1) == 'removevehicle') ? 'active' : '' }}" class="dropdown-item">Fleet Manager</a></li>
                   @endif
 
                   @if(Auth::user()->usertype == "Admin" || Auth::user()->BPF == true)

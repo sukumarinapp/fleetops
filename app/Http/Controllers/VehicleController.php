@@ -35,13 +35,16 @@ class VehicleController extends Controller
         }
     }
 
-    public function index()
+    public function allvehicle($sort)
     {
+        /*$sort = "pending";
+        $sort = "unassigned";
+        $sort = "inactive";
+        $sort = "offline";*/
         $this->check_access("BPC");
         $today = date("Y-m-d");
         $sql = "SELECT a.*,b.id as did,b.DNM,b.DSN,b.VBM,c.name FROM vehicle a LEFT JOIN driver b ON a.driver_id = b.id INNER JOIN users c ON a.CAN = c.UAN";
         $vehicles = DB::select(DB::raw($sql));
-        
         foreach($vehicles as $vehicle){
             $TID = $vehicle->TID;
             $VNO = $vehicle->VNO;
@@ -104,7 +107,105 @@ class VehicleController extends Controller
           }
 
       } 
-        //dd($vehicles);
+      if($sort == "unassigned"){
+          usort($vehicles, function($a, $b) {
+            return strcmp($a->status, $b->status);
+          });
+      }
+      if($sort == "inactive"){
+          usort($vehicles, function($a, $b) {
+            return strcmp($a->VTV, $b->VTV);
+          });
+      }
+      if($sort == "offline"){
+          usort($vehicles, function($a, $b) {
+            return strcmp($a->VTV, $b->VTV);
+          });
+      }
+      if($sort == "pending"){
+          usort($vehicles, function($a, $b) {
+            return strcmp($a->DECL, $b->DECL);
+          });
+      }
+      /*echo "<pre>";
+      print_r($vehicles);
+      echo "</pre>";
+      die;*/
+      return view('vehicle.index', compact('vehicles','inactive','active','online','offline','assigned','notassigned'));
+    }
+
+    public function index()
+    {
+        $sort = "pending";
+        $sort = "unassigned";
+        $sort = "inactive";
+        $sort = "offline";
+        $this->check_access("BPC");
+        $today = date("Y-m-d");
+        $sql = "SELECT a.*,b.id as did,b.DNM,b.DSN,b.VBM,c.name FROM vehicle a LEFT JOIN driver b ON a.driver_id = b.id INNER JOIN users c ON a.CAN = c.UAN";
+        $vehicles = DB::select(DB::raw($sql));
+        foreach($vehicles as $vehicle){
+            $TID = $vehicle->TID;
+            $VNO = $vehicle->VNO;
+            $sql3 = "SELECT * from tracker_status where TID='$TID' and status=0";
+            $offline = DB::select(DB::raw($sql3));
+            if(count($offline) > 0){
+                $vehicle->offline  = 1;
+            }else{
+                $vehicle->offline  = 0;
+            }
+            $sql4 = "select VNO from tbl136 where DECL=0 and VNO='$VNO'";
+            $DECL = DB::select(DB::raw($sql4));
+            if(count($DECL) > 0){
+                $vehicle->DECL  = 0;
+            }else{
+                $vehicle->DECL  = 1;
+            }
+
+
+            $sql = " select count(*) as total from vehicle";
+            $result = DB::select(DB::raw($sql));
+            if(count($result) > 0){
+              $total = $result[0]->total;
+          }
+
+          $active = 0;
+          $inactive = 0;
+          $sql = "select count(VNO) as inactive from vehicle where VTV = 0";
+          $result = DB::select(DB::raw($sql));
+          if(count($result) > 0){
+              $inactive = $result[0]->inactive;
+          }
+
+          $sql = " select count(VNO) as active from vehicle where VTV = 1";
+          $result = DB::select(DB::raw($sql));
+          if(count($result) > 0){
+              $active = $result[0]->active;
+          }
+
+          $sql = " select count(*) as offline from tracker_status where status=0";
+          $result = DB::select(DB::raw($sql));
+          if(count($result) > 0){
+              $offline = $result[0]->offline;
+          }
+
+          $online = $total - $offline; 
+
+          $assigned = 0;
+          $notassigned = 0;
+          $sql = " select count(*) as assigned from vehicle where driver_id is not null";
+          $result = DB::select(DB::raw($sql));
+          if(count($result) > 0){
+              $assigned = $result[0]->assigned;
+          }
+
+          $sql = " select count(*) as notassigned from vehicle where driver_id is null";
+          $result = DB::select(DB::raw($sql));
+          if(count($result) > 0){
+              $notassigned = $result[0]->notassigned;
+          }
+
+      } 
       return view('vehicle.index', compact('vehicles','inactive','active','online','offline','assigned','notassigned'));
   }
 

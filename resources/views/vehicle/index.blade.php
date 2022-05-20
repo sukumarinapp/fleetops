@@ -103,9 +103,9 @@
               if($vehicle->VTV == 0){
                 echo "N/R";
               }elseif($vehicle->offline == 1){
-                echo "<span><img src='offline.jpg'></span>";
+                echo "<span><img src='/offline.jpg'></span>";
               }else{
-                echo "<span><img src='online.jpg'></span>";
+                echo "<span><img src='/online.jpg'></span>";
               }
             @endphp
             </td>
@@ -114,9 +114,9 @@
               if($vehicle->VTV == 0){
                 echo "N/R";
                 }elseif($vehicle->driver_id == NULL){
-                   echo "<span><img src='parked.jpg'></span>";
+                   echo "<span><img src='/parked.jpg'></span>";
                  }else{
-                  echo "<span><img src='assign.jpg'></span>";
+                  echo "<span><img src='/assign.jpg'></span>";
             }
                  @endphp
             </td>

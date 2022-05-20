@@ -31,6 +31,7 @@ Route::post('/checkemail','ManagerController@checkEmail')->name('checkemail');
 Route::post('/duplicateUserContact','ManagerController@duplicateUserContact')->name('duplicateUserContact');
 Route::resource('/client', 'ClientController');
 Route::resource('/vehicle', 'VehicleController');
+Route::get('/allvehicle/{sort}', 'VehicleController@allvehicle')->name('allvehicle');
 Route::get('/assignvehicle/{id}', 'VehicleController@assign')->name('assignvehicle');
 Route::post('/assigndriver','VehicleController@assigndriver')->name('assigndriver');
 
