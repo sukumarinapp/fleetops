@@ -123,7 +123,7 @@ class VehicleController extends Controller
           });
       }
       if($sort_by == "1"){
-        echo "pending";
+       /* echo "pending";*/
           usort($vehicles, function($a, $b) {
             return strcmp($a->DECL, $b->DECL);
           });
