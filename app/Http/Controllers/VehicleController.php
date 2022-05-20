@@ -485,7 +485,7 @@ public function update(Request $request, $id)
             DB::insert($sql);
         }
 
-        return redirect('/vehicle')->with('message', 'Vehicle Updated Successfully');
+        return redirect('/allvehicle/pending')->with('message', 'Vehicle Updated Successfully');
     }
 
 } 
