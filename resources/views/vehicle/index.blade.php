@@ -97,7 +97,7 @@
           </div>
     </div>
         </div>
-        <table data-ordering="false" id="example1" class="display table table-bordered" cellspacing="0" width="100%">
+        <table data-ordering="true" id="example1" class="display table table-bordered" cellspacing="0" width="100%">
           <thead>
             <tr>
               <th>CAN</th>
