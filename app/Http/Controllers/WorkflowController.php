@@ -155,7 +155,7 @@ class WorkflowController extends Controller
     public function sales($from,$to)
     {
         $this->check_access("BPJ2");
-        $title = 'Pending Sales (RT/HP)';
+        $title = 'Sales Invoices (RT/HP)';
         $sql="select a.VBM,b.*,c.DNM,c.DSN from tbl136 a,sales_rental b,driver c where a.id=b.DCR and a.driver_id=c.id and b.SDT >='$from' and b.SDT <='$to' and DECL=0 and a.id not in (select DCR from tbl137 where RST=1) order by b.SDT desc";
         $sales = DB::select(DB::raw($sql));
         $total_sale = 0;
@@ -217,7 +217,7 @@ class WorkflowController extends Controller
      public function telematicslog($from,$to)
     {
         $this->check_access("BPJ2");
-        $title = 'Daily Telematics Log';
+        $title = 'Telematics';
         $sql = "select c.DDT,c.CML,c.CHR,c.min_speed,c.max_speed,c.work_start,c.work_end,c.odometer,c.engine_idling,c.speeding,c.fuel_consumed,a.*,b.VBM,b.VPF,b.WDY,b.MDY,b.VPD,b.VAM from vehicle a,driver b,bgp1am c where a.VNO = c.VNO and c.DDT >= '$from' and c.DDT <= '$to' and a.driver_id=b.id";
         $vehicles = DB::select(DB::raw($sql));
         foreach($vehicles as $vehicle){
@@ -238,7 +238,7 @@ class WorkflowController extends Controller
     public function movementlog($from,$to,$VNO)
     {
         $this->check_access("BPJ2");
-        $title = 'Running Movement Report';
+        $title = 'Vehicle Activity';
         $sql = "select * from movement where SDT >= '$from' and SDT <= '$to' and VNO='$VNO' order by SDT,STM";
         $vehicles = DB::select(DB::raw($sql));
         return view('movementlog',compact('vehicles','title','from','to','VNO'));

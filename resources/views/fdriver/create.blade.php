@@ -221,7 +221,7 @@
 				</div>
 
               <div class="form-group row">
-							<button type="button" class="btn btn-outline-primary float-right" data-toggle="modal" data-target="#RH-Fuel"><i class="nav-icon fas fa-cog"></i>Business settings
+							<button type="button" class="btn btn-outline-primary float-right" data-toggle="modal" data-target="#RH-Fuel"><i class="nav-icon fas fa-cog"></i>Schedule Invoicing
 							</button>
 						</div>
 
@@ -229,7 +229,7 @@
 							<div class="modal-dialog modal-xl">
 								<div class="modal-content">
 									<div class="modal-header">
-										<h6 class="modal-title">Business settings</h6>
+										<h6 class="modal-title">Schedule Invoicing</h6>
 										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 											<span aria-hidden="true">&times;</span>
 										</button>
