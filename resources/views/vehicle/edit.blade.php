@@ -370,7 +370,7 @@ border-radius: 34px;
 						@if($workflow == 0)
 						<input id="save" required="required" class="btn btn-info" type="submit" name="submit" value="Update"/>
 						@endif
-						<a href="{{ route('vehicle.index') }}" class="btn btn-info">Back</a>
+						<a href="{{ url('allvehicle/1') }}" class="btn btn-info">Back</a>
 					</div>
 				</div>	
 

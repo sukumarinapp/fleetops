@@ -344,7 +344,7 @@ border-radius: 34px;
 				<div class="form-group row">
 					<div class="col-md-12 text-center">
 						<input id="save" required="required" class="btn btn-info"	type="submit" name="submit" value="Save"/>
-						<a href="{{ route('vehicle.index') }}" class="btn btn-info">Back</a>
+						<a href="{{ url('allvehicle/1') }}" class="btn btn-info">Back</a>
 					</div>
 				</div>	
 			</div>
