@@ -155,7 +155,7 @@ class WorkflowController extends Controller
     public function sales($from,$to)
     {
         $this->check_access("BPJ2");
-        $title = 'Pending Sales (RT/HP)';
+        $title = 'Sales Invoices (RT/HP)';
         $sql="select a.VBM,b.*,c.DNM,c.DSN from tbl136 a,sales_rental b,driver c where a.id=b.DCR and a.driver_id=c.id and b.SDT >='$from' and b.SDT <='$to' and DECL=0 and a.id not in (select DCR from tbl137 where RST=1) order by b.SDT desc";
         $sales = DB::select(DB::raw($sql));
         $total_sale = 0;
@@ -217,7 +217,7 @@ class WorkflowController extends Controller
      public function telematicslog($from,$to)
     {
         $this->check_access("BPJ2");
-        $title = 'Daily Telematics Log';
+        $title = 'Telematics';
         $sql = "select c.DDT,c.CML,c.CHR,c.min_speed,c.max_speed,c.work_start,c.work_end,c.odometer,c.engine_idling,c.speeding,c.fuel_consumed,a.*,b.VBM,b.VPF,b.WDY,b.MDY,b.VPD,b.VAM from vehicle a,driver b,bgp1am c where a.VNO = c.VNO and c.DDT >= '$from' and c.DDT <= '$to' and a.driver_id=b.id";
         $vehicles = DB::select(DB::raw($sql));
         foreach($vehicles as $vehicle){
@@ -238,7 +238,7 @@ class WorkflowController extends Controller
     public function movementlog($from,$to,$VNO)
     {
         $this->check_access("BPJ2");
-        $title = 'Running Movement Report';
+        $title = 'Vehicle Activity';
         $sql = "select * from movement where SDT >= '$from' and SDT <= '$to' and VNO='$VNO' order by SDT,STM";
         $vehicles = DB::select(DB::raw($sql));
         return view('movementlog',compact('vehicles','title','from','to','VNO'));
@@ -260,6 +260,7 @@ class WorkflowController extends Controller
         $this->check_access("BPJ2");
         $email = trim($request->UAN);
         $password = $request->password;
+        $TID = "";
         $CAN = $request->CAN;
         $WCI = $request->WCI;
         $VNO = $request->VNO;
@@ -269,13 +270,14 @@ class WorkflowController extends Controller
         $users = DB::select(DB::raw($sql));
         if(count($users) > 0){
             if (Hash::check($password, $users[0]->password)) {
-                $sql = "SELECT * FROM tbl136 where VNO='$VNO' and DECL = 0";
+                $sql = "SELECT a.*,b.TID FROM tbl136 a,vehicle b where a.VNO=b.VNO and a.VNO='$VNO' and DECL = 0";
                 $tbl136 = DB::select(DB::raw($sql));
                 $DCR = 0;
                 $DES = "";
                 $ODT = date("Y-m-d");
                 $WST = date("Y-m-d");
                 if(count($tbl136) > 0){
+                    $TID = $tbl136[0]->TID;
                     $DCR = $tbl136[0]->id;
                     $DES = $tbl136[0]->DES;
                     $WST = $tbl136[0]->DDT;
@@ -286,19 +288,47 @@ class WorkflowController extends Controller
 
                 $curr_date = date("Y-m-d");
                 $hour = date("H");
-                if(($hour >= 10 and $hour < 11 and $WST == $curr_date) || $WST < $curr_date){
+                /*if(($hour >= 10 and $hour < 11 and $WST == $curr_date) || $WST < $curr_date){
                     $sql = "update tbl136 set alarm_off = 1,alarm_off_attempts=0 where id = '$DCR'";
                     DB::update($sql);
                 }else{
                     $sql = "update tbl136 set alarm_off = 1,alarm_off_attempts=3 where id = '$DCR'";
                     DB::update($sql);
-                }
+                }*/
                 if(($hour >= 12  || $WST < $curr_date) && $DES == 'A4'){
                     $sql = "update tbl136 set DECL = 1,attempts=0 where id = '$DCR'";
                     DB::update($sql);
                 }else if($DES == 'A4'){
                     $sql = "update tbl136 set DECL = 1,attempts=3 where id = '$DCR'";
                     DB::update($sql);
+                }
+
+                $check_sql = "select * from tracker_command where DCR = '$DCR' and action='buzoff'";
+                $check_result = DB::select(DB::raw($check_sql));
+                if(count($check_result) == 0){
+                    $cmd_date = date("Y-m-d");
+                    $cmd_time = date("Y-m-d H:i:s");
+                    $action = "buzoff";
+                    $cmd_sql = "insert into tracker_command (terminal_id,cmd_date,cmd_time,action,DCR) values ('$TID','$cmd_date','$cmd_time','$action',$DCR)";
+                    DB::insert($cmd_sql);
+                }
+
+                $check_sql = "select * from tracker_command where DCR = $DCR and action='block'";
+                $check_result = DB::select(DB::raw($check_sql));
+                if(count($check_result) > 0){
+                    $check_status = $check_result[0]->status;
+                    $command_id = $check_result[0]->id;
+                    $terminal_id = $check_result[0]->terminal_id;
+                    if($check_status == 0){
+                        $cmd_sql = "update tracker_command set status =2 where id = $command_id";
+                         DB::update($cmd_sql);
+                    }elseif($check_status == 1){
+                        $cmd_date = date("Y-m-d");
+                        $cmd_time = date("Y-m-d H:i:s");
+                        $action = "unblock";
+                        $cmd_sql = "insert into tracker_command (terminal_id,cmd_date,cmd_time,action,DCR) values ('$terminal_id','$cmd_date','$cmd_time','$action',$DCR)";
+                         DB::insert($cmd_sql);
+                    }
                 }
 
                 if($DES == "A4"){
@@ -403,9 +433,13 @@ class WorkflowController extends Controller
         $DCR = 0;
         $DCN = "";
         $DNM = "";
-        $sql = "SELECT a.DDT,a.id,c.DNM,c.DSN,c.DCN from tbl136 a,vehicle b,driver c where a.VNO=b.VNO and b.driver_id=c.id and a.VNO ='$VNO' and DECL=0";
+        $DDT = "";
+        $TID = "";
+        $sql = "SELECT a.DDT,a.id,c.DNM,c.DSN,c.DCN,b.TID from tbl136 a,vehicle b,driver c where a.VNO=b.VNO and b.driver_id=c.id and a.VNO ='$VNO' and DECL=0";
         $result = DB::select(DB::raw($sql));
         if(count($result)>0){
+            $DDT = $result[0]->DDT;
+            $TID = $result[0]->TID;
             $DCR = $result[0]->id;
             $DCN = $result[0]->DCN;
             $DNM = $result[0]->DNM." ".$result[0]->DSN;
@@ -454,7 +488,35 @@ class WorkflowController extends Controller
                 DB::update($sql);
             }
 
+            $check_sql = "select * from tracker_command where DCR = '$DCR' and action='buzoff'";
+            $check_result = DB::select(DB::raw($check_sql));
+            if(count($check_result) == 0){
+                $cmd_date = date("Y-m-d");
+                $cmd_time = date("Y-m-d H:i:s");
+                $action = "buzoff";
+                $cmd_sql = "insert into tracker_command (terminal_id,cmd_date,cmd_time,action,DCR) values ('$TID','$cmd_date','$cmd_time','$action',$DCR)";
+                DB::insert($cmd_sql);
+            }
+
+            $check_sql = "select * from tracker_command where DCR = $DCR and action='block'";
+            $check_result = mysqli_query($conn, $check_sql);
+            while ($check_row = mysqli_fetch_assoc($check_result)) {
+                $check_status = $check_row['status'];
+                $command_id = $check_row['id'];
+                $terminal_id = $check_row['terminal_id'];
+                if($check_status == 0){
+                    $cmd_sql = "update tracker_command set status =2 where id = $command_id";
+                    mysqli_query($conn, $cmd_sql);
+                }elseif($status == 1){
+                    $cmd_date = date("Y-m-d");
+                    $cmd_time = date("Y-m-d H:i:s");
+                    $action = "unblock";
+                    $cmd_sql = "insert into tracker_command (terminal_id,cmd_date,cmd_time,action,DCR) values ('$terminal_id','$cmd_date','$cmd_time','$action',DCR)";
+                    mysqli_query($conn, $cmd_sql) or die(mysqli_error($conn));
+                }
+            }
         }
+        
         $DAT = date("Y-m-d");
         $TIM = date("H:i:s");
         $CTX = "Sales Audit";

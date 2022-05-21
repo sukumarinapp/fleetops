@@ -9,7 +9,7 @@
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
               <li class="breadcrumb-item">Sales</li>
-              <li class="breadcrumb-item">Pending Sales (RT/HP)</li>
+              <li class="breadcrumb-item">Sales Invoices (RT/HP)</li>
             </ol>
           </div>
         </div>
@@ -20,7 +20,7 @@
     <div class="card-header align-items-center">
       <div class="row">
         <div class="col-md-2">
-          <label>Pending Sales (RT/HP)</label>
+          <label>Sales Invoices (RT/HP)</label>
         </div>
         <div class="col-md-10">
          <form class="form-inline" >
@@ -48,7 +48,7 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h4>Total Pending</h4>
+                <h4>Total Invoiced</h4>
 
                 <h6>GHC {{ $total_sale }}</h6>
               </div>
@@ -62,7 +62,7 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h4>RT Pending</h4>
+                <h4>RT Invoiced</h4>
 
                 <h6>GHC {{ $rt_sale }}</h6>
               </div>
@@ -77,7 +77,7 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h4>HP Pending</h4>
+                <h4>HP Invoiced</h4>
 
                 <h6>GHC {{ $hp_sale }}</h6>
               </div>

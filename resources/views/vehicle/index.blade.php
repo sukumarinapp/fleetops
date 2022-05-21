@@ -78,9 +78,9 @@
             </div>
           </div>
         </div>
-                          <div class="form-group row">
-          <label for="sort" class="col-sm-2 col-form-label"><span style="color:red"></span>Sort By</label>
-          <div class="col-sm-3">
+          <div class="form-group row">
+          <label for="sort">Sort By</label>
+          <div class="col-sm-2">
              <select onchange="sort_vehicle()" name="sort_by" id="sort_by" class="custom-select">
                 <option @if($sort_by == 1) selected @endif value="1" >Payment Pending</option>
                 <option @if($sort_by == 2) selected @endif value="2" >Offline</option>
