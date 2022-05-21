@@ -8,7 +8,7 @@ use App\SMSFleetops;
 use Illuminate\Support\Facades\Hash;
 use App\Formulae;
 
-class WorkflowController extends Controller
+class WorkflowControllerNew extends Controller
 {
     public function __construct()
     {
