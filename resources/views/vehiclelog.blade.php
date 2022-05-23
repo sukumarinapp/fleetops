@@ -46,6 +46,7 @@
             <th>Action</th>
             <th>User</th>
             <th>Time</th>
+            <th>Report</th>
           </tr>
         </thead>
         <tbody>
@@ -57,6 +58,7 @@
            <td>{{ $log->ATN }}</td>
            <td>{{ $log->UAN }}</td>
            <td>{{ $log->TIM }}</td>
+           <td><a class="btn btn-secondary btn-xs" target="_blank" href="../../uploads/handover/{{ $log->handover_id }}.pdf"><i class="fa fa-car"></i></a></td>
          </tr>
          @endforeach
        </tbody>

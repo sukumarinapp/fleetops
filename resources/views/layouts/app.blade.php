@@ -164,7 +164,7 @@
             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
               <li><a href="{{ url('workflowlog') }}/{{ date('Y-m-d', strtotime('-6 days')) }}/{{ date('Y-m-d') }}" class="dropdown-item {{ (request()->segment(1) =='workflowlog') ? 'active' : '' }}" class="dropdown-item">Workflow Log </a></li>
 
-              <li><a href="{{ url('vehiclelog') }}/{{ date('Y-m-d', strtotime('-6 days')) }}/{{ date('Y-m-d') }}" class="dropdown-item {{ (request()->segment(1) == 'vehiclelog') ? 'active' : '' }}" class="dropdown-item">Vehicle Assign Log</a></li>
+              <li><a href="{{ url('vehiclelog') }}/{{ date('Y-m-d', strtotime('-6 days')) }}/{{ date('Y-m-d') }}" class="dropdown-item {{ (request()->segment(1) == 'vehiclelog') ? 'active' : '' }}" class="dropdown-item">Vehicle Collection Log</a></li>
 
               <li><a href="{{ url('notificationslog') }}/{{ date('Y-m-d', strtotime('-6 days')) }}/{{ date('Y-m-d') }}" class="dropdown-item {{ (request()->segment(1) == 'notificationslog') ? 'active' : '' }}" class="dropdown-item">Notifications Log</a></li>
 

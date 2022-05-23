@@ -132,10 +132,10 @@ class VehicleController extends Controller
 
     public function index()
     {
-        $sort = "pending";
-        $sort = "unassigned";
-        $sort = "inactive";
-        $sort = "offline";
+        $sort_by = "pending";
+        $sort_by = "unassigned";
+        $sort_by = "inactive";
+        $sort_by = "offline";
         $this->check_access("BPC");
         $today = date("Y-m-d");
         $sql = "SELECT a.*,b.id as did,b.DNM,b.DSN,b.VBM,c.name FROM vehicle a LEFT JOIN driver b ON a.driver_id = b.id INNER JOIN users c ON a.CAN = c.UAN";
@@ -313,7 +313,7 @@ public function store(Request $request)
         $vehicle->VID  =  $VID;
         $vehicle->VRD  =  $VRD;
         $vehicle->save();
-        return redirect('/vehicle')->with('message', 'Vehicle added Successfully');
+        return redirect('/allvehicle/1')->with('message', 'Vehicle added Successfully');
     }
 }
 
@@ -481,7 +481,7 @@ public function update(Request $request, $id)
             DB::insert($sql);
         }
 
-        return redirect('/allvehicle/pending')->with('message', 'Vehicle Updated Successfully');
+        return redirect('/allvehicle/1')->with('message', 'Vehicle Updated Successfully');
     }
 
 } 
@@ -501,7 +501,7 @@ public function destroy($id)
         DB::delete(DB::raw($sql));
         $sql = "delete from vehicle_service where VID = $id";
         DB::delete(DB::raw($sql));
-        return redirect('/vehicle')->with('message', 'Vehicle Deleted Successfully');
+        return redirect('/allvehicle/1')->with('message', 'Vehicle Deleted Successfully');
     }
 }
 
@@ -607,7 +607,7 @@ public function assigndriver(Request $request){
         $DCN = $result[0]->DCN;
     }
     self::send_sms($VID);
-    return redirect('/vehicle')->with('message', 'Driver Assigned Successfully');
+    return redirect('/allvehicle/1')->with('message', 'Driver Assigned Successfully');
 }
 
 
@@ -626,10 +626,10 @@ public function assign($id){
     $IEX = $vehicle->IEX;
     $REX = $vehicle->REX;
     if($IEX <= $today){
-        return redirect('/vehicle')->with('error', 'Vehicle insurance is expired');
+        return redirect('/allvehicle/1')->with('error', 'Vehicle insurance is expired');
     }
     if($REX <= $today){
-        return redirect('/vehicle')->with('error', 'Roadworthy certificate is expired');
+        return redirect('/allvehicle/1')->with('error', 'Roadworthy certificate is expired');
     }
     $sql = "SELECT id,DNO,DNM,DSN,DNO,DCN FROM driver where LEX >'$today' and CEX >'$today' and id not in (select driver_id from vehicle where driver_id<>'')";
     $drivers = DB::select(DB::raw($sql));
@@ -775,13 +775,13 @@ public function removedriver(Request $request){
         #$result = DB::select(DB::raw($sql));
         #return view('retrievalpdf', compact('result'));
 
-    //self::save_pdf($handover_id);
+    self::save_pdf($handover_id);
     $vehicle->driver_id = NULL;
     $vehicle->status  =  "";
     $vehicle->save();
     $sql = "delete from driver_upload where VNO = '$VNO' and driver_id = $DID and approved = 0";
     DB::delete(DB::raw($sql));
-    return redirect('/vehicle')->with('message', 'Driver Removed Successfully');
+    return redirect('/allvehicle/1')->with('message', 'Driver Removed Successfully');
 }
 
 private function save_pdf($handover_id){

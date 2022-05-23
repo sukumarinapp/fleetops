@@ -78,18 +78,20 @@
             </div>
           </div>
         </div>
+         <div class="row">
+          <div class="col-md-12">
           <div class="form-group row">
-             <label class="col-sm-9"></label>
+           <label class="col-sm-9" ></label>
           <label for="sort" class="col-sm-1 col-form-label" style="display: inline-block;font-weight: normal;">Sort by</label>
-          <div class="col-sm-2">
-             <select onchange="sort_vehicle()" name="sort_by" id="sort_by" class="custom-select">
+             <select onchange="sort_vehicle()" name="sort_by" id="sort_by" class="custom-select col-sm-2">
                 <option @if($sort_by == 1) selected @endif value="1" >Payment Pending</option>
                 <option @if($sort_by == 2) selected @endif value="2" >Offline</option>
                 <option @if($sort_by == 3) selected @endif value="3" >Unassigned</option>
                 <option @if($sort_by == 4) selected @endif value="4" >Inactive</option>
               </select>
-          </div>
         </div>
+      </div>
+      </div>
         <table data-ordering="true" id="example1" class="display table table-bordered" cellspacing="0" width="100%">
           <thead>
             <tr>

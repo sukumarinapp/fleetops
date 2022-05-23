@@ -75,7 +75,7 @@ class WorkflowController extends Controller
 
     public function vehiclelog($from,$to)
     {
-        $sql = "select a.*,b.DNM,b.DSN from vehicle_log a,driver b where LDT >= '$from' and LDT <='$to' and a.DID=b.id order by TIM desc";
+        $sql = "select a.*,b.DNM,b.DSN,d.handover_id from vehicle_log a,driver b,handover c,retrieval d where a.id=c.log_id and a.id=d.log_id and LDT >= '$from' and LDT <='$to' and a.DID=b.id order by TIM desc";
         $title = 'Vehicle Assign Log';
         $vehiclelog = DB::select(DB::raw($sql));
         return view('vehiclelog',compact('vehiclelog','title','from','to'));
