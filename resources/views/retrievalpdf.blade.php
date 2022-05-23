@@ -36,25 +36,21 @@
         <td>Registration(number plate)</td>
         <td>{{ $res->VNO }} </td>
         <td></td>
-        <td></td>
     </tr>
      
     <tr>
         <td>Chassis No</td>
         <td>{{ $res->chassis_no }} </td>
         <td></td>
-        <td></td>
     </tr> 
     <tr>
         <td>Insurance</td>
         <td>Expiry Date:{{ date("d-m-Y",strtotime($res->IEX)) }} </td>
         <td></td>
-        <td></td>
     </tr> 
     <tr>
         <td>Roadworthy Certificate</td>
         <td>Expiry Date:{{ date("d-m-Y",strtotime($res->REX)) }} </td>
-        <td></td>
         <td></td>
     </tr> 
     
@@ -62,12 +58,10 @@
         <td>Starting Mileage(handover)</td>
         <td>{{ $res->CF01 }} </td>
         <td></td>
-        <td></td>
     </tr> 
     <tr>
         <td>Ending Mileage(retrieval)</td>
         <td>{{ $res->RCF01 }} </td>
-        <td></td>
         <td></td>
     </tr>
     <tr>
