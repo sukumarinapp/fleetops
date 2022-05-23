@@ -75,9 +75,26 @@ class WorkflowController extends Controller
 
     public function vehiclelog($from,$to)
     {
-        $sql = "select a.*,b.DNM,b.DSN,d.handover_id from vehicle_log a,driver b,handover c,retrieval d where a.id=c.log_id and LDT >= '$from' and LDT <='$to' and a.DID=b.id order by TIM desc";
+        $sql = "select a.id,a.VNO,a.CAN,a.LDT,a.ATN,a.UAN,a.TIM,b.DNM,b.DSN from vehicle_log a,driver b where a.DID=b.id and LDT >= '$from' and LDT <='$to' order by TIM desc";
         $title = 'Vehicle Assign Log';
         $vehiclelog = DB::select(DB::raw($sql));
+        foreach($vehiclelog as $v){
+            $log_id = $v->id;
+            $v->handover_id = 0;
+            if($v->ATN == "Assign Vehicle"){
+                $sql2 = "select id from handover where log_id = $log_id";
+                $result = DB::select(DB::raw($sql2));
+                if(count($result) > 0){
+                    $v->handover_id = $result[0]->id;
+                }
+            }else{
+                $sql2 = "select handover_id from retrieval where log_id = $log_id";
+                $result = DB::select(DB::raw($sql2));
+                if(count($result) > 0){
+                    $v->handover_id = $result[0]->handover_id;
+                }
+            } 
+        }
         return view('vehiclelog',compact('vehiclelog','title','from','to'));
     }
     public function rhreport($from,$to)

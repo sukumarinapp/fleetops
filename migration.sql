@@ -345,3 +345,11 @@ CREATE TABLE `tracker_command` (
 alter table tracker_command add DCR int(11) DEFAULT 0;
 -- payment , expiry
 alter table tracker_command add context varchar(20) DEFAULT 'payment';
+alter table current_location add command varchar(10) DEFAULT NULL;
+
+CREATE TABLE `incommand` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `cmd_time` datetime DEFAULT NULL,
+  `command` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
