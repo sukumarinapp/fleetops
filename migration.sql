@@ -355,3 +355,6 @@ CREATE TABLE `incommand` (
   `data` varchar(2000) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
+
+--24/05/2022
+alter table handover add accepted_date datetime DEFAULT NULL;

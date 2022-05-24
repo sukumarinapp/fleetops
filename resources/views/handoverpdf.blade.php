@@ -69,7 +69,7 @@
         <td>@if($res->CF02 == 1)
          <img  src="{{ public_path('check.jpg') }}">
          @else
-          <img src="{{ public_path("redmark.jpg") }}">
+          <img src="{{ public_path('redmark.jpg') }}">
           @endif</td>
         
     </tr> 
@@ -89,7 +89,7 @@
         <td>@if($res->CF04 == 1)
          <img  src="{{ public_path('check.jpg') }}">
          @else
-          <img src="{{ public_path("redmark.jpg") }}">
+          <img src="{{ public_path('redmark.jpg') }}">
           @endif</td>
     </tr> 
     <tr>
@@ -233,8 +233,14 @@
     </tr> 
    
    <tr>
-        <td>Acceptance Code</td>
+        <td>Contract Acceptance Code</td>
         <td>{{ $res->acceptance_code }} </td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td>Vehicle Hand-over date</td>
+        <td>{{ $res->accepted_date }} </td>
         <td></td>
     </tr> 
     <!-- <tr>

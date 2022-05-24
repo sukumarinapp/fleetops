@@ -7,6 +7,14 @@
     margin-left: auto;
     margin-right: auto;
 }
+.dataTables_filter{
+    text-align: right;
+  }
+  @media screen and (max-width: 767px)
+ {
+  #sort {
+    text-align: center;}
+  }
 </style>
 <div class="container-fluid">
 	<div class="row">
@@ -45,6 +53,17 @@
               <strong> {{ session('message') }} </strong>
           </div>
         @endif
+           <div class="row">
+          <div class="col-sm-12 col-md-9"></div>
+          <div class="col-sm-12 col-md-3">
+            <div id="sort" class="dataTables_filter"><label style="font-weight: normal;">View Logs:
+            <select onchange="sort_vehicle()" style="margin-left: 0.5em;display: inline-block;width: 180px;" name="sort_by" id="sort_by" class="custom-select">
+                <option value="1" >Vehicle Collection Log</option>
+                <option value="2" >Notification Log</option>
+              </select>
+        </div>
+        </div>
+      </div>
 			<table id="example1" class="table table-bordered">
           <thead>
           <tr>
@@ -80,11 +99,6 @@
               
               <td style="white-space: nowrap">
                
-            @if($driver->status != "pending" && $driver->handover_id != 0)
-            <a class="btn btn-secondary btn-xs" target="_blank" href="../../uploads/handover/{{ $driver->handover_id }}.pdf"><i class="fa fa-car"></i></a>
-            @else
-            <button class="btn btn-secondary btn-xs disabled" ><i class="fa fa-car"></i></button>
-            @endif
                 @if($driver->photo != "")
                 <a href="#" data-toggle="modal" data-target="#photomodal_{{ $driver->id }}" class="btn btn-secondary btn-xs"><i class="fa fa-user"></i></a>
                 @else
@@ -155,3 +169,14 @@
 	</div>
 </div>
 @endsection
+@push('page_scripts')
+<script>
+  var notification = "{{ url('notificationslog') }}";
+  function sort_vehicle(){
+    var sort_by = $("#sort_by").val();
+    var url =  notificationslog + "/" + sort_by;  
+    window.location.href = url;
+  } 
+</script>
+
+@endpush

@@ -1,5 +1,16 @@
 @extends('layouts.app')
 @section('content')
+<style type="text/css">
+
+  .dataTables_filter{
+    text-align: right;
+  }
+  @media screen and (max-width: 767px)
+ {
+  #sort {
+    text-align: center;}
+  }
+</style>
 <div class="container-fluid">
 	<div class="row">
     <div class="col-md-12">
@@ -78,19 +89,20 @@
             </div>
           </div>
         </div>
-         <div class="row">
-          <div class="col-md-12">
-          <div class="form-group row">
-           <label class="col-sm-9" ></label>
-          <label for="sort" class="col-sm-1 col-form-label" style="display: inline-block;font-weight: normal;">Sort by</label>
-             <select onchange="sort_vehicle()" name="sort_by" id="sort_by" class="custom-select col-sm-2">
+
+
+        <div class="row">
+          <div class="col-sm-12 col-md-9"></div>
+          <div class="col-sm-12 col-md-3">
+            <div id="sort" class="dataTables_filter"><label style="font-weight: normal;">Sort by:
+            <select onchange="sort_vehicle()" style="margin-left: 0.5em;display: inline-block;width: 180px;" name="sort_by" id="sort_by" class="custom-select">
                 <option @if($sort_by == 1) selected @endif value="1" >Payment Pending</option>
                 <option @if($sort_by == 2) selected @endif value="2" >Offline</option>
                 <option @if($sort_by == 3) selected @endif value="3" >Unassigned</option>
                 <option @if($sort_by == 4) selected @endif value="4" >Inactive</option>
               </select>
         </div>
-      </div>
+        </div>
       </div>
         <table data-ordering="true" id="example1" class="display table table-bordered" cellspacing="0" width="100%">
           <thead>

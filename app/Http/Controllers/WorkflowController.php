@@ -980,7 +980,7 @@ class WorkflowController extends Controller
         DB::update($sql);
         $sql = "delete from handover where id=$id";
         DB::delete(DB::raw($sql));
-        return redirect('/vehicle')->with('message', 'Process Cancelled Successfully');
+        return redirect('/allvehicle/1')->with('message', 'Process Cancelled Successfully');
     }
 
     public function cancel_process($id){
