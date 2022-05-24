@@ -10,7 +10,6 @@
   #sort {
     text-align: center;}
   }
-}
 </style>
 <div class="container-fluid">
 	<div class="row">

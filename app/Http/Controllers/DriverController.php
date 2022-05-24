@@ -585,10 +585,11 @@ class DriverController extends Controller
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
             $handover_id = $result[0]->id;
+            $accepted_date = date("Y-m-d H:i:s");
             if($acceptance_code == $result[0]->acceptance_code){
                 $sql = "update vehicle set status='assigned' where VNO='$VNO'";
                 DB::update($sql);
-                $sql = "update handover set accepted=1 where id=$handover_id";
+                $sql = "update handover set accepted=1,accepted_date='$accepted_date' where id=$handover_id";
                 DB::update($sql);
                 self::save_pdf($handover_id);
                 return redirect('/tasks')->with('success', 'You have successfully accepted the contract');
