@@ -95,7 +95,7 @@
           <div class="col-sm-12 col-md-9"></div>
           <div class="col-sm-12 col-md-3">
             <div id="sort" class="dataTables_filter"><label style="font-weight: normal;">Sort by:
-            <select onchange="sort_vehicle()" style="margin-left: 0.5em;display: inline-block;width: auto;" name="sort_by" id="sort_by" class="custom-select">
+            <select onchange="sort_vehicle()" style="margin-left: 0.5em;display: inline-block;width: 180px;" name="sort_by" id="sort_by" class="custom-select">
                 <option @if($sort_by == 1) selected @endif value="1" >Payment Pending</option>
                 <option @if($sort_by == 2) selected @endif value="2" >Offline</option>
                 <option @if($sort_by == 3) selected @endif value="3" >Unassigned</option>
@@ -104,7 +104,6 @@
         </div>
         </div>
       </div>
-    </div>
         <table data-ordering="true" id="example1" class="display table table-bordered" cellspacing="0" width="100%">
           <thead>
             <tr>
