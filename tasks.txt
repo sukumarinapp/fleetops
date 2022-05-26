@@ -1,4 +1,6 @@
 New Alerts (Process Integration)
-Driver Earning/Bonuses
-CCEI Formula Selection – Normal/Driver Promo Mode
-Fueler Calculation
+Two Communication Blocking / Unblocking
+
+Cash Declaration Sequence Modification
+Cash-at-hand Report
+Pending Payments (Process Modification)

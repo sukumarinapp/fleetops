@@ -350,7 +350,9 @@ alter table current_location add command varchar(10) DEFAULT NULL;
 CREATE TABLE `incommand` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `cmd_time` datetime DEFAULT NULL,
+  `terminal_id` varchar(20) DEFAULT NULL,
   `command` varchar(20) DEFAULT NULL,
+  `data` varchar(2000) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 
