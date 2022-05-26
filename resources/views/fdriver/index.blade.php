@@ -57,9 +57,11 @@
           <div class="col-sm-12 col-md-9"></div>
           <div class="col-sm-12 col-md-3">
             <div class="dataTables_filter"><label style="font-weight: normal;">View Logs:
-            <select onchange="window.location = this.options[this.selectedIndex].value" style="margin-left: 0.5em;display: inline-block;width: 180px;" id="log" class="custom-select">
-                <option value="{{ url('/vehiclelog/{from}/{to}') }}" >Vehicle Collection Log</option>
-                <option value="{{ url('/notificationslog/{from}/{to}') }}" >Notification Log</option>
+            <select onchange="load_report()" style="margin-left: 0.5em;display: inline-block;width: 180px;" id="viewlog" class="custom-select">
+                <option value="0" >Select Report</option>
+                <option value="1" >Vehicle Collection Log</option>
+                <option value="2" >Notification Log</option>
+              </select>
               </select>
         </div>
         </div>
@@ -169,3 +171,21 @@
 	</div>
 </div>
 @endsection
+
+@push('page_scripts')
+<script>
+  var vehiclelog = "{{ url('vehiclelog') }}";
+  var notificationslog = "{{ url('notificationslog') }}";
+  var from = "{{ date('Y-m-d', strtotime('-6 days')) }}";
+  var to = "{{ date('Y-m-d') }}";
+  function load_report(){
+    var viewlog = $("#viewlog").val();
+    if(viewlog == 1){
+      var url =  vehiclelog + "/" + from + "/" + to;
+    }else if(viewlog == 2){
+      var url =  notificationslog + "/" + from + "/" + to;
+    }
+    window.location.href = url;
+  }
+</script>
+@endpush
