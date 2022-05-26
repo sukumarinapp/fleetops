@@ -56,10 +56,10 @@
            <div class="row">
           <div class="col-sm-12 col-md-9"></div>
           <div class="col-sm-12 col-md-3">
-            <div id="sort" class="dataTables_filter"><label style="font-weight: normal;">View Logs:
-            <select onchange="sort_vehicle()" style="margin-left: 0.5em;display: inline-block;width: 180px;" name="sort_by" id="sort_by" class="custom-select">
-                <option value="1" >Vehicle Collection Log</option>
-                <option value="2" >Notification Log</option>
+            <div class="dataTables_filter"><label style="font-weight: normal;">View Logs:
+            <select onchange="window.location = this.options[this.selectedIndex].value" style="margin-left: 0.5em;display: inline-block;width: 180px;" id="log" class="custom-select">
+                <option value="{{ url('/vehiclelog/{from}/{to}') }}" >Vehicle Collection Log</option>
+                <option value="{{ url('/notificationslog/{from}/{to}') }}" >Notification Log</option>
               </select>
         </div>
         </div>
@@ -169,14 +169,3 @@
 	</div>
 </div>
 @endsection
-@push('page_scripts')
-<script>
-  var notification = "{{ url('notificationslog') }}";
-  function sort_vehicle(){
-    var sort_by = $("#sort_by").val();
-    var url =  notificationslog + "/" + sort_by;  
-    window.location.href = url;
-  } 
-</script>
-
-@endpush
