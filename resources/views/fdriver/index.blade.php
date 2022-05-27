@@ -56,9 +56,9 @@
            <div class="row">
           <div class="col-sm-12 col-md-9"></div>
           <div class="col-sm-12 col-md-3">
-            <div class="dataTables_filter"><label style="font-weight: normal;">View Logs:
+            <div class="dataTables_filter"><label style="font-weight: normal;">Views:
             <select onchange="load_report()" style="margin-left: 0.5em;display: inline-block;width: 180px;" id="viewlog" class="custom-select">
-                <option value="0" >Select Report</option>
+                <option value="0" >Driver Information</option>
                 <option value="1" >Vehicle Collection Log</option>
                 <option value="2" >Notification Log</option>
               </select>
