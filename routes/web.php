@@ -113,11 +113,11 @@ Route::get('/driverhelpprev2/{VNO}/{DCN}', 'DriverController@driverhelpprev2')->
 Route::get('/driverhelpprev3/{VNO}/{DCN}', 'DriverController@driverhelpprev3')->name('driverhelpprev3');
 
 Route::get('/workflow', 'WorkflowController@index')->name('workflow');
-Route::get('/vehiclelog/{from}/{to}', 'WorkflowController@vehiclelog')->name('vehiclelog');
+Route::get('/vehiclelog/{from}/{to}/{ref}', 'WorkflowController@vehiclelog')->name('vehiclelog');
 Route::get('/rhreport/{from}/{to}', 'WorkflowController@rhreport')->name('rhreport');
 Route::get('/sales/{from}/{to}', 'WorkflowController@sales')->name('sales');
 Route::get('/collection/{from}/{to}', 'WorkflowController@collection')->name('collection');
-Route::get('/notificationslog/{from}/{to}', 'WorkflowController@notificationslog')->name('notificationslog');
+Route::get('/notificationslog/{from}/{to}/{ref}', 'WorkflowController@notificationslog')->name('notificationslog');
 Route::get('/telematicslog/{from}/{to}', 'WorkflowController@telematicslog')->name('telematicslog');
 Route::get('/movementlog/{from}/{to}/{VNO}', 'WorkflowController@movementlog')->name('movementlog');
 Route::get('/alertlog/{from}/{to}', 'HomeController@alertlog')->name('alertlog');

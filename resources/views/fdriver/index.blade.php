@@ -178,12 +178,13 @@
   var notificationslog = "{{ url('notificationslog') }}";
   var from = "{{ date('Y-m-d', strtotime('-6 days')) }}";
   var to = "{{ date('Y-m-d') }}";
+  var ref = "1";
   function load_report(){
     var viewlog = $("#viewlog").val();
     if(viewlog == 1){
-      var url =  vehiclelog + "/" + from + "/" + to;
+      var url =  vehiclelog + "/" + from + "/" + to + "/" + ref;
     }else if(viewlog == 2){
-      var url =  notificationslog + "/" + from + "/" + to;
+      var url =  notificationslog + "/" + from + "/" + to + "/" + ref;
     }
     window.location.href = url;
   }

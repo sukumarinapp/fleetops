@@ -73,7 +73,7 @@ class WorkflowController extends Controller
         return view('workflowlog',compact('workflow','title','from','to'));
     }
 
-    public function vehiclelog($from,$to)
+    public function vehiclelog($from,$to,$ref)
     {
         $sql = "select a.id,a.VNO,a.CAN,a.LDT,a.ATN,a.UAN,a.TIM,b.DNM,b.DSN from vehicle_log a,driver b where a.DID=b.id and LDT >= '$from' and LDT <='$to' order by TIM desc";
         $title = 'Vehicle Assign Log';
@@ -95,7 +95,7 @@ class WorkflowController extends Controller
                 }
             } 
         }
-        return view('vehiclelog',compact('vehiclelog','title','from','to'));
+        return view('vehiclelog',compact('vehiclelog','title','from','to','ref'));
     }
     public function rhreport($from,$to)
     {
@@ -222,13 +222,13 @@ class WorkflowController extends Controller
         return view('collection',compact('sales','title','from','to','total_sale','rt_sale','rh_sale','hp_sale','rt_sold','rh_sold','hp_sold'));
     }
 
-    public function notificationslog($from,$to)
+    public function notificationslog($from,$to,$ref)
     {
         $this->check_access("BPJ2");
         $title = 'Notification Log';
         $sql = "select * from sms_log where DAT >='$from' and DAT <='$to' order by DAT desc";
         $logs = DB::select(DB::raw($sql));
-        return view('notificationslog',compact('logs','title','from','to'));
+        return view('notificationslog',compact('logs','title','from','to','ref'));
     }
 
      public function telematicslog($from,$to)

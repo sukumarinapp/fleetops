@@ -352,9 +352,14 @@ CREATE TABLE `incommand` (
   `cmd_time` datetime DEFAULT NULL,
   `terminal_id` varchar(20) DEFAULT NULL,
   `command` varchar(20) DEFAULT NULL,
+  `direction` varchar(10) DEFAULT NULL,
+  `state` varchar(10) DEFAULT NULL,
   `data` varchar(2000) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 
 --24/05/2022
 alter table handover add accepted_date datetime DEFAULT NULL;
+
+alter table current_location add state varchar(10) DEFAULT NULL;
+alter table current_location add ip varchar(50) DEFAULT NULL;
