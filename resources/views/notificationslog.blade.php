@@ -8,7 +8,11 @@
           <div class="col-sm-12">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+               @if($ref == 1)
+              <li class="breadcrumb-item"><a href="{{ route('fdriver.index') }}">Driver Manager</a></li>
+              @else
               <li class="breadcrumb-item"><a>Reports</a></li>
+              @endif
               <li class="breadcrumb-item">Notification Log</li>
             </ol>
           </div>
