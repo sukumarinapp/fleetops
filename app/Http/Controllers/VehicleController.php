@@ -64,7 +64,7 @@ class VehicleController extends Controller
             }
 
 
-            $sql = " select count(*) as total from vehicle";
+            $sql = " select count(*) as total from vehicle where VTV=1";
             $result = DB::select(DB::raw($sql));
             if(count($result) > 0){
               $total = $result[0]->total;
@@ -84,7 +84,7 @@ class VehicleController extends Controller
               $active = $result[0]->active;
           }
 
-          $sql = " select count(*) as offline from tracker_status where status=0";
+          $sql = " select count(*) as offline from tracker_status a,vehicle b where a.TID=b.TID and a.status=0 and b.VTV=1";
           $result = DB::select(DB::raw($sql));
           if(count($result) > 0){
               $offline = $result[0]->offline;
@@ -94,13 +94,13 @@ class VehicleController extends Controller
 
           $assigned = 0;
           $notassigned = 0;
-          $sql = " select count(*) as assigned from vehicle where driver_id is not null";
+          $sql = " select count(*) as assigned from vehicle where VTV=1 and driver_id is not null";
           $result = DB::select(DB::raw($sql));
           if(count($result) > 0){
               $assigned = $result[0]->assigned;
           }
 
-          $sql = " select count(*) as notassigned from vehicle where driver_id is null";
+          $sql = " select count(*) as notassigned from vehicle where VTV=1 and driver_id is null";
           $result = DB::select(DB::raw($sql));
           if(count($result) > 0){
               $notassigned = $result[0]->notassigned;
