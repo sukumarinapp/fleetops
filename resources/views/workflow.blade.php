@@ -155,7 +155,11 @@
 		              	<td>Approval Pending</td>
 		              	@endif 
 	              	@elseif($insp->doc_type == "Contract")
-		              	<td><a class="btn btn-primary btn-xs" href="{{ url('renew') }}/{{ $insp->id }}">Resolve</a></td> 
+	              	@if($insp->file_name == "")
+		              	<td><a class="btn btn-primary btn-xs" href="{{ url('renew') }}/{{ $insp->id }}">Resolve</a></td>
+		              	@else
+		              	<td></td>
+		              	@endif 
 		              	@if($insp->file_name == "")
 		              	<td>Upload Contract</td>
 		              	@elseif($insp->status != "Process Cancelled")
