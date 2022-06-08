@@ -378,3 +378,8 @@ INSERT INTO `notification` (`id`, `sms_id`, `sms_text`) VALUES ('23', 'SMSSSC05'
 INSERT INTO `notification` (`id`, `sms_id`, `sms_text`) VALUES ('24', 'SMSSSD05', 'Hi #{DNM}#, your vehicle with registration no. #{VNO}# is due for maintenance. 3 reminders were sent earlier on. Contact the vehicle owner immediately and follow the process to carry out scheduled service. Thank you.\r\n');
 INSERT INTO `notification` (`id`, `sms_id`, `sms_text`) VALUES ('25', 'SMSISC06', 'Hi #{CZN}#, your vehicle with registration no. #{VNO}# is due for inspection. 3 reminders were sent to you earlier on. Please carry out the scheduled inspection. Thank you.\r\n');
 INSERT INTO `notification` (`id`, `sms_id`, `sms_text`) VALUES ('26', 'SMSISD06', 'Hi #{DNM}#, your vehicle with registration no. #{VNO}# is due for inspection. 3 reminders were sent earlier on. Contact the vehicle owner immediately and follow the process to carry out scheduled service. Thank you.\r\n');
+
+--08/-6/2022
+alter table vehicle add blk_status int(1) DEFAULT 0;
+alter table vehicle add buz_status int(1) DEFAULT 0;
+

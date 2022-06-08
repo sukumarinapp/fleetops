@@ -46,8 +46,6 @@ class VehicleController extends Controller
         $sql = "SELECT a.*,b.id as did,b.DNM,b.DSN,b.VBM,c.name FROM vehicle a LEFT JOIN driver b ON a.driver_id = b.id INNER JOIN users c ON a.CAN = c.UAN";
         $vehicles = DB::select(DB::raw($sql));
         foreach($vehicles as $vehicle){
-            $vehicle->blk_status = 0;
-            $vehicle->buz_status = 0;
             $TID = $vehicle->TID;
             $VNO = $vehicle->VNO;
             $sql3 = "SELECT * from tracker_status where TID='$TID' and status=0";
