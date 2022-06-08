@@ -110,6 +110,8 @@
               <th>CAN</th>
               <th>TS</th>
               <th>AS</th>
+              <th>BUZ</th>
+              <th>BLK</th>
               <th>Vehicle Reg#</th>
               <th>Description</th>
               <th style="width: 150px">Activity</th>
@@ -145,6 +147,26 @@
                   echo "<span><img src='/assign.jpg'></span>";
             }
                  @endphp
+            </td>
+
+            <td>
+              @php
+              if($vehicle->buz_status == 0){
+                  echo "<span><img src='/buz.jpg'></span>";
+                 }else{
+                  echo "<span><img src='/buz.jpg'></span>";
+               }
+              @endphp
+            </td>
+
+           <td>
+              @php
+              if($vehicle->blk_status == 0){
+                  echo "<span><img src='/blkon.jpg'></span>";
+                 }else{
+                  echo "<span><img src='/blkoff.jpg'></span>";
+               }
+              @endphp
             </td>
             <td>
             {{ $vehicle->VNO }} 
