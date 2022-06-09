@@ -151,17 +151,17 @@
 
             <td>
               @php
-              if($vehicle->buz_status == 0){
+              if($vehicle->buz_status == 1){
                   echo "<span><img src='/buz.jpg'></span>";
                  }else{
-                  echo "<span><img src='/buz.jpg'></span>";
+                  echo "<span>Off</span>";
                }
               @endphp
             </td>
 
            <td>
               @php
-              if($vehicle->blk_status == 0){
+              if($vehicle->blk_status == 1){
                   echo "<span><img src='/blkon.jpg'></span>";
                  }else{
                   echo "<span><img src='/blkoff.jpg'></span>";
