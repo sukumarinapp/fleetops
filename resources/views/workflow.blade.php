@@ -158,12 +158,12 @@
 	              	@if($insp->file_name == "")
 		              	<td><a class="btn btn-primary btn-xs" href="{{ url('renew') }}/{{ $insp->id }}">Resolve</a></td>
 		              	@else
-		              	<td></td>
+		              	<td><a class="btn btn-danger btn-xs" href="{{ url('cancel_process') }}/{{ $insp->id }}">Cancel Process</a></td>
 		              	@endif 
 		              	@if($insp->file_name == "")
 		              	<td>Upload Contract</td>
 		              	@elseif($insp->status != "Process Cancelled")
-		              	<td><a class="btn btn-danger btn-xs" href="{{ url('cancel_process') }}/{{ $insp->id }}">Cancel Process</a></td>
+		              	<td></td>
 		              	@endif
 	              	@endif
 	              	<td>{{ $insp->status }}</td>
