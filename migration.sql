@@ -382,4 +382,6 @@ INSERT INTO `notification` (`id`, `sms_id`, `sms_text`) VALUES ('26', 'SMSISD06'
 --08/-6/2022
 alter table vehicle add blk_status int(1) DEFAULT 0;
 alter table vehicle add buz_status int(1) DEFAULT 0;
+alter table vehicle add acc int(1) DEFAULT 0;
+alter table vehicle add fpm int(1) DEFAULT 0;
 
