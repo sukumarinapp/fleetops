@@ -152,9 +152,9 @@
             <td>
               @php
               if($vehicle->buz_status == 1){
-                  echo "<span><img src='/buz.jpg'></span>";
+                  echo "<span><img src='/buzon.png'></span>";
                  }else{
-                  echo "<span>Off</span>";
+                  echo "<span><img src='/buzoff.jpg'></span>";
                }
               @endphp
             </td>
