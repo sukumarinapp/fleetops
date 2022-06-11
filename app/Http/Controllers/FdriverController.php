@@ -33,7 +33,7 @@ class FdriverController extends Controller
         $drivers = DB::select(DB::raw($sql));
         foreach($drivers as $driver){
             $VNO = $driver->VNO;
-            $sql2 = "select photo,accepted from handover where VNO='$VNO'";
+            $sql2 = "select a.photo,a.accepted from handover a,vehicle b where a.VNO='$VNO' and a.id=b.handover_id and accepted=1";
             $result = DB::select(DB::raw($sql2));
             $driver->photo = "";
             $driver->accepted = 0;
