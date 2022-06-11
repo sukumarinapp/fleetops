@@ -108,10 +108,10 @@
           <thead>
             <tr>
               <th>CAN</th>
-              <th>TS</th>
-              <th>AS</th>
-              <th>BUZ</th>
-              <th>BLK</th>
+              <th class="text-right">TST</th>
+              <th class="text-right">ASG</th>
+              <th class="text-right">BUZ</th>
+              <th class="text-right">BLK</th>
               <th>Vehicle Reg#</th>
               <th>Description</th>
               <th style="width: 150px">Activity</th>
@@ -126,7 +126,7 @@
             @endif
             >
             <td>{{ $vehicle->CAN }}<br><small class="text-success">{{ $vehicle->name }}</small></td>
-            <td>
+            <td class="text-center">
                @php
               if($vehicle->VTV == 0){
                 echo "N/R";
@@ -137,7 +137,7 @@
               }
             @endphp
             </td>
-            <td>
+            <td class="text-center">
               @php
               if($vehicle->VTV == 0){
                 echo "N/R";
@@ -149,7 +149,7 @@
                  @endphp
             </td>
 
-            <td>
+            <td class="text-center">
               @php
               if($vehicle->buz_status == 1){
                   echo "<span><img src='/buzon.png'></span>";
@@ -159,7 +159,7 @@
               @endphp
             </td>
 
-           <td>
+           <td class="text-center">
               @php
               if($vehicle->WARNING == 0){
                 if($vehicle->blk_status == 1){
