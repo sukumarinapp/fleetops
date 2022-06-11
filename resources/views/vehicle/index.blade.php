@@ -115,7 +115,7 @@
               <th>Vehicle Reg#</th>
               <th>Description</th>
               <th style="width: 150px">Activity</th>
-              <th style="width: 150px">Action</th>
+              <th>Action</th>
             </tr>
           </thead> 
           <tbody>
