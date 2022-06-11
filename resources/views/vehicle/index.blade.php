@@ -161,11 +161,15 @@
 
            <td>
               @php
-              if($vehicle->blk_status == 1){
-                  echo "<span><img src='/blkon.jpg'></span>";
+              if($vehicle->WARNING == 0){
+                if($vehicle->blk_status == 1){
+                    echo "<span><img src='/blkon.jpg'></span>";
                  }else{
-                  echo "<span><img src='/blkoff.jpg'></span>";
-               }
+                    echo "<span><img src='/blkoff.jpg'></span>";
+                }
+              }else{
+                echo "<span><a href='#' onclick='show_modal(\"$vehicle->WARNING_MSG1\",\"$vehicle->WARNING_MSG2\")'><img src='/warning.png'></a></span>";
+              }
               @endphp
             </td>
             <td>
@@ -222,6 +226,25 @@
         @endforeach
       </tbody>
     </table>
+    <div class="modal fade" id="mymodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Warning</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h4 id="msg1" class="text-center"></h4>
+        <p id="msg2" class="text-center"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
     </div>
   </div>
 </div>
@@ -238,6 +261,11 @@
     var sort_by = $("#sort_by").val();
     var url =  allvehicle + "/" + sort_by;  
     window.location.href = url;
+  }
+  function show_modal(msg1,msg2){
+    $("#msg1").html(msg1);
+    $("#msg2").html(msg2);
+    $('#mymodal').modal('show'); 
   } 
 </script>
 

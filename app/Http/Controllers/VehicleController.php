@@ -35,12 +35,25 @@ class VehicleController extends Controller
         }
     }
 
+    private function pending_business_action($VNO){
+        $pending = 0;
+        $sql = "select * from tbl136 where VNO='$VNO' and DECL=0 and DES='A4'";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+            $pending = 1;
+        }
+
+        $sql = "select * from driver_upload where VNO='$VNO' and approved=0";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+            $pending = 1;
+        }
+        return $pending;
+    }
+
     public function allvehicle($sort_by)
     {
-        /*$sort_by = "pending";
-        $sort_by = "unassigned";
-        $sort_by = "inactive";
-        $sort_by = "offline";*/
+        $pba = 0;
         $this->check_access("BPC");
         $today = date("Y-m-d");
         $sql = "SELECT a.*,b.id as did,b.DNM,b.DSN,b.VBM,c.name FROM vehicle a LEFT JOIN driver b ON a.driver_id = b.id INNER JOIN users c ON a.CAN = c.UAN";
@@ -48,6 +61,10 @@ class VehicleController extends Controller
         foreach($vehicles as $vehicle){
             $TID = $vehicle->TID;
             $VNO = $vehicle->VNO;
+            $vehicle->WARNING = 0;
+            $vehicle->WARNING_MSG1 = "";
+            $vehicle->WARNING_MSG2 = "";
+            $vehicle->PBA = self::pending_business_action($VNO);
             $sql3 = "SELECT * from tracker_status where TID='$TID' and status=0";
             $offline = DB::select(DB::raw($sql3));
             if(count($offline) > 0){
@@ -55,6 +72,37 @@ class VehicleController extends Controller
             }else{
                 $vehicle->offline  = 0;
             }
+            if($vehicle->PBA == 1 && $vehicle->blk_status == 0){
+                $vehicle->WARNING = 1;
+                $vehicle->WARNING_MSG1 = "SYSTEM MALFUNCTION";
+                $vehicle->WARNING_MSG2 = "Immobilizer not activating (Check network connectivity)";
+            }else if($vehicle->PBA == 0 && $vehicle->blk_status == 1){
+                $vehicle->WARNING = 1;
+                $vehicle->WARNING_MSG1 = "SYSTEM MALFUNCTION";
+                $vehicle->WARNING_MSG2 = "Immobilizer not de-activating (Check network connectivity)";
+            }else{
+                if($vehicle->PBA == 1 && $vehicle->blk_status == 1 && $vehicle->acc == 1 && $vehicle->fpm == 1){
+                    $vehicle->WARNING = 1;
+                    $vehicle->WARNING_MSG1 = "BLOCKING FAILED WARNING";
+                    $vehicle->WARNING_MSG2 = "Check system for by-pass (Immobilizer)";
+                }
+                if($vehicle->PBA == 1 && $vehicle->blk_status == 1 && $vehicle->acc == 0 && $vehicle->fpm == 1){
+                    $vehicle->WARNING = 1;
+                    $vehicle->WARNING_MSG1 = "BLOCKING FAILED WARNING";
+                    $vehicle->WARNING_MSG2 = "Check system for by-pass (Fuel Pump)";
+                }
+                if($vehicle->PBA == 0 && $vehicle->blk_status == 0 && $vehicle->acc == 1 && $vehicle->fpm == 0){
+                    $vehicle->WARNING = 1;
+                    $vehicle->WARNING_MSG1 = "BATTERY FAILURE WARNING";
+                    $vehicle->WARNING_MSG2 = "Engine not running, ignition on";
+                }
+                if($vehicle->PBA == 0 && $vehicle->blk_status == 0 && $vehicle->acc == 0 && $vehicle->fpm == 1){
+                    $vehicle->WARNING = 1;
+                    $vehicle->WARNING_MSG1 = "SYSTEM MALFUNCTION";
+                    $vehicle->WARNING_MSG2 = "Check system for by-pass (Fuel Pump)";
+                }
+            }
+
             $sql4 = "select VNO from tbl136 where DECL=0 and VNO='$VNO'";
             $DECL = DB::select(DB::raw($sql4));
             if(count($DECL) > 0){
@@ -127,6 +175,7 @@ class VehicleController extends Controller
             return strcmp($a->DECL, $b->DECL);
           });
       }
+      #echo "<pre>";print_r($vehicles);echo "</pre>";die;
       return view('vehicle.index', compact('vehicles','inactive','active','online','offline','assigned','notassigned','sort_by'));
     }
 
