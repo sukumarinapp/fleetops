@@ -154,7 +154,7 @@
               if($vehicle->buz_status == 1){
                   echo "<span><img src='/buzon.png'></span>";
                  }else{
-                  echo "<span><img src='/buzoff.jpg'></span>";
+                  echo "<span><img src='/buzoff.png'></span>";
                }
               @endphp
             </td>
@@ -165,7 +165,7 @@
                 if($vehicle->blk_status == 1){
                     echo "<span><img src='/blkon.jpg'></span>";
                  }else{
-                    echo "<span><img src='/blkoff.jpg'></span>";
+                    echo "<span><img src='/blkoff.png'></span>";
                 }
               }else{
                 echo "<span><a href='#' onclick='show_modal(\"$vehicle->WARNING_MSG1\",\"$vehicle->WARNING_MSG2\")'><img src='/warning.png'></a></span>";
