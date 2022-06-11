@@ -43,7 +43,7 @@ class VehicleController extends Controller
             $pending = 1;
         }
 
-        $sql = "select * from driver_upload where VNO='$VNO' and approved=0";
+        $sql = "select * from driver_upload where VNO='$VNO' and approved=0 and doc_type in ('Licence', 'RdWCert', 'Insurance', 'Contract')";
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
             $pending = 1;
