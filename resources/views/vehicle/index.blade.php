@@ -151,13 +151,13 @@
 
             <td class="text-center">
               @php
-              if($vehicle->buz_status == 1 && $vehicle->offline == 0){
+              if($vehicle->buz_status == 1 && $vehicle->offline == 1){
                   echo "<span><img src='/buzon.png'></span>";
-                 }elseif($vehicle->buz_status == 1 && $vehicle->offline == 1){
-                  echo "<span><img src='/buzon.png'></span>";
-               }elseif($vehicle->buz_status == 0 && $vehicle->offline == 0){
-                  echo "<span><img src='/buzoff.png'></span>";
+                 }elseif($vehicle->buz_status == 1 && $vehicle->offline == 0){
+                  echo "<span><img src='/onlinebuzon.png'></span>";
                }elseif($vehicle->buz_status == 0 && $vehicle->offline == 1){
+                  echo "<span><img src='/onlinebuzoff.png'></span>";
+               }elseif($vehicle->buz_status == 0 && $vehicle->offline == 0){
                   echo "<span><img src='/buzoff.png'></span>";
                }
               @endphp
