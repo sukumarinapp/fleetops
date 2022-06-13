@@ -6,13 +6,13 @@
     text-align: right;
   }
   @media screen and (max-width: 767px)
- {
-  #sort {
-    text-align: center;}
-  }
-</style>
-<div class="container-fluid">
-	<div class="row">
+  {
+    #sort {
+      text-align: center;}
+    }
+  </style>
+  <div class="container-fluid">
+   <div class="row">
     <div class="col-md-12">
       <div class="content-header">
         <div class="container-fluid">
@@ -31,10 +31,10 @@
       </div>
       <div class="card card-info">
        <div class="card-header">
-          <h3 class="card-title">Fleet Manager</h3>
-         <a href="{{ route('vehicle.create') }}" class="btn btn-secondary float-right"><i class="nav-icon fas fa-plus"></i>&nbsp; Add Vehicle</a>
-       </div>
-       <div style="overflow-x: auto;" class="card-body">
+        <h3 class="card-title">Fleet Manager</h3>
+        <a href="{{ route('vehicle.create') }}" class="btn btn-secondary float-right"><i class="nav-icon fas fa-plus"></i>&nbsp; Add Vehicle</a>
+      </div>
+      <div style="overflow-x: auto;" class="card-body">
         @if(session()->has('error'))
         <div class="alert alert-danger alert-dismissable" style="margin: 15px;">
           <a href="#" style="color:white !important" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -50,7 +50,7 @@
         <div class="card-body" style="overflow-x: auto;" >
 
          <div class="row">
-       <div class="col-md-4">
+           <div class="col-md-4">
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
@@ -82,7 +82,7 @@
                 <h4>Inactive: {{ $inactive }}</h4>
                 <h6>Active: {{ $active }}</h6>
               </div>
-               <div class="icon">
+              <div class="icon">
                 <i class="fas fa-check"></i>
               </div>
               
@@ -95,15 +95,15 @@
           <div class="col-sm-12 col-md-9"></div>
           <div class="col-sm-12 col-md-3">
             <div id="sort" class="dataTables_filter"><label style="font-weight: normal;">Sort by:
-            <select onchange="sort_vehicle()" style="margin-left: 0.5em;display: inline-block;width: 180px;" name="sort_by" id="sort_by" class="custom-select">
+              <select onchange="sort_vehicle()" style="margin-left: 0.5em;display: inline-block;width: 180px;" name="sort_by" id="sort_by" class="custom-select">
                 <option @if($sort_by == 1) selected @endif value="1" >Payment Pending</option>
                 <option @if($sort_by == 2) selected @endif value="2" >Offline</option>
                 <option @if($sort_by == 3) selected @endif value="3" >Unassigned</option>
                 <option @if($sort_by == 4) selected @endif value="4" >Inactive</option>
               </select>
+            </div>
+          </div>
         </div>
-        </div>
-      </div>
         <table data-ordering="true" id="example1" class="display table table-bordered" cellspacing="0" width="100%">
           <thead>
             <tr>
@@ -127,56 +127,56 @@
             >
             <td>{{ $vehicle->CAN }}<br><small class="text-success">{{ $vehicle->name }}</small></td>
             <td class="text-center">
-               @php
-              if($vehicle->VTV == 0){
-                echo "N/R";
-              }elseif($vehicle->offline == 1){
-                echo "<span><img src='/offline.jpg'></span>";
-              }else{
-                echo "<span><img src='/online.jpg'></span>";
-              }
-            @endphp
-            </td>
-            <td class="text-center">
-              @php
-              if($vehicle->VTV == 0){
-                echo "N/R";
-                }elseif($vehicle->driver_id == NULL){
-                   echo "<span><img src='/parked.jpg'></span>";
-                 }else{
-                  echo "<span><img src='/assign.jpg'></span>";
+             @php
+             if($vehicle->VTV == 0){
+              echo "N/R";
+            }elseif($vehicle->offline == 1){
+              echo "<span><img src='/offline.jpg'></span>";
+            }else{
+              echo "<span><img src='/online.jpg'></span>";
             }
-                 @endphp
-            </td>
+            @endphp
+          </td>
+          <td class="text-center">
+            @php
+            if($vehicle->VTV == 0){
+              echo "N/R";
+            }elseif($vehicle->driver_id == NULL){
+              echo "<span><img src='/parked.jpg'></span>";
+            }else{
+              echo "<span><img src='/assign.jpg'></span>";
+            }
+            @endphp
+          </td>
 
-            <td class="text-center">
-              @php
-              if($vehicle->buz_status == 1 && $vehicle->offline == 1){
-                  echo "<span><img src='/buzon.png'></span>";
-                 }elseif($vehicle->buz_status == 1 && $vehicle->offline == 0){
-                  echo "<span><img src='/onlinebuzon.png'></span>";
-               }elseif($vehicle->buz_status == 0 && $vehicle->offline == 1){
-                  echo "<span><img src='/onlinebuzoff.png'></span>";
-               }elseif($vehicle->buz_status == 0 && $vehicle->offline == 0){
-                  echo "<span><img src='/buzoff.png'></span>";
-               }
-              @endphp
-            </td>
+          <td class="text-center">
+            @php
+            if($vehicle->buz_status == 1 && $vehicle->offline == 1){
+              echo "<span><img src='/buzon.png'></span>";
+            }elseif($vehicle->buz_status == 1 && $vehicle->offline == 0){
+              echo "<span><img src='/onlinebuzon.png'></span>";
+            }elseif($vehicle->buz_status == 0 && $vehicle->offline == 1){
+              echo "<span><img src='/onlinebuzoff.png'></span>";
+            }elseif($vehicle->buz_status == 0 && $vehicle->offline == 0){
+              echo "<span><img src='/buzoff.png'></span>";
+            }
+            @endphp
+          </td>
 
-           <td class="text-center">
-              @php
-              if($vehicle->WARNING == 0){
-                if($vehicle->blk_status == 1){
-                    echo "<span><img src='/blkon.jpg'></span>";
-                 }else{
-                    echo "<span><img src='/blkoff.png'></span>";
-                }
+          <td class="text-center">
+            @php
+            if($vehicle->WARNING == 0){
+              if($vehicle->blk_status == 1){
+                echo "<span><img src='/blkon.jpg'></span>";
               }else{
-                echo "<span><a href='#' onclick='show_modal(\"$vehicle->WARNING_MSG1\",\"$vehicle->WARNING_MSG2\")'><img src='/warning.png'></a></span>";
+                echo "<span><img src='/blkoff.png'></span>";
               }
-              @endphp
-            </td>
-            <td>
+            }else{
+              echo "<span><a href='#' onclick='show_modal(\"$vehicle->WARNING_MSG1\",\"$vehicle->WARNING_MSG2\")'><img src='/warning.png'></a></span>";
+            }
+            @endphp
+          </td>
+          <td>
             {{ $vehicle->VNO }} 
             @if($vehicle->DNM !="")
             <br><small class="text-success"><a href="{{ route('fdriver.edit',$vehicle->did) }}">{{ $vehicle->DNM }} 
@@ -184,8 +184,8 @@
               @endif
             </td>
             <td>{{ $vehicle->VMK }}&nbsp;{{ $vehicle->VMD }}&nbsp;{{ $vehicle->VCL }}</td>
-            
-            
+
+
           </td>
           <td style="white-space: nowrap">
             @if(Auth::user()->usertype == "Admin" || Auth::user()->BPF == true)
@@ -231,26 +231,26 @@
       </tbody>
     </table>
     <div class="modal fade" id="mymodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Warning</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <h4 id="msg1" class="text-center"></h4>
-        <p id="msg2" class="text-center"></p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Warning</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <h4 id="msg1" class="text-center"></h4>
+            <p id="msg2" class="text-center"></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
-    </div>
-  </div>
 </div>
 </div>
 </div>
