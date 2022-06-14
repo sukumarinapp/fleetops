@@ -175,9 +175,9 @@
             }elseif($vehicle->blk_status == 1 && $vehicle->offline == 0){
               echo "<span><img src='/onlineblkon.jpg'></span>";
             }elseif($vehicle->blk_status == 0 && $vehicle->offline == 1){
-              echo "<span><img src='/blkoff.png'></span>";
-            }elseif($vehicle->blk_status == 0 && $vehicle->offline == 0){
               echo "<span><img src='/onlineblkoff.png'></span>";
+            }elseif($vehicle->blk_status == 0 && $vehicle->offline == 0){
+              echo "<span><img src='/blkoff.png'></span>";
             }
             }else{
               echo "<span><a href='#' onclick='show_modal(\"$vehicle->WARNING_MSG1\",\"$vehicle->WARNING_MSG2\")'><img src='/warning.png'></a></span>";
