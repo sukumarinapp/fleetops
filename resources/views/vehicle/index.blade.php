@@ -141,10 +141,14 @@
             @php
             if($vehicle->VTV == 0){
               echo "N/R";
-            }elseif($vehicle->driver_id == NULL){
-              echo "<span><img src='/parked.jpg'></span>";
-            }else{
+            }elseif($vehicle->driver_id != NULL && $vehicle->offline == 1){
+              echo "<span><img src='/assignonline.jpg'></span>";
+            }elseif($vehicle->driver_id != NULL && $vehicle->offline == 0){
               echo "<span><img src='/assign.jpg'></span>";
+            }elseif($vehicle->driver_id == NULL && $vehicle->offline == 1){
+              echo "<span><img src='/parkedonline.jpg'></span>";
+            }elseif($vehicle->driver_id == NULL && $vehicle->offline == 0){
+              echo "<span><img src='/parked.jpg'></span>";
             }
             @endphp
           </td>
