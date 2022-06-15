@@ -35,18 +35,42 @@ class VehicleController extends Controller
         }
     }
 
-    private function pending_business_action($VNO){
+    private function pending_business_action($VNO,&$MSG3,&$MSG4,&$MSG5,&$MSG6,&$MSG7){
         $pending = 0;
+        
         $sql = "select * from tbl136 where VNO='$VNO' and DECL=0 and DES='A4'";
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
             $pending = 1;
+            $MSG3 = "Payment Pending";
         }
 
-        $sql = "select * from driver_upload where VNO='$VNO' and approved=0 and doc_type in ('Licence', 'RdWCert', 'Insurance', 'Contract')";
+        $sql = "select * from driver_upload where VNO='$VNO' and approved=0 and doc_type in ('Licence')";
         $result = DB::select(DB::raw($sql));
         if(count($result) > 0){
             $pending = 1;
+            $MSG4 = "Insurance Expired";
+        }
+
+        $sql = "select * from driver_upload where VNO='$VNO' and approved=0 and doc_type in ('RdWCert')";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+            $pending = 1;
+            $MSG5 = "RdWCert Expired";
+        }
+
+        $sql = "select * from driver_upload where VNO='$VNO' and approved=0 and doc_type in ('Insurance')";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+            $pending = 1;
+            $MSG6 = "Insurance Expired";
+        }
+
+        $sql = "select * from driver_upload where VNO='$VNO' and approved=0 and doc_type in ('RdWCert')";
+        $result = DB::select(DB::raw($sql));
+        if(count($result) > 0){
+            $pending = 1;
+            $MSG7 = "Contract Expired";
         }
         return $pending;
     }
@@ -64,7 +88,17 @@ class VehicleController extends Controller
             $vehicle->WARNING = 0;
             $vehicle->WARNING_MSG1 = "";
             $vehicle->WARNING_MSG2 = "";
-            $vehicle->PBA = self::pending_business_action($VNO);
+            $MSG3 = "";
+            $MSG4 = "";
+            $MSG5 = "";
+            $MSG6 = "";
+            $MSG7 = "";
+            $vehicle->PBA = self::pending_business_action($VNO,$MSG3,$MSG4,$MSG5,$MSG6,$MSG7);
+            $vehicle->WARNING_MSG3 = $MSG3;
+            $vehicle->WARNING_MSG4 = $MSG4;
+            $vehicle->WARNING_MSG5 = $MSG5;
+            $vehicle->WARNING_MSG6 = $MSG6;
+            $vehicle->WARNING_MSG7 = $MSG7;
             $sql3 = "SELECT * from tracker_status where TID='$TID' and status=0";
             $offline = DB::select(DB::raw($sql3));
             if(count($offline) > 0){
