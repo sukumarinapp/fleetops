@@ -63,7 +63,7 @@
            <td>{{ $log->ATN }}</td>
            <td>{{ $log->UAN }}</td>
            <td>{{ $log->TIM }}</td>
-           <td><a class="btn btn-secondary btn-xs" target="_blank" href="../../uploads/handover/{{ $log->handover_id }}.pdf"><i class="fa fa-car"></i></a></td>
+           <td><a class="btn btn-secondary btn-xs" target="_blank" href="../../../uploads/handover/{{ $log->handover_id }}.pdf"><i class="fa fa-car"></i></a></td>
          </tr>
          @endforeach
        </tbody>
@@ -92,7 +92,8 @@
     }else if(to == ""){
       alert("Please select To Date");
     }else{
-      var url =  vehiclelog + "/" + from + "/" +to;  
+      var url =  vehiclelog + "/" + from + "/" +to+"/1";  
+      alert(url);
       window.location.href = url;
     }   
   }

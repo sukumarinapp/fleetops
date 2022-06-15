@@ -93,7 +93,7 @@
     }else if(to == ""){
       alert("Please select To Date");
     }else{
-      var url =  notificationslog + "/" + from + "/" +to;  
+      var url =  notificationslog + "/" + from + "/" +to+"/1";  
       window.location.href = url;
     }		
   }

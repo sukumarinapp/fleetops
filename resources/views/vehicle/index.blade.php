@@ -180,7 +180,7 @@
               echo "<span><img src='/blkoff.png'></span>";
             }
             }else{
-              echo "<span><a href='#' onclick='show_modal(\"$vehicle->WARNING_MSG1\",\"$vehicle->WARNING_MSG2\")'><img src='/warning.png'></a></span>";
+              echo "<span><a href='#' onclick='show_modal(\"$vehicle->WARNING_MSG1\",\"$vehicle->WARNING_MSG2\",\"$vehicle->WARNING_MSG3\",\"$vehicle->WARNING_MSG4\",\"$vehicle->WARNING_MSG5\",\"$vehicle->WARNING_MSG6\",\"$vehicle->WARNING_MSG7\")'><img src='/warning.png'></a></span>";
             }
             @endphp
           </td>
@@ -250,6 +250,11 @@
           <div class="modal-body">
             <h4 id="msg1" class="text-center"></h4>
             <p id="msg2" class="text-center"></p>
+            <p id="msg3" class="text-center"></p>
+            <p id="msg4" class="text-center"></p>
+            <p id="msg5" class="text-center"></p>
+            <p id="msg6" class="text-center"></p>
+            <p id="msg7" class="text-center"></p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -274,9 +279,14 @@
     var url =  allvehicle + "/" + sort_by;  
     window.location.href = url;
   }
-  function show_modal(msg1,msg2){
+  function show_modal(msg1,msg2,msg3,msg4,msg5,msg6,msg7){
     $("#msg1").html(msg1);
     $("#msg2").html(msg2);
+    if(msg3 != "") $("#msg3").html(msg3);
+    if(msg4 != "") $("#msg4").html(msg4);
+    if(msg5 != "") $("#msg5").html(msg5);
+    if(msg6 != "") $("#msg6").html(msg6);
+    if(msg7 != "") $("#msg7").html(msg7);
     $('#mymodal').modal('show'); 
   } 
 </script>
