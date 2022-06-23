@@ -288,7 +288,7 @@
     }else if(msg_type == 3){
       img = "/battery.jpg";
     }else if(msg_type == 4){
-      img = "/engine_on.jpg";
+      img = "/engine.jpg";
     }
     $('#warningimage').attr('src', img);
     $("#msg1").html(msg1);
