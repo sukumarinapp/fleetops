@@ -337,7 +337,7 @@ border-radius: 34px;
 										<label for="VBC1" class="col-sm-6 col-form-label"><span style="color:red">*</span>FPM</label>
 										 <div class="col-sm-6">
 											<label class="switch" style="margin-top:10px">
-									<input {{ ($vehicle->fpm == "1" ? "checked":"") }}  name="fpm" id="fpm" type="checkbox">
+									<input {{ ($vehicle->fpm_enabled == "1" ? "checked":"") }}  name="fpm_enabled" id="fpm_enabled" type="checkbox">
 									<span class="slider round"></span>
 								</label>
 										 </div>

@@ -88,6 +88,7 @@ class VehicleController extends Controller
             $vehicle->WARNING = 0;
             $vehicle->WARNING_MSG1 = "";
             $vehicle->WARNING_MSG2 = "";
+            $vehicle->MSG_TYPE = "";
             $MSG3 = "";
             $MSG4 = "";
             $MSG5 = "";
@@ -108,30 +109,36 @@ class VehicleController extends Controller
             }
             if($vehicle->PBA == 1 && $vehicle->blk_status == 0){
                 $vehicle->WARNING = 1;
+                $vehicle->MSG_TYPE = 1;
                 $vehicle->WARNING_MSG1 = "SYSTEM CONNECTIVITY";
                 $vehicle->WARNING_MSG2 = "Immobilizer not activating (Check network status)";
             }else if($vehicle->PBA == 0 && $vehicle->blk_status == 1){
                 $vehicle->WARNING = 1;
+                $vehicle->MSG_TYPE = 1;
                 $vehicle->WARNING_MSG1 = "SYSTEM CONNECTIVITY";
                 $vehicle->WARNING_MSG2 = "Immobilizer not de-activating (Check network status)";
             }else{
                 if($vehicle->PBA == 1 && $vehicle->blk_status == 1 && $vehicle->acc == 1 && $vehicle->fpm == 1){
                     $vehicle->WARNING = 1;
+                    $vehicle->MSG_TYPE = 2;
                     $vehicle->WARNING_MSG1 = "VEHICLE BLOCKING FAILED";
                     $vehicle->WARNING_MSG2 = "Check device for by-pass (Immobilizer)";
                 }
                 if($vehicle->PBA == 1 && $vehicle->blk_status == 1 && $vehicle->acc == 0 && $vehicle->fpm == 1){
                     $vehicle->WARNING = 1;
+                    $vehicle->MSG_TYPE = 2;
                     $vehicle->WARNING_MSG1 = "VEHICLE BLOCKING FAILED";
                     $vehicle->WARNING_MSG2 = "Check device for by-pass (Fuel Pump)";
                 }
                 if($vehicle->PBA == 0 && $vehicle->blk_status == 0 && $vehicle->acc == 1 && $vehicle->fpm == 0){
                     $vehicle->WARNING = 1;
+                    $vehicle->MSG_TYPE = 3;
                     $vehicle->WARNING_MSG1 = "BATTERY FAILURE WARNING";
                     $vehicle->WARNING_MSG2 = "Engine not running, ignition on";
                 }
                 if($vehicle->PBA == 0 && $vehicle->blk_status == 0 && $vehicle->acc == 0 && $vehicle->fpm == 1){
                     $vehicle->WARNING = 1;
+                    $vehicle->MSG_TYPE = 4;
                     $vehicle->WARNING_MSG1 = "SYSTEM MALFUNCTION";
                     $vehicle->WARNING_MSG2 = "Check engine function or device by-pass (Fuel pump)";
                 }
@@ -467,7 +474,7 @@ public function update(Request $request, $id)
         $AVI = ($request->get("AVI") != null) ? 1 : 0;
         $AVR = ($request->get("AVR") != null) ? 1 : 0;
         $MSH = ($request->get("MSH") != null) ? 1 : 0;
-        $fpm = ($request->get("fpm") != null) ? 1 : 0;
+        $fpm_enabled = ($request->get("fpm_enabled") != null) ? 1 : 0;
         $VID = "";
         if($request->VID != null){
             $VID =  $id.'.'.$request->VID->extension(); 
@@ -511,7 +518,7 @@ public function update(Request $request, $id)
         $vehicle->AVI =  $AVI;
         $vehicle->AVR =  $AVR;
         $vehicle->MSH =  $MSH;
-        $vehicle->fpm =  $fpm;
+        $vehicle->fpm_enabled =  $fpm_enabled;
         if($vehicle->driver_id == ""){
             $vehicle->VTV = $VTV;
         }

@@ -385,3 +385,5 @@ alter table vehicle add buz_status int(1) DEFAULT 0;
 alter table vehicle add acc int(1) DEFAULT 0;
 alter table vehicle add fpm int(1) DEFAULT 0;
 
+ALTER TABLE vehicle ADD fpm_enabled int(1) DEFAULT 0 AFTER VNO;
+

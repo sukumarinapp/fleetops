@@ -180,7 +180,7 @@
               echo "<span><img src='/blkoff.png'></span>";
             }
             }else{
-              echo "<span><a href='#' onclick='show_modal(\"$vehicle->WARNING_MSG1\",\"$vehicle->WARNING_MSG2\",\"$vehicle->WARNING_MSG3\",\"$vehicle->WARNING_MSG4\",\"$vehicle->WARNING_MSG5\",\"$vehicle->WARNING_MSG6\",\"$vehicle->WARNING_MSG7\")'><img src='/warning.png'></a></span>";
+              echo "<span><a href='#' onclick='show_modal(\"$vehicle->WARNING_MSG1\",\"$vehicle->WARNING_MSG2\",\"$vehicle->WARNING_MSG3\",\"$vehicle->WARNING_MSG4\",\"$vehicle->WARNING_MSG5\",\"$vehicle->WARNING_MSG6\",\"$vehicle->WARNING_MSG7\",\"$vehicle->MSG_TYPE\")'><img src='/warning.png'></a></span>";
             }
             @endphp
           </td>
@@ -248,7 +248,18 @@
             </button>
           </div>
           <div class="modal-body">
-            <h4 id="msg1" class="text-center"></h4>
+             
+            @php
+            if($vehicle->MSG_TYPE == 1){
+              echo"<h4 class='text-center'><img src='/warning.png'><span id='msg1'></span></h4>";
+              }elseif($vehicle->MSG_TYPE == 2){
+              echo"<h4 class='text-center'><img src='/blkon.jpg'><span id='msg1'></span></h4>";
+              }elseif($vehicle->MSG_TYPE == 3){
+              echo"<h4 class='text-center'><img src='/blkoff.jpg'><span id='msg1'></span></h4>";
+              }elseif($vehicle->MSG_TYPE == 4){
+              echo"<h4 class='text-center'><img src='/active.jpg'><span id='msg1'></span></h4>";
+              }
+            @endphp
             <p id="msg2" class="text-center"></p>
             <p id="msg3" class="text-center"></p>
             <p id="msg4" class="text-center"></p>
