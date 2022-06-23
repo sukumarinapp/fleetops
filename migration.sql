@@ -385,3 +385,13 @@ alter table vehicle add buz_status int(1) DEFAULT 0;
 alter table vehicle add acc int(1) DEFAULT 0;
 alter table vehicle add fpm int(1) DEFAULT 0;
 
+CREATE TABLE `fpm` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `TID` varchar(20) DEFAULT NULL,
+  `VNO` varchar(20) DEFAULT NULL,
+  `latitude` varchar(50) DEFAULT NULL,
+  `longitude` varchar(50) DEFAULT NULL,
+  `movement` tinyint(1) DEFAULT 0,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
+
