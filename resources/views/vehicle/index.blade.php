@@ -282,13 +282,13 @@
   function show_modal(msg1,msg2,msg3,msg4,msg5,msg6,msg7,msg_type){
     var img = "warning.png";
     if(msg_type == 1){
-      img = "warning.png";
+      img = "/connection.jpg";
     }else if(msg_type == 2){
-      img = "warning.png";
+      img = "/blkfail.jpg";
     }else if(msg_type == 3){
-      img = "warning.png";
+      img = "/battery.jpg";
     }else if(msg_type == 4){
-      img = "warning.png";
+      img = "/engine_on.jpg";
     }
     $('#warningimage').attr('src', img);
     $("#msg1").html(msg1);

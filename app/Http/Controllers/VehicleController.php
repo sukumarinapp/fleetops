@@ -92,7 +92,7 @@ class VehicleController extends Controller
                 $fpm_sql = "SELECT * from fpm where VNO='$VNO'";
                 $fpm_result = DB::select(DB::raw($fpm_sql));
                 if(count($fpm_result) > 0){
-                    $fpm  $fpm_result[0]->movement;
+                    $fpm = $fpm_result[0]->movement;
                 }
             }
 
