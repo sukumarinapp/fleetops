@@ -330,6 +330,21 @@ border-radius: 34px;
 								</div>
 							</div>
 
+							<div class="row">
+								<div class="col-sm-6">
+							 		<!-- text input -->
+									<div class="form-group row">
+										<label for="VBC1" class="col-sm-6 col-form-label"><span style="color:red">*</span>FPM</label>
+										 <div class="col-sm-6">
+											<label class="switch" style="margin-top:10px">
+									<input {{ ($vehicle->fpm == "1" ? "checked":"") }}  name="fpm" id="fpm" type="checkbox">
+									<span class="slider round"></span>
+								</label>
+										 </div>
+									</div>
+								</div>
+							</div>
+
 							<div class="form-group row">
 								<div class="col-md-12 text-center">
 									<button type="button" class="btn btn-primary" data-dismiss="modal">Confirm</button>
