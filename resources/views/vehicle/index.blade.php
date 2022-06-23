@@ -248,18 +248,7 @@
             </button>
           </div>
           <div class="modal-body">
-             
-            @php
-            if($vehicle->MSG_TYPE == 1){
-              echo"<h4 class='text-center'><img src='/warning.png'><span id='msg1'></span></h4>";
-              }elseif($vehicle->MSG_TYPE == 2){
-              echo"<h4 class='text-center'><img src='/blkon.jpg'><span id='msg1'></span></h4>";
-              }elseif($vehicle->MSG_TYPE == 3){
-              echo"<h4 class='text-center'><img src='/blkoff.jpg'><span id='msg1'></span></h4>";
-              }elseif($vehicle->MSG_TYPE == 4){
-              echo"<h4 class='text-center'><img src='/active.jpg'><span id='msg1'></span></h4>";
-              }
-            @endphp
+            <h4 class='text-center'><img id="warningimage" src=''><span id='msg1'></span></h4>
             <p id="msg2" class="text-center"></p>
             <p id="msg3" class="text-center"></p>
             <p id="msg4" class="text-center"></p>
@@ -290,7 +279,18 @@
     var url =  allvehicle + "/" + sort_by;  
     window.location.href = url;
   }
-  function show_modal(msg1,msg2,msg3,msg4,msg5,msg6,msg7){
+  function show_modal(msg1,msg2,msg3,msg4,msg5,msg6,msg7,msg_type){
+    var img = "warning.png";
+    if(msg_type == 1){
+      img = "warning.png";
+    }else if(msg_type == 2){
+      img = "warning.png";
+    }else if(msg_type == 3){
+      img = "warning.png";
+    }else if(msg_type == 4){
+      img = "warning.png";
+    }
+    $('#warningimage').attr('src', img);
     $("#msg1").html(msg1);
     $("#msg2").html(msg2);
     if(msg3 != "") $("#msg3").html(msg3);
@@ -298,6 +298,7 @@
     if(msg5 != "") $("#msg5").html(msg5);
     if(msg6 != "") $("#msg6").html(msg6);
     if(msg7 != "") $("#msg7").html(msg7);
+    
     $('#mymodal').modal('show'); 
   } 
 </script>

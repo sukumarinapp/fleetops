@@ -85,6 +85,17 @@ class VehicleController extends Controller
         foreach($vehicles as $vehicle){
             $TID = $vehicle->TID;
             $VNO = $vehicle->VNO;
+            $fpm_enabled = $vehicle->fpm_enabled;
+            $fpm = $vehicle->fpm;
+
+            if($fpm_enabled == 0){
+                $fpm_sql = "SELECT * from fpm where VNO='$VNO'";
+                $fpm_result = DB::select(DB::raw($fpm_sql));
+                if(count($fpm_result) > 0){
+                    $fpm  $fpm_result[0]->movement;
+                }
+            }
+
             $vehicle->WARNING = 0;
             $vehicle->WARNING_MSG1 = "";
             $vehicle->WARNING_MSG2 = "";
@@ -118,25 +129,25 @@ class VehicleController extends Controller
                 $vehicle->WARNING_MSG1 = "SYSTEM CONNECTIVITY";
                 $vehicle->WARNING_MSG2 = "Immobilizer not de-activating (Check network status)";
             }else{
-                if($vehicle->PBA == 1 && $vehicle->blk_status == 1 && $vehicle->acc == 1 && $vehicle->fpm == 1){
+                if($vehicle->PBA == 1 && $vehicle->blk_status == 1 && $vehicle->acc == 1 && $fpm == 1){
                     $vehicle->WARNING = 1;
                     $vehicle->MSG_TYPE = 2;
                     $vehicle->WARNING_MSG1 = "VEHICLE BLOCKING FAILED";
                     $vehicle->WARNING_MSG2 = "Check device for by-pass (Immobilizer)";
                 }
-                if($vehicle->PBA == 1 && $vehicle->blk_status == 1 && $vehicle->acc == 0 && $vehicle->fpm == 1){
+                if($vehicle->PBA == 1 && $vehicle->blk_status == 1 && $vehicle->acc == 0 && $fpm == 1){
                     $vehicle->WARNING = 1;
                     $vehicle->MSG_TYPE = 2;
                     $vehicle->WARNING_MSG1 = "VEHICLE BLOCKING FAILED";
                     $vehicle->WARNING_MSG2 = "Check device for by-pass (Fuel Pump)";
                 }
-                if($vehicle->PBA == 0 && $vehicle->blk_status == 0 && $vehicle->acc == 1 && $vehicle->fpm == 0){
+                if($vehicle->PBA == 0 && $vehicle->blk_status == 0 && $vehicle->acc == 1 && $fpm == 0){
                     $vehicle->WARNING = 1;
                     $vehicle->MSG_TYPE = 3;
                     $vehicle->WARNING_MSG1 = "BATTERY FAILURE WARNING";
                     $vehicle->WARNING_MSG2 = "Engine not running, ignition on";
                 }
-                if($vehicle->PBA == 0 && $vehicle->blk_status == 0 && $vehicle->acc == 0 && $vehicle->fpm == 1){
+                if($vehicle->PBA == 0 && $vehicle->blk_status == 0 && $vehicle->acc == 0 && $fpm == 1){
                     $vehicle->WARNING = 1;
                     $vehicle->MSG_TYPE = 4;
                     $vehicle->WARNING_MSG1 = "SYSTEM MALFUNCTION";
