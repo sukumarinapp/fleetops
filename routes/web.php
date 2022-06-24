@@ -41,7 +41,7 @@ Route::get('/reject_handover/{id}', 'DriverController@reject_handover')->name('r
 Route::get('/reject_contract', 'DriverController@reject_contract')->name('reject_contract');
 Route::get('/reject_inspection', 'DriverController@reject_inspection')->name('reject_inspection');
 Route::get('/removevehicle/{id}', 'VehicleController@remove')->name('removevehicle');
-Route::get('/send_warningsms', 'VehicleController@send_warningsms')->name('send_warningsms');
+Route::get('/send_warningsms/{type}/{driver_id}', 'VehicleController@send_warningsms')->name('send_warningsms');
 Route::post('/removedriver','VehicleController@removedriver')->name('removedriver');
 Route::resource('/fdriver', 'FdriverController');
 Route::get('/agreementdriver/{id}', 'FdriverController@agreementdriver')->name('agreementdriver');

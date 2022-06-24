@@ -979,15 +979,16 @@ public function tracker_sim_no(Request $request){
 }
 
    public function send_warningsms($type,$driver_id){
-        $sql = "SELECT a.DNM,a.DCN,b.VBC1,b.VBC0,b.TSM FROM driver a,vehicle b where a.id=b.driver_id and id='$driver_id'";
+        $sql = "SELECT a.DNM,a.DSN,a.DCN,b.VBC1,b.VBC0,b.TSM FROM driver a,vehicle b where a.id=b.driver_id and a.id='$driver_id'";
         $result = DB::select(DB::raw($sql));
         $DNM = "";
+        $DSN = "";
         $DCN = "";
         $VBC1 = "";
         $VBC0 = "";
         $TSM = "";
         if(count($result) > 0){
-            $DNM = $result[0]->DNM;
+            $DNM = $result[0]->DNM ." ".$result[0]->DSN;
             $DCN = $result[0]->DCN;
             $VBC1 = $result[0]->VBC1;
             $VBC0 = $result[0]->VBC0;
@@ -996,25 +997,50 @@ public function tracker_sim_no(Request $request){
         $SMS = "";
         if($type == 1){
             $SMS = $VBC1;
+            $DAT = date("Y-m-d");
+            $TIM = date("H:i:s");
+            $CTX = "Blocking Command";
+            $sql = "insert into sms_log (PHN,MSG,DAT,TIM,CTX,NAM) values ('$TSM','$SMS','$DAT','$TIM','$CTX','$DNM')";
+            DB::insert($sql);
             SMSFleetops::send($TSM,$SMS);
         }else if($type == 2){
             $SMS = $VBC0;
             SMSFleetops::send($TSM,$SMS);
         }else if($type == 3){
             $SMS = "";
+            $DAT = date("Y-m-d");
+            $TIM = date("H:i:s");
+            $CTX = "Blocking Failed";
+            $sql = "insert into sms_log (PHN,MSG,DAT,TIM,CTX,NAM) values ('$DCN','$SMS','$DAT','$TIM','$CTX','$DNM')";
+            DB::insert($sql);
             SMSFleetops::send($DCN,$SMS);
         }else if($type == 4){
             $SMS = "";
+            $DAT = date("Y-m-d");
+            $TIM = date("H:i:s");
+            $CTX = "Blocking Failed";
+            $sql = "insert into sms_log (PHN,MSG,DAT,TIM,CTX,NAM) values ('$DCN','$SMS','$DAT','$TIM','$CTX','$DNM')";
+            DB::insert($sql);
             SMSFleetops::send($DCN,$SMS);
         }else if($type == 5){
             $SMS = "";
+            $DAT = date("Y-m-d");
+            $TIM = date("H:i:s");
+            $CTX = "Blocking Failed";
+            $sql = "insert into sms_log (PHN,MSG,DAT,TIM,CTX,NAM) values ('$DCN','$SMS','$DAT','$TIM','$CTX','$DNM')";
+            DB::insert($sql);
             SMSFleetops::send($DCN,$SMS);
         }else if($type == 6){
             $SMS = "";
+            $DAT = date("Y-m-d");
+            $TIM = date("H:i:s");
+            $CTX = "Blocking Failed";
+            $sql = "insert into sms_log (PHN,MSG,DAT,TIM,CTX,NAM) values ('$DCN','$SMS','$DAT','$TIM','$CTX','$DNM')";
+            DB::insert($sql);
             SMSFleetops::send($DCN,$SMS);
         }
         
-        echo $DCN;die;
+        return redirect('/allvehicle/1')->with('message', 'Message Sent Successfully');
    }
 
 }

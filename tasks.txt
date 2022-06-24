@@ -4,3 +4,17 @@ Two Communication Blocking / Unblocking
 Cash Declaration Sequence Modification
 Cash-at-hand Report
 Pending Payments (Process Modification)
+
+
+
+VEHICLE BLOCKING FAILED
+Check device for by-pass (Immobilizer)
+
+VEHICLE BLOCKING FAILED
+Check device for by-pass (Fuel pump)
+
+BATTERY FAILURE WARNING
+Engine not running, ignition on
+
+SYSTEM MALFUNCTION
+Check engine function or device by-pass (Fuel pump)
