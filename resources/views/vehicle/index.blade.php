@@ -180,7 +180,7 @@
               echo "<span><img src='/blkoff.png'></span>";
             }
             }else{
-              echo "<span><a href='#' onclick='show_modal(\"$vehicle->WARNING_MSG1\",\"$vehicle->WARNING_MSG2\",\"$vehicle->WARNING_MSG3\",\"$vehicle->WARNING_MSG4\",\"$vehicle->WARNING_MSG5\",\"$vehicle->WARNING_MSG6\",\"$vehicle->WARNING_MSG7\",\"$vehicle->MSG_TYPE\")'><img src='/warning.png'></a></span>";
+              echo "<span><a href='#' onclick='show_modal(\"$vehicle->WARNING_MSG1\",\"$vehicle->WARNING_MSG2\",\"$vehicle->WARNING_MSG3\",\"$vehicle->WARNING_MSG4\",\"$vehicle->WARNING_MSG5\",\"$vehicle->WARNING_MSG6\",\"$vehicle->WARNING_MSG7\",\"$vehicle->MSG_TYPE\",\"$vehicle->driver_id\")'><img src='/warning.png'></a></span>";
             }
             @endphp
           </td>
@@ -257,6 +257,7 @@
             <p id="msg7" class="text-center"></p>
           </div>
           <div class="modal-footer">
+            <a href="#" class="mr-auto"><span id="href_text"></span></a>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </div>
@@ -283,14 +284,25 @@
     var img = "warning.png";
     if(msg_type == 1){
       img = "/connection.jpg";
+      href_text = "Re-send blocking command";
     }else if(msg_type == 2){
-      img = "/blkfail.jpg";
+      img = "/connection.jpg";
+      href_text = "Re-send unblocking command";
     }else if(msg_type == 3){
-      img = "/battery.jpg";
+      img = "/blkfail.jpg";
+      href_text = "Send warning message to driver";
     }else if(msg_type == 4){
+      img = "/blkfail.jpg";
+      href_text = "Send warning message to driver";
+    }else if(msg_type == 5){
+      img = "/battery.jpg";
+      href_text = "Send warning message to driver";
+    }else if(msg_type == 6){
       img = "/engine.jpg";
+      href_text = "Send warning message to driver";
     }
     $('#warningimage').attr('src', img);
+    $("#href_text").html(href_text);
     $("#msg1").html(msg1);
     $("#msg2").html(msg2);
     if(msg3 != "") $("#msg3").html(msg3);
