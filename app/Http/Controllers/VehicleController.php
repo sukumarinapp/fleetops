@@ -977,4 +977,9 @@ public function tracker_sim_no(Request $request){
         return response()->json(array("exists" => false));   
     }
 }
+
+   public function send_warningsms(){
+
+   }
+
 }
