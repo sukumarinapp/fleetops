@@ -997,17 +997,12 @@ public function tracker_sim_no(Request $request){
         $SMS = "";
         if($type == 1){
             $SMS = $VBC1;
-            $DAT = date("Y-m-d");
-            $TIM = date("H:i:s");
-            $CTX = "Blocking Command";
-            $sql = "insert into sms_log (PHN,MSG,DAT,TIM,CTX,NAM) values ('$TSM','$SMS','$DAT','$TIM','$CTX','$DNM')";
-            DB::insert($sql);
             SMSFleetops::send($TSM,$SMS);
         }else if($type == 2){
             $SMS = $VBC0;
             SMSFleetops::send($TSM,$SMS);
         }else if($type == 3){
-            $SMS = "";
+            $SMS = "Hi ".$DNM.",Please check your device for Immobilizer by-pass.";
             $DAT = date("Y-m-d");
             $TIM = date("H:i:s");
             $CTX = "Blocking Failed";
@@ -1015,7 +1010,7 @@ public function tracker_sim_no(Request $request){
             DB::insert($sql);
             SMSFleetops::send($DCN,$SMS);
         }else if($type == 4){
-            $SMS = "";
+            $SMS = "Hi ".$DNM.",Please check your device for Immobilizer by-pass.";
             $DAT = date("Y-m-d");
             $TIM = date("H:i:s");
             $CTX = "Blocking Failed";
@@ -1023,18 +1018,18 @@ public function tracker_sim_no(Request $request){
             DB::insert($sql);
             SMSFleetops::send($DCN,$SMS);
         }else if($type == 5){
-            $SMS = "";
+            $SMS = "Hi ".$DNM.", your Vehicle BATTERY may fail since ignition is on and the engine is not running.";
             $DAT = date("Y-m-d");
             $TIM = date("H:i:s");
-            $CTX = "Blocking Failed";
+            $CTX = "Battery Failure";
             $sql = "insert into sms_log (PHN,MSG,DAT,TIM,CTX,NAM) values ('$DCN','$SMS','$DAT','$TIM','$CTX','$DNM')";
             DB::insert($sql);
             SMSFleetops::send($DCN,$SMS);
         }else if($type == 6){
-            $SMS = "";
+            $SMS = "Hi ".$DNM.",Please check your engine function or device by-pass.";
             $DAT = date("Y-m-d");
             $TIM = date("H:i:s");
-            $CTX = "Blocking Failed";
+            $CTX = "System Malfunction";
             $sql = "insert into sms_log (PHN,MSG,DAT,TIM,CTX,NAM) values ('$DCN','$SMS','$DAT','$TIM','$CTX','$DNM')";
             DB::insert($sql);
             SMSFleetops::send($DCN,$SMS);
