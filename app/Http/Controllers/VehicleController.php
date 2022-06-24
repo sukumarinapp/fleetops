@@ -978,8 +978,8 @@ public function tracker_sim_no(Request $request){
     }
 }
 
-   public function send_warningsms(){
-
+   public function send_warningsms($MSG_TYPE,$driver_id){
+    
    }
 
 }

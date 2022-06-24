@@ -257,7 +257,7 @@
             <p id="msg7" class="text-center"></p>
           </div>
           <div class="modal-footer">
-            <a href="#" class="mr-auto"><span id="href_text"></span></a>
+            <a id="href_text" class="mr-auto"><span id="href_text"></span></a>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </div>
