@@ -978,8 +978,43 @@ public function tracker_sim_no(Request $request){
     }
 }
 
-   public function send_warningsms($MSG_TYPE,$driver_id){
-    
+   public function send_warningsms($type,$driver_id){
+        $sql = "SELECT a.DNM,a.DCN,b.VBC1,b.VBC0,b.TSM FROM driver a,vehicle b where a.id=b.driver_id and id='$driver_id'";
+        $result = DB::select(DB::raw($sql));
+        $DNM = "";
+        $DCN = "";
+        $VBC1 = "";
+        $VBC0 = "";
+        $TSM = "";
+        if(count($result) > 0){
+            $DNM = $result[0]->DNM;
+            $DCN = $result[0]->DCN;
+            $VBC1 = $result[0]->VBC1;
+            $VBC0 = $result[0]->VBC0;
+            $TSM = $result[0]->TSM;
+        }
+        $SMS = "";
+        if($type == 1){
+            $SMS = $VBC1;
+            SMSFleetops::send($TSM,$SMS);
+        }else if($type == 2){
+            $SMS = $VBC0;
+            SMSFleetops::send($TSM,$SMS);
+        }else if($type == 3){
+            $SMS = "";
+            SMSFleetops::send($DCN,$SMS);
+        }else if($type == 4){
+            $SMS = "";
+            SMSFleetops::send($DCN,$SMS);
+        }else if($type == 5){
+            $SMS = "";
+            SMSFleetops::send($DCN,$SMS);
+        }else if($type == 6){
+            $SMS = "";
+            SMSFleetops::send($DCN,$SMS);
+        }
+        
+        echo $DCN;die;
    }
 
 }
