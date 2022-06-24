@@ -280,7 +280,11 @@
     var url =  allvehicle + "/" + sort_by;  
     window.location.href = url;
   }
-  function show_modal(msg1,msg2,msg3,msg4,msg5,msg6,msg7,msg_type){
+
+  var send_warningsms = "{{ url('send_warningsms') }}";
+
+  function show_modal(msg1,msg2,msg3,msg4,msg5,msg6,msg7,msg_type,driver_id){
+    send_warningsms = send_warningsms + "/" + msg_type + "/" + driver_id;
     var img = "warning.png";
     if(msg_type == 1){
       img = "/connection.jpg";
@@ -303,6 +307,7 @@
     }
     $('#warningimage').attr('src', img);
     $("#href_text").html(href_text);
+    $('#href_text').attr('href', send_warningsms);
     $("#msg1").html(msg1);
     $("#msg2").html(msg2);
     if(msg3 != "") $("#msg3").html(msg3);
@@ -313,6 +318,13 @@
     
     $('#mymodal').modal('show'); 
   } 
+
+  
+  function send_warningsms(){
+    var VNO = $("#VNO").val();
+    var url =  send_warningsms + "/" + VNO;
+    window.location.href = url;
+  }
 </script>
 
 @endpush
