@@ -248,7 +248,8 @@
             </button>
           </div>
           <div class="modal-body">
-            <h4 class='text-center'><img id="warningimage" src=''><span id='msg1'></span></h4>
+            <p class="text-center"><img  id="warningimage" src=''></p>
+            <h4 class='text-center'><span id='msg1'></span></h4>
             <p id="msg2" class="text-center"></p>
             <p id="msg3" class="text-center"></p>
             <p id="msg4" class="text-center"></p>

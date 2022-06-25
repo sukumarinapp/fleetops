@@ -122,36 +122,36 @@ class VehicleController extends Controller
                 $vehicle->WARNING = 1;
                 $vehicle->MSG_TYPE = 1;
                 $vehicle->WARNING_MSG1 = "SYSTEM CONNECTIVITY";
-                $vehicle->WARNING_MSG2 = "Immobilizer not activating (Check network status)";
+                $vehicle->WARNING_MSG2 = "Immobilizer not activating for ".$VNO." (Check network status)";
             }else if($vehicle->PBA == 0 && $vehicle->blk_status == 1){
                 $vehicle->WARNING = 1;
                 $vehicle->MSG_TYPE = 2;
                 $vehicle->WARNING_MSG1 = "SYSTEM CONNECTIVITY";
-                $vehicle->WARNING_MSG2 = "Immobilizer not de-activating (Check network status)";
+                $vehicle->WARNING_MSG2 = "Immobilizer not de-activating for ".$VNO." (Check network status)";
             }else{
                 if($vehicle->PBA == 1 && $vehicle->blk_status == 1 && $vehicle->acc == 1 && $fpm == 1){
                     $vehicle->WARNING = 1;
                     $vehicle->MSG_TYPE = 3;
                     $vehicle->WARNING_MSG1 = "VEHICLE BLOCKING FAILED";
-                    $vehicle->WARNING_MSG2 = "Check device for by-pass (Immobilizer)";
+                    $vehicle->WARNING_MSG2 = "Check device for by-pass ".$VNO." (Immobilizer)";
                 }
                 if($vehicle->PBA == 1 && $vehicle->blk_status == 1 && $vehicle->acc == 0 && $fpm == 1){
                     $vehicle->WARNING = 1;
                     $vehicle->MSG_TYPE = 4;
                     $vehicle->WARNING_MSG1 = "VEHICLE BLOCKING FAILED";
-                    $vehicle->WARNING_MSG2 = "Check device for by-pass (Fuel Pump)";
+                    $vehicle->WARNING_MSG2 = "Check device for by-pass ".$VNO." (Fuel Pump)";
                 }
                 if($vehicle->PBA == 0 && $vehicle->blk_status == 0 && $vehicle->acc == 1 && $fpm == 0){
                     $vehicle->WARNING = 1;
                     $vehicle->MSG_TYPE = 5;
                     $vehicle->WARNING_MSG1 = "BATTERY FAILURE WARNING";
-                    $vehicle->WARNING_MSG2 = "Engine not running, ignition on";
+                    $vehicle->WARNING_MSG2 = "Engine not running, ignition on for ".$VNO."";
                 }
                 if($vehicle->PBA == 0 && $vehicle->blk_status == 0 && $vehicle->acc == 0 && $fpm == 1){
                     $vehicle->WARNING = 1;
                     $vehicle->MSG_TYPE = 6;
                     $vehicle->WARNING_MSG1 = "SYSTEM MALFUNCTION";
-                    $vehicle->WARNING_MSG2 = "Check engine function or device by-pass (Fuel pump)";
+                    $vehicle->WARNING_MSG2 = "Check engine function or device by-pass ".$VNO." (Fuel pump)";
                 }
             }
 
