@@ -243,7 +243,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel"><span><img src='/warning.png'></span> Alert</h5>
-            <h5 class="modal-title text-center" id="VNOPOP"></h5>
+            <p class="modal-title text-center" id="VNOPOP"></p>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
