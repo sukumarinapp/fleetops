@@ -187,7 +187,7 @@
           </td>
           
           <td>
-            @if($vehicle->fpm_enabled == 0)
+            @if($vehicle->fpm == 0)
                 off
             @else
                 on
