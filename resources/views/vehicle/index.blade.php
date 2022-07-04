@@ -180,7 +180,7 @@
               echo "<span><img src='/blkoff.png'></span>";
             }
             }else{
-              echo "<span><a href='#' onclick='show_modal(\"$vehicle->WARNING_MSG1\",\"$vehicle->WARNING_MSG2\",\"$vehicle->WARNING_MSG3\",\"$vehicle->WARNING_MSG4\",\"$vehicle->WARNING_MSG5\",\"$vehicle->WARNING_MSG6\",\"$vehicle->WARNING_MSG7\",\"$vehicle->MSG_TYPE\",\"$vehicle->driver_id\")'><img src='/warning.png'></a></span>";
+              echo "<span><a href='#' onclick='show_modal(\"$vehicle->WARNING_MSG1\",\"$vehicle->WARNING_MSG2\",\"$vehicle->WARNING_MSG3\",\"$vehicle->WARNING_MSG4\",\"$vehicle->WARNING_MSG5\",\"$vehicle->WARNING_MSG6\",\"$vehicle->WARNING_MSG7\",\"$vehicle->MSG_TYPE\",\"$vehicle->driver_id\",\"$vehicle->VNO\")'><img src='/warning.png'></a></span>";
             }
             @endphp
           </td>
@@ -243,14 +243,16 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel"><span><img src='/warning.png'></span> Alert</h5>
+            <h6 class="modal-title w-100 text-center" id="VNOPOP"></h6>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            <p class="text-center"><img  id="warningimage" src=''></p>
-            <h4 class='text-center'><span id='msg1'></span></h4>
+            <h4 class='text-center'><img  id="warningimage" src=''><span id='msg1'></span></h4>
+
             <p id="msg2" class="text-center"></p>
+            <p class="">Alert Trigger :</p>
             <p id="msg3" class="text-center"></p>
             <p id="msg4" class="text-center"></p>
             <p id="msg5" class="text-center"></p>
@@ -284,7 +286,7 @@
 
   var send_warningsms = "{{ url('send_warningsms') }}";
 
-  function show_modal(msg1,msg2,msg3,msg4,msg5,msg6,msg7,msg_type,driver_id){
+  function show_modal(msg1,msg2,msg3,msg4,msg5,msg6,msg7,msg_type,driver_id,VNO){
     var send_warningsms2 = send_warningsms + "/" + msg_type + "/" + driver_id;
     var img = "warning.png";
     if(msg_type == 1){
@@ -310,6 +312,7 @@
     $("#href_text").html(href_text);
     $('#href_text').attr('href', send_warningsms2);
     $("#msg1").html(msg1);
+    $("#VNOPOP").html(VNO);
     $("#msg2").html(msg2);
     if(msg3 != "") $("#msg3").html(msg3);
     if(msg4 != "") $("#msg4").html(msg4);
