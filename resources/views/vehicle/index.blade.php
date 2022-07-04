@@ -112,6 +112,7 @@
               <th class="text-right">ASG</th>
               <th class="text-right">BUZ</th>
               <th class="text-right">BLK</th>
+              <th>AFP</th>
               <th>Vehicle Reg#</th>
               <th>Description</th>
               <th style="width: 150px">Activity</th>
@@ -184,6 +185,14 @@
             }
             @endphp
           </td>
+          
+          <td>
+            @if($vehicle->fpm_enabled == 0)
+                off
+            @else
+                on
+            @endif
+          </td>
           <td>
             {{ $vehicle->VNO }} 
             @if($vehicle->DNM !="")
@@ -252,7 +261,7 @@
             <h4 class='text-center'><img  id="warningimage" src=''><span id='msg1'></span></h4>
 
             <p id="msg2" class="text-center"></p>
-            <p class="">Alert Trigger :</p>
+            <p style="margin-left: 15px;">Alert Trigger :</p>
             <p id="msg3" class="text-center"></p>
             <p id="msg4" class="text-center"></p>
             <p id="msg5" class="text-center"></p>
