@@ -35,7 +35,7 @@
 					<h3 class="card-title">WorkFlow</h3>
 				</div>
 				<div class="card-body" style="overflow-x: auto;" >
-						<table id="example1" class="table table-bordered">
+			  <table id="example1" class="table table-bordered">
           <thead>
           <tr>
             <th>Open Date</th>
@@ -63,6 +63,7 @@
 		              @endif
 		              <td>{{ $vehicle->DNM }} {{ $vehicle->DSN }}</td>              
 		              <td><a class="btn btn-primary btn-xs" href="{{ url('override') }}/{{ $vehicle->vid }}">Resolve</a></td>
+		              <td></td>
 		              <td></td>
 		            </tr>
 	            @endif
