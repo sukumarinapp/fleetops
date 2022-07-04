@@ -114,11 +114,13 @@
 		               </td>
 		              <td>{{ $insp->DNM }} {{ $insp->DSN }}</td>    
 		              @if($insp->doc_type == "Inspection")
+		              @if($insp->inspection == "0")
 		              	<td><a class="btn btn-primary btn-xs" href="{{ url('inspection') }}/{{ $insp->id }}">Resolve</a></td>
-		              	@if($insp->inspection == "0")
-		              	<td>Inspect Vehicle</td>
 		              	@elseif($insp->status != "Process Cancelled")
 		              	<td><a class="btn btn-danger btn-xs" href="{{ url('cancel_process') }}/{{ $insp->id }}">Cancel Process</a></td>
+		              	@endif
+		              	@if($insp->inspection == "0")
+		              	<td>Inspect Vehicle</td>
 		              	@endif
 		              @elseif($insp->doc_type == "RdWCert")
 		              	<td><a class="btn btn-primary btn-xs" href="{{ url('roadworthy') }}/{{ $insp->id }}">Resolve</a></td> 
