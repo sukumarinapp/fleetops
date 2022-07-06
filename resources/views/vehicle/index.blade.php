@@ -104,6 +104,7 @@
             </div>
           </div>
         </div>
+        <p style="font-size: 10px;"><b>*AFP:</b> This setting detects the state of the engine (On/Off) that enable other software processes to function properly. Ensure the appropriate tracking device input is physically connected to the fuel pump input power before turning on FPM.</p>
         <table data-ordering="true" id="example1" class="display table table-bordered" cellspacing="0" width="100%">
           <thead>
             <tr>
@@ -187,10 +188,10 @@
           </td>
           
           <td>
-            @if($vehicle->fpm_enabled == 0 && $vehicle->fpm == 1)
-                on
+            @if($vehicle->fpm_enabled == 1)
+                ON
             @else
-                off
+                OFF
             @endif
           </td>
           <td>
