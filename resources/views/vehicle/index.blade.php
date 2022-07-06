@@ -187,10 +187,10 @@
           </td>
           
           <td>
-            @if($vehicle->fpm_enabled == 0)
-                off
-            @else
+            @if($vehicle->fpm_enabled == 0 && $vehicle->fpm == 1)
                 on
+            @else
+                off
             @endif
           </td>
           <td>
