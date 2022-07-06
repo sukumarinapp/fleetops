@@ -104,7 +104,6 @@
             </div>
           </div>
         </div>
-        <p style="font-size: 10px;"><b>*AFP:</b> This setting detects the state of the engine (On/Off) that enable other software processes to function properly. Ensure the appropriate tracking device input is physically connected to the fuel pump input power before turning on FPM.</p>
         <table data-ordering="true" id="example1" class="display table table-bordered" cellspacing="0" width="100%">
           <thead>
             <tr>
@@ -113,7 +112,7 @@
               <th class="text-right">ASG</th>
               <th class="text-right">BUZ</th>
               <th class="text-right">BLK</th>
-              <th title="This setting detects the state of the engine (On/Off) that enable other software processes to function properly. Ensure the appropriate tracking device input is physically connected to the fuel pump input power before turning on FPM.">AFP<br><span style="font-size: 5px;"></span></th>
+              <th>AFP<br><span style="font-size: 5px;"></span></th>
               <th>Vehicle Reg#</th>
               <th>Description</th>
               <th style="width: 150px">Activity</th>
@@ -186,12 +185,11 @@
             }
             @endphp
           </td>
-          
           <td>
-            @if($vehicle->fpm_enabled == 1)
-                ON
+            @if($vehicle->fpm_enabled == 0 && $vehicle->fpm == 1)
+                <span><img src='/afpon.png'></span>
             @else
-                OFF
+                <span><img src='/afpon.png'></span>
             @endif
           </td>
           <td>

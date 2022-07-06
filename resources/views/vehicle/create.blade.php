@@ -73,7 +73,7 @@ border-radius: 34px;
 				<ol class="breadcrumb float-sm-right">
 					<li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
 					<li class="breadcrumb-item">Operations</li>
-					<li class="breadcrumb-item"><a href="{{ route('vehicle.index') }}">Vehicle</a></li>
+					<li class="breadcrumb-item"><a href="{{ url('allvehicle') }}/1">Vehicle</a></li>
 					<li class="breadcrumb-item">Add Vehicle</li>
 				</ol>
 			</div>

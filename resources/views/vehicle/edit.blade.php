@@ -334,7 +334,7 @@ border-radius: 34px;
 								<div class="col-sm-6">
 							 		<!-- text input -->
 									<div class="form-group row">
-										<label for="VBC1" class="col-sm-6 col-form-label"><span style="color:red">*</span>FPM</label>
+										<label for="VBC1" class="col-sm-6 col-form-label"><span style="color:red">*</span>FPM <p style="font-size:8px">This setting detects the state of the engine (On/Off) that enable other software processes to function properly. Ensure the appropriate tracking device input is physically connected to the fuel pump input power before turning on FPM.</p></label>
 										 <div class="col-sm-6">
 											<label class="switch" style="margin-top:10px">
 									<input {{ ($vehicle->fpm_enabled == "1" ? "checked":"") }}  name="fpm_enabled" id="fpm_enabled" type="checkbox">
