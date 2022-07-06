@@ -112,7 +112,7 @@
               <th class="text-right">ASG</th>
               <th class="text-right">BUZ</th>
               <th class="text-right">BLK</th>
-              <th>AFP</th>
+              <th title="This setting detects the state of the engine (On/Off) that enable other software processes to function properly. Ensure the appropriate tracking device input is physically connected to the fuel pump input power before turning on FPM.">AFP<br><span style="font-size: 5px;"></span></th>
               <th>Vehicle Reg#</th>
               <th>Description</th>
               <th style="width: 150px">Activity</th>
