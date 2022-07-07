@@ -189,7 +189,7 @@
             @if($vehicle->fpm_enabled == 0 && $vehicle->fpm == 1)
                 <span><img src='/afpon.png'></span>
             @else
-                <span><img src='/afpon.png'></span>
+                <span><img src='/afpoff.png'></span>
             @endif
           </td>
           <td>
