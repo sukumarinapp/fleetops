@@ -137,7 +137,7 @@
       <tbody>
        @foreach($rhreport as $sale)
        <tr>
-           <td>{{ date("d-m-Y",strtotime($sale->DDT)) }}</td>
+           <td>{{ $sale->DDT }}</td>
            <td>{{ $sale->id }}</td>
            <td>{{ $sale->CAN }}</td>
            <td>{{ $sale->VNO }}</td>

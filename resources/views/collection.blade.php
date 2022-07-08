@@ -129,7 +129,7 @@
         <tbody>
           @foreach($sales as $sale)
           <tr>
-           <td>{{ date("d-m-Y",strtotime($sale->SDT)) }}</td>
+           <td>{{ $sale->SDT }}</td>
            <td>{{ $sale->DCR }}</td>
            <td>{{ $sale->CAN }}</td>
            <td>{{ $sale->VNO }}</td>

@@ -53,7 +53,7 @@
         <tbody>
           @foreach($workflow as $flow)
           <tr>
-           <td>{{ date("d-m-Y",strtotime($flow->WST)) }}</td>
+           <td>{{ $flow->WST }}</td>
            <td>{{ $flow->UAN }}</td>
            <td>{{ $flow->CAN }}</td>
            <td>{{ $flow->VNO }}</td>
