@@ -701,6 +701,7 @@ function toggle_map(arg){
              $('.buttons-pdf').html('<i class="fa fa-file-pdf" style="color:red"/>')
              $('.buttons-print').html('<i class="fa fa-print" style="color:#0d5b9e"/>')
          },
+         "order": [[ 0, "desc" ]],
          dom: "<'row'<'col-sm-12 col-md-9'B><'col-sm-12 col-md-3'f>>" +
          "<'row'<'col-sm-12'tr>>" +
          "<'row'<'col-sm-12 col-md-2'i><'col-sm-12 col-md-2'l><'col-sm-12 col-md-8'p>>",
