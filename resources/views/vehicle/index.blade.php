@@ -112,7 +112,7 @@
               <th class="text-right">ASG</th>
               <th class="text-right">BUZ</th>
               <th class="text-right">BLK</th>
-              <th>AFP<br><span style="font-size: 5px;"></span></th>
+              <th class="text-right">MOV</th>
               <th>Vehicle Reg#</th>
               <th>Description</th>
               <th style="width: 150px">Activity</th>
@@ -185,11 +185,11 @@
             }
             @endphp
           </td>
-          <td>
+          <td class="text-center">
             @if($vehicle->fpm_enabled == 0 && $vehicle->fpm == 1)
                 <span><img src='/afpon.png'></span>
             @else
-                <span><img src='/afpon.png'></span>
+                <span><img src='/afpoff.png'></span>
             @endif
           </td>
           <td>
