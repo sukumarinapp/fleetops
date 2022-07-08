@@ -93,6 +93,7 @@ class VehicleController extends Controller
                 $fpm_result = DB::select(DB::raw($fpm_sql));
                 if(count($fpm_result) > 0){
                     $fpm = $fpm_result[0]->movement;
+                    $vehicle->fpm = $fpm;
                 }
             }
 
