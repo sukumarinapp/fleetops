@@ -35,7 +35,7 @@
 					<h3 class="card-title">WorkFlow</h3>
 				</div>
 				<div class="card-body" style="overflow-x: auto;" >
-			  <table id="example1" class="table table-bordered">
+			  <table id="example1" class="table table-bordered" border="10">
           <thead>
           <tr>
             <th>Open Date</th>
@@ -120,6 +120,7 @@
 		              	@elseif($insp->status != "Process Cancelled")
 		              	<td><a class="btn btn-danger btn-xs" href="{{ url('cancel_process') }}/{{ $insp->id }}">Cancel Process</a></td>
 		              	@endif
+		              	<td></td>
 		              	@if($insp->inspection == "0")
 		              	<td>Inspect Vehicle</td>
 		              	@endif
