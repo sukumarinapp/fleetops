@@ -39,10 +39,10 @@
       <table id="example1" class="table table-bordered">
         <thead>
           <tr>
+            <th>Event Time</th>
             <th>Vehicle Reg#</th>
             <th>Alert</th>
             <th>Active Duration</th>
-            <th>Event Time</th>
             <th>Event Location</th>
             <th>Resolved Time</th>
             <th>Resolved Location</th>
@@ -51,10 +51,10 @@
         <tbody>
           @foreach($alerts as $alert)
           <tr>
+           <td>{{ $alert['alert_time'] }}</td>
            <td>{{ $alert['VNO'] }}</td>
            <td>{{ $alert['alert'] }}</td>
            <td>{{ $alert['hours'] }}</td>
-           <td>{{ $alert['alert_time'] }}</td>
            <td style="text-align:center;">
              @if($alert["ev_latitude"] == "")
             &nbsp;

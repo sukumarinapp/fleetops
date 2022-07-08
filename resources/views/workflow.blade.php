@@ -52,7 +52,7 @@
             @foreach($vehicles as $vehicle)
             	@if($vehicle->DES =="A4" || ($vehicle->DES =="A3" && $vehicle->alarm_off == 0))
 		            <tr>
-		              <td>{{ date("d-m-Y",strtotime($vehicle->DDT)) }}</td>
+		              <td>{{ $vehicle->DDT }}</td>
 		              <td>{{ $vehicle->VNO }}</td>
 		              <td>WFL{{ str_pad($vehicle->id,3,'0',STR_PAD_LEFT) }}</td>
 		              @if($vehicle->DES =="A4")
@@ -69,7 +69,7 @@
 	            @endif
 	            @if($vehicle->VBM == "Ride Hailing" && $vehicle->RMT > 0 && $vehicle->ADT == 0)
 		            <tr>
-		              <td>{{ date("d-m-Y",strtotime($vehicle->DDT)) }}</td>
+		              <td>{{ $vehicle->DDT }}</td>
 		              <td>{{ $vehicle->VNO }}</td>
 		              <td>WFL{{ str_pad($vehicle->id,3,'0',STR_PAD_LEFT) }}</td>
 		              <td>Sales Audit Request</td>
@@ -91,7 +91,7 @@
             		style="font-weight:bold" 
             	@endif
             	>
-		              <td>{{ date("d-m-Y",strtotime($insp->expired_date)) }}</td>
+		              <td>{{ $insp->expired_date }}</td>
 		              <td>{{ $insp->VNO }}</td>
 		              	@if($insp->doc_type == "Inspection")
 								      	<td>INP{{ str_pad($insp->id,3,'0',STR_PAD_LEFT) }}</td>
@@ -174,7 +174,7 @@
             @endforeach
             @foreach($assign as $ass)
 							<tr style="font-weight:bold">
-								<td>{{ date("d-m-Y",strtotime($ass->LDT)) }}</td>
+								<td>{{ $ass->LDT }}</td>
 						      	<td>{{ $ass->VNO }}</td>
 						      	<td>ASN{{ str_pad($ass->id,3,'0',STR_PAD_LEFT) }}</td>
 						      	<td>Assign Vehicle</td>
