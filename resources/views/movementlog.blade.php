@@ -66,9 +66,9 @@
               On
             @endif
           </td>
-           <td>{{ date("d-m-Y",strtotime($vehicle->SDT)) }}</td>
+           <td>{{ $vehicle->SDT }}</td>
            <td>{{ $vehicle->STM }}</td>
-           <td>{{ date("d-m-Y",strtotime($vehicle->EDT)) }}</td>
+           <td>{{ $vehicle->EDT }}</td>
            <td>{{ $vehicle->ETM }}</td>
            <td>{{ $vehicle->DUR }}</td>
            <td>{{ $vehicle->CML }}</td>

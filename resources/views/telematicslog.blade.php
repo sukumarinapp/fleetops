@@ -58,7 +58,7 @@
           <tbody>
           @foreach($vehicles as $vehicle)
           <tr>
-           <td>{{ date("d-m-Y",strtotime($vehicle->DDT)) }}</td>
+           <td>{{ $vehicle->DDT }}</td>
            <td><a style="color:blue;cursor: pointer;"  onclick="vehicle_activity('{{ $vehicle->VNO }}')">{{ $vehicle->VNO }}</a></td>
            <td>{{ round($vehicle->odometer) }}</td>
            <td>{{ $vehicle->CML }}</td>
