@@ -693,7 +693,7 @@ class DriverController extends Controller
      {
         $images = array();
         $VNO = Session::get('VNO');
-        $sql = " SELECT a. *,b.driver_id,b.VNO,c.DNM,c.DSN from manager_inspect a,driver_upload b,driver c where a.upload_id=b.id and b.driver_id=c.id and VNO ='$VNO'";
+        $sql = " SELECT a. *,b.driver_id,b.VNO,c.DNM,c.DSN from manager_inspect a,driver_upload b,driver c where a.upload_id=b.id and b.driver_id=c.id and VNO ='$VNO' and approved=0";
         $inspect = DB::select(DB::raw($sql));
         $sql = " SELECT a.* from manager_inspect_photo a,driver_upload b where a.upload_id=b.id and VNO ='$VNO'";
         $images = DB::select(DB::raw($sql));
