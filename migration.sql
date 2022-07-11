@@ -399,6 +399,8 @@ CREATE TABLE `fpm` (
 
 ALTER TABLE vehicle ADD fpm_enabled int(1) DEFAULT 0 AFTER VNO;
 
+--11/07/2022
+
 CREATE TABLE `mileage` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `VNO` varchar(20) DEFAULT NULL,
@@ -407,16 +409,30 @@ CREATE TABLE `mileage` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 
-insert into mileage (VNO,context,mileage) values ('GT4298-18','inspection,'0');
-insert into mileage (VNO,context,mileage) values ('GN7122-17','inspection,'0');
-insert into mileage (VNO,context,mileage) values ('GN7119-17','inspection,'0');
-insert into mileage (VNO,context,mileage) values ('GT6014-17','inspection,'0');
-insert into mileage (VNO,context,mileage) values ('GN7128-17','inspection,'0');
-insert into mileage (VNO,context,mileage) values ('GN8488-17','inspection,'0');
-insert into mileage (VNO,context,mileage) values ('GT9323-17','inspection,'0');
-insert into mileage (VNO,context,mileage) values ('GN7121-17','inspection,'0');
-insert into mileage (VNO,context,mileage) values ('GT8283-17','inspection,'0');
-insert into mileage (VNO,context,mileage) values ('GT9324-17','inspection,'0');
-insert into mileage (VNO,context,mileage) values ('GE609-17 ','inspection,'0');
-insert into mileage (VNO,context,mileage) values ('GS2231-22','inspection,'0');
-insert into mileage (VNO,context,mileage) values ('GS2259-22','inspection,'0');
+insert into mileage (VNO,context,mileage) values ('GT4298-18','inspection','0');
+insert into mileage (VNO,context,mileage) values ('GN7122-17','inspection','0');
+insert into mileage (VNO,context,mileage) values ('GN7119-17','inspection','0');
+insert into mileage (VNO,context,mileage) values ('GT6014-17','inspection','0');
+insert into mileage (VNO,context,mileage) values ('GN7128-17','inspection','0');
+insert into mileage (VNO,context,mileage) values ('GN8488-17','inspection','0');
+insert into mileage (VNO,context,mileage) values ('GT9323-17','inspection','0');
+insert into mileage (VNO,context,mileage) values ('GN7121-17','inspection','0');
+insert into mileage (VNO,context,mileage) values ('GT8283-17','inspection','0');
+insert into mileage (VNO,context,mileage) values ('GT9324-17','inspection','0');
+insert into mileage (VNO,context,mileage) values ('GE609-17 ','inspection','0');
+insert into mileage (VNO,context,mileage) values ('GS2231-22','inspection','0');
+insert into mileage (VNO,context,mileage) values ('GS2259-22','inspection','0');
+
+insert into mileage (VNO,context,mileage) values ('GT4298-18','service','0');
+insert into mileage (VNO,context,mileage) values ('GN7122-17','service','0');
+insert into mileage (VNO,context,mileage) values ('GN7119-17','service','0');
+insert into mileage (VNO,context,mileage) values ('GT6014-17','service','0');
+insert into mileage (VNO,context,mileage) values ('GN7128-17','service','0');
+insert into mileage (VNO,context,mileage) values ('GN8488-17','service','0');
+insert into mileage (VNO,context,mileage) values ('GT9323-17','service','0');
+insert into mileage (VNO,context,mileage) values ('GN7121-17','service','0');
+insert into mileage (VNO,context,mileage) values ('GT8283-17','service','0');
+insert into mileage (VNO,context,mileage) values ('GT9324-17','service','0');
+insert into mileage (VNO,context,mileage) values ('GE609-17 ','service','0');
+insert into mileage (VNO,context,mileage) values ('GS2231-22','service','0');
+insert into mileage (VNO,context,mileage) values ('GS2259-22','service','0'); 
