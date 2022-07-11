@@ -416,6 +416,13 @@ public function store(Request $request)
         $vehicle->VID  =  $VID;
         $vehicle->VRD  =  $VRD;
         $vehicle->save();
+
+        $sql = "insert into mileage (VNO,context,mileage) values ('$VNO','inspection','0');";
+        DB::insert($sql);
+
+        $sql = "insert into mileage (VNO,context,mileage) values ('$VNO','service','0');";
+        DB::insert($sql);
+
         return redirect('/allvehicle/1')->with('message', 'Vehicle added Successfully');
     }
 }
