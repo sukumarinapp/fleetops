@@ -407,8 +407,12 @@ border-radius: 34px;
 						<label>Service Scheduling</label>
 						<div class="form-group row">
 							<label for="SVE" class="col-sm-3 col-form-label">Venue</label>
-							<div class="col-sm-5">
+							<div class="col-sm-3">
 								<input maxlength="50" value="{{ $vehicle->SVE }}" type="text" class="form-control" name="SVE" id="SVE" >
+							</div>
+							<label for="SVE" class="col-sm-3 col-form-label">Current Mileage</label>
+							<div class="col-sm-2">
+								<input maxlength="50" value="{{ $vehicle->service_mileage }}" type="text" class="form-control" readonly>
 							</div>
 						</div>
 						<div class="form-group row">
@@ -446,8 +450,12 @@ border-radius: 34px;
 						<br><label>Vehicle Inspection Scheduling</label>
 						<div class="form-group row">
 							<label for="IVE" class="col-sm-3 col-form-label">Venue</label>
-							<div class="col-sm-5">
+							<div class="col-sm-3">
 								<input maxlength="50" value="{{ $vehicle->IVE }}" type="text" class="form-control" name="IVE" id="IVE" >
+							</div>
+							<label for="" class="col-sm-3 col-form-label">Current Mileage</label>
+							<div class="col-sm-2">
+								<input maxlength="50" value="{{ $vehicle->inapection_mileage }}" type="text" class="form-control" readonly>
 							</div>
 						</div>
 						<div class="form-group row">

@@ -452,7 +452,6 @@ public function edit($id)
     $sql = "select * from vehicle_service where VID ='$VID'";
     $service = DB::select(DB::raw($sql));
     if(count($service) > 0){
-
         $vehicle->SSD = $service[0]->SSD;
         $vehicle->SSM = $service[0]->SSM;
         $vehicle->RSS = $service[0]->RSS;
@@ -476,6 +475,18 @@ public function edit($id)
     $result = DB::select(DB::raw($sql));
     if(count($result) > 0){
         $workflow = 1;
+    }
+    $vehicle->inapection_mileage = 0;
+    $vehicle->service_mileage = 0;
+    $sql = "select * from mileage where VNO ='$VNO'";
+    $result = DB::select(DB::raw($sql));
+    foreach($result as $res){
+        if($res->context == "inspection"){
+            $vehicle->inapection_mileage = $res->mileage;
+        }  
+        if($res->context == "service"){
+            $vehicle->service_mileage = $res->mileage;
+        }
     }
     return view('vehicle.edit', compact('vehicle','rhplatforms','clients','online','workflow'));
 }
