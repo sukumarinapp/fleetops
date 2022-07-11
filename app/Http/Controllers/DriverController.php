@@ -759,10 +759,10 @@ class DriverController extends Controller
                 $SER =  $id.'.'.$request->SER->extension(); 
                 move_uploaded_file($_FILES['SER']['tmp_name'], $filepath.$SER);
             }
-            milsql="update mileage set mileage = 0 where VNO='$VNO' and context='service'";
-                DB::update(DB::raw($milsql));
+           
             $sql = "update driver_upload set file_name='$SER',current_mileage='$current_mileage',upload_time='$upload_time' where id=$id";
-            DB::update(DB::raw($sql));    
+            DB::update(DB::raw($sql));
+                
         }
         return redirect('/tasks')->with('success', 'Service details updated successfully');
      } 

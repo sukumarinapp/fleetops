@@ -436,3 +436,4 @@ insert into mileage (VNO,context,mileage) values ('GT9324-17','service','0');
 insert into mileage (VNO,context,mileage) values ('GE609-17 ','service','0');
 insert into mileage (VNO,context,mileage) values ('GS2231-22','service','0');
 insert into mileage (VNO,context,mileage) values ('GS2259-22','service','0'); 
+

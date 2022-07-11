@@ -613,7 +613,8 @@ class WorkflowController extends Controller
         $sql = "insert into manager_service (upload_id,service_date,current_mileage) values (upload_id,'$SSD','$current_mileage')";
         DB::insert($sql);
         
-       
+        $milsql="update mileage set mileage = 0 where VNO='$VNO' and context='service'";
+        DB::update(DB::raw($milsql));
 
         $sql = "update driver_upload set approved=1 where id=$upload_id"; 
         DB::update($sql);
