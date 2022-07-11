@@ -715,6 +715,8 @@ class DriverController extends Controller
             $id = $result[0]->id;
             $VID = $result[0]->VID;
             if($acceptance_code == $result[0]->acceptance_code){
+                $milsql="update mileage set mileage = 0 where VNO='$VNO' and context='inspection'";
+                DB::update(DB::raw($milsql));
                 $sql2 = "select ISD,ISM from manager_inspect where upload_id = $id";
                 $result2 = DB::select(DB::raw($sql2));
                 $ISD = $result2[0]->ISD;
@@ -757,6 +759,8 @@ class DriverController extends Controller
                 $SER =  $id.'.'.$request->SER->extension(); 
                 move_uploaded_file($_FILES['SER']['tmp_name'], $filepath.$SER);
             }
+            milsql="update mileage set mileage = 0 where VNO='$VNO' and context='service'";
+                DB::update(DB::raw($milsql));
             $sql = "update driver_upload set file_name='$SER',current_mileage='$current_mileage',upload_time='$upload_time' where id=$id";
             DB::update(DB::raw($sql));    
         }
