@@ -92,62 +92,52 @@
                 <input value="{{ $tbl494->NWM }}" required="required"  type="text" class="form-control decimal" name="NWM" id="NWM" maxlength="20" placeholder="NWM">
             </div>
         </div>
-
-                <!--    <div class="row">
-											<div class="col-sm-6">
-												
-												<div class="form-group row">
-													<label for="VZC1" class="col-sm-6 col-form-label"><span style="color:red">*</span>Night Activity</label>
-															
-															<div class="col-sm-6">
-														<input type="time" class="form-control" name="VZC1" id="VZC1" maxlength="50" placeholder="Code">
-													</div>
-												</div>
-											</div>
-											<div class="col-sm-6">
-												<div class="form-group row">
-												
-													<div class="col-sm-6">
-														<input type="time" class="form-control" name="VZC0" id="VZC0" maxlength="50" placeholder="Code">
-													</div>
-												</div>
-											</div>
-										</div>	
+ 
+		<div class="form-group row">
+			<label for="REF_NAFT" class="col-sm-3 col-form-label"><span style="color:red">*</span>Night Activity</label>
+					
+			  <div class="col-sm-4">
+				<input value="{{ $tbl494->REF_NAFT }}" required="required" onkeydown="return false" type="time" class="form-control" name="REF_NAFT" id="REF_NAFT">
+			</div>
+			<div class="col-sm-4">
+				<input value="{{ $tbl494->REF_NATT }}" required="required" onkeydown="return false" type="time" class="form-control" name="REF_NATT" id="REF_NATT">
+			</div>
+		</div>
 
          <div class="form-group row">
-            <label for="Min. Rest Period (Hrs):" class="col-sm-3 col-form-label"><span style="color:red">*</span>Min. Rest Period (Hrs)</label>
+            <label for="REF_MRP" class="col-sm-3 col-form-label"><span style="color:red">*</span>Min. Rest Period (Hrs)</label>
             <div class="col-sm-9">
-                <input value="{{ $tbl494->NWM }}" required="required"  type="text" class="form-control decimal" name="REF_MRP" id="REF_MRP" maxlength="20" placeholder="Min. Rest Period (Hrs)">
+                <input value="{{ $tbl494->REF_MRP }}" required="required"  type="text" class="form-control decimal" name="REF_MRP" id="REF_MRP" maxlength="20" placeholder="Min. Rest Period (Hrs)">
             </div>
         </div>			
 
          <div class="form-group row">
-            <label for="Min. Business Mileage" class="col-sm-3 col-form-label"><span style="color:red">*</span>Min. Business Mileage</label>
+            <label for="REF_MBM" class="col-sm-3 col-form-label"><span style="color:red">*</span>Min. Business Mileage</label>
             <div class="col-sm-9">
-                <input value="{{ $tbl494->NWM }}" required="required"  type="text" class="form-control decimal" name="REF_MBM" id="REF_MBM" maxlength="20" placeholder="Min. Business Mileage">
+                <input value="{{ $tbl494->REF_MBM }}" required="required"  type="text" class="form-control decimal" name="REF_MBM" id="REF_MBM" maxlength="20" placeholder="Min. Business Mileage">
             </div>
         </div>			
 
          <div class="form-group row">
-            <label for="Max. Speed Limit" class="col-sm-3 col-form-label"><span style="color:red">*</span>Max. Speed Limit</label>
+            <label for="REF_MSL" class="col-sm-3 col-form-label"><span style="color:red">*</span>Max. Speed Limit</label>
             <div class="col-sm-9">
-                <input value="{{ $tbl494->NWM }}" required="required"  type="text" class="form-control decimal" name="REF_MSL" id="REF_MSL" maxlength="20" placeholder="Max. Speed Limit">
+                <input value="{{ $tbl494->REF_MSL }}" required="required"  type="text" class="form-control decimal" name="REF_MSL" id="REF_MSL" maxlength="20" placeholder="Max. Speed Limit">
             </div>
         </div>			
 
          <div class="form-group row">
-            <label for="Min. Daytime Parking" class="col-sm-3 col-form-label"><span style="color:red">*</span>Min. Daytime Parking</label>
+            <label for="REF_DTP" class="col-sm-3 col-form-label"><span style="color:red">*</span>Min. Daytime Parking</label>
             <div class="col-sm-9">
-                <input value="{{ $tbl494->NWM }}" required="required"  type="text" class="form-control decimal" name="REF_DTP" id="REF_DTP" maxlength="20" placeholder="Min. Daytime Parking">
+                <input value="{{ $tbl494->REF_DTP }}" required="required"  type="text" class="form-control decimal" name="REF_DTP" id="REF_DTP" maxlength="20" placeholder="Min. Daytime Parking">
             </div>
         </div>			
 
          <div class="form-group row">
-            <label for="SMS Balance" class="col-sm-3 col-form-label"><span style="color:red">*</span>SMS Balance</label>
+            <label for="REF_SMB" class="col-sm-3 col-form-label"><span style="color:red">*</span>SMS Balance</label>
             <div class="col-sm-9">
-                <input value="{{ $tbl494->NWM }}" required="required"  type="text" class="form-control decimal" name="REF_SMB" id="REF_SMB" maxlength="20" placeholder="SMS Balance">
+                <input value="{{ $tbl494->REF_SMB }}" required="required"  type="text" class="form-control decimal" name="REF_SMB" id="REF_SMB" maxlength="20" placeholder="SMS Balance">
             </div>
-        </div> -->			
+        </div>			
  						
 				<div class="form-group row">
 					<div class="col-md-12 text-center">

@@ -38,7 +38,13 @@ class ParameterController extends Controller
         $tbl494->CCEI_Xb = $request->get('CCEI_Xb');
         $tbl494->CCEI_Sxx = $request->get('CCEI_Sxx');
         $tbl494->FPR = $request->get('FPR');
-        $tbl494->NWM = $request->get('NWM');
+        $tbl494->REF_NAFT = $request->get('REF_NAFT');
+        $tbl494->REF_NATT = $request->get('REF_NATT');
+        $tbl494->REF_MRP = $request->get('REF_MRP');
+        $tbl494->REF_MBM = $request->get('REF_MBM');
+        $tbl494->REF_MSL = $request->get('REF_MSL');
+        $tbl494->REF_DTP = $request->get('REF_DTP');
+        $tbl494->REF_SMB = $request->get('REF_SMB');
         $tbl494->save();
         return redirect('/parameter')->with('message', 'Settings Saved Successfully');
     }
