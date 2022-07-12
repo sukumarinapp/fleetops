@@ -437,3 +437,12 @@ insert into mileage (VNO,context,mileage) values ('GE609-17 ','service','0');
 insert into mileage (VNO,context,mileage) values ('GS2231-22','service','0');
 insert into mileage (VNO,context,mileage) values ('GS2259-22','service','0'); 
 
+CREATE TABLE `flag` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `VNO` varchar(20) DEFAULT NULL,
+  `flg_date` date DEFAULT NULL,
+  `flg_type` varchar(10) DEFAULT NULL,
+  `remarks` varchar(100) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT 0,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
