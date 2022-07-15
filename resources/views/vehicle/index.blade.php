@@ -153,7 +153,7 @@
             }
             @endphp
 
-            @if($vehicle->flag > 0)
+            @if(count($vehicle->flag) > 0)
              <img src='/flag.jpg'>
             @endif
           </td>
