@@ -152,6 +152,10 @@
               echo "<span><img src='/parked.jpg'></span>";
             }
             @endphp
+
+            @if($vehicle->flag > 0)
+             <img src='/flag.jpg'>
+            @endif
           </td>
 
           <td class="text-center">
