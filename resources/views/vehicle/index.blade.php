@@ -171,7 +171,7 @@ h5 {
             @endphp
 
             @if(count($vehicle->flag) > 0)
-             <span><a href='#' onclick='show_flag()'><img src='/flag.jpg'></a></span>
+             <span><a href='#' data-toggle="modal" data-target="#flagmodal"><img src='/flag.jpg'></a></span>
             @endif
           </td>
 
@@ -295,7 +295,8 @@ h5 {
         </div>
       </div>
     </div>
-      
+     @foreach($vehicles as $vehicle)
+     @if(count($vehicle->flag) > 0)
        <div class="modal fade" id="flagmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -306,6 +307,7 @@ h5 {
             </button>
           </div>
           <div class="modal-body">
+            <h5>{{ $vehicle->VNO }}</h5>
           <div class='container2'>
     <div>
       <img src='http://ecx.images-amazon.com/images/I/21-leKb-zsL._SL500_AA300_.png' class='iconDetails'>
@@ -324,6 +326,8 @@ h5 {
         </div>
       </div>
     </div>
+    @endif
+    @endforeach
 
   </div>
 </div>
@@ -382,9 +386,6 @@ h5 {
     $('#mymodal').modal('show'); 
   } 
 
-  function show_flag(){
-     $('#flagmodal').modal('show');
-  }
   
 /*  function send_warningsms(){
     var VNO = $("#VNO").val();
