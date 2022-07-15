@@ -10,6 +10,23 @@
     #sort {
       text-align: center;}
     }
+
+.iconDetails {
+ margin-left:2%;
+float:left; 
+height:40px;
+width:40px; 
+} 
+
+.container2 {
+  width:100%;
+  height:auto;
+  padding:1%;
+}
+
+h5 {
+    margin:0px;
+}
   </style>
   <div class="container-fluid">
    <div class="row">
@@ -154,7 +171,7 @@
             @endphp
 
             @if(count($vehicle->flag) > 0)
-             <img src='/flag.jpg'>
+             <span><a href='#' onclick='show_flag()'><img src='/flag.jpg'></a></span>
             @endif
           </td>
 
@@ -278,6 +295,36 @@
         </div>
       </div>
     </div>
+      
+       <div class="modal fade" id="flagmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel"><span><img src='/flag.jpg'></span>Flagged</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+          <div class='container2'>
+    <div>
+      <img src='http://ecx.images-amazon.com/images/I/21-leKb-zsL._SL500_AA300_.png' class='iconDetails'>
+    </div>  
+  <div style='margin-left:60px;'>
+  <h5>Facebook</h5>
+  <div style="font-size:14px">fine location, GPS, coarse location</div>
+ 
+  </div>
+</div>
+          </div>
+          <div class="modal-footer">
+            <a id="href_text" class="mr-auto"><span id="href_text"></span></a>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 </div>
@@ -335,6 +382,9 @@
     $('#mymodal').modal('show'); 
   } 
 
+  function show_flag(){
+     $('#flagmodal').modal('show');
+  }
   
 /*  function send_warningsms(){
     var VNO = $("#VNO").val();
