@@ -80,11 +80,18 @@ class VehicleController extends Controller
         $pba = 0;
         $this->check_access("BPC");
         $today = date("Y-m-d");
+        $yesterday = date("Y-m-d",strtotime("-1 days"));
         $sql = "SELECT a.*,b.id as did,b.DNM,b.DSN,b.VBM,c.name FROM vehicle a LEFT JOIN driver b ON a.driver_id = b.id INNER JOIN users c ON a.CAN = c.UAN";
         $vehicles = DB::select(DB::raw($sql));
         foreach($vehicles as $vehicle){
             $TID = $vehicle->TID;
             $VNO = $vehicle->VNO;
+            $flag_sql = "select * from flag where VNO='$VNO' and flg_date='$yesterday' and status=0";
+            $flag_res = DB::select(DB::raw($flag_sql));
+            $vehicle->flag = array();
+            if(count($flag_res) > 0){
+                $vehicle->flag = $flag_res;
+            }
             $fpm_enabled = $vehicle->fpm_enabled;
             $fpm = $vehicle->fpm;
 
@@ -229,7 +236,7 @@ class VehicleController extends Controller
             return strcmp($a->DECL, $b->DECL);
           });
       }
-      #echo "<pre>";print_r($vehicles);echo "</pre>";die;
+      echo "<pre>";print_r($vehicles);echo "</pre>";die;
       return view('vehicle.index', compact('vehicles','inactive','active','online','offline','assigned','notassigned','sort_by'));
     }
 
