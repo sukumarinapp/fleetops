@@ -309,7 +309,6 @@ h5 {
             <h6 class="text-center">{{ $vehicle->VNO }} : {{ $vehicle->DNM }} {{ $vehicle->DSN }}</h6>
              <div class="text-center" style="font-size:14px">For Period :</div>
              <hr>
-             @if($vehicle->flg_type == "FLG_IP")
           <div class='container2'>
     <div>
       <img src='http://ecx.images-amazon.com/images/I/21-leKb-zsL._SL500_AA300_.png' class='iconDetails'>
@@ -320,18 +319,6 @@ h5 {
  
   </div>
 </div>
-@elseif($vehicle->flg_type == "FLG_NW")
- <div class='container2'>
-    <div>
-      <img src='http://ecx.images-amazon.com/images/I/21-leKb-zsL._SL500_AA300_.png' class='iconDetails'>
-    </div>  
-  <div style='margin-left:60px;'>
-  <h5>Facebook</h5>
-  <div style="font-size:14px">fine location, GPS, coarse location</div>
- 
-  </div>
-</div>
-@endif
           </div>
           <div class="modal-footer">
             <a id="href_text" class="mr-auto"><span id="href_text"></span></a>
