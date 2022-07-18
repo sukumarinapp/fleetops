@@ -171,7 +171,7 @@ h5 {
             @endphp
 
             @if(count($vehicle->flag) > 0)
-             <span><a href='#' data-toggle="modal" data-target="#flagmodal"><img src='/flag.jpg'></a></span>
+             <a href='#' data-toggle="modal" data-target="#flag_{{$vehicle->VNO}}"><img src='/flag.jpg'></a>
             @endif
           </td>
 
@@ -296,8 +296,7 @@ h5 {
       </div>
     </div>
      @foreach($vehicles as $vehicle)
-     @if(count($vehicle->flag) > 0)
-       <div class="modal fade" id="flagmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+       <div class="modal fade" id="flag_{{$vehicle->VNO}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -326,7 +325,6 @@ h5 {
         </div>
       </div>
     </div>
-    @endif
     @endforeach
 
   </div>
