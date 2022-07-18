@@ -84,6 +84,14 @@ class WorkflowController extends Controller
         return view('workflowlog',compact('workflow','title','from','to'));
     }
 
+    public function raisedflags($from,$to)
+    {
+        $title = 'Raised Flags';
+        $sql = "select a.*,c.DNM,c.DSN from flag a,vehicle b,driver c where flg_date >= '$from' and flg_date <='$to' and a.status=1 and a.VNO = b.VNO and b.driver_id=c.id";
+        $raisedflags = DB::select(DB::raw($sql));
+        return view('raisedflags',compact('raisedflags','title','from','to'));
+    }
+
     public function vehiclelog($from,$to,$ref)
     {
         $sql = "select a.id,a.VNO,a.CAN,a.LDT,a.ATN,a.UAN,a.TIM,b.DNM,b.DSN from vehicle_log a,driver b where a.DID=b.id and LDT >= '$from' and LDT <='$to' order by TIM desc";

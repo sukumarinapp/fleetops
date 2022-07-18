@@ -122,6 +122,7 @@ Route::get('/notificationslog/{from}/{to}/{ref}', 'WorkflowController@notificati
 Route::get('/telematicslog/{from}/{to}', 'WorkflowController@telematicslog')->name('telematicslog');
 Route::get('/movementlog/{from}/{to}/{VNO}', 'WorkflowController@movementlog')->name('movementlog');
 Route::get('/alertlog/{from}/{to}', 'HomeController@alertlog')->name('alertlog');
+Route::get('/raisedflags/{from}/{to}', 'WorkflowController@raisedflags')->name('raisedflags');
 Route::get('/acknowledge/{id}', 'HomeController@acknowledge')->name('acknowledge');
 Route::get('/workflowlog/{from}/{to}', 'WorkflowController@workflowlog')->name('workflowlog');
 Route::get('/override/{VNO}', 'WorkflowController@override')->name('override');
