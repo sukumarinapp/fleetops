@@ -312,13 +312,17 @@ h5 {
           <div class='container2'>
     <div>
       @foreach($vehicle->flag as $flg)
-      <p>{{ $flg->flg_type }} </p>
-      <img src='/FLG_IP.jpg' class='iconDetails'>
+      @if($flg->flg_type == "FLG_IP") </p>
+      <div class="row"><img src='/FLG_IP.jpg' class='iconDetails'></div>
+      @endif
+      @if($flg->flg_type == "FLG_NW") </p>
+      <div class="row"><img src='/FLG_NW.jpg' class='iconDetails'></div>
+      @endif
       @endforeach
     </div>  
-  <div style='margin-left:60px;'>
+  <!-- <div style='margin-left:60px;'>
   <h5>Facebook</h5>
-  <div style="font-size:14px">fine location, GPS, coarse location</div>
+  <div style="font-size:14px">fine location, GPS, coarse location</div> -->
  
   </div>
 </div>
