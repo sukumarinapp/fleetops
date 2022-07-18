@@ -14,7 +14,7 @@
 .iconDetails {
  margin-left:2%;
 float:left; 
-height:40px;
+height:50px;
 width:40px; 
 } 
 
@@ -127,6 +127,7 @@ h5 {
               <th>CAN</th>
               <th class="text-right">TST</th>
               <th class="text-right">ASG</th>
+              <th class="text-right">FLG</th>
               <th class="text-right">BUZ</th>
               <th class="text-right">BLK</th>
               <th class="text-right">MOV</th>
@@ -169,7 +170,9 @@ h5 {
               echo "<span><img src='/parked.jpg'></span>";
             }
             @endphp
+          </td>
 
+          <td class="text-center">
             @if(count($vehicle->flag) > 0)
              <a href='#' data-toggle="modal" data-target="#flag_{{$vehicle->VNO}}"><img src='/flag.jpg'></a>
             @endif
@@ -309,23 +312,100 @@ h5 {
             <h6 class="text-center">{{ $vehicle->VNO }} : {{ $vehicle->DNM }} {{ $vehicle->DSN }}</h6>
              <div class="text-center" style="font-size:14px">For Period :</div>
              <hr>
-          <div class='container2'>
-    <div>
+         
       @foreach($vehicle->flag as $flg)
-      @if($flg->flg_type == "FLG_IP") </p>
-      <div class="row"><img src='/FLG_IP.jpg' class='iconDetails'></div>
-      @endif
-      @if($flg->flg_type == "FLG_NW") </p>
-      <div class="row"><img src='/FLG_NW.jpg' class='iconDetails'></div>
-      @endif
+      
+     @if($flg->flg_type == "FLG_IP") 
+     <div class='container2'>
+        <img src='/FLG_IP.jpg' class='iconDetails'>
+          <div style='margin-left:60px;'>
+              <h5>Inconsistent parking</h5>
+          <div style="font-size:14px">fine location, GPS, coarse location</div>
+       </div>
+     </div>
+     @endif
+    
+     @if($flg->flg_type == "FLG_NW") 
+     <div class='container2'>
+        <img src='/FLG_NW.jpg' class='iconDetails'>
+          <div style='margin-left:60px;'>
+             <h5>Night Work</h5>
+         <div style="font-size:14px">fine location, GPS, coarse location</div>
+        </div>
+     </div>
+     @endif
+
+     @if($flg->flg_type == "FLG_IR") 
+     <div class='container2'>
+        <img src='/FLG_IR.jpg' class='iconDetails'>
+          <div style='margin-left:60px;'>
+             <h5>Insufficient rest</h5>
+         <div style="font-size:14px">fine location, GPS, coarse location</div>
+        </div>
+     </div>
+     @endif
+
+      @if($flg->flg_type == "FLG_EU") 
+     <div class='container2'>
+        <img src='/FLG_EU.jpg' class='iconDetails'>
+          <div style='margin-left:60px;'>
+             <h5>Excess usage</h5>
+         <div style="font-size:14px">fine location, GPS, coarse location</div>
+        </div>
+     </div>
+     @endif
+
+      @if($flg->flg_type == "FLG_DU") 
+     <div class='container2'>
+        <img src='/FLG_DU.jpg' class='iconDetails'>
+          <div style='margin-left:60px;'>
+             <h5>Dual user</h5>
+         <div style="font-size:14px">fine location, GPS, coarse location</div>
+        </div>
+     </div>
+     @endif
+
+      @if($flg->flg_type == "FLG_OS") 
+     <div class='container2'>
+        <img src='/FLG_OS.jpg' class='iconDetails'>
+          <div style='margin-left:60px;'>
+             <h5>Over-speeding</h5>
+         <div style="font-size:14px">fine location, GPS, coarse location</div>
+        </div>
+     </div>
+     @endif
+
+      @if($flg->flg_type == "FLG_DP") 
+     <div class='container2'>
+        <img src='/FLG_DP.jpg' class='iconDetails'>
+          <div style='margin-left:60px;'>
+             <h5>Long day-time parking</h5>
+         <div style="font-size:14px">fine location, GPS, coarse location</div>
+        </div>
+     </div>
+     @endif
+
+      @if($flg->flg_type == "FLG_VM") 
+     <div class='container2'>
+        <img src='/FLG_VM.jpg' class='iconDetails'>
+          <div style='margin-left:60px;'>
+             <h5>Vehicle moved</h5>
+         <div style="font-size:14px">fine location, GPS, coarse location</div>
+        </div>
+     </div>
+     @endif
+
+      @if($flg->flg_type == "FLG_NG") 
+     <div class='container2'>
+        <img src='/FLG_NG.jpg' class='iconDetails'>
+          <div style='margin-left:60px;'>
+             <h5>Engine run</h5>
+         <div style="font-size:14px">fine location, GPS, coarse location</div>
+        </div>
+     </div>
+     @endif
+
       @endforeach
-    </div>  
-  <!-- <div style='margin-left:60px;'>
-  <h5>Facebook</h5>
-  <div style="font-size:14px">fine location, GPS, coarse location</div> -->
- 
-  </div>
-</div>
           </div>
           <div class="modal-footer">
             <a id="href_text" class="mr-auto"><span id="href_text"></span></a>

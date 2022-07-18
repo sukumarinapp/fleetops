@@ -456,7 +456,7 @@ insert into flag (VNO,flg_date,flg_type,remarks,status) values ('GN7122-17','202
 insert into flag (VNO,flg_date,flg_type,remarks,status) values ('GN7122-17','2022-07-14','FLG_OS','Test','0'); 
 insert into flag (VNO,flg_date,flg_type,remarks,status) values ('GN7122-17','2022-07-14','FLG_DP','Test','0'); 
 insert into flag (VNO,flg_date,flg_type,remarks,status) values ('GN7122-17','2022-07-14','FLG_VM','Test','0'); 
-insert into flag (VNO,flg_date,flg_type,remarks,status) values ('GN7122-17','2022-07-14','FLF_NG','Test','0'); 
+insert into flag (VNO,flg_date,flg_type,remarks,status) values ('GN7122-17','2022-07-14','FLG_NG','Test','0'); 
 
 insert into flag (VNO,flg_date,flg_type,remarks,status) values ('GT4298-18','2022-07-13','FLG_IP','Test','1');
 insert into flag (VNO,flg_date,flg_type,remarks,status) values ('GT4298-18','2022-07-13','FLG_NW','Test','1'); 
@@ -466,7 +466,7 @@ insert into flag (VNO,flg_date,flg_type,remarks,status) values ('GT4298-18','202
 insert into flag (VNO,flg_date,flg_type,remarks,status) values ('GT4298-18','2022-07-13','FLG_OS','Test','1'); 
 insert into flag (VNO,flg_date,flg_type,remarks,status) values ('GT4298-18','2022-07-13','FLG_DP','Test','1'); 
 insert into flag (VNO,flg_date,flg_type,remarks,status) values ('GT4298-18','2022-07-13','FLG_VM','Test','1'); 
-insert into flag (VNO,flg_date,flg_type,remarks,status) values ('GT4298-18','2022-07-13','FLF_NG','Test','1'); 
+insert into flag (VNO,flg_date,flg_type,remarks,status) values ('GT4298-18','2022-07-13','FLG_NG','Test','1'); 
 
 insert into flag (VNO,flg_date,flg_type,remarks,status) values ('GT4298-18','2022-07-12','FLG_IP','Test','1');
 insert into flag (VNO,flg_date,flg_type,remarks,status) values ('GT4298-18','2022-07-12','FLG_NW','Test','1'); 
@@ -476,4 +476,4 @@ insert into flag (VNO,flg_date,flg_type,remarks,status) values ('GT4298-18','202
 insert into flag (VNO,flg_date,flg_type,remarks,status) values ('GT4298-18','2022-07-12','FLG_OS','Test','1'); 
 insert into flag (VNO,flg_date,flg_type,remarks,status) values ('GT4298-18','2022-07-12','FLG_DP','Test','1'); 
 insert into flag (VNO,flg_date,flg_type,remarks,status) values ('GT4298-18','2022-07-12','FLG_VM','Test','1'); 
-insert into flag (VNO,flg_date,flg_type,remarks,status) values ('GT4298-18','2022-07-12','FLF_NG','Test','1'); 
+insert into flag (VNO,flg_date,flg_type,remarks,status) values ('GT4298-18','2022-07-12','FLG_NG','Test','1'); 
