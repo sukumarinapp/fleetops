@@ -311,7 +311,10 @@ h5 {
              <hr>
           <div class='container2'>
     <div>
-      <img src='http://ecx.images-amazon.com/images/I/21-leKb-zsL._SL500_AA300_.png' class='iconDetails'>
+      @foreach($vehicle->flag as $flg)
+      <p>{{ $flg->flg_type }} </p>
+      <img src='/FLG_IP.jpg' class='iconDetails'>
+      @endforeach
     </div>  
   <div style='margin-left:60px;'>
   <h5>Facebook</h5>
