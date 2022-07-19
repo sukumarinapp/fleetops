@@ -54,38 +54,47 @@
            <td>{{ $raised->DNM }} {{ $raised->DSN }}</td>
            <td>
              @if($raised->flg_type == "FLG_IP")
+             <span><img src="/FLG_IP.jpg"></span>
              Inconsistent Parking
              @endif
 
              @if($raised->flg_type == "FLG_NW")
+             <span><img src="/FLG_NW.jpg"></span>
              Night work
              @endif
 
              @if($raised->flg_type == "FLG_IR")
+             <span><img src="/FLG_IR.jpg"></span>
              Insufficient rest
              @endif
 
              @if($raised->flg_type == "FLG_EU")
+             <span><img src="/FLG_EU.jpg"></span>
              Excess usage
              @endif
 
              @if($raised->flg_type == "FLG_DU")
+             <span><img src="/FLG_DU.jpg"></span>
              Dual user
              @endif
 
              @if($raised->flg_type == "FLG_OS")
+             <span><img src="/FLG_OS.jpg"></span>
              Over-speeding
              @endif
 
              @if($raised->flg_type == "FLG_DP")
+             <span><img src="/FLG_DP.jpg"></span>
              Long day-time parking
              @endif
 
              @if($raised->flg_type == "FLG_VM")
+             <span><img src="/FLG_VM.jpg"></span>
              Vehicle moved
              @endif
 
              @if($raised->flg_type == "FLG_NG")
+             <span><img src="/FLG_NG.jpg"></span>
              Engine run
              @endif
 

@@ -177,7 +177,6 @@ h5 {
              <a href='#' data-toggle="modal" data-target="#flag_{{$vehicle->VNO}}"><img src='/flag.jpg'></a>
             @endif
           </td>
-
           <td class="text-center">
             @php
             if($vehicle->buz_status == 1 && $vehicle->offline == 1){
