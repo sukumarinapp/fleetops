@@ -86,7 +86,7 @@ class VehicleController extends Controller
         foreach($vehicles as $vehicle){
             $TID = $vehicle->TID;
             $VNO = $vehicle->VNO;
-            $flag_sql = "select * from flag where VNO='$VNO' and flg_date='$yesterday' and status=0";
+            $flag_sql = "select * from flag where VNO='$VNO' and status=0";
             $flag_res = DB::select(DB::raw($flag_sql));
             $vehicle->flag = array();
             if(count($flag_res) > 0){
