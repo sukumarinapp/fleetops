@@ -171,7 +171,7 @@ h5 {
             @endphp
 
             @if(count($vehicle->flag) > 0)
-             <a href='#' data-toggle="modal" data-target="#flag_{{$vehicle->VNO}}"><img src='/flag.jpg'></a>
+             <span><a href='#' data-toggle="modal" data-target="#flag_{{$vehicle->VNO}}"><img src='/flag.jpg'></a></span>
             @endif
           </td>
 
