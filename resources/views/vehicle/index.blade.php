@@ -127,7 +127,6 @@ h5 {
               <th>CAN</th>
               <th class="text-right">TST</th>
               <th class="text-right">ASG</th>
-              <th class="text-right">FLG</th>
               <th class="text-right">BUZ</th>
               <th class="text-right">BLK</th>
               <th class="text-right">MOV</th>
@@ -170,13 +169,12 @@ h5 {
               echo "<span><img src='/parked.jpg'></span>";
             }
             @endphp
-          </td>
 
-          <td class="text-center">
             @if(count($vehicle->flag) > 0)
              <a href='#' data-toggle="modal" data-target="#flag_{{$vehicle->VNO}}"><img src='/flag.jpg'></a>
             @endif
           </td>
+
           <td class="text-center">
             @php
             if($vehicle->buz_status == 1 && $vehicle->offline == 1){
