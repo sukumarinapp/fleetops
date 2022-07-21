@@ -166,7 +166,25 @@
         </tr>
       </thead>
       <tbody>
-
+        @foreach($flags as $flag)
+        <tr>
+          <td>{{ $flag->flg_date }}</td>
+          <td>{{ $flag->VNO }}</td>
+          <td>
+            @if($flag->flg_type == "FLG_VM")
+            <span><img src="/FLG_VM.jpg" height="40" width="40"></span> 
+            Vehicle Moved
+            @endif
+            @if($flag->flg_type == "FLG_NG")
+            <span><img src="/FLG_NG.jpg" height="40" width="40"></span> 
+            Engine Run
+            @endif
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        @endforeach
         @foreach($alerts as $alert)
         <tr>
           <td>{{ $alert["date"] }} {{ $alert["time"] }}</td>
@@ -188,7 +206,7 @@
             </td>
             <td style="padding-top: 20px;">
             @if($alert['type'] == "battery")
-             <a  class="btn btn-primary btn-sm btn-block"  onclick="acknowledgealert({{ $alert['id'] }})" >Acknowledge</a>
+             <a class="btn btn-primary btn-sm btn-block"  onclick="acknowledgealert({{ $alert['id'] }})" >Acknowledge</a>
             @else
               &nbsp; 
             @endif

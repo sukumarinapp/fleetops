@@ -1,6 +1,7 @@
 <?php
 
 namespace App;
+use DB;
 
 class SMSFleetops
 {
@@ -10,6 +11,17 @@ class SMSFleetops
 
     public static function send($to,$msg)
     {
+        $sql = "select REF_SMB from tbl494";
+        $result = DB::select(DB::raw($sql));
+        $REF_SMB = $result[0]->REF_SMB;
+        $REF_SMB --;
+        if($REF_SMB > 0){
+            $sql = "update tbl494 set REF_SMB = $REF_SMB";
+            DB::update(DB::raw($sql));
+        }else{
+            //echo "SMS balance finished";
+            return;
+        }
         $msg=urlencode($msg);
         $key =  self::$key;
         $sender_id =  self::$sender_id;

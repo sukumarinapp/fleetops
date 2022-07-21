@@ -339,7 +339,15 @@ class HomeController extends Controller
         }
         
         $alerts = self::alerts();
-        return view('home',compact('usertree','alerts','type','online','offline','inactive','active','total','starttime','endtime'));
+        $flags = self::flags();
+        //print_r($flags);die;
+        return view('home',compact('usertree','alerts','flags','type','online','offline','inactive','active','total','starttime','endtime'));
+      }
+
+      private function flags(){
+        $sql = "select * from flag where status = 0 and flg_type in ('FLG_VM','FLG_NG')";
+        $result = DB::select(DB::raw($sql));
+        return $result;
       }
 
       private function get_filter($user_id,$parent_id,$usertype,$CAN){
