@@ -307,17 +307,17 @@ h5 {
           </div>
           <div class="modal-body">
             <h6 class="text-center">{{ $vehicle->VNO }} : {{ $vehicle->DNM }} {{ $vehicle->DSN }}</h6>
+             
              <div class="text-center" style="font-size:14px">For Period :</div>
              <hr>
-         
-      @foreach($vehicle->flag as $flg)
+        @foreach($vehicle->flag as $flg) 
       
      @if($flg->flg_type == "FLG_IP") 
      <div class='container2'>
         <img src='/FLG_IP.jpg' class='iconDetails'>
           <div style='margin-left:60px;'>
               <h5>Inconsistent parking</h5>
-          <div style="font-size:14px">fine location, GPS, coarse location</div>
+          <div style="font-size:14px"><a href="https://maps.google.com/?q={{ $flg->latitude }},{{ $flg->longitude }}" target="_blank">Locate</a></div>
        </div>
      </div>
      @endif
@@ -327,7 +327,7 @@ h5 {
         <img src='/FLG_NW.jpg' class='iconDetails'>
           <div style='margin-left:60px;'>
              <h5>Night Work</h5>
-         <div style="font-size:14px">fine location, GPS, coarse location</div>
+         <div style="font-size:14px">{{ $flg->remarks }}</div>
         </div>
      </div>
      @endif
@@ -337,7 +337,7 @@ h5 {
         <img src='/FLG_IR.jpg' class='iconDetails'>
           <div style='margin-left:60px;'>
              <h5>Insufficient rest</h5>
-         <div style="font-size:14px">fine location, GPS, coarse location</div>
+         <div style="font-size:14px">{{ $flg->remarks }}</div>
         </div>
      </div>
      @endif
@@ -347,7 +347,7 @@ h5 {
         <img src='/FLG_EU.jpg' class='iconDetails'>
           <div style='margin-left:60px;'>
              <h5>Excess usage</h5>
-         <div style="font-size:14px">fine location, GPS, coarse location</div>
+         <div style="font-size:14px">{{ $flg->remarks }}</div>
         </div>
      </div>
      @endif
@@ -357,7 +357,7 @@ h5 {
         <img src='/FLG_DU.jpg' class='iconDetails'>
           <div style='margin-left:60px;'>
              <h5>Dual user</h5>
-         <div style="font-size:14px">fine location, GPS, coarse location</div>
+         <div style="font-size:14px">{{ $flg->remarks }}</div>
         </div>
      </div>
      @endif
@@ -367,7 +367,7 @@ h5 {
         <img src='/FLG_OS.jpg' class='iconDetails'>
           <div style='margin-left:60px;'>
              <h5>Over-speeding</h5>
-         <div style="font-size:14px">fine location, GPS, coarse location</div>
+         <div style="font-size:14px">&nbsp;</div>
         </div>
      </div>
      @endif
@@ -377,7 +377,7 @@ h5 {
         <img src='/FLG_DP.jpg' class='iconDetails'>
           <div style='margin-left:60px;'>
              <h5>Long day-time parking</h5>
-         <div style="font-size:14px">fine location, GPS, coarse location</div>
+         <div style="font-size:14px">{{ $flg->remarks }} <span><a href="https://maps.google.com/?q={{ $flg->latitude }},{{ $flg->longitude }}" target="_blank">Locate</a></span></div>
         </div>
      </div>
      @endif
@@ -387,7 +387,7 @@ h5 {
         <img src='/FLG_VM.jpg' class='iconDetails'>
           <div style='margin-left:60px;'>
              <h5>Vehicle moved</h5>
-         <div style="font-size:14px">fine location, GPS, coarse location</div>
+         <div style="font-size:14px"></div>
         </div>
      </div>
      @endif
@@ -397,7 +397,7 @@ h5 {
         <img src='/FLG_NG.jpg' class='iconDetails'>
           <div style='margin-left:60px;'>
              <h5>Engine run</h5>
-         <div style="font-size:14px">fine location, GPS, coarse location</div>
+         <div style="font-size:14px"></div>
         </div>
      </div>
      @endif
