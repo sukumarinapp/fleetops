@@ -461,12 +461,16 @@ h5 {
     $("#msg1").html(msg1);
     $("#VNOPOP").html(VNO);
     $("#msg2").html(msg2);
+    $("#msg3").html("");
+    $("#msg4").html("");
+    $("#msg5").html("");
+    $("#msg6").html("");
+    $("#msg7").html("");
     if(msg3 != "") $("#msg3").html(msg3);
     if(msg4 != "") $("#msg4").html(msg4);
     if(msg5 != "") $("#msg5").html(msg5);
     if(msg6 != "") $("#msg6").html(msg6);
     if(msg7 != "") $("#msg7").html(msg7);
-    
     $('#mymodal').modal('show'); 
   } 
 
