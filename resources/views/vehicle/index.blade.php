@@ -387,7 +387,7 @@ h5 {
         <img src='/FLG_VM.jpg' class='iconDetails'>
           <div style='margin-left:60px;'>
              <h5>Vehicle moved</h5>
-         <div style="font-size:14px"></div>
+         <div style="font-size:14px">&nbsp;</div>
         </div>
      </div>
      @endif
@@ -397,7 +397,7 @@ h5 {
         <img src='/FLG_NG.jpg' class='iconDetails'>
           <div style='margin-left:60px;'>
              <h5>Engine run</h5>
-         <div style="font-size:14px"></div>
+         <div style="font-size:14px">&nbsp;</div>
         </div>
      </div>
      @endif
