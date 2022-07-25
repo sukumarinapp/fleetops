@@ -1084,8 +1084,8 @@ public function tracker_sim_no(Request $request){
      $sql = "SELECT * from vehicle where VNO='GN7121-17'";
      $result = DB::select(DB::raw($sql));
      $cmd_state = $result[0]->cmd_state;
-     return view('vehicle.test_tracker', compact('cmd_state'));
-//return redirect('/vehicle/create')     
+     //return view('vehicle.', compact('cmd_state'));
+     return redirect('/test_tracker_command');     
    }
 
 }

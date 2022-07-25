@@ -181,12 +181,13 @@
 						      	<td>{{ $ass->VNO }}</td>
 						      	<td>ASN{{ str_pad($ass->id,3,'0',STR_PAD_LEFT) }}</td>
 						      	<td>Assign Vehicle</td>
-						      	<td>{{ $ass->DNM }} {{ $ass->DSN }}</td> 
-						      	<td></td>
+						      	<td>{{ $ass->DNM }} {{ $ass->DSN }}</td>
 						      	@if($ass->status != "Process Cancelled")
 		              	<td><a class="btn btn-danger btn-xs" href="{{ url('cancel_handover') }}/{{ $ass->id }}">Cancel Process</a></td>
-		              	@endif
+		              	@endif 
+						      	<td></td>
 		              	<td>{{ $ass->status }}</td>
+		              	
 							</tr>
 						@endforeach
           </tbody>
