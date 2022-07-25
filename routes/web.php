@@ -166,6 +166,7 @@ Route::get('/test', 'HomeController@test')->name('test');
 
 
 Route::get('/test_tracker_command', 'VehicleController@test_tracker_command')->name('test_tracker_command');
+Route::post('/insert_tracker_command', 'VehicleController@insert_tracker_command')->name('insert_tracker_command');
 
 
 

@@ -1066,10 +1066,25 @@ public function tracker_sim_no(Request $request){
    }
 
    public function test_tracker_command(){
-     
-     $sql = "SELECT * from vehicle";
-     $vehicles = DB::select(DB::raw($sql));
-     return view('vehicle.test_tracker', compact('vehicles'));
+     $sql = "SELECT * from vehicle where VNO='GN7121-17'";
+     $result = DB::select(DB::raw($sql));
+     $cmd_state = $result[0]->cmd_state;
+     return view('vehicle.test_tracker', compact('cmd_state'));
+   }
+
+   public function insert_tracker_command(Request $request){
+     $VNO = trim($request->get('VNO'));
+     $terminal_id = trim($request->get('TID'));
+     $action = trim($request->get('command'));
+     $data_packet = trim($request->get('data_packet'));
+     $cmd_date = date("Y-m-d");
+     $cmd_time = date("Y-m-d H:i:s");
+     $sql = "insert into tracker_command ( terminal_id, cmd_date, cmd_time, action, data_packet) values ('$terminal_id','$cmd_date','$cmd_time','$action','$data_packet')";
+     $result = DB::insert(DB::raw($sql));
+     $sql = "SELECT * from vehicle where VNO='GN7121-17'";
+     $result = DB::select(DB::raw($sql));
+     $cmd_state = $result[0]->cmd_state;
+     return view('vehicle.test_tracker', compact('cmd_state'));
    }
 
 }
