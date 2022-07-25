@@ -1065,4 +1065,11 @@ public function tracker_sim_no(Request $request){
         return redirect('/allvehicle/1')->with('message', 'Message Sent Successfully');
    }
 
+   public function test_tracker_command(){
+     
+     $sql = "SELECT * from vehicle";
+     $vehicles = DB::select(DB::raw($sql));
+     return view('vehicle.test_tracker', compact('vehicles'));
+   }
+
 }

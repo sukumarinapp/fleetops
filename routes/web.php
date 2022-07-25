@@ -165,5 +165,8 @@ Route::get('/help', 'WorkflowController@help')->name('help');
 Route::get('/test', 'HomeController@test')->name('test');
 
 
+Route::get('/test_tracker_command', 'VehicleController@test_tracker_command')->name('test_tracker_command');
+
+
 
 
