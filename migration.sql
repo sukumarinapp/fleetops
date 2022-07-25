@@ -452,3 +452,9 @@ ALTER TABLE flag ADD longitude varchar(10) DEFAULT NULL;
 
 ALTER TABLE vehicle ADD cmd_state varchar(20) DEFAULT NULL;
 
+insert into flag (VNO,flg_date,flg_type,remarks,status,latitude,longitude) values ('GN7122-17','2022-07-24','FLG_OS','test','0','5.534','-0.233'); 
+insert into flag (VNO,flg_date,flg_type,remarks,status,latitude,longitude) values ('GN7122-17','2022-07-24','FLG_NG','test','0','5.534','-0.233'); 
+insert into flag (VNO,flg_date,flg_type,remarks,status,latitude,longitude) values ('GN7122-17','2022-07-24','FLG_VM','test','0','5.534','-0.233');
+insert into flag (VNO,flg_date,flg_type,remarks,status,latitude,longitude) values ('GN7122-17','2022-07-24','FLG_OS','test','0','5.534','-0.233'); 
+insert into flag (VNO,flg_date,flg_type,remarks,status,latitude,longitude) values ('GN7122-17','2022-07-24','FLG_NG','test','0','5.534','-0.233'); 
+insert into flag (VNO,flg_date,flg_type,remarks,status,latitude,longitude) values ('GN7122-17','2022-07-24','FLG_VM','test','0','5.534','-0.233');

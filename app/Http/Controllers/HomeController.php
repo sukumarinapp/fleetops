@@ -345,7 +345,7 @@ class HomeController extends Controller
       }
 
       private function flags(){
-        $sql = "select * from flag where status = 0 and flg_type in ('FLG_VM','FLG_NG')";
+        $sql = "select * from flag where status = 0 and flg_type in ('FLG_VM','FLG_NG','FLG_OS')";
         $result = DB::select(DB::raw($sql));
         return $result;
       }

@@ -179,9 +179,21 @@
             <span><img src="/FLG_NG.jpg" height="40" width="40"></span> 
             Engine Run
             @endif
+            @if($flag->flg_type == "FLG_OS")
+            <span><img src="/FLG_OS.jpg" height="40" width="40"></span> 
+            Over Speeding
+            @endif
           </td>
           <td></td>
-          <td></td>
+          <td>
+            @if($flag->flg_type == "FLG_OS")
+             <button type="button" class="btn btn-primary btn-sm btn-block" data-lat="{{ $flag->latitude }},{{ $flag->longitude }}" data-toggle="modal" data-target="#myMapModal" >View</button>
+
+              <a class="btn btn-success btn-sm btn-block whatsappshare" href="whatsapp://send?text=https://maps.google.com/?q={{ $flag->latitude }},{{ $flag->longitude }}" data-action="share/whatsapp/share" target="_blank"><img class="whatsappshare" src="whatsapp.png" /></a>
+
+              <a class="btn btn-primary btn-sm  btn-block" href="https://maps.google.com/?q={{ $flag->latitude }},{{ $flag->longitude }}" target="_blank">Locate</a>
+            @endif
+          </td>
           <td></td>
         </tr>
         @endforeach

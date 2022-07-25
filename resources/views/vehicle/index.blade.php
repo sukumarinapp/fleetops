@@ -367,7 +367,7 @@ h5 {
         <img src='/FLG_OS.jpg' class='iconDetails'>
           <div style='margin-left:60px;'>
              <h5>Over-speeding</h5>
-         <div style="font-size:14px">&nbsp;</div>
+         <div style="font-size:14px"><a href="https://maps.google.com/?q={{ $flg->latitude }},{{ $flg->longitude }}" target="_blank">Locate</a></div>
         </div>
      </div>
      @endif
