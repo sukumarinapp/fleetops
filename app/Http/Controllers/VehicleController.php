@@ -1085,6 +1085,7 @@ public function tracker_sim_no(Request $request){
      $result = DB::select(DB::raw($sql));
      $cmd_state = $result[0]->cmd_state;
      return view('vehicle.test_tracker', compact('cmd_state'));
+//return redirect('/vehicle/create')     
    }
 
 }
