@@ -449,3 +449,6 @@ CREATE TABLE `flag` (
 
 ALTER TABLE flag ADD latitude varchar(10) DEFAULT NULL;
 ALTER TABLE flag ADD longitude varchar(10) DEFAULT NULL;
+
+ALTER TABLE vehicle ADD cmd_state varchar(20) DEFAULT NULL;
+
