@@ -141,7 +141,7 @@
 
           <li><a href="{{ url('telematicslog') }}/{{ date('Y-m-d', strtotime('-1 days')) }}/{{ date('Y-m-d', strtotime('-1 days')) }}" class="dropdown-item {{ (request()->segment(1) == 'telematicslog') ? 'active' : '' }}" class="dropdown-item">Telematics</a></li> 
 
-          <li><a href="{{ route('test_tracker_command') }}" class="dropdown-item {{ (request()->segment(1) == 'test_tracker_command') ? 'active' : '' }}" class="dropdown-item">Test Tracker command</a></li>
+          <li><a href="{{ route('test_tracker_command') }}" class="dropdown-item {{ (request()->segment(1) == 'test_tracker_command') ? 'active' : '' }}" class="dropdown-item">Test Tracker Command</a></li>
           </ul>
           @endif
 
