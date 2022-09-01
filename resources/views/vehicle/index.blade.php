@@ -112,7 +112,7 @@
               <th class="text-right">ASG</th>
               <th class="text-right">BUZ</th>
               <th class="text-right">BLK</th>
-              <th class="text-right">AFP</th>
+              <th class="text-right">MOV</th>
               <th>Vehicle Reg#</th>
               <th>Description</th>
               <th style="width: 150px">Activity</th>

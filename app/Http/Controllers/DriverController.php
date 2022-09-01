@@ -715,7 +715,7 @@ class DriverController extends Controller
             $id = $result[0]->id;
             $VID = $result[0]->VID;
             if($acceptance_code == $result[0]->acceptance_code){
-                $sql2 = "select ISD,ISM from vehicle_inspect where VID=$VID";
+                $sql2 = "select ISD,ISM from manager_inspect where upload_id = $id";
                 $result2 = DB::select(DB::raw($sql2));
                 $ISD = $result2[0]->ISD;
                 $ISM = $result2[0]->ISM;
